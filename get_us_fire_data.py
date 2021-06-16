@@ -25,7 +25,7 @@ import bs4 as bs
 
 
 def get_size(x:str):
-        print("Get size", x)
+        #print("Get size", x)
         if x is None:
             return None
 
@@ -99,10 +99,10 @@ def parse(content):
     :param content: The text of the page.
     :return: List of dicts with incident data
     """
-    state = "California" # I shoudl start saving for all states, and discarding later.
+    state = "California" # I should start saving for all states, and discarding later.
     # I can't currently change the state, since I don't have historical data for the
     # new state, since I've been throwing it away.
-    soup = bs.BeautifulSoup(content, "html5lib")
+    soup = bs.BeautifulSoup(content)
     table = soup.find("table", {"summary":"This table displays all active incidents."})
     headers = table.find_all("th")
     h2 = []
