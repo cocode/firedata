@@ -25,9 +25,11 @@ jobs:
           echo Add other actions to build,
           echo test, and deploy your project.
           echo $PWD
-          python --version
+          python3 --version
           ls -al
           ls -al data
-          python get_cal_fire_data.py
+          python3 get_cal_fire_data.py
           ls -al data
-          
+          cd website
+          python3 create_website.py
+
