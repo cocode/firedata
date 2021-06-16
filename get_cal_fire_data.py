@@ -103,6 +103,7 @@ def load_today(ds):
         yesterday = None
     return yesterday, jdata_today
 
+
 def get_data(ds, year):
     yesterday, jdata_today = load_today(ds)
     sorted_fires = get_incidents(jdata_today)
