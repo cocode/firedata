@@ -18,7 +18,11 @@ reports say 4.7m acres in total. I believe fires in national parks are not in Ca
 nor are locally handled fires.
 
 Cal Fire data gives you a snapshot of the days activity, and a list of fires for the year. 
-To graph fires over time FireData collects a snapshot once a day. 
+To graph fires over time FireData collects a snapshot once a day.
+
+*Note* that fire data can vary unexpectedly. Last year (2020) to total
+acres burned reported in the json data dropped 1 m acres on 9/21.
+I do not currently know why.
 
 #### Cal Fire JSON Format
 The json has three main subsections (Incidents, ListIncidents, and AllYearIncidents). So far, it looks
