@@ -138,7 +138,7 @@ def parse(content):
     :param content: The text of the page.
     :return: List of dicts with incident data
     """
-    soup = bs.BeautifulSoup(content, "html5lib")
+    soup = bs.BeautifulSoup(content)
     fieldsets = soup.find_all("fieldset")
     #    fieldsets = soup.find_all("fieldset", {"summary":"This table displays all active incidents."})
     #print(fieldsets)
