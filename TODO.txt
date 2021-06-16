@@ -5,3 +5,5 @@
 # TODO Bring non-calfire sources up to parity with calfire.
 # TODO Only rebuild the webpage if we get new data from calfire
 # TODO Chart this year vs last year.
+# TODO Allow user to select year to display.
+# TODO Need to install bs4 (beautiful soup) for github actions, to parse the WA web page.
