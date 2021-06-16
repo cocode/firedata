@@ -173,7 +173,10 @@ def summarize_ytd(ds: DataStore, year=None):
     # incident_count = len(incidents)
     for incident in all_year_incidents:
         acres_burned = incident.get('AcresBurnedDisplay', "0")
+        acres_burned = acres_burned.strip()
         acres_burned = acres_burned.replace(",", "")
+        if not acres_burned:
+            continue
         acres_burned = int(acres_burned)
         computed_acres += acres_burned
 
