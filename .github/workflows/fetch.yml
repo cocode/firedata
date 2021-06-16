@@ -19,18 +19,6 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
 
-      # Runs a set of commands using the runners shell
-      - name: Run a multi-line script
+      - name: Run a shell script which fetches the data, and builds the website.
         run: |
-          echo Add other actions to build,
-          echo test, and deploy your project.
-          echo $PWD
-          python3 --version
-          ls -al
-          ls -al data
-          python3 get_cal_fire_data.py
-          ls -al data
-          cd webpage
-          python3 create_webpage.py
-          echo "Done."
-
+          bash -x fetch.sh
