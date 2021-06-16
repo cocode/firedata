@@ -30,6 +30,7 @@ jobs:
           ls -al data
           python3 get_cal_fire_data.py
           ls -al data
-          cd website
-          python3 create_website.py
+          cd webpage
+          python3 create_webpage.py
+          echo "Done."
 
