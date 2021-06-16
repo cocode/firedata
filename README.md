@@ -1,6 +1,10 @@
 # FireData
 Project Status: Under development
 
+This project displays data about the California fire season.
+
+The data can be viewed here: https://cocode.github.io/firedata/
+
 This project scrapes data from cal fire, and other sites. CalFire's
 incident site doesn't directly provide the information I wanted,
 nor visualizations:
@@ -8,25 +12,21 @@ nor visualizations:
 * Graphs
 
 # Running FireData
-running (in the firedata directory)
-    python get_cal_fire_data.py
-y will start fetching the current day's
-data, if it's not already in the repository.
+Take a look at fetch.sh in this directory, it's the code used
+in the github action to fetch the data, and build the webpage.
 
-running (in the firedata/webpage directory)
-    python create_webpage.py
-Will build "fire_graphs.html" in that directory, which uses
-google charts to graph fire information.
 
 Currently, this is run manually every day, and prints the number of acres burned since yesterday. 
 The goal is to automate this, and make it public. 
 Something like this: https://calfireslo.org/current-slu-vegetation-fire-statistics/
 
 ### Cal Fire Data:
-Note that cal fire data is just for the organization "cal fire". Lots of things are not cal fire. Last
-year's data shows "AllAcres" as 1280426, but news reports say 4.7 in total. There is US data as well, 
-which is not in the graph yet. Other local fires may not be reported
-in either calfire or US reports.
+Note that cal fire data is just for the organization "cal fire". Lots of fires are not cal fire. For example,
+fires in national parks are not in this data, I believe. That may be in the US data,
+which is not in the graph yet. Other local fires may not be reported by Cal Fire.
+
+Last year's Cal Fire data shows "AllAcres" as 1280426, but news reports say 4.7m in total. 
+
 
 #### Cal Fire JSON Format
 The json has three main subsections (Incidents, ListIncidents, and AllYearIncidents). So far, it looks
