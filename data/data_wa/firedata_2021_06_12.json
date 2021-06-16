@@ -1,0 +1,44 @@
+[
+    {
+        "Incident Name": "Joseph Canyon",
+        "Incident Number": "OR-VAD-000347",
+        "Location": "23 mi S of Lewiston, ID",
+        "Acres": "7,610",
+        "Start Date": "2021-06-04",
+        "Cause": "Lightning",
+        "Percent Contained": "95%",
+        "Estimated Containment Date": "2021-06-14",
+        "Residences Threatened": "",
+        "Other Structure Threatened": "",
+        "Fuel/Terrain": "Grass",
+        "Lead Agency": "USDI Bureau of Land Management"
+    },
+    {
+        "Incident Name": "Dry Creek",
+        "Incident Number": "OR-WWF-000349",
+        "Location": "37 mi NE of Enterprise",
+        "Acres": "1,585",
+        "Start Date": "2021-06-04",
+        "Cause": "Lightning",
+        "Percent Contained": "95%",
+        "Estimated Containment Date": "2021-06-14",
+        "Residences Threatened": "",
+        "Other Structure Threatened": "",
+        "Fuel/Terrain": "Grass and Brush",
+        "Lead Agency": "USDA Forest Service"
+    },
+    {
+        "Incident Name": "Mehl Creek",
+        "Incident Number": "OR-731S-000494",
+        "Location": "3 miles W of Elkon, Oregon",
+        "Acres": "110",
+        "Start Date": "2021-06-01",
+        "Cause": "Human",
+        "Percent Contained": "75%",
+        "Estimated Containment Date": "2021-06-12",
+        "Residences Threatened": "",
+        "Other Structure Threatened": "",
+        "Fuel/Terrain": "Timber and Slash",
+        "Lead Agency": "OR Dept. of Forestry"
+    }
+]

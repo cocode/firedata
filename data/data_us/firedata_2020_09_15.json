@@ -1,0 +1,290 @@
+[
+    {
+        "Incident": "August Complex",
+        "Type": "Wildfire",
+        "State": "California, USA",
+        "Size": "794801 Acres",
+        "Updated": "1 min. ago",
+        "href": "/incident/6983/"
+    },
+    {
+        "Incident": "North Complex",
+        "Type": "Wildfire",
+        "State": "California, USA",
+        "Size": "269358 Acres",
+        "Updated": "1:01 hrs. ago",
+        "href": "/incident/6997/"
+    },
+    {
+        "Incident": "August Complex North Zone",
+        "Type": "Wildfire",
+        "State": "California, USA",
+        "Size": "255309 Acres",
+        "Updated": "4 hrs. ago",
+        "href": "/incident/7071/"
+    },
+    {
+        "Incident": "Creek Fire",
+        "Type": "Wildfire",
+        "State": "California, USA",
+        "Size": "220025 Acres",
+        "Updated": "1:44 hrs. ago",
+        "href": "/incident/7147/"
+    },
+    {
+        "Incident": "Slater/ Devil Fires",
+        "Type": "Wildfire",
+        "State": "California, USA",
+        "Size": "136030 Acres",
+        "Updated": "1:13 hrs. ago",
+        "href": "/incident/7173/"
+    },
+    {
+        "Incident": "Dolan Fire",
+        "Type": "Wildfire",
+        "State": "California, USA",
+        "Size": "119488 Acres",
+        "Updated": "1:26 hrs. ago",
+        "href": "/incident/7018/"
+    },
+    {
+        "Incident": "SQF Complex",
+        "Type": "Wildfire",
+        "State": "California, USA",
+        "Size": "107101 Acres",
+        "Updated": "1:01 hrs. ago",
+        "href": "/incident/7048/"
+    },
+    {
+        "Incident": "Red Salmon Complex",
+        "Type": "Wildfire",
+        "State": "California, USA",
+        "Size": "91743 Acres",
+        "Updated": "1:08 hrs. ago",
+        "href": "/incident/6891/"
+    },
+    {
+        "Incident": "Bobcat Fire",
+        "Type": "Wildfire",
+        "State": "California, USA",
+        "Size": "41231 Acres",
+        "Updated": "41 min. ago",
+        "href": "/incident/7152/"
+    },
+    {
+        "Incident": "Apple Fire",
+        "Type": "Wildfire",
+        "State": "California, USA",
+        "Size": "33424 Acres",
+        "Updated": "8/28/2020",
+        "href": "/incident/6902/"
+    },
+    {
+        "Incident": "Lake Fire",
+        "Type": "Wildfire",
+        "State": "California, USA",
+        "Size": "31089 Acres",
+        "Updated": "2 days ago",
+        "href": "/incident/6953/"
+    },
+    {
+        "Incident": "Sheep Fire",
+        "Type": "Wildfire",
+        "State": "California, USA",
+        "Size": "29570 Acres",
+        "Updated": "6 days ago",
+        "href": "/incident/7067/"
+    },
+    {
+        "Incident": "Claremont Fire",
+        "Type": "Wildfire",
+        "State": "California, USA",
+        "Size": "21946 Acres",
+        "Updated": "9/2/2020",
+        "href": "/incident/6996/"
+    },
+    {
+        "Incident": "Valley Fire",
+        "Type": "Wildfire",
+        "State": "California, USA",
+        "Size": "17665 Acres",
+        "Updated": "1:49 hrs. ago",
+        "href": "/incident/7150/"
+    },
+    {
+        "Incident": "El Dorado Fire",
+        "Type": "Wildfire",
+        "State": "California, USA",
+        "Size": "17598 Acres",
+        "Updated": "3 hrs. ago",
+        "href": "/incident/7148/"
+    },
+    {
+        "Incident": "Bear Fire",
+        "Type": "Wildfire",
+        "State": "California, USA",
+        "Size": "8302 Acres",
+        "Updated": "9/7/2020",
+        "href": "/incident/7025/"
+    },
+    {
+        "Incident": "Woodward Fire",
+        "Type": "Wildfire",
+        "State": "California, USA",
+        "Size": "4910 Acres",
+        "Updated": "2 hrs. ago",
+        "href": "/incident/7062/"
+    },
+    {
+        "Incident": "Ranch2 Fire",
+        "Type": "Wildfire",
+        "State": "California, USA",
+        "Size": "4237 Acres",
+        "Updated": "1 day ago",
+        "href": "/incident/6961/"
+    },
+    {
+        "Incident": "Blue Jay Fire",
+        "Type": "Wildfire",
+        "State": "California, USA",
+        "Size": "3500 Acres",
+        "Updated": "19 hrs. ago",
+        "href": "/incident/6888/"
+    },
+    {
+        "Incident": "Fork Fire",
+        "Type": "Wildfire",
+        "State": "California, USA",
+        "Size": "1752 Acres",
+        "Updated": "9 min. ago",
+        "href": "/incident/7165/"
+    },
+    {
+        "Incident": "Rattlesnake Fire",
+        "Type": "Wildfire",
+        "State": "California, USA",
+        "Size": "1441 Acres",
+        "Updated": "3 hrs. ago",
+        "href": "/incident/7131/"
+    },
+    {
+        "Incident": "Bullfrog Fire",
+        "Type": "Wildfire",
+        "State": "California, USA",
+        "Size": "900 Acres",
+        "Updated": "1 day ago",
+        "href": "/incident/7191/"
+    },
+    {
+        "Incident": "Wolf Fire",
+        "Type": "Wildfire",
+        "State": "California, USA",
+        "Size": "828 Acres",
+        "Updated": "21 hrs. ago",
+        "href": "/incident/7134/"
+    },
+    {
+        "Incident": "Moraine Fire",
+        "Type": "Wildfire",
+        "State": "California, USA",
+        "Size": "558 Acres",
+        "Updated": "3 hrs. ago",
+        "href": "/incident/7089/"
+    },
+    {
+        "Incident": "Hobo Fire",
+        "Type": "Wildfire",
+        "State": "California, USA",
+        "Size": "413 Acres",
+        "Updated": "6 days ago",
+        "href": "/incident/7126/"
+    },
+    {
+        "Incident": "Spring Fire",
+        "Type": "Wildfire",
+        "State": "California, USA",
+        "Size": "230 Acres",
+        "Updated": "6 days ago",
+        "href": "/incident/7035/"
+    },
+    {
+        "Incident": "Bell Fire",
+        "Type": "Wildfire",
+        "State": "California, USA",
+        "Size": "50 Acres",
+        "Updated": "45 min. ago",
+        "href": "/incident/6915/"
+    },
+    {
+        "Incident": "Horse Fire",
+        "Type": "Wildfire",
+        "State": "California, USA",
+        "Size": "23 Acres",
+        "Updated": "21 hrs. ago",
+        "href": "/incident/7149/"
+    },
+    {
+        "Incident": "North Whizz Dome Fire",
+        "Type": "Wildfire",
+        "State": "California, USA",
+        "Size": "19 Acres",
+        "Updated": "21 hrs. ago",
+        "href": "/incident/7135/"
+    },
+    {
+        "Incident": "Ranch2 Post-Fire BAER",
+        "Type": "Burned Area Emergency Response",
+        "State": "California, USA",
+        "Size": "0 Acres",
+        "Updated": "4 days ago",
+        "href": "/incident/7114/"
+    },
+    {
+        "Incident": "Lake Post-Fire BAER",
+        "Type": "Burned Area Emergency Response",
+        "State": "California, USA",
+        "Size": "0 Acres",
+        "Updated": "4 days ago",
+        "href": "/incident/7115/"
+    },
+    {
+        "Incident": "Apple Post-Fire BAER",
+        "Type": "Burned Area Emergency Response",
+        "State": "California, USA",
+        "Size": "0 Acres",
+        "Updated": "5 days ago",
+        "href": "/incident/6939/"
+    },
+    {
+        "Incident": "SHF Lightning Fires 2020",
+        "Type": "Wildfire",
+        "State": "California, USA",
+        "Size": "0 Acres",
+        "Updated": "9/7/2020",
+        "href": "/incident/6733/"
+    },
+    {
+        "Incident": "CZU August Lightning Complex",
+        "Type": "Wildfire",
+        "State": "California, USA",
+        "Size": "0 Acres",
+        "Updated": "8/30/2020",
+        "href": "/incident/7028/"
+    },
+    {
+        "Incident": "SCU Lightning Complex",
+        "Type": "Wildfire",
+        "State": "California, USA",
+        "Size": "0 Acres",
+        "Updated": "8/30/2020",
+        "href": "/incident/7056/"
+    },
+    {
+        "Incident": "LNU Lightning Complex",
+        "Type": "Wildfire",
+        "State": "California, USA",
+        "Size": "0 Acres",
+        "Updated": "8/30/2020",
+        "href": "/incident/7027/"
+    }
+]

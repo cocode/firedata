@@ -1,0 +1,11 @@
+# TODO Rearrange project structure
+# TODO Split this into its own project
+# TODO Push project to github
+# TODO Create github page.
+# TODO Separate fetching code from display (print, html) code.
+# TODO Make github fetch the data from Cal Fire and check it into github.
+# TODO Make github build the new webpage with the new data
+# TODO Timestamp the data downloaded (currently I just have date, not time)
+# TODO Graph for delta acres burned in html
+# TODO Add link to Cal Fire site in html
+# TODO Bring non-calfire sources up to parity with calfire.

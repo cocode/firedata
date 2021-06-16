@@ -1,0 +1,30 @@
+[
+    {
+        "Incident Name": "Lionshead",
+        "Incident Number": "OR-WSA-000077",
+        "Location": "20 miles W of Warm Springs, OR",
+        "Acres": "204,469",
+        "Start Date": "2020-08-16",
+        "Cause": "Lightning",
+        "Percent Contained": "81%",
+        "Estimated Containment Date": "2020-10-30",
+        "Residences Threatened": "60 residences damaged/264 residences destroyed",
+        "Other Structure Threatened": "10 damaged and 16 destroyed.",
+        "Fuel/Terrain": "Timber and Brush",
+        "Lead Agency": "USDI Bureau of Indian Affairs"
+    },
+    {
+        "Incident Name": "Riverside",
+        "Incident Number": "OR-MHF-000859",
+        "Location": "8 miles SE of Estacada, OR",
+        "Acres": "138,054",
+        "Start Date": "2020-09-08",
+        "Cause": "Under Investigation",
+        "Percent Contained": "72%",
+        "Estimated Containment Date": "2020-10-31",
+        "Residences Threatened": "10 damaged, 56 destroyed",
+        "Other Structure Threatened": "9 damaged, 83 destroyed",
+        "Fuel/Terrain": "Timber",
+        "Lead Agency": "USDA Forest Service"
+    }
+]
