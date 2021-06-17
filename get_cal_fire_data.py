@@ -134,7 +134,6 @@ def get_annual_acres(ds:DataStore, year=None):
     :return:
     """
     year, all_data = load_annual_data(ds, year)
-    print("Found data for ", len(all_data), "days")
     if year is None:
         return
     acres_burned = []
