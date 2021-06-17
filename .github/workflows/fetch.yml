@@ -9,8 +9,8 @@ on:
   
   schedule:
     # * is a special character in YAML so you have to quote this string
-    # I want to run end-of-day, california time. 06:00 GMT is 22:00 PDT, and 23:00 PST. 
-    - cron:  '0 11 * * *'
+    # I want to run end-of-day, california time. 05:39 GMT is 22:39 PDT, and 23:39 PST. 
+    - cron:  '39 5 * * *'
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
