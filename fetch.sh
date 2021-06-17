@@ -5,12 +5,13 @@ echo PWD: $PWD
 python3 --version
 python3 -m pip install BeautifulSoup4
 
-python3 get_cal_fire_data.py
+python3 get_all_fire_data.py
 ls -al data/data_cal
 ls -al data/data_us
+ls -al data/data_wa
 
 # Add and commit the new data
-git add data/data_cal
+git add data
 git commit -m "Automatic add of new fire data"
 
 # Build and commit the webpage.
