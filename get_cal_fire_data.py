@@ -78,7 +78,6 @@ def filter_by_year(sorted_fires, year:int):
         filtered_fires = []
         for ii in sorted_fires:
             archive_year = ii['ArchiveYear']
-            print("archive year", archive_year)
             if archive_year == year:
                 filtered_fires.append(ii)
     else:
@@ -134,6 +133,7 @@ def get_annual_acres(ds:DataStore, year=None):
     :return:
     """
     year, all_data = load_annual_data(ds, year)
+    print("Found data for ", len(all_data), "days")
     if year is None:
         return
     acres_burned = []
@@ -267,7 +267,6 @@ def run():
     print("****************************")
     summarize(data_store, year=2021)
     data = get_annual_acres(data_store)
-    print(json.dumps(data, indent=4))
 
 if __name__ == "__main__":
     run()
