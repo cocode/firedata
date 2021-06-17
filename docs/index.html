@@ -12,52 +12,19 @@
         data.addColumn('date', 'Season Start Date');
         data.addColumn('number', 'Acres Burned');
         data.addRows([
-[new Date(2020, 8, 4), 1280426],
-[new Date(2020, 8, 5), 1281554],
-[new Date(2020, 8, 6), 1376716],
-[new Date(2020, 8, 7), 1377274],
-[new Date(2020, 8, 8), 1461885],
-[new Date(2020, 8, 9), 1468356],
-[new Date(2020, 8, 10), 1701647],
-[new Date(2020, 8, 11), 1712816],
-[new Date(2020, 8, 12), 2584611],
-[new Date(2020, 8, 13), 2599400],
-[new Date(2020, 8, 15), 2506622],
-[new Date(2020, 8, 17), 2883610],
-[new Date(2020, 8, 19), 2722315],
-[new Date(2020, 8, 20), 2732328],
-[new Date(2020, 8, 25), 2794968],
-[new Date(2020, 8, 26), 2819779],
-[new Date(2020, 8, 27), 2812897],
-[new Date(2020, 8, 28), 2844174],
-[new Date(2020, 8, 29), 2995749],
-[new Date(2020, 9, 1), 3053058],
-[new Date(2020, 9, 2), 2761701],
-[new Date(2020, 9, 3), 2628282],
-[new Date(2020, 9, 4), 2641153],
-[new Date(2020, 9, 5), 2656155],
-[new Date(2020, 9, 6), 2673422],
-[new Date(2020, 9, 8), 2689690],
-[new Date(2020, 9, 9), 2694751],
-[new Date(2020, 9, 14), 2875603],
-[new Date(2020, 9, 15), 2880623],
-[new Date(2020, 9, 16), 2883667],
-[new Date(2020, 9, 17), 2888311],
-[new Date(2020, 9, 18), 2888568],
-[new Date(2020, 9, 19), 2892610],
-[new Date(2020, 9, 21), 2894743],
-[new Date(2020, 9, 22), 1341551],
-[new Date(2020, 9, 23), 1341586],
-[new Date(2020, 9, 25), 1341864],
-[new Date(2020, 9, 26), 1344127],
-[new Date(2020, 9, 27), 1369815],
-[new Date(2020, 9, 28), 1369815],
-[new Date(2020, 9, 31), 1369083],
-[new Date(2020, 10, 3), 1368437],
-]);
+{{[new Date(2021, 4, 26), 11483],
+[new Date(2021, 4, 31), 13038],
+[new Date(2021, 5, 1), 13363],
+[new Date(2021, 5, 2), 14593],
+[new Date(2021, 5, 4), 14631],
+[new Date(2021, 5, 12), 16878],
+[new Date(2021, 5, 14), 17523],
+[new Date(2021, 5, 15), 17545],
+[new Date(2021, 5, 16), 17586],
+}}]);
 
       var options = {
-          title: 'Cal Fire Wildfire Data 2020',
+          title: 'Cal Fire Wildfire Data 2021',
 
         hAxis: {
           title: 'Date Recorded',
@@ -74,6 +41,18 @@
   </head>
   <body>
     <div id="acres_chart" style="width: 900px; height: 500px"></div>
+    <hr>
+    <pre>  Acres Burned      Change %Cont      Change Incident Name
+         341.0       -59.0  80.0       +20.0 Flats Fire
+         100.0         new  45.0         new Rock Fire
+          15.0              25.0       +25.0 Kathryn Fire
+             ~                 ~             Dairy Fire
+
+Number of active incidents......:                    4
+New or growing fires............:                    2
+Total acres burned, active fires:                456.0
+New acres burned................:                 41.0
+</pre>
     <hr>
     <p style="font-size:50%; font-family: Verdana, sans-serif; margin-bottom: 0px; margin-top: 0px">Source code: <a href="https://github.com/cocode/firedata">https://github.com/cocode/firedata</a></p>
     <p style="font-size:50%; font-family: Verdana, sans-serif; margin-bottom: 0px; margin-top: 0px">Data source: <a href="https://www.fire.ca.gov/incidents">https://www.fire.ca.gov/incidents</a></p>
