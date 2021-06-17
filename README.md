@@ -23,6 +23,9 @@ acres burned reported in the json data dropped 1 m acres on 9/21.
 I do not currently know why. And last year's Cal Fire json data shows "AllAcres" as 1,280,426 acres at the end of the
 year but the Cal Fire summary says 4.1m acres in total.
 
+Prior to 2021-06-16 I was collecting the data manually, so there are gaps
+in the data.
+
 #### Cal Fire JSON Format
 The json has three main subsections (Incidents, ListIncidents, and AllYearIncidents). So far, it looks
 like Incidents and ListIncidents are the same: currently burning fires. AllYearIncidents is what 
