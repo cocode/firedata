@@ -3,6 +3,7 @@ PYTHONPATH=$PWD:$PWD/webpage
 echo PYTHONPATH: $PYTHONPATH
 echo PWD: $PWD
 python3 --version
+python3 -m pip install BeautifulSoup4
 
 python3 get_cal_fire_data.py
 ls -al data/data_cal
