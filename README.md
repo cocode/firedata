@@ -43,7 +43,7 @@ Take a look at fetch.sh in this directory, it's the code used
 in the github action to fetch the data, and build the webpage.
 
 
-# Related Sites
+# Similar Sites
 https://calfireslo.org/current-slu-vegetation-fire-statistics/
 
 
