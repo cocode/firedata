@@ -12,17 +12,16 @@ This project scrapes data from [Cal Fire](https://www.fire.ca.gov/incidents), an
 A github action is run every night (CA time) to fetch data.
 
 ### About Cal Fire Data:
-Cal Fire data is just for fires handled by the organization "Cal Fire". Lots of fires are not handled by Cal Fire.
-Last year's Cal Fire data shows "AllAcres" as 1,280,426 acres but news 
-reports say 4.7m acres in total. I believe fires in national parks are not in Cal Fire data, 
-nor are locally handled fires.
+Cal Fire data is just for fires handled by the organization "Cal Fire". Lots of fires are not handled by Cal Fire. 
+I believe fires in national parks are not in Cal Fire data, nor are locally handled fires.
 
 Cal Fire data gives you a snapshot of the days activity, and a list of fires for the year. 
 To graph fires over time FireData collects a snapshot once a day.
 
 *Note* that fire data can vary unexpectedly. Last year (2020) to total
 acres burned reported in the json data dropped 1 m acres on 9/21.
-I do not currently know why.
+I do not currently know why. And last year's Cal Fire json data shows "AllAcres" as 1,280,426 acres at the end of the
+year but the Cal Fire summary says 4.1m acres in total.
 
 #### Cal Fire JSON Format
 The json has three main subsections (Incidents, ListIncidents, and AllYearIncidents). So far, it looks
