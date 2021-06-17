@@ -12,6 +12,8 @@ import sys
 import json
 from datetime import date
 import os
+import io
+
 from requests import HTTPError
 from refresher import Refresh
 from data_store import DataStore
@@ -74,7 +76,6 @@ def filter_by_year(sorted_fires, year:int):
     :return:
     """
     if year:
-        #filtered_fires = filter(lambda x: x['ArchiveYear'], sorted_fires)
         filtered_fires = []
         for ii in sorted_fires:
             archive_year = ii['ArchiveYear']
@@ -127,6 +128,7 @@ def load_annual_data(ds:DataStore, year:int=None):
 def get_annual_acres(ds:DataStore, year=None):
     """
     Gets the number of acres burned, for each day of the current (or specified) year.
+    Used to generate data for website graphs.
 
     :param ds:
     :param year:
@@ -187,7 +189,7 @@ def summarize_ytd(ds: DataStore, year=None):
     #print(all_year_incidents)
 
 
-def summarize(ds, year=None):
+def summarize(ds, year=None, output=sys.stdout):
     """
     Print a summary of information about fires in the database. This is a summary that compares to the
     previous day's data. This may be wrong if we skipped collecting for a day.
@@ -202,9 +204,11 @@ def summarize(ds, year=None):
 
     yesterday, jdata_today, filtered_fires = get_data(ds, year)
     if yesterday:
-        print(F"{'Acres Burned':>{awidth}} {'Change':>{dwidth}} {'%Cont':{pwidth}} {'Change':>{dwidth}} {'Incident Name'}")
+        print(
+            F"{'Acres Burned':>{awidth}} {'Change':>{dwidth}} {'%Cont':{pwidth}} {'Change':>{dwidth}} {'Incident Name'}",
+            file=output)
     else:
-        print(F"{'Acres Burned':>{awidth}} {'Change':>{dwidth}} {'Incident Name'}")
+        print(F"{'Acres Burned':>{awidth}} {'Change':>{dwidth}} {'Incident Name'}", file=output)
 
     acres_burned = 0
     acres_added = 0 # Number of new acres burned since yesterday
@@ -228,15 +232,15 @@ def summarize(ds, year=None):
             #     delta_a = fire['AcresBurned'] - f2['AcresBurned']
             # else:
             #     delta_a = "~"
-            print(F"{sub(fire,'AcresBurned',awidth)} {delta_a} {sub(fire,'PercentContained',5)} {delta_c} {fire['Name']}")
+            print(F"{sub(fire,'AcresBurned',awidth)} {delta_a} {sub(fire,'PercentContained',5)} {delta_c} {fire['Name']}", file=output)
         else:
-            print(F"{sub(fire,'AcresBurned',awidth)} {sub(fire,'PercentContained',8)} {fire['Name']}")
+            print(F"{sub(fire,'AcresBurned',awidth)} {sub(fire,'PercentContained',8)} {fire['Name']}", file=output)
 
-    print()
-    print(F"Number of active incidents......: {len(filtered_fires):20,}")
-    print(F"New or growing fires............: {growing_fires:20,}")
-    print(F"Total acres burned, active fires: {acres_burned:>20,}")
-    print(F"New acres burned................: {acres_added:>20,}")
+    print(file=output)
+    print(F"Number of active incidents......: {len(filtered_fires):20,}", file=output)
+    print(F"New or growing fires............: {growing_fires:20,}", file=output)
+    print(F"Total acres burned, active fires: {acres_burned:>20,}", file=output)
+    print(F"New acres burned................: {acres_added:>20,}", file=output)
 
 
 def parse(data):
@@ -257,6 +261,8 @@ def collect_data():
     return data_store
 
 def run():
+    f = io.StringIO()
+
     data_store = collect_data()
     print("****************************")
     print("        Year To Date        ")
@@ -265,7 +271,8 @@ def run():
     print("****************************")
     print("        Active Fires        ")
     print("****************************")
-    summarize(data_store, year=2021)
+    summarize(data_store, year=2021, output=f)
+    print(f.getvalue())
     data = get_annual_acres(data_store)
 
 if __name__ == "__main__":
