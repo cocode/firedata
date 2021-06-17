@@ -15,7 +15,7 @@ def replace_data(html:str, data, year:int):
         replacement = data
     else:
         replacement = json.dumps(data, indent=4)
-    print(replacement)
+    #print(replacement)
     html = re.sub("DATA_GOES_HERE", replacement, html, flags=re.MULTILINE)
     return html
 
@@ -54,7 +54,7 @@ if __name__ == "__main__":
 
     for i in acres_burned:
         data_as_string += F"[new Date({i[0]}, {i[1]-1}, {i[2]}), {i[3]}],\n"
-    print(data_as_string)
+    #print(data_as_string)
     data = data_as_string
     html = replace_data(html, data, year)
     write_html(html, destination)
