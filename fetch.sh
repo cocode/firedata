@@ -1,8 +1,13 @@
-#set -eo pipefail
+set -euo pipefail
+date
 PYTHONPATH=$PWD:$PWD/webpage
 echo PYTHONPATH: $PYTHONPATH
 echo PWD: $PWD
 python3 --version
+
+git config user.name "FireData Action Bot"
+git config user.email "<>"
+
 python3 -m pip install BeautifulSoup4
 
 python3 get_all_fire_data.py
