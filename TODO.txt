@@ -10,3 +10,4 @@
 # TODO for federal data, I'm only collecting california. I should get all states, and save it.
 # TODO Get historical cal fire data. It won't give me day-by-day, but I can compare years.
 # TODO Make fetching from the different sources independent jobs. If WA fails, we shouldn't fail CA or US
+# TODO Add tests, and add test workflow.
