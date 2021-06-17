@@ -48,4 +48,13 @@ in the github action to fetch the data, and build the webpage.
 # Similar Sites
 https://calfireslo.org/current-slu-vegetation-fire-statistics/
 
-
+# Resources
+* https://www.fire.ca.gov/stats-events/
+* https://www.fire.ca.gov/media/11397/fires-acres-all-agencies-thru-2018.pdf
+  * All fires, 1987-2018, all agencies.
+* https://www.fire.ca.gov/media/iy1gpp2s/2019_redbook_final.pdf
+* https://osfm.fire.ca.gov/divisions/wildfire-planning-engineering/california-incident-data-and-statistics-program/
+* https://www.sdge.com/sites/default/files/regulatory/CalFire%20Incident%20Information.pdf
+* https://emlab.msi.ucsb.edu/sites/emlab.msi.ucsb.edu/files/wildfire-brief.pdf
+* https://osfm.fire.ca.gov/divisions/wildfire-planning-engineering/california-incident-data-and-statistics-program/archived-statistic-reports/
+* https://www.fire.ca.gov/programs/fire-protection/reports/
