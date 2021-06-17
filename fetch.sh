@@ -1,4 +1,4 @@
-set -euo pipefail
+set -eo pipefail
 PYTHONPATH=$PWD:$PWD/webpage
 echo PYTHONPATH: $PYTHONPATH
 echo PWD: $PWD
