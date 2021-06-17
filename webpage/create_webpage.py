@@ -43,9 +43,7 @@ if __name__ == "__main__":
     html = load_html(source)
     # Next three lines should be one function
     data_source = collect_data()
-    #ydata, tdata, incidents = get_data(data_source, 2021)
-    year = 2020
-    acres_burned = get_annual_acres(data_source, year=2020)
+    acres_burned = get_annual_acres(data_source)
 
     data_as_string = ""
     if START_JAN_ONE and len(acres_burned) > 0:
