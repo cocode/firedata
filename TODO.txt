@@ -6,8 +6,10 @@
 # TODO Only rebuild the webpage if we get new data from calfire
 # TODO Chart this year vs last year.
 # TODO Allow user to select year to display.
-# TODO Need to install bs4 (beautiful soup) for github actions, to parse the WA web page.
 # TODO for federal data, I'm only collecting california. I should get all states, and save it.
 # TODO Get historical cal fire data. It won't give me day-by-day, but I can compare years.
 # TODO Make fetching from the different sources independent jobs. If WA fails, we shouldn't fail CA or US
 # TODO Add tests, and add test workflow.
+# TODO We load the data for the fires several times. Each function loads the data again. Fix that.
+# TODO Need to make year handling consistent. Sometimes we default to current year, sometimes pass it.
+# TODO The calfire summary should print the two dates it is comparing
