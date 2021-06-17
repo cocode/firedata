@@ -1,0 +1,28 @@
+name: TimeTestGMT
+
+on:
+  schedule:
+    # * is a special character in YAML so you have to quote this string
+    # Update output message below with time settings
+    - cron:  '20 21 * * *'
+
+
+
+env:
+  CARGO_TERM_COLOR: always
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Start
+      run: echo "Starting github action."
+    - name: PrintDate
+      run: date
+    - name: Cron Settings
+      run: echo '20 21 * * *'
+    - name: Variables
+      run: echo "Hello1 $env.CARGO_TERM_COLOR"
+    - name: Alternate Syntax
+      run: echo "Hello2 ${{env.CARGO_TERM_COLOR}}"
