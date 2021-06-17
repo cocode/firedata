@@ -24,7 +24,7 @@ def replace_data(html:str, data, year:int, summary:str):
         replacement = data
     else:
         replacement = json.dumps(data, indent=4)
-    html = re.sub("DATA_GOES_HERE", replacement, html, flags=re.MULTILINE)
+    html = re.sub("{{DATA_GOES_HERE}}", replacement, html, flags=re.MULTILINE)
     html = re.sub("{{SUMMARY}}", "<pre>"+summary+"</pre>", html, flags=re.MULTILINE)
     return html
 
