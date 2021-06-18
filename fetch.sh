@@ -1,19 +1,22 @@
 set -euo pipefail
+# Time of run (GMT)
 date
+# Time run, California time.
+TZ=America/Los_Angeles date
 PYTHONPATH=$PWD:$PWD/webpage
+# Dump environment info, for troubleshooting.
 echo PYTHONPATH: $PYTHONPATH
 echo PWD: $PWD
 python3 --version
 
+# Set up enough info that we can do a push back to the repository.
 git config user.name "FireData Action Bot"
 git config user.email "<>"
 
 python3 -m pip install BeautifulSoup4
 
+# Fetch the new day's fire data into the data directories.
 python3 get_all_fire_data.py
-ls -al data/data_cal
-ls -al data/data_us
-ls -al data/data_wa
 
 # Add and commit the new data
 git add data
