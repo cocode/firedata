@@ -213,7 +213,9 @@ def summarize(ds, year=None, output=sys.stdout):
     acres_burned = 0
     acres_added = 0 # Number of new acres burned since yesterday
     growing_fires = 0 # Includes new fires.
+    rows = []
     for fire in filtered_fires:
+        row = []
         ab = fire.get('AcresBurned', 0)
         if ab is not None:
             acres_burned += fire.get('AcresBurned', 0)
@@ -233,14 +235,26 @@ def summarize(ds, year=None, output=sys.stdout):
             # else:
             #     delta_a = "~"
             print(F"{sub(fire,'AcresBurned',awidth)} {delta_a} {sub(fire,'PercentContained',5)} {delta_c} {fire['Name']}", file=output)
+            row = [sub(fire,'AcresBurned',awidth), delta_a, sub(fire,'PercentContained',5), delta_c, fire['Name']]
         else:
             print(F"{sub(fire,'AcresBurned',awidth)} {sub(fire,'PercentContained',8)} {fire['Name']}", file=output)
+            row = [sub(fire,'AcresBurned',awidth), "N/A", sub(fire,'PercentContained',5), "N/A", fire['Name']]
+        rows.append(row)
 
     print(file=output)
     print(F"Number of active incidents......: {len(filtered_fires):20,}", file=output)
     print(F"New or growing fires............: {growing_fires:20,}", file=output)
     print(F"Total acres burned, active fires: {acres_burned:>20,}", file=output)
     print(F"New acres burned................: {acres_added:>20,}", file=output)
+    summary = [
+        [F"Number of active incidents:", len(filtered_fires)],
+        [F"New or growing fires", growing_fires],
+        [F"Total acres burned, active fires", acres_burned],
+        [F"New acres burned", acres_added]
+    ]
+    headings = ['Acres Burned', 'Change', '%Cont', 'Change', 'Incident Name']
+
+    return rows, headings, summary
 
 
 def parse(data):

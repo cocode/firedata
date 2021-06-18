@@ -65,7 +65,7 @@ class WebPage:
         # Next three lines should be one function
         data_source = collect_data()
         acres_burned = get_annual_acres(data_source, year=self.year)
-        summarize(data_source, year=self.year, output=summary)
+        self.sum_rows, self.sum_headers, self.sum_summary = summarize(data_source, year=self.year, output=summary)
 
         data_as_string = ""
         if START_JAN_ONE and len(acres_burned) > 0:
@@ -148,6 +148,24 @@ class WebPage:
         output.write("Change between last two data points (days):\n")
         output.write(self.sum_str)
         output.write("</pre>\n")
+        output.write("<hr>\n")
+        output.write('<table style="border-collapse: collapse; border: 1px solid black">\n')
+        output.write("    <TR>\n")
+        for col in self.sum_headers:
+            output.write(F"        <td style='background-color: #4488FF; border: 1px solid black; padding: 10px'>{col}</td>\n")
+        output.write("    </TR>\n")
+
+        for row in self.sum_rows:
+            output.write("    <TR>\n")
+            for col in row:
+                col = col.strip()
+                if col and col[0] in "0123456789+-~" or col == "new":
+                    align = "right" # Numeric column
+                else:
+                    align = "left"
+                output.write(F"        <td style='text-align: {align}; border: 1px solid black; padding: 10px'>{col}</td>\n")
+            output.write("    </TR>\n")
+        output.write("</table>")
 
     def write_footer(self, output):
         output.write(footer)
@@ -186,9 +204,9 @@ if __name__ == "__main__":
             "title": 'Cumulative Acres Burned'
         }
     }
-    footer = 'This chart only contains data on fires handled by Cal Fire, and not fires fought by federal and local agencies.'
+    chart_footer = 'This chart only contains data on fires handled by Cal Fire, and not fires fought by federal and local agencies.'
     chart_columns = [['date', 'Season Start Date'], ['number', 'Acres Burned']]
-    calfire = Chart(year, "acres_chart", chart_columns, options, footer)
+    calfire = Chart(year, "acres_chart", chart_columns, options, chart_footer)
 
     options = {
         "title": 'California Historical Fire Data 1987-2019',
@@ -201,8 +219,8 @@ if __name__ == "__main__":
         "isStacked": True
     };
     chart_columns = [['date', 'Season Start Date'], ['number', 'Acres Burned'], ['number', "Fed Acres Burned"]]
-    footer = "From the 2019 Redbook: " + '<b>"Due to the changes in data collection, methods, and systems over the years, information may not always be comparable and data may be of differing accuracy or completeness.</b>"'
-    calfire_historical = Chart(year, "hist_acres_chart", chart_columns, options, footer)
+    chart_footer = "From the 2019 Redbook: " + '<b>"Due to the changes in data collection, methods, and systems over the years, information may not always be comparable and data may be of differing accuracy or completeness.</b>"'
+    calfire_historical = Chart(year, "hist_acres_chart", chart_columns, options, chart_footer)
 
     page = WebPage(year, [calfire, calfire_historical])
     page.load()
