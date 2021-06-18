@@ -4,7 +4,7 @@
 # TODO Graph for delta acres burned in html
 # TODO Bring non-calfire sources up to parity with calfire.
 # TODO Only rebuild the webpage if we get new data from calfire
-# TODO Chart this year vs last year.
+# TODO Chart this year vs last year on daily chart.
 # TODO Allow user to select year to display.
 # TODO for federal data, I'm only collecting california. I should get all states, and save it.
 # TODO Make fetching from the different sources independent jobs. If WA fails, we shouldn't fail CA or US
@@ -12,5 +12,4 @@
 # TODO We load the data for the fires several times. Each function loads the data again. Fix that.
 # TODO Need to make year handling consistent. Sometimes we default to current year, sometimes pass it.
 # TODO The calfire summary should print the two dates it is comparing
-# TODO Convert the historical data chart to a stacked bar chart, and include all agencies.
-# TODO Should just reformat the historial data once, and check it in.
+# TODO Convert the historical data chart to a stacked bar chart, and include all agencies. - Have state & federal, not local yet.
