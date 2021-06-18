@@ -3,6 +3,34 @@ import re, json
 import io
 # Run with python3 -m webpage.create_webpage_multi from firedata directory
 
+# The webpage has several parts. The parts we care about
+# The onLoad call back function, where we define charts
+#   Within than, a definition for each chart
+# The body
+#   a defintion for an HTML div for each chart.
+
+# Defintions of constant strings used to generate the page
+head_preamble = \
+"""
+<head>
+<meta charset="utf-8">
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+"""
+
+footer = \
+"""    
+<p style="font-size:50%; font-family: Verdana, sans-serif; margin-bottom: 0px; margin-top: 0px">Source code: <a href="https://github.com/cocode/firedata">https://github.com/cocode/firedata</a></p>
+<p style="font-size:50%; font-family: Verdana, sans-serif; margin-bottom: 0px; margin-top: 0px">Data source: <a href="https://www.fire.ca.gov/incidents">https://www.fire.ca.gov/incidents</a></p>
+<p style="font-size:50%; font-family: Verdana, sans-serif; margin-bottom: 0px; margin-top: 0px">Accuracy not guaranteed</p>
+"""
+# Begins the onLoad function
+begin_function = \
+"""
+google.charts.load('current', {'packages':['corechart']});
+google.charts.setOnLoadCallback(drawCharts);
+function drawCharts() {\n
+"""
+
 
 class WebPage:
     def __init__(self, year):
@@ -39,52 +67,63 @@ class WebPage:
     def load(self):
         self.load_year_data()
 
-    def write_script(self, output):
-        output.write('        <script type="text/javascript">\n')
-        function_part1 = \
-    """            google.charts.load('current', {'packages':['corechart']});
-              google.charts.setOnLoadCallback(drawCharts);
-        
-              function drawCharts() {
-                var data = new google.visualization.DataTable();
-                data.addColumn('date', 'Season Start Date');
-                data.addColumn('number', 'Acres Burned');
-                data.addRows([
-"""
-        function_part2 = \
-"""              var options = {
-                  title: 'Cal Fire Wildfire Data {{YEAR}}',
-        
-                hAxis: {
-                  title: 'Date Recorded',
-                },
-                vAxis: {
-                  title: 'Cumulative Acres Burned'
-                }
-              };
-        
-                var chart = new google.visualization.ColumnChart(document.getElementById('acres_chart'))
-                chart.draw(data, options);
-              }
-"""
-        output.write(function_part1)
+    def write_chart_begin(self, output, columns):
+            output.write('var data = new google.visualization.DataTable();\n')
+            for key in columns:
+                output.write(F'data.addColumn("{key}", "{columns[key]}")\n');
+
+    def write_chart_options(self, output, title, haxis, vaxis):
+        options = {}
+        options["title"] = title
+        options["hAxis"] = {"title":haxis}
+        options["vAxis"] = {"title":vaxis}
+        output.write("var options = ")
+        output.write(json.dumps(options, indent=4))
+        output.write("\n")
+
+    def write_chart_data(self, output):
+        output.write("data.addRows([\n")
+
         output.write(self.year_data)
         output.write("]);\n")
-        output.write(function_part2)
-        output.write("        </script>\n")
+
+    def write_chart_end(self, output, target):
+        output.write("var chart = new google.visualization.ColumnChart(document.getElementById('acres_chart'))\n")
+        output.write("chart.draw(data, options);\n")
+
+    def write_chart(self, output, columns):
+        self.write_chart_begin(output, columns)
+        self.write_chart_options(output,
+                                 F'Cal Fire Wildfire Data {self.year}',
+                                 F'Date Recorded',
+                                 F'Cumulative Acres Burned')
+        self.write_chart_data(output)
+        self.write_chart_end(output, "acres_chart")
+
+    def write_onload_begin(self, output):
+        """
+        This starts the function that writes the javascript function called onLoad.
+        :return:
+        """
+        output.write(begin_function)
+
+    def write_onload_end(self, output):
+        output.write("}\n")
+
+    def write_onload_script(self, output):
+        output.write('<script type="text/javascript">\n')
+        self.write_onload_begin(output)
+        self.write_chart(output, {'date': 'Season Start Date', 'number': 'Acres Burned'}, )
+        self.write_onload_end(output)
+        output.write("</script>\n")
 
     def write_head(self, output):
-        preamble = \
-"""    <head>
-        <meta charset="utf-8">
-        <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-"""
-        output.write(preamble)
-        self.write_script(output)
-        output.write("    </head>\n")
+        output.write(head_preamble)
+        self.write_onload_script(output)
+        output.write("</head>\n")
 
     def write_body_charts(self, output):
-        output.write('        <div id="acres_chart" style="width: 900px; height: 500px"></div>\n')
+        output.write('<div id="acres_chart" style="width: 900px; height: 500px"></div>\n')
 
     def write_summary(self, output):
         # Temp hard code it.
@@ -94,21 +133,16 @@ class WebPage:
         output.write("</pre>\n")
 
     def write_footer(self, output):
-        footer = \
-"""    <p style="font-size:50%; font-family: Verdana, sans-serif; margin-bottom: 0px; margin-top: 0px">Source code: <a href="https://github.com/cocode/firedata">https://github.com/cocode/firedata</a></p>
-    <p style="font-size:50%; font-family: Verdana, sans-serif; margin-bottom: 0px; margin-top: 0px">Data source: <a href="https://www.fire.ca.gov/incidents">https://www.fire.ca.gov/incidents</a></p>
-    <p style="font-size:50%; font-family: Verdana, sans-serif; margin-bottom: 0px; margin-top: 0px">Accuracy not guaranteed</p>
-"""
         output.write(footer)
 
     def write_body(self, output):
-        output.write("    <body>\n")
+        output.write("<body>\n")
         self.write_body_charts(output)
-        output.write("    <hr>\n")
+        output.write("<hr>\n")
         self.write_summary(output)
-        output.write("    <hr>\n")
+        output.write("<hr>\n")
         self.write_footer(output)
-        output.write("    </body>\n")
+        output.write("</body>\n")
 
     def write_document(self, output):
         output.write("<!DOCTYPE html>\n<html>\n")
