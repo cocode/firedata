@@ -88,17 +88,17 @@ class WebPage:
         output.write("]);\n")
 
     def write_chart_end(self, output, target):
-        output.write("var chart = new google.visualization.ColumnChart(document.getElementById('acres_chart'))\n")
+        output.write(F'var chart = new google.visualization.ColumnChart(document.getElementById("{target}"))\n')
         output.write("chart.draw(data, options);\n")
 
-    def write_chart(self, output, columns):
+    def write_chart(self, output, columns, target):
         self.write_chart_begin(output, columns)
         self.write_chart_options(output,
                                  F'Cal Fire Wildfire Data {self.year}',
                                  F'Date Recorded',
                                  F'Cumulative Acres Burned')
         self.write_chart_data(output)
-        self.write_chart_end(output, "acres_chart")
+        self.write_chart_end(output, target)
 
     def write_onload_begin(self, output):
         """
@@ -110,20 +110,20 @@ class WebPage:
     def write_onload_end(self, output):
         output.write("}\n")
 
-    def write_onload_script(self, output):
+    def write_onload_script(self, output, target):
         output.write('<script type="text/javascript">\n')
         self.write_onload_begin(output)
-        self.write_chart(output, {'date': 'Season Start Date', 'number': 'Acres Burned'}, )
+        self.write_chart(output, {'date': 'Season Start Date', 'number': 'Acres Burned'}, target )
         self.write_onload_end(output)
         output.write("</script>\n")
 
-    def write_head(self, output):
+    def write_head(self, output, target):
         output.write(head_preamble)
-        self.write_onload_script(output)
+        self.write_onload_script(output, target)
         output.write("</head>\n")
 
-    def write_body_charts(self, output):
-        output.write('<div id="acres_chart" style="width: 900px; height: 500px"></div>\n')
+    def write_body_charts(self, output, target):
+        output.write(F'<div id="{target}" style="width: 900px; height: 500px"></div>\n')
 
     def write_summary(self, output):
         # Temp hard code it.
@@ -135,9 +135,9 @@ class WebPage:
     def write_footer(self, output):
         output.write(footer)
 
-    def write_body(self, output):
+    def write_body(self, output, target):
         output.write("<body>\n")
-        self.write_body_charts(output)
+        self.write_body_charts(output, target)
         output.write("<hr>\n")
         self.write_summary(output)
         output.write("<hr>\n")
@@ -146,8 +146,9 @@ class WebPage:
 
     def write_document(self, output):
         output.write("<!DOCTYPE html>\n<html>\n")
-        self.write_head(output)
-        self.write_body(output)
+        target = "acres_chart"
+        self.write_head(output, target)
+        self.write_body(output, target)
         output.write("</html>\n")
 
     def create(self):
