@@ -52,9 +52,13 @@ https://calfireslo.org/current-slu-vegetation-fire-statistics/
 * https://www.fire.ca.gov/stats-events/
 * https://www.fire.ca.gov/media/11397/fires-acres-all-agencies-thru-2018.pdf
   * All fires, 1987-2018, all agencies.
+  * resulting data extracted to data/data_cal_annual
 * https://www.fire.ca.gov/media/iy1gpp2s/2019_redbook_final.pdf
 * https://osfm.fire.ca.gov/divisions/wildfire-planning-engineering/california-incident-data-and-statistics-program/
 * https://www.sdge.com/sites/default/files/regulatory/CalFire%20Incident%20Information.pdf
 * https://emlab.msi.ucsb.edu/sites/emlab.msi.ucsb.edu/files/wildfire-brief.pdf
 * https://osfm.fire.ca.gov/divisions/wildfire-planning-engineering/california-incident-data-and-statistics-program/archived-statistic-reports/
 * https://www.fire.ca.gov/programs/fire-protection/reports/
+
+# Fetch Status
+[![Fetch and Build](https://github.com/cocode/firedata/actions/workflows/fetch.yml/badge.svg)](https://github.com/cocode/firedata/actions/workflows/fetch.yml)
