@@ -157,6 +157,8 @@ class WebPage:
 
     def write_body(self, output):
         output.write("<body>\n")
+        output.write("<h1>Cal Fire Data Only</h1>")
+        output.write("<p>These charts currently do not include federal and local numbers.</p>")
         for chart in self.charts:
             self.write_body_charts(output, chart)
         output.write("<hr>\n")
@@ -195,7 +197,8 @@ if __name__ == "__main__":
     for y in hist:
         acres = y[2]
         acres = acres.replace(",", "")
-        hist_string += F'[new Date({y[0]}, 12, 31), {acres}],\n'
+        # Javascript counts months from 0-11, so december is 11
+        hist_string += F'[new Date({y[0]}, 11, 31), {acres}],\n'
     print(hist_string)
 
     calfire.chart_data = page.year_data
