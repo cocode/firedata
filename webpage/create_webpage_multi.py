@@ -33,13 +33,12 @@ function drawCharts() {\n
 """
 
 class Chart:
-    def __init__(self, year, element, columns, title, haxis, vaxis):
+    def __init__(self, year, element, columns, options, footer=None):
         # TODO Chart data needs to be here, as well.
         self.element = element
         self.columns = columns
-        self.title = title
-        self.haxis = haxis
-        self.vaxis = vaxis
+        self.options = options
+        self.footer = footer
         self.chart_data = None # Loaded later
 
 class WebPage:
@@ -84,14 +83,10 @@ class WebPage:
 
     def write_chart_begin(self, output, chart):
         output.write('var data = new google.visualization.DataTable();\n')
-        for key in chart.columns:
-            output.write(F'data.addColumn("{key}", "{chart.columns[key]}")\n');
+        for column in chart.columns:
+            output.write(F'data.addColumn("{column[0]}", "{column[1]}")\n');
 
-    def write_chart_options(self, output, title, haxis, vaxis):
-        options = {}
-        options["title"] = title
-        options["hAxis"] = {"title":haxis}
-        options["vAxis"] = {"title":vaxis}
+    def write_chart_options(self, output, options):
         output.write("var options = ")
         output.write(json.dumps(options, indent=4))
         output.write("\n")
@@ -110,10 +105,7 @@ class WebPage:
     def write_chart(self, output, chart):
         target = chart.element
         self.write_chart_begin(output, chart)
-        self.write_chart_options(output,
-                                 chart.title,
-                                 chart.haxis,
-                                 chart.vaxis)
+        self.write_chart_options(output, chart.options)
         self.write_chart_data(output, chart)
         self.write_chart_end(output, chart)
 
@@ -144,6 +136,11 @@ class WebPage:
     def write_body_charts(self, output, chart):
         target = chart.element
         output.write(F'<div id="{target}" style="width: 900px; height: 500px"></div>\n')
+        if chart.footer:
+            output.write("<div style='margin-left: 100px; width: 900px'>\n")
+            output.write(chart.footer)
+            output.write("\n</div>\n")
+            output.write("<br>\n")
 
     def write_summary(self, output):
         # Temp hard code it.
@@ -157,8 +154,7 @@ class WebPage:
 
     def write_body(self, output):
         output.write("<body>\n")
-        output.write("<h1>Cal Fire Data Only</h1>")
-        output.write("<p>These charts currently do not include federal and local numbers.</p>")
+        output.write("<h1>California Fire Data</h1>")
         for chart in self.charts:
             self.write_body_charts(output, chart)
         output.write("<hr>\n")
@@ -181,13 +177,32 @@ class WebPage:
 if __name__ == "__main__":
     year = 2021
 
-    calfire = Chart(year, "acres_chart", {'date': 'Season Start Date', 'number': 'Acres Burned'}, F'Cal Fire Wildfire Data {year}',
-                    F'Date Recorded',
-                    F'Cumulative Acres Burned')
+    options = {
+        "title": F'Cal Fire (only) Fire Data {year}',
+        "hAxis": {
+            "title": 'Date Recorded',
+        },
+        "vAxis": {
+            "title": 'Cumulative Acres Burned'
+        }
+    }
+    footer = 'This chart only contains data on fires handled by Cal Fire, and not fires fought by federal and local agencies.'
+    chart_columns = [['date', 'Season Start Date'], ['number', 'Acres Burned']]
+    calfire = Chart(year, "acres_chart", chart_columns, options, footer)
 
-    calfire_historical = Chart(year, "hist_acres_chart", {'date': 'Season Start Date', 'number': 'Acres Burned'}, F'Cal Fire Historical Wildfire Data 1987-2018',
-                    F'Date Recorded',
-                    F'Total Acres Burned')
+    options = {
+        "title": 'California Historical Fire Data 1987-2019',
+        "hAxis": {
+            "title": 'Year',
+        },
+        "vAxis": {
+            "title": 'Total Acres Burned'
+        },
+        "isStacked": True
+    };
+    chart_columns = [['date', 'Season Start Date'], ['number', 'Acres Burned'], ['number', "Fed Acres Burned"]]
+    footer = "From the 2019 Redbook: " + '<b>"Due to the changes in data collection, methods, and systems over the years, information may not always be comparable and data may be of differing accuracy or completeness.</b>"'
+    calfire_historical = Chart(year, "hist_acres_chart", chart_columns, options, footer)
 
     page = WebPage(year, [calfire, calfire_historical])
     page.load()
@@ -196,9 +211,11 @@ if __name__ == "__main__":
     hist_string = ""
     for y in hist:
         acres = y[2]
+        fed_acres = y[4]
         acres = acres.replace(",", "")
+        fed_acres = fed_acres.replace(",", "")
         # Javascript counts months from 0-11, so december is 11
-        hist_string += F'[new Date({y[0]}, 11, 31), {acres}],\n'
+        hist_string += F'[new Date({y[0]}, 11, 31), {acres}, {fed_acres}],\n'
     print(hist_string)
 
     calfire.chart_data = page.year_data
