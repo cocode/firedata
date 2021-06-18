@@ -1,7 +1,7 @@
 from get_cal_fire_data import collect_data, get_annual_acres, summarize
 import re, json
 import io
-
+# Run with python3 -m webpage.create_webpage from firedata directory
 
 def load_html(source):
     with open(source) as f:
@@ -57,7 +57,6 @@ if __name__ == "__main__":
     data_source = collect_data()
     acres_burned = get_annual_acres(data_source, year=year)
     summarize(data_source, year=year, output=summary)
-
 
     data_as_string = ""
     if START_JAN_ONE and len(acres_burned) > 0:
