@@ -1,4 +1,5 @@
 from get_cal_fire_data import collect_data, get_annual_acres, summarize
+import get_historical_data
 import re, json
 import io
 # Run with python3 -m webpage.create_webpage_multi from firedata directory
@@ -39,7 +40,7 @@ class Chart:
         self.title = title
         self.haxis = haxis
         self.vaxis = vaxis
-        self.data = None # Loaded later
+        self.chart_data = None # Loaded later
 
 class WebPage:
     def __init__(self, year, charts):
@@ -49,6 +50,10 @@ class WebPage:
         self.acres_burned = None
         self.year_data = None
         self.charts = charts
+
+    def load_historical_data(self):
+        historical = get_historical_data.get_stats()
+        return historical
 
     def load_year_data(self):
         """
@@ -91,9 +96,9 @@ class WebPage:
         output.write(json.dumps(options, indent=4))
         output.write("\n")
 
-    def write_chart_data(self, output):
+    def write_chart_data(self, output, chart):
         output.write("data.addRows([\n")
-        year_data = self.charts[0].data
+        year_data = chart.chart_data
         output.write(year_data)
         output.write("]);\n")
 
@@ -106,10 +111,10 @@ class WebPage:
         target = chart.element
         self.write_chart_begin(output, chart)
         self.write_chart_options(output,
-                                 self.charts[0].title,
-                                 self.charts[0].haxis,
-                                 self.charts[0].vaxis)
-        self.write_chart_data(output)
+                                 chart.title,
+                                 chart.haxis,
+                                 chart.vaxis)
+        self.write_chart_data(output, chart)
         self.write_chart_end(output, chart)
 
     def write_onload_begin(self, output):
@@ -178,9 +183,22 @@ if __name__ == "__main__":
                     F'Date Recorded',
                     F'Cumulative Acres Burned')
 
-    page = WebPage(year, [calfire])
-    page.load()
+    calfire_historical = Chart(year, "hist_acres_chart", {'date': 'Season Start Date', 'number': 'Acres Burned'}, F'Cal Fire Historical Wildfire Data 1987-2018',
+                    F'Date Recorded',
+                    F'Total Acres Burned')
 
-    calfire.data = page.year_data
+    page = WebPage(year, [calfire, calfire_historical])
+    page.load()
+    hist = page.load_historical_data()
+    print(hist)
+    hist_string = ""
+    for y in hist:
+        acres = y[2]
+        acres = acres.replace(",", "")
+        hist_string += F'[new Date({y[0]}, 12, 31), {acres}],\n'
+    print(hist_string)
+
+    calfire.chart_data = page.year_data
+    calfire_historical.chart_data = hist_string
     page.create()
 
