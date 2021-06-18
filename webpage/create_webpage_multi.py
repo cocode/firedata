@@ -77,10 +77,10 @@ class WebPage:
     def load(self):
         self.load_year_data()
 
-    def write_chart_begin(self, output, columns):
-            output.write('var data = new google.visualization.DataTable();\n')
-            for key in columns:
-                output.write(F'data.addColumn("{key}", "{columns[key]}")\n');
+    def write_chart_begin(self, output, chart):
+        output.write('var data = new google.visualization.DataTable();\n')
+        for key in chart.columns:
+            output.write(F'data.addColumn("{key}", "{chart.columns[key]}")\n');
 
     def write_chart_options(self, output, title, haxis, vaxis):
         options = {}
@@ -97,19 +97,20 @@ class WebPage:
         output.write(year_data)
         output.write("]);\n")
 
-    def write_chart_end(self, output, target):
+    def write_chart_end(self, output, chart):
+        target = chart.element
         output.write(F'var chart = new google.visualization.ColumnChart(document.getElementById("{target}"))\n')
         output.write("chart.draw(data, options);\n")
 
-    def write_chart(self, output, columns, target):
-        columns = self.charts[0].columns
-        self.write_chart_begin(output, columns)
+    def write_chart(self, output, chart):
+        target = chart.element
+        self.write_chart_begin(output, chart)
         self.write_chart_options(output,
                                  self.charts[0].title,
                                  self.charts[0].haxis,
                                  self.charts[0].vaxis)
         self.write_chart_data(output)
-        self.write_chart_end(output, target)
+        self.write_chart_end(output, chart)
 
     def write_onload_begin(self, output):
         """
@@ -121,19 +122,22 @@ class WebPage:
     def write_onload_end(self, output):
         output.write("}\n")
 
-    def write_onload_script(self, output, target):
+    def write_onload_script(self, output):
         output.write('<script type="text/javascript">\n')
         self.write_onload_begin(output)
-        self.write_chart(output, {'date': 'Season Start Date', 'number': 'Acres Burned'}, target )
+        for chart in self.charts:
+            self.write_chart(output, chart)
+        # self.write_chart(output, {'date': 'Season Start Date', 'number': 'Acres Burned'}, target )
         self.write_onload_end(output)
         output.write("</script>\n")
 
-    def write_head(self, output, target):
+    def write_head(self, output):
         output.write(head_preamble)
-        self.write_onload_script(output, target)
+        self.write_onload_script(output)
         output.write("</head>\n")
 
-    def write_body_charts(self, output, target):
+    def write_body_charts(self, output, chart):
+        target = chart.element
         output.write(F'<div id="{target}" style="width: 900px; height: 500px"></div>\n')
 
     def write_summary(self, output):
@@ -146,9 +150,10 @@ class WebPage:
     def write_footer(self, output):
         output.write(footer)
 
-    def write_body(self, output, target):
+    def write_body(self, output):
         output.write("<body>\n")
-        self.write_body_charts(output, target)
+        for chart in self.charts:
+            self.write_body_charts(output, chart)
         output.write("<hr>\n")
         self.write_summary(output)
         output.write("<hr>\n")
@@ -157,9 +162,8 @@ class WebPage:
 
     def write_document(self, output):
         output.write("<!DOCTYPE html>\n<html>\n")
-        target = self.charts[0].element
-        self.write_head(output, target)
-        self.write_body(output, target)
+        self.write_head(output)
+        self.write_body(output)
         output.write("</html>\n")
 
     def create(self):
