@@ -1,0 +1,14 @@
+[
+["CAL FIRE - (State Responsibility)", 3086, 129914],
+["CAL FIRE - (Local Government Contracts)", 2370, 7220],
+["Contract Counties", 408, 15981],
+["United States Forest Service", 997, 112399],
+["Bureau of Land Management", 156 ,8539],
+["National Park Service", 34 ,111],
+["Bureau of Indian Affairs", 80, 334],
+["United States Fish and Wildlife Service", 15, 2754],
+["Military", 2, 33],
+["2019 Total", 7148, 277285],
+["5 Year Average (2015-2019) All Agencies", 7915, 1059051],
+["5 Year Average CAL FIRE (2015-2019) Includes Local Govt. Contracts", 5791, 398313]
+]
