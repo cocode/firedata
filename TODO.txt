@@ -13,3 +13,4 @@
 # TODO Need to make year handling consistent. Sometimes we default to current year, sometimes pass it.
 # TODO The calfire summary should print the two dates it is comparing
 # TODO Convert the historical data chart to a stacked bar chart, and include all agencies.
+# TODO Should just reformat the historial data once, and check it in.
