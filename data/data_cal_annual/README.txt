@@ -10,3 +10,5 @@ Copying from the PDF didn't work, so I converted it to .doc  (https://pdf2doc.co
 and then copied and pasted into the text file. But the text file
 was one number per line, this get_historical_data.py concatenates it back into
 its original rows and columns.
+
+See "get_historical_data.py" for a list of fields.
