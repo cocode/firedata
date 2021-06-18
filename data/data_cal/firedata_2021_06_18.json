@@ -1,6 +1,7 @@
 {
     "Incidents": [
         {
+<<<<<<< HEAD
             "UniqueId": "6672b6ad-981e-43e8-b4ad-a75285ab9f90",
             "Name": "Park Fire",
             "Location": "Upper Park Road and  Bidwell Park, northeast of Chico",
@@ -89,6 +90,8 @@
             "AirTankers": null
         },
         {
+=======
+>>>>>>> 28d3ae2cfce97d8f2da2af257a3a9839af252c50
             "UniqueId": "ddcef5cf-9417-4c41-b64b-910e096522fc",
             "Name": "Flats Fire",
             "Location": "Pinyon Flats Transfer Station and Elks Trail Rd, near Mountain Center",
@@ -133,6 +136,7 @@
             "AirTankers": null
         },
         {
+<<<<<<< HEAD
             "UniqueId": "2947b64d-5835-411b-a603-afcbaf8d53d8",
             "Name": "Alabama Fire",
             "Location": "Whitney Portal Road and Hogback Road, Northwest of Lone Pine",
@@ -177,6 +181,8 @@
             "AirTankers": null
         },
         {
+=======
+>>>>>>> 28d3ae2cfce97d8f2da2af257a3a9839af252c50
             "UniqueId": "2b42f885-f296-4659-98e0-c33585215fa9",
             "Name": "Rock Fire",
             "Location": "Benson Dr and Rock Creek Rd, East of Whiskeytown",
@@ -184,7 +190,11 @@
             "Longitude": -122.49164,
             "AcresBurned": 108.0,
             "FuelType": null,
+<<<<<<< HEAD
             "PercentContained": 85.0,
+=======
+            "PercentContained": 75.0,
+>>>>>>> 28d3ae2cfce97d8f2da2af257a3a9839af252c50
             "ControlStatement": null,
             "ConditionStatement": null,
             "Counties": [
@@ -194,7 +204,11 @@
             "SearchDescription": "The Rock Fire started June 15, 2021 Benson Dr and Rock Creek Rd, East of Whiskeytown in Shasta County.",
             "SearchKeywords": null,
             "AdminUnit": "CAL FIRE Shasta Trinity Unit",
+<<<<<<< HEAD
             "Updated": "2021-06-18T06:39:26.507Z",
+=======
+            "Updated": "2021-06-17T18:26:26.493Z",
+>>>>>>> 28d3ae2cfce97d8f2da2af257a3a9839af252c50
             "Started": "2021-06-15T17:14:55Z",
             "Extinguished": null,
             "ArchiveYear": 2021,
@@ -265,6 +279,7 @@
             "AirTankers": null
         },
         {
+<<<<<<< HEAD
             "UniqueId": "587e51fd-ad97-4894-b53e-300a78e4dc80",
             "Name": "Antelope Fire",
             "Location": "Avenue 380 and Road 208, Northeast of Woodlake",
@@ -353,6 +368,8 @@
             "AirTankers": null
         },
         {
+=======
+>>>>>>> 28d3ae2cfce97d8f2da2af257a3a9839af252c50
             "UniqueId": "e86265b9-2ac9-471e-bff4-deb2f46b7b7d",
             "Name": "Dairy Fire",
             "Location": "East Canal Rd and Tyler Rd, northeast of Proberta",
@@ -398,8 +415,13 @@
         }
     ],
     "MatchedIncidentCount": 0,
+<<<<<<< HEAD
     "AllAcres": 18884,
     "AllIncidentCount": 68,
+=======
+    "AllAcres": 17654,
+    "AllIncidentCount": 63,
+>>>>>>> 28d3ae2cfce97d8f2da2af257a3a9839af252c50
     "AllFatalities": 0,
     "AllStructures": 0,
     "ListIncidents": [
@@ -455,7 +477,11 @@
             "Longitude": -122.49164,
             "AcresBurned": 108.0,
             "FuelType": null,
+<<<<<<< HEAD
             "PercentContained": 85.0,
+=======
+            "PercentContained": 75.0,
+>>>>>>> 28d3ae2cfce97d8f2da2af257a3a9839af252c50
             "ControlStatement": null,
             "ConditionStatement": null,
             "Counties": [
@@ -465,7 +491,11 @@
             "SearchDescription": "The Rock Fire started June 15, 2021 Benson Dr and Rock Creek Rd, East of Whiskeytown in Shasta County.",
             "SearchKeywords": null,
             "AdminUnit": "CAL FIRE Shasta Trinity Unit",
+<<<<<<< HEAD
             "Updated": "2021-06-18T06:39:26.507Z",
+=======
+            "Updated": "2021-06-17T18:26:26.493Z",
+>>>>>>> 28d3ae2cfce97d8f2da2af257a3a9839af252c50
             "Started": "2021-06-15T17:14:55Z",
             "Extinguished": null,
             "ArchiveYear": 2021,
@@ -578,6 +608,7 @@
             "Dozers": null,
             "WaterTenders": null,
             "AirTankers": null
+<<<<<<< HEAD
         },
         {
             "UniqueId": "6672b6ad-981e-43e8-b4ad-a75285ab9f90",
@@ -798,6 +829,8 @@
             "Dozers": null,
             "WaterTenders": null,
             "AirTankers": null
+=======
+>>>>>>> 28d3ae2cfce97d8f2da2af257a3a9839af252c50
         }
     ],
     "AllYearIncidents": [
@@ -1812,9 +1845,15 @@
             "Latitude": 40.61468,
             "Longitude": -122.49164,
             "AcresBurnedDisplay": "108",
+<<<<<<< HEAD
             "PercentContainedDisplay": "85%",
             "CountiesList": "Shasta",
             "UpdatedDate": "2021-06-18 06:39:26",
+=======
+            "PercentContainedDisplay": "75%",
+            "CountiesList": "Shasta",
+            "UpdatedDate": "2021-06-17 18:26:26",
+>>>>>>> 28d3ae2cfce97d8f2da2af257a3a9839af252c50
             "StartedDate": "2021-06-15",
             "AdminUnit": "CAL FIRE Shasta Trinity Unit",
             "IncidentTypeDisplay": "Wildfire",
@@ -1871,6 +1910,7 @@
             "IncidentTypeDisplay": "Wildfire",
             "Url": "https://www.fire.ca.gov/incidents/2021/6/17/pomo-fire/",
             "IsActive": "Y"
+<<<<<<< HEAD
         },
         {
             "IncidentId": 2901,
@@ -1956,6 +1996,8 @@
             "IncidentTypeDisplay": "Wildfire",
             "Url": "https://www.fire.ca.gov/incidents/2021/6/18/nettle-fire/",
             "IsActive": "Y"
+=======
+>>>>>>> 28d3ae2cfce97d8f2da2af257a3a9839af252c50
         }
     ]
 }
