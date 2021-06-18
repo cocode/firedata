@@ -1,4 +1,6 @@
 # FireData Project
+[![Fetch and Build](https://github.com/cocode/firedata/actions/workflows/fetch.yml/badge.svg)](https://github.com/cocode/firedata/actions/workflows/fetch.yml)
+
 Project Status: Under development
 
 This project displays data about the California fire season. It collects data from 
@@ -60,5 +62,3 @@ https://calfireslo.org/current-slu-vegetation-fire-statistics/
 * https://osfm.fire.ca.gov/divisions/wildfire-planning-engineering/california-incident-data-and-statistics-program/archived-statistic-reports/
 * https://www.fire.ca.gov/programs/fire-protection/reports/
 
-# Fetch Status
-[![Fetch and Build](https://github.com/cocode/firedata/actions/workflows/fetch.yml/badge.svg)](https://github.com/cocode/firedata/actions/workflows/fetch.yml)
