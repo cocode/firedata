@@ -31,14 +31,24 @@ google.charts.setOnLoadCallback(drawCharts);
 function drawCharts() {\n
 """
 
+class Chart:
+    def __init__(self, year, element, columns, title, haxis, vaxis):
+        # TODO Chart data needs to be here, as well.
+        self.element = element
+        self.columns = columns
+        self.title = title
+        self.haxis = haxis
+        self.vaxis = vaxis
+        self.data = None # Loaded later
 
 class WebPage:
-    def __init__(self, year):
+    def __init__(self, year, charts):
         self.year = year
         self.subdir = "webpage"
         self.destination = F"{self.subdir}/fire_multi.html"
         self.acres_burned = None
         self.year_data = None
+        self.charts = charts
 
     def load_year_data(self):
         """
@@ -83,8 +93,8 @@ class WebPage:
 
     def write_chart_data(self, output):
         output.write("data.addRows([\n")
-
-        output.write(self.year_data)
+        year_data = self.charts[0].data
+        output.write(year_data)
         output.write("]);\n")
 
     def write_chart_end(self, output, target):
@@ -92,11 +102,12 @@ class WebPage:
         output.write("chart.draw(data, options);\n")
 
     def write_chart(self, output, columns, target):
+        columns = self.charts[0].columns
         self.write_chart_begin(output, columns)
         self.write_chart_options(output,
-                                 F'Cal Fire Wildfire Data {self.year}',
-                                 F'Date Recorded',
-                                 F'Cumulative Acres Burned')
+                                 self.charts[0].title,
+                                 self.charts[0].haxis,
+                                 self.charts[0].vaxis)
         self.write_chart_data(output)
         self.write_chart_end(output, target)
 
@@ -146,18 +157,26 @@ class WebPage:
 
     def write_document(self, output):
         output.write("<!DOCTYPE html>\n<html>\n")
-        target = "acres_chart"
+        target = self.charts[0].element
         self.write_head(output, target)
         self.write_body(output, target)
         output.write("</html>\n")
 
     def create(self):
-        self.load()
         with open(page.destination, "w") as f:
             page.write_document(f)
 
 
 if __name__ == "__main__":
-    page = WebPage(2021)
+    year = 2021
+
+    calfire = Chart(year, "acres_chart", {'date': 'Season Start Date', 'number': 'Acres Burned'}, F'Cal Fire Wildfire Data {year}',
+                    F'Date Recorded',
+                    F'Cumulative Acres Burned')
+
+    page = WebPage(year, [calfire])
+    page.load()
+
+    calfire.data = page.year_data
     page.create()
 
