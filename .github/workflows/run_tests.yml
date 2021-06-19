@@ -36,3 +36,4 @@ jobs:
           ls -al data/data_test
           python test_get_cal_fire_data.py
           pytest
+          mypy
