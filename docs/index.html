@@ -3,6 +3,16 @@
 
 <head>
 <meta charset="utf-8">
+<style>
+    .foot {font-size:50%; font-family: Verdana, sans-serif; margin-bottom: 0px; margin-top: 0px}
+    .chart_target {width: 100%; }
+    .chart_foot {margin-left: 100px; width: 100%}
+    table, td, th {border-collapse: collapse; border: 1px solid blue}
+    td, th {padding: 10px}
+    th { background-color: #4488FF;}
+    .sum_table {border-collapse: collapse; border: 10px solid blue}
+
+</style>
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 <script type="text/javascript">
 
@@ -33,7 +43,7 @@ data.addRows([
 [new Date(2021, 5, 15), 17545],
 [new Date(2021, 5, 16), 17586],
 [new Date(2021, 5, 17), 17601],
-[new Date(2021, 5, 18), 18874],
+[new Date(2021, 5, 18), 18676],
 ]);
 var chart = new google.visualization.ColumnChart(document.getElementById("acres_chart"))
 chart.draw(data, options);
@@ -92,36 +102,118 @@ chart.draw(data, options);
 </script>
 </head>
 <body>
-<h1>California Fire Data</h1><div id="acres_chart" style="width: 900px; height: 500px"></div>
-<div style='margin-left: 100px; width: 900px'>
+<h1>California Fire Data</h1><div class="chart_target" id="acres_chart"></div>
+<div class="chart_foot">
 This chart only contains data on fires handled by Cal Fire, and not fires fought by federal and local agencies.
 </div>
 <br>
-<div id="hist_acres_chart" style="width: 900px; height: 500px"></div>
-<div style='margin-left: 100px; width: 900px'>
+<div class="chart_target" id="hist_acres_chart"></div>
+<div class="chart_foot">
 From the 2019 Redbook: <b>"Due to the changes in data collection, methods, and systems over the years, information may not always be comparable and data may be of differing accuracy or completeness.</b>"
 </div>
 <br>
 <hr>
-<pre>
-Change between last two data points (days):
-  Acres Burned      Change %Cont      Change Incident Name
-         600.0         new  25.0         new Park Fire
-         400.0         new  30.0         new Success Fire
-         341.0              90.0       +10.0 Flats Fire
-         200.0         new   0.0         new Alabama Fire
-         108.0        +3.0  85.0       +30.0 Rock Fire
-          50.0         new  42.0         new Pomo Fire
-          20.0         new  30.0         new Antelope Fire
-             ~                 ~             Willow Fire
-             ~                 ~             Nettle Fire
-             ~                 ~             Dairy Fire
-
-Number of active incidents......:                   10
-New or growing fires............:                    6
-Total acres burned, active fires:              1,719.0
-New acres burned................:              1,273.0
-</pre>
-<hr>
-From the 2019 Redbook: <b>"Due to the changes in data collection, methods, and systems over the years, information may not always be comparable and data may be of differing accuracy or completeness.</b>"</body>
+<p>Change between last two data points (days):</p><table>
+    <TR>
+        <th>Acres Burned</td>
+        <th>Change</td>
+        <th>%Cont</td>
+        <th>Change</td>
+        <th>Incident Name</td>
+    </TR>
+    <TR>
+        <td style='text-align: right;'>402.0</td>
+        <td style='text-align: right;'>new</td>
+        <td style='text-align: right;'>25.0</td>
+        <td style='text-align: right;'>new</td>
+        <td style='text-align: left;'>Park Fire</td>
+    </TR>
+    <TR>
+        <td style='text-align: right;'>400.0</td>
+        <td style='text-align: right;'>new</td>
+        <td style='text-align: right;'>30.0</td>
+        <td style='text-align: right;'>new</td>
+        <td style='text-align: left;'>Success Fire</td>
+    </TR>
+    <TR>
+        <td style='text-align: right;'>341.0</td>
+        <td style='text-align: left;'></td>
+        <td style='text-align: right;'>90.0</td>
+        <td style='text-align: right;'>+10.0</td>
+        <td style='text-align: left;'>Flats Fire</td>
+    </TR>
+    <TR>
+        <td style='text-align: right;'>200.0</td>
+        <td style='text-align: right;'>new</td>
+        <td style='text-align: right;'>0.0</td>
+        <td style='text-align: right;'>new</td>
+        <td style='text-align: left;'>Alabama Fire</td>
+    </TR>
+    <TR>
+        <td style='text-align: right;'>108.0</td>
+        <td style='text-align: right;'>+3.0</td>
+        <td style='text-align: right;'>85.0</td>
+        <td style='text-align: right;'>+30.0</td>
+        <td style='text-align: left;'>Rock Fire</td>
+    </TR>
+    <TR>
+        <td style='text-align: right;'>50.0</td>
+        <td style='text-align: right;'>new</td>
+        <td style='text-align: right;'>42.0</td>
+        <td style='text-align: right;'>new</td>
+        <td style='text-align: left;'>Pomo Fire</td>
+    </TR>
+    <TR>
+        <td style='text-align: right;'>20.0</td>
+        <td style='text-align: right;'>new</td>
+        <td style='text-align: right;'>30.0</td>
+        <td style='text-align: right;'>new</td>
+        <td style='text-align: left;'>Antelope Fire</td>
+    </TR>
+    <TR>
+        <td style='text-align: right;'>~</td>
+        <td style='text-align: left;'></td>
+        <td style='text-align: right;'>~</td>
+        <td style='text-align: left;'></td>
+        <td style='text-align: left;'>Willow Fire</td>
+    </TR>
+    <TR>
+        <td style='text-align: right;'>~</td>
+        <td style='text-align: left;'></td>
+        <td style='text-align: right;'>~</td>
+        <td style='text-align: left;'></td>
+        <td style='text-align: left;'>Nettle Fire</td>
+    </TR>
+    <TR>
+        <td style='text-align: right;'>~</td>
+        <td style='text-align: left;'></td>
+        <td style='text-align: right;'>~</td>
+        <td style='text-align: left;'></td>
+        <td style='text-align: left;'>Dairy Fire</td>
+    </TR>
+</table><hr><table>
+        <th style='text-align:left;'>Item</td>
+        <th style='text-align:right;'>Value</td>
+    <TR>
+        <td style='text-align: left; border: 1px solid black; padding: 10px'>Number of active incidents:</td>
+        <td style='text-align: right; border: 1px solid black; padding: 10px'>10</td>
+    </TR>
+    <TR>
+        <td style='text-align: left; border: 1px solid black; padding: 10px'>New or growing fires</td>
+        <td style='text-align: right; border: 1px solid black; padding: 10px'>6</td>
+    </TR>
+    <TR>
+        <td style='text-align: left; border: 1px solid black; padding: 10px'>Total acres burned, active fires</td>
+        <td style='text-align: right; border: 1px solid black; padding: 10px'>1521.0</td>
+    </TR>
+    <TR>
+        <td style='text-align: left; border: 1px solid black; padding: 10px'>New acres burned</td>
+        <td style='text-align: right; border: 1px solid black; padding: 10px'>1075.0</td>
+    </TR>
+</table><hr>
+    
+<p class="foot">Source code: <a href="https://github.com/cocode/firedata">https://github.com/cocode/firedata</a></p>
+<p class="foot">Data source: <a href="https://www.fire.ca.gov/incidents">https://www.fire.ca.gov/incidents</a></p>
+<p class="foot">Accuracy not guaranteed</p>
+</body>
 </html>
