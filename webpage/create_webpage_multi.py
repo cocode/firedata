@@ -15,14 +15,24 @@ head_preamble = \
 """
 <head>
 <meta charset="utf-8">
+<style>
+    .foot {font-size:50%; font-family: Verdana, sans-serif; margin-bottom: 0px; margin-top: 0px}
+    .chart_target {width: 100%; }
+    .chart_foot {margin-left: 100px; width: 100%}
+    table, td, th {border-collapse: collapse; border: 1px solid blue}
+    td, th {padding: 10px}
+    th { background-color: #4488FF;}
+    .sum_table {border-collapse: collapse; border: 10px solid blue}
+
+</style>
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 """
 
 footer = \
 """    
-<p style="font-size:50%; font-family: Verdana, sans-serif; margin-bottom: 0px; margin-top: 0px">Source code: <a href="https://github.com/cocode/firedata">https://github.com/cocode/firedata</a></p>
-<p style="font-size:50%; font-family: Verdana, sans-serif; margin-bottom: 0px; margin-top: 0px">Data source: <a href="https://www.fire.ca.gov/incidents">https://www.fire.ca.gov/incidents</a></p>
-<p style="font-size:50%; font-family: Verdana, sans-serif; margin-bottom: 0px; margin-top: 0px">Accuracy not guaranteed</p>
+<p class="foot">Source code: <a href="https://github.com/cocode/firedata">https://github.com/cocode/firedata</a></p>
+<p class="foot">Data source: <a href="https://www.fire.ca.gov/incidents">https://www.fire.ca.gov/incidents</a></p>
+<p class="foot">Accuracy not guaranteed</p>
 """
 # Begins the onLoad function
 begin_function = \
@@ -135,9 +145,9 @@ class WebPage:
 
     def write_body_charts(self, output, chart):
         target = chart.element
-        output.write(F'<div id="{target}" style="width: 900px; height: 500px"></div>\n')
+        output.write(F'<div class="chart_target" id="{target}"></div>\n')
         if chart.footer:
-            output.write("<div style='margin-left: 100px; width: 900px'>\n")
+            output.write('<div class="chart_foot">\n')
             output.write(chart.footer)
             output.write("\n</div>\n")
             output.write("<br>\n")
@@ -145,10 +155,10 @@ class WebPage:
     def write_summary(self, output):
         # Temp hard code it.
         output.write('<p>Change between last two data points (days):</p>')
-        output.write('<table style="border-collapse: collapse; border: 1px solid black">\n')
+        output.write('<table>\n')
         output.write("    <TR>\n")
         for col in self.sum_headers:
-            output.write(F"        <td style='background-color: #4488FF; border: 1px solid black; padding: 10px'>{col}</td>\n")
+            output.write(F"        <th>{col}</td>\n")
         output.write("    </TR>\n")
 
         for row in self.sum_rows:
@@ -159,15 +169,20 @@ class WebPage:
                     align = "right" # Numeric column
                 else:
                     align = "left"
-                output.write(F"        <td style='text-align: {align}; border: 1px solid black; padding: 10px'>{col}</td>\n")
+                output.write(F"        <td style='text-align: {align};'>{col}</td>\n")
             output.write("    </TR>\n")
         output.write("</table>")
         output.write("<hr>")
-        output.write('<table style="border-collapse: collapse; border: 1px solid black">\n')
+        output.write('<table>\n')
+        output.write(F"        <th style='text-align:left;'>Item</td>\n")
+        output.write(F"        <th style='text-align:right;'>Value</td>\n")
+
         for row in self.sum_summary:
+            alignment = ["left", "right"]
+            assert len(row) == len(alignment)
             output.write("    <TR>\n")
-            for col in row:
-                output.write(F"        <td style='text-align: left; border: 1px solid black; padding: 10px'>{col}</td>\n")
+            for col in range(len(row)):
+                output.write(F"        <td style='text-align: {alignment[col]}; border: 1px solid black; padding: 10px'>{row[col]}</td>\n")
             output.write("    </TR>\n")
         output.write("</table>")
 
