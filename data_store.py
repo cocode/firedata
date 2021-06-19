@@ -10,7 +10,7 @@ class DataStore:
     Since it is a snapshot, the data we pull doesn't have the date it was pulled, so we add this
     to the downloaded data, as _year, _month and _day.
     """
-    def __init__(self, data_dir):
+    def __init__(self, data_dir:str):
         self.data_dir = data_dir
 
     def get_data_dir(self):
