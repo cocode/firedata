@@ -26,7 +26,7 @@ import os
 from requests import HTTPError
 from refresher import Refresh
 from data_store import DataStore
-import bs4 as bs
+import bs4 as bs  # type: ignore
 
 
 def get_size(x):
