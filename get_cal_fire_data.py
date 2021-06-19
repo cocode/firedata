@@ -253,7 +253,7 @@ def summarize(ds, year=None, output=sys.stdout):
         [F"Total acres burned, active fires", acres_burned],
         [F"New acres burned", acres_added]
     ]
-    headings = ['Acres Burned', 'Change', '%Cont', 'Change', 'Incident Name']
+    headings = ['Acres Burned', 'Change', '% Contained', 'Change', 'Incident Name']
 
     return rows, headings, summary
 
