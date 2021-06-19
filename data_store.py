@@ -40,6 +40,11 @@ class DataStore:
             f.write(formatted)
 
     def load_all_data(self):
+        """
+        Loads all the data in the data store, and wraps it in a dict, with
+        metadata
+        :return: A list of dicts, which contain metadata and the data
+        """
         all_data = []
         # Maybe we should generate filenames by date, and look back?
         # This gives us two ways to create filenames.
@@ -60,13 +65,13 @@ class DataStore:
             filename = F"{self.get_data_dir()}/{f}"
             #print("FILENAME", filename)
             j = self.load_data_file(filename)
-            # Some data sources return lists, not dicts.
-            if type(j) == dict:
-                j["_filename"] = filename
-                j["_year"] = int(year)
-                j["_month"] = int(month)
-                j["_day"] = int(day)
-            all_data.append(j)
+            # Wrap the returned data in a dict, with some metadata
+            returned_data = {'data': j}
+            returned_data["_filename"] = filename
+            returned_data["_year"] = int(year)
+            returned_data["_month"] = int(month)
+            returned_data["_day"] = int(day)
+            all_data.append(returned_data)
         return all_data
 
     def load_data_day(self, day):

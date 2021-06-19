@@ -90,7 +90,7 @@ def summarize(ds):
 
     print(F"{'Acres Burned':>{awidth}} {'Change':>{dwidth}} {'%Cont':>{pwidth}} {'Change':>{dwidth}}  {'Incident Name'}")
 
-    incidents = jdata_today
+    incidents = jdata_today['data']
     # already sorted for us by loader
     acres_burned = 0
     acres_added = 0 # Number of new acres burned.
@@ -102,7 +102,8 @@ def summarize(ds):
         contained = get_containment(fire) # TODO changed from cal_file
         if yesterday:
             id = get_id(fire)
-            yes = [item for item in yesterday if get_id(item) == id]
+            yesterday_data = yesterday['data']
+            yes = [item for item in yesterday_data if get_id(item) == id]
             assert len(yes) < 2
             f2 = yes[0] if len(yes) else None
             old_size = get_size(f2)

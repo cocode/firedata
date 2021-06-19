@@ -96,9 +96,9 @@ def get_incidents(todays_data):
 
 def load_today(ds):
     jdata = ds.load_all_data()
-    jdata_today = jdata[-1]
+    jdata_today = jdata[-1]['data']
     if len(jdata) > 1:
-        yesterday = jdata[-2]["Incidents"]
+        yesterday = jdata[-2]['data']["Incidents"]
     else:
         yesterday = None
     return yesterday, jdata_today
@@ -139,13 +139,14 @@ def get_annual_acres(ds:DataStore, year=None):
     if year is None:
         return
     acres_burned = []
-    for day_data in all_data:
-        days_year = day_data["_year"]
+    for meta_data in all_data:
+        day_data = meta_data['data']
+        days_year = meta_data["_year"]
         if days_year != year:
             continue
         ab = day_data['AllAcres']
         ab = int(ab)
-        acres_burned.append((days_year, day_data["_month"], day_data["_day"], ab))
+        acres_burned.append((days_year, meta_data["_month"], meta_data["_day"], ab))
     return acres_burned
 
 
@@ -159,7 +160,7 @@ def summarize_ytd(ds: DataStore, year=None):
     if year is None:
         return
 
-    most_recent_day = all_data[-1]
+    most_recent_day = all_data[-1]['data']
     if 'AllAcres' in most_recent_day:
         all_acres = most_recent_day['AllAcres']
         print(F"Total acres burned this year to date.: {all_acres:,}")

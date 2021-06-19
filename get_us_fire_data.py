@@ -59,7 +59,7 @@ def summarize(ds):
         print(F"{'Acres':>{awidth}} {'Change':>{dwidth}}   {'Incident'}")
     else:
         print(F"{'Acres':>{awidth}}   {'Incident'}")
-    incidents = jdata_today
+    incidents = jdata_today['data']
     # already sorted for us by loader
     acres_burned = 0
     acres_added = 0
@@ -71,7 +71,8 @@ def summarize(ds):
 
         if yesterday:
             id = get_id(fire)
-            yes = [item for item in yesterday if get_id(item) == id]
+            yesterday_data = yesterday['data']
+            yes = [item for item in yesterday_data if get_id(item) == id]
             assert len(yes) < 2
             f2 = yes[0] if len(yes) else None
             old_size = get_size(f2)
@@ -92,6 +93,49 @@ def summarize(ds):
     print(F"New or growing fires: {growing_fires:20,}")
     print(F"Total acres burned..: {acres_burned:>20,}")
     print(F"New acres burned....: {acres_added:>20,}")
+    return acres_burned
+
+
+def get_annual_acres(ds:DataStore, year=None):
+    """
+    This may not work. Not sure if us data has all fires for the year, or only active ones.
+    TODO Check the above.
+    
+    Gets the number of acres burned, for each day of the current (or specified) year.
+    Used to generate data for website graphs.
+
+    Unlike cal fire data, where I can just look like a top-level field, I think
+    for US I must sum all incidents on each day.
+
+    # TODO Find a better data source.
+    # TODO need to parse the year from the filename, and filter to the current year.
+    # TODO We should calculate the total acres when we save the data, and add it.
+
+    :param ds:
+    :param year:
+    :return:
+    """
+    all_data = ds.load_all_data()
+    acres_burned = []
+    for meta_data in all_data:
+        day_data = meta_data['data']
+        days_year = meta_data["_year"]
+        if year is not None and days_year != year:
+            continue
+        running_total = 0
+        for incident in day_data:
+            ab = incident['Size']
+            ab = ab.strip()
+            if ab:
+                if " " in ab:
+                    ab = ab.split()
+                    assert ab[1]=='Acres'
+                    ab = ab[0]  # Take of the word "acres"
+                ab = int(ab)
+                running_total += ab
+        acres_burned.append((year, meta_data["_month"], meta_data["_day"], running_total))
+    return acres_burned
+
 
 def parse(content):
     """
@@ -139,6 +183,8 @@ def run():
     refresher = Refresh(fire_url, data_store, parse)
     refresher.refresh()   # Gets the data, only if we don't already have it.
     summarize(data_store)
+    annual = get_annual_acres(data_store, 2021)
+    print(annual)
 
 
 if __name__ == "__main__":
