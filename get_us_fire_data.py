@@ -21,22 +21,30 @@ import os
 from requests import HTTPError
 from refresher import Refresh
 from data_store import DataStore
-import bs4 as bs
+import bs4 as bs # type: ignore
 
 
-def get_size(x:str):
-        #print("Get size", x)
-        if x is None:
-            return None
+def get_size(fire_info:dict):
+    """
+    Gets the Size field from the dict
+    :param fire_info: A dict including the field 'Size' or None.
+    :return: Maybe return, None, if fire_info is None, or 0, if 'Size is blank/empty, or the size as an int.
+    """
+    if fire_info is None:
+        # May be None, when checking if a fire existed yesterday.
+        return None
 
-        s = x['Size']
-        s = s.strip()
-        if not s:
-            return 0
-        y = s.split()
-        z = y[0]
-        q = int(z)
-        return q
+    fire_size = fire_info['Size']
+    fire_size = fire_size.strip()
+    if not fire_size:
+        return 0           # Blank value for 'Size'
+
+    y = fire_size.split()  # US data has sizes like "40 Acres"
+    assert 2 == len(y)
+    numeric_part = y[0]               # Only take the number.
+    assert "Acres" == y[1] # Add better handling when we ever see anything other than acres.
+    return_value = int(numeric_part)
+    return return_value
 
 
 def get_id(fire):
@@ -65,7 +73,7 @@ def summarize(ds):
     acres_added = 0
     growing_fires = 0
     for fire in incidents:
-        ab = get_size(fire) # TODO changed from cal_file
+        ab = get_size(fire)  # TODO changed from cal_file
         if ab is not None:
             acres_burned += ab # changed
 
