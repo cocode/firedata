@@ -237,7 +237,7 @@ if __name__ == "__main__":
         "vAxis": {
             "title": 'Total Acres Burned'
         },
-        "isStacked": True
+        "isStacked": "true"
     };
     chart_columns = [['date', 'Season Start Date'], ['number', 'Acres Burned'], ['number', "Fed Acres Burned"]]
     chart_footer = "From the 2019 Redbook: " + '<b>"Due to the changes in data collection, methods, and systems over the years, information may not always be comparable and data may be of differing accuracy or completeness.</b>"'
