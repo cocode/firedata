@@ -10,5 +10,5 @@ class Test(TestCase):
         with self.assertRaises(KeyError):
             self.assertIsNone(get_size(f))
         f = {"Size":"40 Acres"}
-        self.assertEquals(40, get_size(f))
+        self.assertEqual(40, get_size(f))
 
