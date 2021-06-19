@@ -144,11 +144,7 @@ class WebPage:
 
     def write_summary(self, output):
         # Temp hard code it.
-        output.write("<pre>\n")
-        output.write("Change between last two data points (days):\n")
-        output.write(self.sum_str)
-        output.write("</pre>\n")
-        output.write("<hr>\n")
+        output.write('<p>Change between last two data points (days):</p>')
         output.write('<table style="border-collapse: collapse; border: 1px solid black">\n')
         output.write("    <TR>\n")
         for col in self.sum_headers:
@@ -166,6 +162,16 @@ class WebPage:
                 output.write(F"        <td style='text-align: {align}; border: 1px solid black; padding: 10px'>{col}</td>\n")
             output.write("    </TR>\n")
         output.write("</table>")
+        output.write("<hr>")
+        output.write('<table style="border-collapse: collapse; border: 1px solid black">\n')
+        for row in self.sum_summary:
+            output.write("    <TR>\n")
+            for col in row:
+                output.write(F"        <td style='text-align: left; border: 1px solid black; padding: 10px'>{col}</td>\n")
+            output.write("    </TR>\n")
+        output.write("</table>")
+
+
 
     def write_footer(self, output):
         output.write(footer)
