@@ -107,15 +107,17 @@ def get_data(ds, year):
 
 
 def load_annual_data(ds: DataStore, year: int = None):
+    """
+
+    :param ds:
+    :param year:  #TODO Why is this parameter here? For future pre-filtering, instead of post?
+    :return: year used, fire data
+    """
     todays_date = date.today()
     if year is None:
         year = todays_date.year
     # TODO Don't load data twice
     all_data = ds.load_all_data()
-    if not all_data:
-        print("No data")
-        return year, None
-
     return year, all_data
 
 
@@ -126,14 +128,9 @@ def get_annual_acres(ds:DataStore, year=None):
 
     :param ds:
     :param year:
-    :return: tuple of number of acres burned in the given year, and length of all_data. May return None, None
+    :return: tuple of number of acres burned in the given year, and length of all_data.
     """
     year, all_data = load_annual_data(ds, year)
-    if all_data is None:
-        return None, None
-
-    if year is None:
-        return None, None
     acres_burned = []
     for meta_data in all_data:
         day_data = meta_data['data']
@@ -154,9 +151,8 @@ def summarize_ytd(ds: DataStore, year=None):
     """
     return_value = []
     year, all_data = load_annual_data(ds, year)
-    if year is None:
-        return
-
+    if len(all_data) == 0:
+        return [F"No data found for year", year]
     most_recent_day = all_data[-1]['data']
     if 'AllAcres' in most_recent_day:
         all_acres = most_recent_day['AllAcres']
@@ -308,7 +304,6 @@ def run():
 
     data, days_of_data_found = get_annual_acres(data_store)
     print("Found data for ", days_of_data_found, "days")
-
 
 
 if __name__ == "__main__":
