@@ -1,55 +1,77 @@
 [
-  {
-    "options":
-    {
-      "title": "Cal Fire (only) Fire Data {year}",
-      "hAxis": {
-        "title": "Date Recorded"
-    },
-      "vAxis":
-      {
-        "title": "Cumulative Acres Burned"
-      }
-    },
-      "footer": "This chart only contains data on fires handled by Cal Fire, and not fires fought by federal and local agencies.",
-      "columns": [
-    [
-    "date",
-    "Season Start Date"
-    ],
-    [
-    "number",
-    "Acres Burned"
-    ]
-    ],
-    "element_id": "acres_b_chart"
-  },
-  {
-    "options": {
-      "title": "California Historical Fire Data 1987-2019",
-      "hAxis": {
-        "title": "Year"
-      },
-      "vAxis": {
-        "title": "Total Acres Burned"
-      },
-      "isStacked": "true"
-    },
-    "columns": [
-      [
-        "date",
-        "Season Start Date"
-      ],
-      [
-        "number",
-        "Acres Burned"
-      ],
-      [
-        "number",
-        "Fed Acres Burned"
-      ]
-    ],
-    "footer": "From the 2019 Redbook: <b>Due to the changes in data collection, methods, and systems over the years, information may not always be comparable and data may be of differing accuracy or completeness.</b>",
-    "element_id": "hist_b_chart"
-  }
+	{
+		"options": {
+			"title": "Cal Fire (only) Fire Data {year}",
+			"hAxis": {
+				"title": "Date Recorded"
+			},
+			"vAxis": {
+				"title": "Cumulative Acres Burned"
+			}
+		},
+		"footer": "This chart only contains data on fires handled by Cal Fire, and not fires fought by federal and local agencies.",
+		"columns": [
+			[
+				"date",
+				"Season Start Date"
+			],
+			[
+				"number",
+				"Acres Burned"
+			]
+		],
+		"element_id": "acres_b_chart"
+	},
+	{
+		"options": {
+			"title": "US Fire data TBD!!!",
+			"hAxis": {
+				"title": "Year"
+			},
+			"vAxis": {
+				"title": "Total Acres Burned"
+			}
+		},
+		"columns": [
+			[
+				"date",
+				"Season Start Date"
+			],
+			[
+				"number",
+				"Acres Burned"
+			]
+		],
+		"footer": "",
+		"element_id": "us_chart"
+	}
+,
+	{
+		"options": {
+			"title": "California Historical Fire Data 1987-2019",
+			"hAxis": {
+				"title": "Year"
+			},
+			"vAxis": {
+				"title": "Total Acres Burned"
+			},
+			"isStacked": "true"
+		},
+		"columns": [
+			[
+				"date",
+				"Season Start Date"
+			],
+			[
+				"number",
+				"Acres Burned"
+			],
+			[
+				"number",
+				"Fed Acres Burned"
+			]
+		],
+		"footer": "From the 2019 Redbook: <b>Due to the changes in data collection, methods, and systems over the years, information may not always be comparable and data may be of differing accuracy or completeness.</b>",
+		"element_id": "hist_b_chart"
+	}
 ]
