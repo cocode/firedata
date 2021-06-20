@@ -19,5 +19,8 @@
     - Have state & federal, not local yet.
 # TODO Find a better way to add a footnote to a google chart.
 # TODO How to display US & Cal fire data. Always on one stacked bar chart? One page for each?
-# TODO: Get the chart data from .json, in create_webpage_multi, to make chart fully specified by json.
-
+# TODO Get the chart data from .json, in create_webpage_multi, to make chart fully specified by json.
+# TODO Getting the most recent to downloaded data points should be moved to the data store, for efficiency.
+# TODO When creating the webpage, split the "load" and "format for JavaScript" parts of the functionss.
+# TODO Precompute the acres burned per day for US fire data. Do it on download? Need previous day's data to do this.
+# TODO Check that historical us computations are correct. I see a -37 on 2021/06/16. Possible it's in the data.
