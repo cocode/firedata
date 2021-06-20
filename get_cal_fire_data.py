@@ -7,14 +7,9 @@ It has two main functions.
 
 """
 
-import requests
-import sys
 import json
 from datetime import date
-import os
-import io
 
-from requests import HTTPError
 from refresher import Refresh
 from data_store import DataStore
 
@@ -30,8 +25,15 @@ from data_store import DataStore
 # AllYearIncidents - All the incidents that have occurred this year.
 
 
-# f-strings in python suck at handling None, so this class helps
-def sub(fire, key, width: int, f=None):
+def sub(fire: dict, key: str, width: int):
+    """
+    Format a field for printing, handling None and missing values.
+    TODO This should move to print_cal_fire_data.py, since it's only for printing.
+    :param fire: Dict of information about the fire.
+    :param key:
+    :param width: Width to format the field.
+    :return:
+    """
     if key in fire and fire[key] is not None:
         value = F"{fire[key]:{width},}"
     else:
@@ -83,7 +85,13 @@ def filter_by_year(sorted_fires, year: int):
 
 
 def get_incidents(todays_data):
-    # I believe "Incidents" contains only active fires.
+    """
+    Get data from the "Incidents" field of the downloaded data, which is currently or recently
+    burning fires.
+
+    :param todays_data:
+    :return: a sorted list of incidents.
+    """
     incidents = todays_data["Incidents"]
     sorted_fires = sorted(incidents, reverse=True,
                      key=lambda x: x["AcresBurned"] if x["AcresBurned"] is not None else 0)
@@ -93,6 +101,7 @@ def get_incidents(todays_data):
 def load_most_recent(ds: DataStore):
     """
     Loads the most recent two data points from the data store.
+
     :param ds:
     :return:
     """
@@ -108,6 +117,13 @@ def load_most_recent(ds: DataStore):
 
 
 def get_data(ds:DataStore, year: int):
+    """
+    Loads the most recent two data points, which should be today and yesterday (or yesterday and the
+    day before, depending on the time of day.
+    :param ds:
+    :param year:
+    :return:
+    """
     yesterday, jdata_today = load_most_recent(ds)
     if len(jdata_today) == 0:
         return None, [], []
@@ -182,8 +198,12 @@ def summarize_ytd(ds: DataStore, year: int):
 
 def summarize(ds, year:int):
     """
-    Print a summary of information about fires in the database. This is a summary that compares to the
-    previous day's data. This may be wrong if we skipped collecting for a day.
+    Print a summary of information about changes to fires in the data store.
+
+    This function compares the two most recent entries in the data store. Normally,
+    this will be today and yesterday (or yesterday and the day before, depending on the
+    time of day). If fetching a days data had failed, this may look back more than one day.
+
     :param ds: The data store to load data from.
     :param year: If not None, the default, then only print data for the given year.
     :return:
