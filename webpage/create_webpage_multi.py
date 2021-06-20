@@ -154,7 +154,7 @@ class WebPage:
 
     def write_summary(self, output):
         # Temp hard code it.
-        output.write('<p>Change between last two data points (days):</p>')
+        output.write('<p>Calfire: Change between last two data points (days):</p>')
         output.write('<table>\n')
         output.write("    <TR>\n")
         for col in self.sum_headers:
@@ -173,8 +173,10 @@ class WebPage:
             output.write("    </TR>\n")
         output.write("</table>")
         output.write("<hr>")
+        output.write('<p>Calfire: Active Incident Summary (days):</p>')
+
         output.write('<table>\n')
-        output.write(F"        <th style='text-align:left;'>Item</td>\n")
+        output.write(F"        <th style='text-align:left;'>Cal Fire Stat</td>\n")
         output.write(F"        <th style='text-align:right;'>Value</td>\n")
 
         for row in self.sum_summary:
@@ -185,8 +187,6 @@ class WebPage:
                 output.write(F"        <td style='text-align: {alignment[col]}; border: 1px solid black; padding: 10px'>{row[col]}</td>\n")
             output.write("    </TR>\n")
         output.write("</table>")
-
-
 
     def write_footer(self, output):
         output.write(footer)
@@ -209,41 +209,23 @@ class WebPage:
         output.write("</html>\n")
 
     def create(self):
-        with open(page.destination, "w") as f:
-            page.write_document(f)
+        with open(self.destination, "w") as f:
+            self.write_document(f)
 
 
 if __name__ == "__main__":
     year = 2021
 
-    options = {
-        "title": F'Cal Fire (only) Fire Data {year}',
-        "hAxis": {
-            "title": 'Date Recorded',
-        },
-        "vAxis": {
-            "title": 'Cumulative Acres Burned'
-        }
-    }
-    chart_footer = 'This chart only contains data on fires handled by Cal Fire, and not fires fought by federal and local agencies.'
-    chart_columns = [['date', 'Season Start Date'], ['number', 'Acres Burned']]
-    calfire = Chart(year, "acres_chart", chart_columns, options, chart_footer)
 
-    options = {
-        "title": 'California Historical Fire Data 1987-2019',
-        "hAxis": {
-            "title": 'Year',
-        },
-        "vAxis": {
-            "title": 'Total Acres Burned'
-        },
-        "isStacked": "true"
-    };
-    chart_columns = [['date', 'Season Start Date'], ['number', 'Acres Burned'], ['number', "Fed Acres Burned"]]
-    chart_footer = "From the 2019 Redbook: " + '<b>"Due to the changes in data collection, methods, and systems over the years, information may not always be comparable and data may be of differing accuracy or completeness.</b>"'
-    calfire_historical = Chart(year, "hist_acres_chart", chart_columns, options, chart_footer)
+    with open("webpage/chart_calfire.json") as f:
+        data_charts = json.load(f)
+    chart_list = []
+    for data_chart in data_charts:
+        c = Chart(year, data_chart['element_id'], data_chart['columns'], data_chart['options'], data_chart['footer'])
+        chart_list.append(c)
 
-    page = WebPage(year, [calfire, calfire_historical])
+
+    page = WebPage(year, chart_list)
     page.load()
     hist = page.load_historical_data()
     print(hist)
@@ -257,7 +239,8 @@ if __name__ == "__main__":
         hist_string += F'[new Date({y[0]}, 11, 31), {acres}, {fed_acres}],\n'
     print(hist_string)
 
-    calfire.chart_data = page.year_data
-    calfire_historical.chart_data = hist_string
+    # TODO: Get the data from .json
+    chart_list[0].chart_data = page.year_data
+    chart_list[1].chart_data = hist_string
     page.create()
 
