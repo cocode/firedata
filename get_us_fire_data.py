@@ -30,8 +30,13 @@ def get_size(fire_info:dict):
     return return_value
 
 
-def get_id(fire):
-    return fire['href']
+def get_id(incident):
+    """
+    Gets a unique id for this incident
+    :param incident:
+    :return:
+    """
+    return incident['href']
 
 
 # Could also use from operator import itemgetter, attrgetter
@@ -87,7 +92,22 @@ def summarize(ds):
     return acres_burned
 
 
-def get_annual_acres(ds:DataStore, year=None):
+def verify_ids_unique(incidents):
+    """
+    Make sure fire ids are unique. Don't trust your data sources!
+    Raises an Exception on duplicate
+    :param incidents:
+    :return: None
+    """
+    check_unique = set()
+    for incident in incidents:
+        unique_fire_id = get_id(incident)
+        if unique_fire_id in check_unique:
+            raise Exception(F"Fire ID not unique: {unique_fire_id}")
+        check_unique.add(unique_fire_id)
+
+
+def get_annual_acres_helper(all_data, year):
     """
     This may not work. Not sure if us data has all fires for the year, or only active ones.
     TODO Check the above.
@@ -104,28 +124,51 @@ def get_annual_acres(ds:DataStore, year=None):
 
     :param ds:
     :param year:
-    :return:
+    :return: list of tuples of (year, month, day, acres_burned)
     """
-    all_data = ds.load_all_data()
     acres_burned = []
+    last_burned = {}
+    overall_total_acres_burned = 0
     for meta_data in all_data:
         day_data = meta_data['data']
         days_year = meta_data["_year"]
         if year is not None and days_year != year:
             continue
-        running_total = 0
+        days_total = 0
+
+        # Make sure fire ids are unique.
+        verify_ids_unique(day_data)
+
         for incident in day_data:
+            unique_fire_id = get_id(incident)
             ab = incident['Size']
             ab = ab.strip()
             if ab:
                 if " " in ab:
                     ab = ab.split()
                     assert ab[1]=='Acres'
-                    ab = ab[0]  # Take of the word "acres"
-                ab = int(ab)
-                running_total += ab
-        acres_burned.append((year, meta_data["_month"], meta_data["_day"], running_total))
-    return acres_burned
+                    ab = ab[0]  # Take off the word "acres"
+                burned_as_of_today = int(ab)  # What is this file's total burned acres, as of today.
+                # Compute delta between current total for this fire, and yesterdays, so we get
+                # acres burned today.
+                if unique_fire_id in last_burned:
+                    previous_total = last_burned[unique_fire_id]
+                    last_burned[unique_fire_id] = burned_as_of_today
+                    change_in_acres_burned = burned_as_of_today - previous_total  # Get change since last data point.
+                else:
+                    # New fire. Change is total acres burned today.
+                    change_in_acres_burned = burned_as_of_today
+                    last_burned[unique_fire_id] = burned_as_of_today
+
+                days_total += change_in_acres_burned
+        acres_burned.append((year, meta_data["_month"], meta_data["_day"], days_total))
+        overall_total_acres_burned += days_total
+    return acres_burned, overall_total_acres_burned
+
+
+def get_annual_acres(ds:DataStore, year):
+    all_data = ds.load_all_data(year)
+    return get_annual_acres_helper(all_data, year)
 
 
 def parse(content):
@@ -134,9 +177,6 @@ def parse(content):
     :param content: The text of the page.
     :return: List of dicts with incident data
     """
-    state = "California" # I should start saving for all states, and discarding later.
-    # I can't currently change the state, since I don't have historical data for the
-    # new state, since I've been throwing it away.
     soup = bs.BeautifulSoup(content)
     table = soup.find("table", {"summary":"This table displays all active incidents."})
     headers = table.find_all("th")
@@ -160,17 +200,20 @@ def parse(content):
             values.append(href)
         data = dict(zip(h2, values))
 
-        if not data['State'].startswith(state):
-            continue
         incidents.append(data)
 
     f = sorted(incidents, key=get_size, reverse=True)
     return f
 
 
+def get_data_store():
+    data_store = DataStore("data/data_us")
+    return data_store
+
+
 def run():
     fire_url = 'https://inciweb.nwcg.gov/accessible-view/'
-    data_store = DataStore("data/data_us")
+    data_store = get_data_store()
     refresher = Refresh(fire_url, data_store, parse)
     refresher.refresh()   # Gets the data, only if we don't already have it.
     summarize(data_store)
