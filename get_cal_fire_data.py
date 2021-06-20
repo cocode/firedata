@@ -264,7 +264,7 @@ def run():
     print(F"Collecting CAL FIRE data on: {todays_date}")
     data_store = collect_data()
     data, days_of_data_found = get_annual_acres(data_store, year=None) # Get data for all years.
-    print("Nnow have data for ", days_of_data_found, "days, total.")
+    print("Now have data for ", days_of_data_found, "days, total.")
     # TODO print starting and ending dates.
 
 
