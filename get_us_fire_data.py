@@ -1,6 +1,7 @@
 """
 Fetch fire info from Federal "InciWeb"
 """
+from typing import Optional, Callable, Any
 
 from refresher import Refresh
 from data_store import DataStore
@@ -170,8 +171,9 @@ def get_annual_acres(ds:DataStore, year, state=None):
     def filter_by_state(x):
         return x['State'].startswith(state)
 
+    include_function: Optional[Callable[[Any], Any]]
     if state:
-       include_function = filter_by_state
+        include_function = filter_by_state
     else:
         include_function = None
     all_data = ds.load_all_data(year, include=include_function)
