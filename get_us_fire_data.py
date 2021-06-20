@@ -1,24 +1,7 @@
-# Fetch fire info from cal fire.
+"""
+Fetch fire info from Federal "InciWeb"
+"""
 
-# source
-
-import requests
-import sys
-import json
-from datetime import date
-import os
-
-
-# Keys in the json blob returned from cal fire. I only care about "Incidents"
-# Incidents
-# MatchedIncidentCount
-# AllAcres
-# AllIncidentCount
-# AllFatalities
-# AllStructures
-# ListIncidents
-# AllYearIncidents
-from requests import HTTPError
 from refresher import Refresh
 from data_store import DataStore
 import bs4 as bs # type: ignore
