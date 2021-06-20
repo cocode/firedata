@@ -245,27 +245,6 @@ def summarize(ds, year=None):
     return rows, headings, summary, print_headings
 
 
-def print_items(stats, format_title='.<', format_value='>20'):
-    max_len = len(max(stats, key=lambda x:len(x[0]))[0])
-    for item in stats:
-        print(F"{item[0]:{format_title}{max_len}}: {item[1]:{format_value}}")
-    print()
-
-
-def sum_and_print(ds, year=None):
-    rows, headings, summary, print_headings = summarize(ds, year)
-    for heading in print_headings:
-        print(heading, end="")
-        print(" ", end="")
-    print()
-    for row in rows:
-        for column in row:
-            print(column, end="")
-            print(" ", end="")
-        print()
-
-    print_items(summary, '.<', '>20,')
-
 
 def parse(data):
     """
@@ -284,26 +263,14 @@ def collect_data():
     refresher.refresh()   # Gets the data, only if we don't already have it.
     return data_store
 
+
 def run():
     todays_date = date.today()
-
+    print(F"Collecting CAL FIRE data on: {todays_date}")
     data_store = collect_data()
-    print(F"Summarizing YTD CAL FIRE data as of..: {todays_date}")
-
-    print("****************************")
-    print("        Year To Date        ")
-    print("****************************")
-    values = summarize_ytd(data_store)
-    print_items(values, ".<", ",")
-
-    print("****************************")
-    print("        Active Fires        ")
-    print("****************************")
-    summarize(data_store, year=2021)
-    sum_and_print(data_store, year=2021)
-
     data, days_of_data_found = get_annual_acres(data_store)
-    print("Found data for ", days_of_data_found, "days")
+    print("Nnow have data for ", days_of_data_found, "days, total.")
+    # TODO print starting and ending dates. 
 
 
 if __name__ == "__main__":
