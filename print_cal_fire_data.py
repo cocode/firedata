@@ -34,13 +34,13 @@ def sum_and_print(ds, year):
             print(" ", end="")
         print()
 
+    print()
     print_items(summary, '.<', '>20,')
 
 
 def run():
     todays_date = date.today()
     year = todays_date.year
-    year = 2022 # NOCOMMIT
 
     data_store = collect_data()
     print(F"Summarizing YTD CAL FIRE data as of..: {todays_date} for year {year}")
@@ -56,8 +56,7 @@ def run():
     print("****************************")
     summarize(data_store, year=year)
     sum_and_print(data_store, year=year)
-
-    data, days_of_data_found = get_annual_acres(data_store)
+    data, days_of_data_found = get_annual_acres(data_store, year)
     print("Found data for ", days_of_data_found, "days")
 
 
