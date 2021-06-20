@@ -74,7 +74,9 @@ class WebPage:
         START_JAN_ONE = False
         # Next three lines should be one function
         data_source = collect_data()
-        acres_burned = get_annual_acres(data_source, year=self.year)
+        acres_burned, days_of_data_found = get_annual_acres(data_source, year=self.year)
+        if acres_burned is None:
+            raise ValueError("No annual acres found") # Need to fix.
         self.sum_rows, self.sum_headers, self.sum_summary, ignored = summarize(data_source, year=self.year)
 
         data_as_string = ""

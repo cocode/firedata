@@ -106,7 +106,7 @@ def get_data(ds, year):
     return yesterday, jdata_today, filtered_fires
 
 
-def load_annual_data(ds:DataStore, year:int=None):
+def load_annual_data(ds: DataStore, year: int = None):
     todays_date = date.today()
     if year is None:
         year = todays_date.year
@@ -114,7 +114,7 @@ def load_annual_data(ds:DataStore, year:int=None):
     all_data = ds.load_all_data()
     if not all_data:
         print("No data")
-        return None
+        return year, None
 
     return year, all_data
 
@@ -126,12 +126,14 @@ def get_annual_acres(ds:DataStore, year=None):
 
     :param ds:
     :param year:
-    :return:
+    :return: tuple of number of acres burned in the given year, and length of all_data. May return None, None
     """
     year, all_data = load_annual_data(ds, year)
-    print("Found data for ", len(all_data), "days")
+    if all_data is None:
+        return None, None
+
     if year is None:
-        return
+        return None, None
     acres_burned = []
     for meta_data in all_data:
         day_data = meta_data['data']
@@ -141,7 +143,7 @@ def get_annual_acres(ds:DataStore, year=None):
         ab = day_data['AllAcres']
         ab = int(ab)
         acres_burned.append((days_year, meta_data["_month"], meta_data["_day"], ab))
-    return acres_burned
+    return acres_burned, len(all_data)
 
 
 def summarize_ytd(ds: DataStore, year=None):
@@ -158,14 +160,13 @@ def summarize_ytd(ds: DataStore, year=None):
     most_recent_day = all_data[-1]['data']
     if 'AllAcres' in most_recent_day:
         all_acres = most_recent_day['AllAcres']
-        print(F"Total acres burned this year to date.: {all_acres:,}")
-        return_value.append(("Total acres burned this year to date", all_acres))
+        return_value.append(["Total acres burned this year to date", all_acres])
 
     else:
         all_acres = None
     key = "AllYearIncidents"
     if not key in most_recent_day:
-        print("No annual data")
+        return_value.append(["No annual incident data found", 0])
         return
 
     all_year_incidents = most_recent_day[key]
@@ -181,13 +182,9 @@ def summarize_ytd(ds: DataStore, year=None):
         computed_acres += acres_burned
 
     if all_acres != computed_acres:
-        print(F"Total acres burned computed..........: {computed_acres:,}")
-        return_value.append(("Total acres burned computed", computed_acres))
+        return_value.append(["Total acres burned computed", computed_acres])
 
-    print(F"Total incidents reported year to date: {len(all_year_incidents):,}")
-    return_value.append(("Total incidents reported year to date", all_year_incidents))
-
-    #print(all_year_incidents)
+    return_value.append(["Total incidents reported year to date", len(all_year_incidents)])
     return return_value
 
 
@@ -258,6 +255,7 @@ def print_items(stats, format_title='.<', format_value='>20'):
         print(F"{item[0]:{format_title}{max_len}}: {item[1]:{format_value}}")
     print()
 
+
 def sum_and_print(ds, year=None):
     rows, headings, summary, print_headings = summarize(ds, year)
     for heading in print_headings:
@@ -300,15 +298,18 @@ def run():
     print("        Year To Date        ")
     print("****************************")
     values = summarize_ytd(data_store)
+    print_items(values, ".<", ",")
 
     print("****************************")
     print("        Active Fires        ")
     print("****************************")
     summarize(data_store, year=2021)
-    #print(f.getvalue())
     sum_and_print(data_store, year=2021)
 
-    data = get_annual_acres(data_store)
+    data, days_of_data_found = get_annual_acres(data_store)
+    print("Found data for ", days_of_data_found, "days")
+
+
 
 if __name__ == "__main__":
     run()
