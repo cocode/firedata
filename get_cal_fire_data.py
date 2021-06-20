@@ -148,8 +148,9 @@ def summarize_ytd(ds: DataStore, year=None):
     """
     Summarize the year-to-date data in the most recent day's data from calfire.
     :param ds:
-    :return: None
+    :return: list of [title, value]
     """
+    return_value = []
     year, all_data = load_annual_data(ds, year)
     if year is None:
         return
@@ -158,6 +159,8 @@ def summarize_ytd(ds: DataStore, year=None):
     if 'AllAcres' in most_recent_day:
         all_acres = most_recent_day['AllAcres']
         print(F"Total acres burned this year to date.: {all_acres:,}")
+        return_value.append(("Total acres burned this year to date", all_acres))
+
     else:
         all_acres = None
     key = "AllYearIncidents"
@@ -179,9 +182,13 @@ def summarize_ytd(ds: DataStore, year=None):
 
     if all_acres != computed_acres:
         print(F"Total acres burned computed..........: {computed_acres:,}")
+        return_value.append(("Total acres burned computed", computed_acres))
+
     print(F"Total incidents reported year to date: {len(all_year_incidents):,}")
+    return_value.append(("Total incidents reported year to date", all_year_incidents))
 
     #print(all_year_incidents)
+    return return_value
 
 
 def summarize(ds, year=None):
@@ -245,6 +252,12 @@ def summarize(ds, year=None):
     return rows, headings, summary, print_headings
 
 
+def print_items(stats, format_title='.<', format_value='>20'):
+    max_len = len(max(stats, key=lambda x:len(x[0]))[0])
+    for item in stats:
+        print(F"{item[0]:{format_title}{max_len}}: {item[1]:{format_value}}")
+    print()
+
 def sum_and_print(ds, year=None):
     rows, headings, summary, print_headings = summarize(ds, year)
     for heading in print_headings:
@@ -257,10 +270,7 @@ def sum_and_print(ds, year=None):
             print(" ", end="")
         print()
 
-    maxlen = len(max(summary, key=lambda x:len(x[0]))[0])
-    for item in summary:
-        print(F"{item[0]:.<{maxlen}}: {item[1]:>20,}")
-    print()
+    print_items(summary, '.<', '>20,')
 
 
 def parse(data):
@@ -289,7 +299,8 @@ def run():
     print("****************************")
     print("        Year To Date        ")
     print("****************************")
-    summarize_ytd(data_store)
+    values = summarize_ytd(data_store)
+
     print("****************************")
     print("        Active Fires        ")
     print("****************************")
