@@ -30,11 +30,6 @@ from data_store import DataStore
 # AllYearIncidents - All the incidents that have occurred this year.
 
 
-def print_all_day(ds, day):
-    jdata = ds.load_data_day(day)
-    print(json.dumps(jdata, indent=4))
-
-
 # f-strings in python suck at handling None, so this class helps
 def sub(fire, key, width, f=None):
     if key in fire and fire[key] is not None:
@@ -115,7 +110,6 @@ def load_annual_data(ds:DataStore, year:int=None):
     todays_date = date.today()
     if year is None:
         year = todays_date.year
-    print(F"Summarizing YTD CAL FIRE data as of..: {todays_date}")
     # TODO Don't load data twice
     all_data = ds.load_all_data()
     if not all_data:
@@ -287,9 +281,11 @@ def collect_data():
     return data_store
 
 def run():
-    f = io.StringIO()
+    todays_date = date.today()
 
     data_store = collect_data()
+    print(F"Summarizing YTD CAL FIRE data as of..: {todays_date}")
+
     print("****************************")
     print("        Year To Date        ")
     print("****************************")
