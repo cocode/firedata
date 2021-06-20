@@ -1,7 +1,7 @@
 [
 	{
 		"options": {
-			"title": "Cal Fire (only) Fire Data {year}",
+			"title": "Cal Fire (only) Fire Data",
 			"hAxis": {
 				"title": "Date Recorded"
 			},
@@ -24,7 +24,7 @@
 	},
 	{
 		"options": {
-			"title": "US Fire data TBD!!!",
+			"title": "Federal Fire Data for California!!!",
 			"hAxis": {
 				"title": "Year"
 			},

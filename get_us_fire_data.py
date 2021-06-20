@@ -166,8 +166,15 @@ def get_annual_acres_helper(all_data, year):
     return acres_burned, overall_total_acres_burned
 
 
-def get_annual_acres(ds:DataStore, year):
-    all_data = ds.load_all_data(year)
+def get_annual_acres(ds:DataStore, year, state=None):
+    def filter_by_state(x):
+        return x['State'].startswith(state)
+
+    if state:
+       include_function = filter_by_state
+    else:
+        include_function = None
+    all_data = ds.load_all_data(year, include=include_function)
     return get_annual_acres_helper(all_data, year)
 
 

@@ -100,7 +100,7 @@ class WebPage:
 
     def load_us_data(self):
         data_source = get_us_fire_data.get_data_store()
-        acres_burned, days_of_data_found = get_us_fire_data.get_annual_acres(data_source, year=self.year)
+        acres_burned, days_of_data_found = get_us_fire_data.get_annual_acres(data_source, year=self.year, state='California')
 
         data_as_string = ""
         if self.x_min_date and len(acres_burned) > 0:
