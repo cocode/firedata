@@ -202,14 +202,17 @@ def summarize(ds, year=None, output=sys.stdout):
     awidth = 14
     pwidth = 5
 
-
     yesterday, jdata_today, filtered_fires = get_data(ds, year)
     if yesterday:
         print(
             F"{'Acres Burned':>{awidth}} {'Change':>{dwidth}} {'%Cont':{pwidth}} {'Change':>{dwidth}} {'Incident Name'}",
             file=output)
+        print_headings = [F"{'Acres Burned':>{awidth}}",  F"{'Change':>{dwidth}}", F"{'%Cont':{pwidth}}",  F"{'Change':>{dwidth}}", F"{'Incident Name'}"]
     else:
+        # TODO print both cases the same. And shouldn't the second column be "%Cont", not "Change", if no prior day's data?
         print(F"{'Acres Burned':>{awidth}} {'Change':>{dwidth}} {'Incident Name'}", file=output)
+        print_headings = [F"{'Acres Burned':>{awidth}}",  F"{'Change':>{dwidth}}", F"{'Incident Name'}"]
+
 
     acres_burned = 0
     acres_added = 0 # Number of new acres burned since yesterday
@@ -247,15 +250,39 @@ def summarize(ds, year=None, output=sys.stdout):
     print(F"New or growing fires............: {growing_fires:20,}", file=output)
     print(F"Total acres burned, active fires: {acres_burned:>20,}", file=output)
     print(F"New acres burned................: {acres_added:>20,}", file=output)
+    sum_titles = [
+        F"Number of active incidents......:",
+        F"New or growing fires............:",
+        F"Total acres burned, active fires:",
+        F"New acres burned................:"
+    ]
     summary = [
         [F"Number of active incidents:", len(filtered_fires)],
         [F"New or growing fires", growing_fires],
         [F"Total acres burned, active fires", acres_burned],
         [F"New acres burned", acres_added]
     ]
+    assert len(summary) == len(sum_titles)
+
     headings = ['Acres Burned', 'Change', '% Contained', 'Change', 'Incident Name']
 
-    return rows, headings, summary
+    return rows, headings, summary, sum_titles, print_headings
+
+
+def sum_and_print(ds, year=None):
+    rows, headings, summary, sum_titles, print_headings = summarize(ds, year, output = io.StringIO())
+    for heading in print_headings:
+        print(heading, end="")
+        print(" ", end="")
+    print()
+    for row in rows:
+        for column in row:
+            print(column, end="")
+            print(" ", end="")
+        print()
+    for index in range(len(sum_titles)):
+        print(F"{sum_titles[index]} {summary[index][1]:>20,}")
+    print()
 
 
 def parse(data):
@@ -286,8 +313,10 @@ def run():
     print("****************************")
     print("        Active Fires        ")
     print("****************************")
-    summarize(data_store, year=2021, output=f)
-    print(f.getvalue())
+    summarize(data_store, year=2021)
+    #print(f.getvalue())
+    sum_and_print(data_store, year=2021)
+
     data = get_annual_acres(data_store)
 
 if __name__ == "__main__":
