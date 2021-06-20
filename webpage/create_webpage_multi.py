@@ -64,7 +64,7 @@ class WebPage:
         historical = get_historical_data.get_stats()
         return historical
 
-    def load_year_data(self):
+    def load_calfire_year_data(self):
         """
         Loads the data from self.year. Also generates the summary info printed
         below the chart.
@@ -89,7 +89,7 @@ class WebPage:
         self.sum_str = summary.getvalue()
 
     def load(self):
-        self.load_year_data()
+        self.load_calfire_year_data()
 
     def write_chart_begin(self, output, chart):
         output.write('var data = new google.visualization.DataTable();\n')
