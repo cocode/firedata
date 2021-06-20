@@ -1,5 +1,7 @@
 from unittest import TestCase
-from get_cal_fire_data import get_delta
+
+from data_store import DataStore
+from get_cal_fire_data import get_delta, summarize, summarize_ytd
 import json
 
 
@@ -32,3 +34,19 @@ class Test(TestCase):
         a, b = get_delta(newer, older, "vanished", 3)
         self.assertEqual("   ", a)
         self.assertEqual(0, b)
+
+    def test_summarize(self):
+        ds = DataStore("data/data_cal")
+        summarize(ds, 2019) # Test for year with no data - just check that it runs.
+        summarize(ds, 2020) # Test for year with no data - just check that it runs.
+        summarize(ds, 2021) # Test for year with no data - just check that it runs.
+        summarize(ds, 2022) # Test for year with no data - just check that it runs.
+
+    def test_summarize_ytd(self):
+        ds = DataStore("data/data_cal")
+        summarize_ytd(ds, 2019) # Test for year with no data
+        summarize_ytd(ds, 2020) # Test for year with no data
+        summarize_ytd(ds, 2021) # Test for year with no data
+        summarize_ytd(ds, 2022) # Test for year with no data
+
+
