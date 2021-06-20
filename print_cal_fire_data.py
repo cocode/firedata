@@ -22,7 +22,7 @@ def print_items(stats, format_title='.<', format_value='>20'):
     print()
 
 
-def sum_and_print(ds, year=None):
+def sum_and_print(ds, year):
     rows, headings, summary, print_headings = summarize(ds, year)
     for heading in print_headings:
         print(heading, end="")
@@ -39,21 +39,23 @@ def sum_and_print(ds, year=None):
 
 def run():
     todays_date = date.today()
+    year = todays_date.year
+    year = 2022 # NOCOMMIT
 
     data_store = collect_data()
-    print(F"Summarizing YTD CAL FIRE data as of..: {todays_date}")
+    print(F"Summarizing YTD CAL FIRE data as of..: {todays_date} for year {year}")
 
     print("****************************")
     print("        Year To Date        ")
     print("****************************")
-    values = summarize_ytd(data_store)
+    values = summarize_ytd(data_store, year)
     print_items(values, ".<", ",")
 
     print("****************************")
     print("        Active Fires        ")
     print("****************************")
-    summarize(data_store, year=2021)
-    sum_and_print(data_store, year=2021)
+    summarize(data_store, year=year)
+    sum_and_print(data_store, year=year)
 
     data, days_of_data_found = get_annual_acres(data_store)
     print("Found data for ", days_of_data_found, "days")

@@ -31,7 +31,7 @@ from data_store import DataStore
 
 
 # f-strings in python suck at handling None, so this class helps
-def sub(fire, key, width, f=None):
+def sub(fire, key, width: int, f=None):
     if key in fire and fire[key] is not None:
         value = F"{fire[key]:{width},}"
     else:
@@ -39,7 +39,7 @@ def sub(fire, key, width, f=None):
     return value
 
 
-def get_delta(f1, f2, key, width=10):
+def get_delta(f1, f2, key, width: int=10):
     """
     finds and formats the difference between the one key value in two dicts.
     :param f1: Today's dict
@@ -63,9 +63,10 @@ def get_delta(f1, f2, key, width=10):
     return F"{delta:>+{width},}", delta
 
 
-def filter_by_year(sorted_fires, year:int):
+def filter_by_year(sorted_fires, year: int):
     """
     Limit data to the specified year. If year is None, then return without filtering.
+    TODO is this redundant, now that the DataStore can filter by year?
     :param sorted_fires:
     :param year: Int year, or None
     :return:
@@ -89,7 +90,12 @@ def get_incidents(todays_data):
     return sorted_fires
 
 
-def load_today(ds):
+def load_most_recent(ds: DataStore):
+    """
+    Loads the most recent two data points from the data store.
+    :param ds:
+    :return:
+    """
     jdata = ds.load_all_data()
     if len(jdata) < 1:
         return None, []
@@ -101,8 +107,8 @@ def load_today(ds):
     return yesterday, jdata_today
 
 
-def get_data(ds, year):
-    yesterday, jdata_today = load_today(ds)
+def get_data(ds:DataStore, year: int):
+    yesterday, jdata_today = load_most_recent(ds)
     if len(jdata_today) == 0:
         return None, [], []
     sorted_fires = get_incidents(jdata_today)
@@ -110,22 +116,7 @@ def get_data(ds, year):
     return yesterday, jdata_today, filtered_fires
 
 
-def load_annual_data(ds: DataStore, year: int = None):
-    """
-
-    :param ds:
-    :param year:  #TODO Why is this parameter here? For future pre-filtering, instead of post?
-    :return: year used, fire data
-    """
-    todays_date = date.today()
-    if year is None:
-        year = todays_date.year
-    # TODO Don't load data twice
-    all_data = ds.load_all_data()
-    return year, all_data
-
-
-def get_annual_acres(ds:DataStore, year=None):
+def get_annual_acres(ds:DataStore, year:int):
     """
     Gets the number of acres burned, for each day of the current (or specified) year.
     Used to generate data for website graphs.
@@ -134,7 +125,7 @@ def get_annual_acres(ds:DataStore, year=None):
     :param year:
     :return: tuple of number of acres burned in the given year, and length of all_data.
     """
-    year, all_data = load_annual_data(ds, year)
+    all_data = ds.load_all_data(year)
     acres_burned = []
     for meta_data in all_data:
         day_data = meta_data['data']
@@ -147,14 +138,15 @@ def get_annual_acres(ds:DataStore, year=None):
     return acres_burned, len(all_data)
 
 
-def summarize_ytd(ds: DataStore, year=None):
+def summarize_ytd(ds: DataStore, year: int):
     """
     Summarize the year-to-date data in the most recent day's data from calfire.
-    :param ds:
+    :param ds: the data store
+    :param year: the year to summarize
     :return: list of [title, value]
     """
     return_value = []
-    year, all_data = load_annual_data(ds, year)
+    all_data = ds.load_all_data(year)
     if len(all_data) == 0:
         return [[F"No data found for year", year]]
     most_recent_day = all_data[-1]['data']
@@ -188,7 +180,7 @@ def summarize_ytd(ds: DataStore, year=None):
     return return_value
 
 
-def summarize(ds, year=None):
+def summarize(ds, year:int):
     """
     Print a summary of information about fires in the database. This is a summary that compares to the
     previous day's data. This may be wrong if we skipped collecting for a day.
@@ -206,7 +198,6 @@ def summarize(ds, year=None):
     else:
         # TODO print both cases the same. And shouldn't the second column be "%Cont", not "Change", if no prior day's data?
         print_headings = [F"{'Acres Burned':>{awidth}}",  F"{'Change':>{dwidth}}", F"{'Incident Name'}"]
-
 
     acres_burned = 0
     acres_added = 0 # Number of new acres burned since yesterday
@@ -272,7 +263,7 @@ def run():
     todays_date = date.today()
     print(F"Collecting CAL FIRE data on: {todays_date}")
     data_store = collect_data()
-    data, days_of_data_found = get_annual_acres(data_store)
+    data, days_of_data_found = get_annual_acres(data_store, year=None) # Get data for all years.
     print("Nnow have data for ", days_of_data_found, "days, total.")
     # TODO print starting and ending dates.
 

@@ -39,13 +39,15 @@ class DataStore:
         with open(filename, "w") as f:
             f.write(formatted)
 
-    def load_all_data(self):
+    def load_all_data(self, filter_to_year=None):
         """
         Loads all the data in the data store, and wraps it in a dict, with
         metadata
         :return: A list of dicts, which contain metadata and the data
         """
         all_data = []
+        if filter_to_year and type(filter_to_year) == int:
+            filter_to_year = str(filter_to_year)
         # Maybe we should generate filenames by date, and look back?
         # This gives us two ways to create filenames.
         files = os.listdir(self.get_data_dir())
@@ -57,6 +59,8 @@ class DataStore:
                 continue
             ff = f.split('_')
             year = ff[1]
+            if filter_to_year is not None and filter_to_year != year:
+                continue;
             month = ff[2]
             day = ff[3].split(".")[0]
             assert 2020 <= int(year) <= 2099
