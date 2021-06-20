@@ -1,4 +1,8 @@
-from get_cal_fire_data import collect_data, get_annual_acres, summarize
+import datetime
+
+from get_cal_fire_data import collect_data, summarize
+import get_us_fire_data
+import get_cal_fire_data
 import get_historical_data
 import re, json
 import io
@@ -42,6 +46,7 @@ google.charts.setOnLoadCallback(drawCharts);
 function drawCharts() {\n
 """
 
+
 class Chart:
     def __init__(self, year, element, columns, options, footer=None):
         # TODO Chart data needs to be here, as well.
@@ -52,17 +57,24 @@ class Chart:
         self.chart_data = None # Loaded later
 
 class WebPage:
-    def __init__(self, year, charts):
+    def __init__(self, year, charts, x_min_date=None):
         self.year = year
         self.subdir = "webpage"
         self.destination = F"{self.subdir}/fire_multi.html"
         self.acres_burned = None
         self.year_data = None
         self.charts = charts
+        self.x_min_date: datetime.date = x_min_date
+
+
 
     def load_historical_data(self):
+        """
+        Loads the 20+ years of historical data obtained from Cal Fire.
+        :return:
+        """
         historical = get_historical_data.get_stats()
-        return historical
+        self.hist = historical
 
     def load_calfire_year_data(self):
         """
@@ -70,25 +82,52 @@ class WebPage:
         below the chart.
         :return:
         """
-        # Option to show the whole year, even fires don't start until may.
-        START_JAN_ONE = False
         # Next three lines should be one function
-        data_source = collect_data()
-        acres_burned, days_of_data_found = get_annual_acres(data_source, year=self.year)
+        data_source = collect_data()  # TODO Do we need to do this, now that we are on github actions?
+        acres_burned, days_of_data_found = get_cal_fire_data.get_annual_acres(data_source, year=self.year)
         self.sum_rows, self.sum_headers, self.sum_summary, ignored = summarize(data_source, year=self.year)
 
         data_as_string = ""
-        if START_JAN_ONE and len(acres_burned) > 0:
-            if acres_burned[0][1] != 1 or acres_burned[0][2] != 1:
-                data_as_string += F"[new Date({acres_burned[0][0]}, {1 - 1}, {1}), {0}],\n"
+        if self.x_min_date and len(acres_burned) > 0:
+            current_min = datetime.date(self.year, acres_burned[0][1], acres_burned[0][2])
+            if current_min > self.x_min_date:
+                # if acres_burned[0][1] != 1 or acres_burned[0][2] != 1:
+                data_as_string += F"[new Date({self.year}, {self.x_min_date.month - 1}, {self.x_min_date.day}), {0}],\n"
 
         for i in acres_burned:
             data_as_string += F"[new Date({i[0]}, {i[1] - 1}, {i[2]}), {i[3]}],\n"
-        # print(data_as_string)
         self.year_data = data_as_string
 
-    def load(self):
+    def load_us_data(self):
+        data_source = get_us_fire_data.get_data_store()
+        acres_burned, days_of_data_found = get_us_fire_data.get_annual_acres(data_source, year=self.year)
+
+        data_as_string = ""
+        if self.x_min_date and len(acres_burned) > 0:
+            current_min = datetime.date(self.year, acres_burned[0][1], acres_burned[0][2])
+            if current_min > self.x_min_date:
+                # if acres_burned[0][1] != 1 or acres_burned[0][2] != 1:
+                data_as_string += F"[new Date({self.year}, {self.x_min_date.month - 1}, {self.x_min_date.day}), {0}],\n"
+
+        for i in acres_burned:
+            ab = i[3]
+            data_as_string += F"[new Date({i[0]}, {i[1] - 1}, {i[2]}), {ab}],\n"
+        self.us_chart_data = data_as_string
+
+
+    def load_chart_data(self):
         self.load_calfire_year_data()
+        self.load_historical_data()
+        self.load_us_data()
+
+    def get_us_data(self, state=None):
+        """TBD
+        Gets the US fire data, for the specified state (or all) in the format for including
+        in the webpage.
+
+        :param state:
+        :return:
+        """
 
     def write_chart_begin(self, output, chart):
         output.write('var data = new google.visualization.DataTable();\n')
@@ -155,13 +194,13 @@ class WebPage:
         # Temp hard code it.
         output.write('<p>Calfire: Change between last two data points (days):</p>')
         output.write('<table>\n')
-        output.write("    <TR>\n")
+        output.write("    <tr>\n")
         for col in self.sum_headers:
-            output.write(F"        <th>{col}</td>\n")
-        output.write("    </TR>\n")
+            output.write(F"        <th>{col}</th>\n")
+        output.write("    </tr>\n")
 
         for row in self.sum_rows:
-            output.write("    <TR>\n")
+            output.write("    <tr>\n")
             for col in row:
                 col = col.strip()
                 if col and col[0] in "0123456789+-~" or col == "new":
@@ -169,14 +208,15 @@ class WebPage:
                 else:
                     align = "left"
                 output.write(F"        <td style='text-align: {align};'>{col}</td>\n")
-            output.write("    </TR>\n")
+            output.write("    </tr>\n")
         output.write("</table>")
         output.write("<hr>")
         output.write('<p>Calfire: Active Incident Summary (days):</p>')
 
         output.write('<table>\n')
-        output.write(F"        <th style='text-align:left;'>Cal Fire Stat</td>\n")
-        output.write(F"        <th style='text-align:right;'>Value</td>\n")
+        output.write("    <tr>\n")
+        output.write(F"        <th style='text-align:left'>Cal Fire Stat</th>\n")
+        output.write(F"        <th style='text-align:right;'>Value</th>\n")
 
         for row in self.sum_summary:
             alignment = ["left", "right"]
@@ -223,23 +263,24 @@ if __name__ == "__main__":
         c = Chart(year, data_chart['element_id'], data_chart['columns'], data_chart['options'], data_chart['footer'])
         chart_list.append(c)
 
+    # Set the minimum date, to keep the related charts aligned.
+    min_date = datetime.date(year, 5, 1)
+    page = WebPage(year, chart_list, min_date)
 
-    page = WebPage(year, chart_list)
-    page.load()
-    hist = page.load_historical_data()
-    print(hist)
+    page.load_chart_data()
     hist_string = ""
-    for y in hist:
+    for y in page.hist:
         acres = y[2]
         fed_acres = y[4]
         acres = acres.replace(",", "")
         fed_acres = fed_acres.replace(",", "")
         # Javascript counts months from 0-11, so december is 11
         hist_string += F'[new Date({y[0]}, 11, 31), {acres}, {fed_acres}],\n'
-    print(hist_string)
 
     # TODO: Get the data from .json
     chart_list[0].chart_data = page.year_data
-    chart_list[1].chart_data = hist_string
+    chart_list[1].chart_data = page.us_chart_data
+    chart_list[2].chart_data = hist_string
+
     page.create()
 
