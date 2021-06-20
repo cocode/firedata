@@ -91,6 +91,8 @@ def get_incidents(todays_data):
 
 def load_today(ds):
     jdata = ds.load_all_data()
+    if len(jdata) < 1:
+        return None, []
     jdata_today = jdata[-1]['data']
     if len(jdata) > 1:
         yesterday = jdata[-2]['data']["Incidents"]
@@ -101,6 +103,8 @@ def load_today(ds):
 
 def get_data(ds, year):
     yesterday, jdata_today = load_today(ds)
+    if len(jdata_today) == 0:
+        return None, [], []
     sorted_fires = get_incidents(jdata_today)
     filtered_fires = filter_by_year(sorted_fires, year)
     return yesterday, jdata_today, filtered_fires
@@ -152,7 +156,7 @@ def summarize_ytd(ds: DataStore, year=None):
     return_value = []
     year, all_data = load_annual_data(ds, year)
     if len(all_data) == 0:
-        return [F"No data found for year", year]
+        return [[F"No data found for year", year]]
     most_recent_day = all_data[-1]['data']
     if 'AllAcres' in most_recent_day:
         all_acres = most_recent_day['AllAcres']
@@ -270,7 +274,7 @@ def run():
     data_store = collect_data()
     data, days_of_data_found = get_annual_acres(data_store)
     print("Nnow have data for ", days_of_data_found, "days, total.")
-    # TODO print starting and ending dates. 
+    # TODO print starting and ending dates.
 
 
 if __name__ == "__main__":
