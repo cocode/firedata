@@ -1,18 +1,23 @@
 # TODO Rearrange project structure
-# TODO Separate fetching code from display (print, html) code.
+    - Separate fetching code from computing code, from display (print, html) code.
+        - Done for get_cal_fire_data, still need to do for US and WA.
 # TODO Timestamp the data downloaded (currently I just save YYYYMMDD, not time)
 # TODO Graph for delta acres burned in html
 # TODO Bring non-calfire sources up to parity with calfire.
 # TODO Only rebuild the webpage if we get new data from calfire
+# TODO github action fails if no changes since last run, as commit returns 1
 # TODO Chart this year vs last year on daily chart.
 # TODO Allow user to select year to display.
 # TODO for federal data, I'm only collecting california. I should get all states, and save it.
 # TODO Make fetching from the different sources independent jobs. If WA fails, we shouldn't fail CA or US
 # TODO Add tests, and add test workflow.
+    - Test workflow working.
+    - Need more tests.
 # TODO We load the data for the fires several times. Each function loads the data again. Fix that.
-# TODO Need to make year handling consistent. Sometimes we default to current year, sometimes pass it.
 # TODO The calfire summary should print the two dates it is comparing
-# TODO Convert the historical data chart to a stacked bar chart, and include all agencies. - Have state & federal, not local yet.
+# TODO Convert the historical data chart to a stacked bar chart, and include all agencies.
+    - Have state & federal, not local yet.
 # TODO Find a better way to add a footnote to a google chart.
 # TODO How to display US & Cal fire data. Always on one stacked bar chart? One page for each?
-# TODO "git commit" returns non-zero and aborts the github action on error. This can happen when running manually, and there has been no change to the data. Fix.
+# TODO: Get the chart data from .json, in create_webpage_multi, to make chart fully specified by json.
+
