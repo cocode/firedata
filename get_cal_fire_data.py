@@ -139,7 +139,7 @@ def get_annual_acres(ds:DataStore, year:int):
 
     :param ds:
     :param year:
-    :return: tuple of number of acres burned in the given year, and length of all_data.
+    :return: list of tuples (year, month, day, acres burned that day).
     """
     all_data = ds.load_all_data(year)
     acres_burned = []
