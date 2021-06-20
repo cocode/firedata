@@ -190,7 +190,7 @@ def summarize_ytd(ds: DataStore, year=None):
     #print(all_year_incidents)
 
 
-def summarize(ds, year=None, output=sys.stdout):
+def summarize(ds, year=None):
     """
     Print a summary of information about fires in the database. This is a summary that compares to the
     previous day's data. This may be wrong if we skipped collecting for a day.
@@ -204,13 +204,9 @@ def summarize(ds, year=None, output=sys.stdout):
 
     yesterday, jdata_today, filtered_fires = get_data(ds, year)
     if yesterday:
-        print(
-            F"{'Acres Burned':>{awidth}} {'Change':>{dwidth}} {'%Cont':{pwidth}} {'Change':>{dwidth}} {'Incident Name'}",
-            file=output)
         print_headings = [F"{'Acres Burned':>{awidth}}",  F"{'Change':>{dwidth}}", F"{'%Cont':{pwidth}}",  F"{'Change':>{dwidth}}", F"{'Incident Name'}"]
     else:
         # TODO print both cases the same. And shouldn't the second column be "%Cont", not "Change", if no prior day's data?
-        print(F"{'Acres Burned':>{awidth}} {'Change':>{dwidth}} {'Incident Name'}", file=output)
         print_headings = [F"{'Acres Burned':>{awidth}}",  F"{'Change':>{dwidth}}", F"{'Incident Name'}"]
 
 
@@ -238,39 +234,25 @@ def summarize(ds, year=None, output=sys.stdout):
             #     delta_a = fire['AcresBurned'] - f2['AcresBurned']
             # else:
             #     delta_a = "~"
-            print(F"{sub(fire,'AcresBurned',awidth)} {delta_a} {sub(fire,'PercentContained',5)} {delta_c} {fire['Name']}", file=output)
             row = [sub(fire,'AcresBurned',awidth), delta_a, sub(fire,'PercentContained',5), delta_c, fire['Name']]
         else:
-            print(F"{sub(fire,'AcresBurned',awidth)} {sub(fire,'PercentContained',8)} {fire['Name']}", file=output)
             row = [sub(fire,'AcresBurned',awidth), "N/A", sub(fire,'PercentContained',5), "N/A", fire['Name']]
         rows.append(row)
 
-    print(file=output)
-    print(F"Number of active incidents......: {len(filtered_fires):20,}", file=output)
-    print(F"New or growing fires............: {growing_fires:20,}", file=output)
-    print(F"Total acres burned, active fires: {acres_burned:>20,}", file=output)
-    print(F"New acres burned................: {acres_added:>20,}", file=output)
-    sum_titles = [
-        F"Number of active incidents......:",
-        F"New or growing fires............:",
-        F"Total acres burned, active fires:",
-        F"New acres burned................:"
-    ]
     summary = [
-        [F"Number of active incidents:", len(filtered_fires)],
+        [F"Number of active incidents", len(filtered_fires)],
         [F"New or growing fires", growing_fires],
         [F"Total acres burned, active fires", acres_burned],
         [F"New acres burned", acres_added]
     ]
-    assert len(summary) == len(sum_titles)
 
     headings = ['Acres Burned', 'Change', '% Contained', 'Change', 'Incident Name']
 
-    return rows, headings, summary, sum_titles, print_headings
+    return rows, headings, summary, print_headings
 
 
 def sum_and_print(ds, year=None):
-    rows, headings, summary, sum_titles, print_headings = summarize(ds, year, output = io.StringIO())
+    rows, headings, summary, print_headings = summarize(ds, year)
     for heading in print_headings:
         print(heading, end="")
         print(" ", end="")
@@ -280,8 +262,10 @@ def sum_and_print(ds, year=None):
             print(column, end="")
             print(" ", end="")
         print()
-    for index in range(len(sum_titles)):
-        print(F"{sum_titles[index]} {summary[index][1]:>20,}")
+
+    maxlen = len(max(summary, key=lambda x:len(x[0]))[0])
+    for item in summary:
+        print(F"{item[0]:.<{maxlen}}: {item[1]:>20,}")
     print()
 
 

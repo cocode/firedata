@@ -70,13 +70,12 @@ class WebPage:
         below the chart.
         :return:
         """
-        summary = io.StringIO()
         # Option to show the whole year, even fires don't start until may.
         START_JAN_ONE = False
         # Next three lines should be one function
         data_source = collect_data()
         acres_burned = get_annual_acres(data_source, year=self.year)
-        self.sum_rows, self.sum_headers, self.sum_summary, ignored, ignored2 = summarize(data_source, year=self.year, output=summary)
+        self.sum_rows, self.sum_headers, self.sum_summary, ignored = summarize(data_source, year=self.year)
 
         data_as_string = ""
         if START_JAN_ONE and len(acres_burned) > 0:
