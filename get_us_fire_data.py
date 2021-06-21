@@ -1,11 +1,16 @@
 """
 Fetch fire info from Federal "InciWeb"
 """
+import datetime
+import json
+import os
 from typing import Optional, Callable, Any
 
 from refresher import Refresh
 from data_store import DataStore
 import bs4 as bs # type: ignore
+
+DATA_STORE_PATH="data/data_us"
 
 
 def get_size(fire_info:dict):
@@ -134,7 +139,6 @@ def get_annual_acres_helper(all_data, year):
     # TODO need to parse the year from the filename, and filter to the current year.
     # TODO We should calculate the total acres when we save the data, and add it.
 
-    :param ds:
     :param year:
     :return: list of tuples of (year, month, day, acres_burned)
     """
@@ -227,7 +231,7 @@ def parse(content):
 
 
 def get_data_store():
-    data_store = DataStore("data/data_us")
+    data_store = DataStore(DATA_STORE_PATH)
     return data_store
 
 
@@ -241,6 +245,35 @@ def run():
     print(annual)
 
 
+def run_wayback():
+    archive_directory = DATA_STORE_PATH+"/source"
+    files = os.listdir(archive_directory)
+    for filename in files:
+        if not filename.endswith(".html"):
+            continue
+        parts = filename[:-len(".html")].split('_')
+        assert len(parts) == 4
+        year = int(parts[1])
+        month = int(parts[2])
+        day = int(parts[3])
+        assert 1900 < year < 2100 and 1 <= month <= 12 and 1 <= day <=31
+        print(filename)
+        path = archive_directory + "/" + filename
+        with open(path) as f:
+            archive = f.read()
+        data = parse(archive)
+        for incident in data:
+            incident['_source'] = path
+        print(json.dumps(data, indent=4))
+        data_store = get_data_store()
+        data_date = datetime.date(year,month, day)
+        already_exists = data_store.does_data_exist(data_date)
+        print(F"Data already in data store: {already_exists}")
+        if not already_exists:
+            data_store.save_date_data(data_date, json)
+
+
 if __name__ == "__main__":
     run()
+    #run_wayback()
     print("Done.")
