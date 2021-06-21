@@ -1,0 +1,362 @@
+[
+    {
+        "Incident": "Mendocino Complex",
+        "Type": "Wildfire",
+        "State": "California, USA",
+        "Size": "459123 Acres",
+        "Updated": "11/7/2018",
+        "href": "/incident/6073/",
+        "_source": "data/data_us/source/firedata_2018_12_07.html"
+    },
+    {
+        "Incident": "Ranch Fire BAER",
+        "Type": "Burned Area Emergency Response",
+        "State": "California, USA",
+        "Size": "410182 Acres",
+        "Updated": "11/2/2018",
+        "href": "/incident/6156/",
+        "_source": "data/data_us/source/firedata_2018_12_07.html"
+    },
+    {
+        "Incident": "Klondike Fire",
+        "Type": "Wildfire",
+        "State": "Oregon, USA",
+        "Size": "175258 Acres",
+        "Updated": "11/5/2018",
+        "href": "/incident/5998/",
+        "_source": "data/data_us/source/firedata_2018_12_07.html"
+    },
+    {
+        "Incident": "Camp Fire",
+        "Type": "Wildfire",
+        "State": "California, USA",
+        "Size": "153336 Acres",
+        "Updated": "11/25/2018",
+        "href": "/incident/6250/",
+        "_source": "data/data_us/source/firedata_2018_12_07.html"
+    },
+    {
+        "Incident": "Delta Fire",
+        "Type": "Wildfire",
+        "State": "California, USA",
+        "Size": "63311 Acres",
+        "Updated": "11/28/2018",
+        "href": "/incident/6191/",
+        "_source": "data/data_us/source/firedata_2018_12_07.html"
+    },
+    {
+        "Incident": "Miles Fire",
+        "Type": "Wildfire",
+        "State": "Oregon, USA",
+        "Size": "54334 Acres",
+        "Updated": "10/17/2018",
+        "href": "/incident/5966/",
+        "_source": "data/data_us/source/firedata_2018_12_07.html"
+    },
+    {
+        "Incident": "Taylor Creek Fire",
+        "Type": "Wildfire",
+        "State": "Oregon, USA",
+        "Size": "52839 Acres",
+        "Updated": "9/29/2018",
+        "href": "/incident/6058/",
+        "_source": "data/data_us/source/firedata_2018_12_07.html"
+    },
+    {
+        "Incident": "Natchez Fire",
+        "Type": "Wildfire",
+        "State": "Oregon, USA",
+        "Size": "38134 Acres",
+        "Updated": "10/7/2018",
+        "href": "/incident/5948/",
+        "_source": "data/data_us/source/firedata_2018_12_07.html"
+    },
+    {
+        "Incident": "Mesa Fire",
+        "Type": "Burned Area Emergency Response",
+        "State": "Idaho, USA",
+        "Size": "34719 Acres",
+        "Updated": "10/15/2018",
+        "href": "/incident/6041/",
+        "_source": "data/data_us/source/firedata_2018_12_07.html"
+    },
+    {
+        "Incident": "Terwilliger Fire",
+        "Type": "Wildfire",
+        "State": "Oregon, USA",
+        "Size": "11555 Acres",
+        "Updated": "10/17/2018",
+        "href": "/incident/6160/",
+        "_source": "data/data_us/source/firedata_2018_12_07.html"
+    },
+    {
+        "Incident": "Range Two Fire",
+        "Type": "Wildfire",
+        "State": "Nevada, USA",
+        "Size": "9196 Acres",
+        "Updated": "10/12/2018",
+        "href": "/incident/6235/",
+        "_source": "data/data_us/source/firedata_2018_12_07.html"
+    },
+    {
+        "Incident": "Rattlesnake Creek Fire",
+        "Type": "Burned Area Emergency Response",
+        "State": "Idaho, USA",
+        "Size": "8220 Acres",
+        "Updated": "10/15/2018",
+        "href": "/incident/5999/",
+        "_source": "data/data_us/source/firedata_2018_12_07.html"
+    },
+    {
+        "Incident": "Alder, Mountaineer, and Moses Fires",
+        "Type": "Wildfire",
+        "State": "California, USA",
+        "Size": "5942 Acres",
+        "Updated": "11/28/2018",
+        "href": "/incident/6238/",
+        "_source": "data/data_us/source/firedata_2018_12_07.html"
+    },
+    {
+        "Incident": "Rapid River Prescribed Fire",
+        "Type": "Prescribed Fire",
+        "State": "Idaho, USA",
+        "Size": "5000 Acres",
+        "Updated": "11/2/2018",
+        "href": "/incident/6231/",
+        "_source": "data/data_us/source/firedata_2018_12_07.html"
+    },
+    {
+        "Incident": "Payette Prescribed Fire, Fall 2018",
+        "Type": "Prescribed Fire",
+        "State": "Idaho, USA",
+        "Size": "3732 Acres",
+        "Updated": "11/2/2018",
+        "href": "/incident/6227/",
+        "_source": "data/data_us/source/firedata_2018_12_07.html"
+    },
+    {
+        "Incident": "Bum Creek",
+        "Type": "Wildfire",
+        "State": "Idaho, USA",
+        "Size": "3438 Acres",
+        "Updated": "10/26/2018",
+        "href": "/incident/6197/",
+        "_source": "data/data_us/source/firedata_2018_12_07.html"
+    },
+    {
+        "Incident": "KNF-GRCA North Zone Fire Rx 2018-2019",
+        "Type": "Prescribed Fire",
+        "State": "Arizona, USA",
+        "Size": "3000 Acres",
+        "Updated": "11/9/2018",
+        "href": "/incident/6237/",
+        "_source": "data/data_us/source/firedata_2018_12_07.html"
+    },
+    {
+        "Incident": "East Fork Prescribed Fire",
+        "Type": "Prescribed Fire",
+        "State": "Idaho, USA",
+        "Size": "2130 Acres",
+        "Updated": "11/2/2018",
+        "href": "/incident/6241/",
+        "_source": "data/data_us/source/firedata_2018_12_07.html"
+    },
+    {
+        "Incident": "Four Mile Prescribed Fire",
+        "Type": "Prescribed Fire",
+        "State": "Idaho, USA",
+        "Size": "2000 Acres",
+        "Updated": "11/2/2018",
+        "href": "/incident/6232/",
+        "_source": "data/data_us/source/firedata_2018_12_07.html"
+    },
+    {
+        "Incident": "Bald Hill Prescribed Fire",
+        "Type": "Prescribed Fire",
+        "State": "Idaho, USA",
+        "Size": "1200 Acres",
+        "Updated": "11/2/2018",
+        "href": "/incident/6244/",
+        "_source": "data/data_us/source/firedata_2018_12_07.html"
+    },
+    {
+        "Incident": "Caton Fire",
+        "Type": "Wildfire",
+        "State": "Idaho, USA",
+        "Size": "790 Acres",
+        "Updated": "10/26/2018",
+        "href": "/incident/6177/",
+        "_source": "data/data_us/source/firedata_2018_12_07.html"
+    },
+    {
+        "Incident": "Bighorn Sheep Prescribed Burn",
+        "Type": "Prescribed Fire",
+        "State": "Colorado, USA",
+        "Size": "636 Acres",
+        "Updated": "11/26/2018",
+        "href": "/incident/5676/",
+        "_source": "data/data_us/source/firedata_2018_12_07.html"
+    },
+    {
+        "Incident": "Tonto National Forest Rx Burns 2018",
+        "Type": "Prescribed Fire",
+        "State": "Arizona, USA",
+        "Size": "500 Acres",
+        "Updated": "7 days ago",
+        "href": "/incident/5925/",
+        "_source": "data/data_us/source/firedata_2018_12_07.html"
+    },
+    {
+        "Incident": "PV NIDGS Prescribed Fire",
+        "Type": "Prescribed Fire",
+        "State": "Idaho, USA",
+        "Size": "350 Acres",
+        "Updated": "11/2/2018",
+        "href": "/incident/6230/",
+        "_source": "data/data_us/source/firedata_2018_12_07.html"
+    },
+    {
+        "Incident": "Kaibab NF South Zone Rx Fire",
+        "Type": "Prescribed Fire",
+        "State": "Arizona, USA",
+        "Size": "114 Acres",
+        "Updated": "2 hrs. ago",
+        "href": "/incident/5922/",
+        "_source": "data/data_us/source/firedata_2018_12_07.html"
+    },
+    {
+        "Incident": "Rocky Bear Prescribed Fire",
+        "Type": "Prescribed Fire",
+        "State": "Idaho, USA",
+        "Size": "52 Acres",
+        "Updated": "11/2/2018",
+        "href": "/incident/6242/",
+        "_source": "data/data_us/source/firedata_2018_12_07.html"
+    },
+    {
+        "Incident": "Kern River Ranger District Prescribed RX",
+        "Type": "Prescribed Fire",
+        "State": "California, USA",
+        "Size": "16 Acres",
+        "Updated": "19 hrs. ago",
+        "href": "/incident/5663/",
+        "_source": "data/data_us/source/firedata_2018_12_07.html"
+    },
+    {
+        "Incident": "2018 Fall/Winter Burns",
+        "Type": "Prescribed Fire",
+        "State": "Arizona, USA",
+        "Size": "5 Acres",
+        "Updated": "4 days ago",
+        "href": "/incident/6247/",
+        "_source": "data/data_us/source/firedata_2018_12_07.html"
+    },
+    {
+        "Incident": "Shasta-Trinity Prescribed Fires 2018-19",
+        "Type": "Prescribed Fire",
+        "State": "California, USA",
+        "Size": "0 Acres",
+        "Updated": "11/29/2018",
+        "href": "/incident/6239/",
+        "_source": "data/data_us/source/firedata_2018_12_07.html"
+    },
+    {
+        "Incident": "Shasta-Trinity NF Post-Fire BAER",
+        "Type": "Burned Area Emergency Response",
+        "State": "California, USA",
+        "Size": "0 Acres",
+        "Updated": "11/28/2018",
+        "href": "/incident/6221/",
+        "_source": "data/data_us/source/firedata_2018_12_07.html"
+    },
+    {
+        "Incident": "Slash Pile Burning 2018",
+        "Type": "Prescribed Fire",
+        "State": "Colorado, USA",
+        "Size": "0 Acres",
+        "Updated": "11/19/2018",
+        "href": "/incident/4648/",
+        "_source": "data/data_us/source/firedata_2018_12_07.html"
+    },
+    {
+        "Incident": "Dolores Ranger District Prescribed Fire ",
+        "Type": "Prescribed Fire",
+        "State": "Colorado, USA",
+        "Size": "0 Acres",
+        "Updated": "11/6/2018",
+        "href": "/incident/6216/",
+        "_source": "data/data_us/source/firedata_2018_12_07.html"
+    },
+    {
+        "Incident": "2018 Umatilla NF Prescribed Fire",
+        "Type": "Prescribed Fire",
+        "State": "Oregon, USA",
+        "Size": "0 Acres",
+        "Updated": "10/24/2018",
+        "href": "/incident/5808/",
+        "_source": "data/data_us/source/firedata_2018_12_07.html"
+    },
+    {
+        "Incident": "Hoosier National Forest Prescribed Burns",
+        "Type": "Prescribed Fire",
+        "State": "Indiana, USA",
+        "Size": "0 Acres",
+        "Updated": "10/23/2018",
+        "href": "/incident/6246/",
+        "_source": "data/data_us/source/firedata_2018_12_07.html"
+    },
+    {
+        "Incident": "Crescent Mountain & McLeod Fires BAER",
+        "Type": "Burned Area Emergency Response",
+        "State": "Washington, USA",
+        "Size": "0 Acres",
+        "Updated": "10/22/2018",
+        "href": "/incident/6224/",
+        "_source": "data/data_us/source/firedata_2018_12_07.html"
+    },
+    {
+        "Incident": "Bald Mtn-Pole Creek Post-Fire BAER",
+        "Type": "Burned Area Emergency Response",
+        "State": "Utah, USA",
+        "Size": "0 Acres",
+        "Updated": "10/18/2018",
+        "href": "/incident/6236/",
+        "_source": "data/data_us/source/firedata_2018_12_07.html"
+    },
+    {
+        "Incident": "Miles Fire BAER ",
+        "Type": "Burned Area Emergency Response",
+        "State": "Oregon, USA",
+        "Size": "0 Acres",
+        "Updated": "10/16/2018",
+        "href": "/incident/6206/",
+        "_source": "data/data_us/source/firedata_2018_12_07.html"
+    },
+    {
+        "Incident": "Cougar Creek Fire BAER",
+        "Type": "Burned Area Emergency Response",
+        "State": "Washington, USA",
+        "Size": "0 Acres",
+        "Updated": "10/11/2018",
+        "href": "/incident/6215/",
+        "_source": "data/data_us/source/firedata_2018_12_07.html"
+    },
+    {
+        "Incident": "Mill Creek Council Mountain Prescribed F",
+        "Type": "Prescribed Fire",
+        "State": "Idaho, USA",
+        "Size": "0 Acres",
+        "Updated": "10/1/2018",
+        "href": "/incident/6233/",
+        "_source": "data/data_us/source/firedata_2018_12_07.html"
+    },
+    {
+        "Incident": "2018 Malheur NF Prescribed Fire",
+        "Type": "Prescribed Fire",
+        "State": "Oregon, USA",
+        "Size": "0 Acres",
+        "Updated": "9/26/2018",
+        "href": "/incident/5139/",
+        "_source": "data/data_us/source/firedata_2018_12_07.html"
+    }
+]

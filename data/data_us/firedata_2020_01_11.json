@@ -1,0 +1,110 @@
+[
+    {
+        "Incident": "Cave Fire",
+        "Type": "Wildfire",
+        "State": "California, USA",
+        "Size": "3126 Acres",
+        "Updated": "12/19/2019",
+        "href": "/incident/6662/",
+        "_source": "data/data_us/source/firedata_2020_01_11.html"
+    },
+    {
+        "Incident": "Kennedy Peak Fire",
+        "Type": "Wildfire",
+        "State": "Virginia, USA",
+        "Size": "745 Acres",
+        "Updated": "11/26/2019",
+        "href": "/incident/6660/",
+        "_source": "data/data_us/source/firedata_2020_01_11.html"
+    },
+    {
+        "Incident": "Kaibab NF South Zone Rx Fire",
+        "Type": "Prescribed Fire",
+        "State": "Arizona, USA",
+        "Size": "550 Acres",
+        "Updated": "3 days ago",
+        "href": "/incident/5922/",
+        "_source": "data/data_us/source/firedata_2020_01_11.html"
+    },
+    {
+        "Incident": "Martinez 3 Fire",
+        "Type": "Wildfire",
+        "State": "California, USA",
+        "Size": "52 Acres",
+        "Updated": "12/10/2019",
+        "href": "/incident/6651/",
+        "_source": "data/data_us/source/firedata_2020_01_11.html"
+    },
+    {
+        "Incident": "Kern River Ranger District Prescribed RX",
+        "Type": "Prescribed Fire",
+        "State": "California, USA",
+        "Size": "30 Acres",
+        "Updated": "12 hrs. ago",
+        "href": "/incident/6664/",
+        "_source": "data/data_us/source/firedata_2020_01_11.html"
+    },
+    {
+        "Incident": "SJNF Columbine District Prescribed Fire",
+        "Type": "Prescribed Fire",
+        "State": "Colorado, USA",
+        "Size": "0 Acres",
+        "Updated": "6 hrs. ago",
+        "href": "/incident/6667/",
+        "_source": "data/data_us/source/firedata_2020_01_11.html"
+    },
+    {
+        "Incident": "Shasta-Trinity Prescribed Fires 2019-20",
+        "Type": "Prescribed Fire",
+        "State": "California, USA",
+        "Size": "0 Acres",
+        "Updated": "12 hrs. ago",
+        "href": "/incident/6603/",
+        "_source": "data/data_us/source/firedata_2020_01_11.html"
+    },
+    {
+        "Incident": "Hoosier National Forest Prescribed Burns",
+        "Type": "Prescribed Fire",
+        "State": "Indiana, USA",
+        "Size": "0 Acres",
+        "Updated": "3 days ago",
+        "href": "/incident/6666/",
+        "_source": "data/data_us/source/firedata_2020_01_11.html"
+    },
+    {
+        "Incident": "Klamath NF Fall RX Burning",
+        "Type": "Prescribed Fire",
+        "State": "California, USA",
+        "Size": "0 Acres",
+        "Updated": "12/19/2019",
+        "href": "/incident/6595/",
+        "_source": "data/data_us/source/firedata_2020_01_11.html"
+    },
+    {
+        "Incident": "Slash Pile Burning 2019-2020",
+        "Type": "Prescribed Fire",
+        "State": "Colorado, USA",
+        "Size": "0 Acres",
+        "Updated": "12/17/2019",
+        "href": "/incident/4648/",
+        "_source": "data/data_us/source/firedata_2020_01_11.html"
+    },
+    {
+        "Incident": "2019 Fall & Rx Burns for Flagstaff Dist.",
+        "Type": "Prescribed Fire",
+        "State": "Arizona, USA",
+        "Size": "0 Acres",
+        "Updated": "12/16/2019",
+        "href": "/incident/6604/",
+        "_source": "data/data_us/source/firedata_2020_01_11.html"
+    },
+    {
+        "Incident": "2019 Malheur NF Prescribed Fire",
+        "Type": "Prescribed Fire",
+        "State": "Oregon, USA",
+        "Size": "0 Acres",
+        "Updated": "11/13/2019",
+        "href": "/incident/6299/",
+        "_source": "data/data_us/source/firedata_2020_01_11.html"
+    }
+]

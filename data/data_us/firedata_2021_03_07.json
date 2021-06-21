@@ -1,0 +1,299 @@
+[
+    {
+        "Incident": "August Complex",
+        "Type": "Wildfire",
+        "State": "California, USA",
+        "Size": "1032648 Acres",
+        "Updated": "1/26/2021",
+        "href": "/incident/6983/",
+        "_source": "data/data_us/source/firedata_2021_03_07.html"
+    },
+    {
+        "Incident": "Creek Fire",
+        "Type": "Wildfire",
+        "State": "California, USA",
+        "Size": "379895 Acres",
+        "Updated": "12/24/2020",
+        "href": "/incident/7147/",
+        "_source": "data/data_us/source/firedata_2021_03_07.html"
+    },
+    {
+        "Incident": "North Complex",
+        "Type": "Wildfire",
+        "State": "California, USA",
+        "Size": "318935 Acres",
+        "Updated": "12/7/2020",
+        "href": "/incident/6997/",
+        "_source": "data/data_us/source/firedata_2021_03_07.html"
+    },
+    {
+        "Incident": "Cameron Peak Fire",
+        "Type": "Wildfire",
+        "State": "Colorado, USA",
+        "Size": "208913 Acres",
+        "Updated": "2/23/2021",
+        "href": "/incident/6964/",
+        "_source": "data/data_us/source/firedata_2021_03_07.html"
+    },
+    {
+        "Incident": "Lionshead Fire",
+        "Type": "Wildfire",
+        "State": "Oregon, USA",
+        "Size": "204469 Acres",
+        "Updated": "12/10/2020",
+        "href": "/incident/7049/",
+        "_source": "data/data_us/source/firedata_2021_03_07.html"
+    },
+    {
+        "Incident": "SQF Complex",
+        "Type": "Wildfire",
+        "State": "California, USA",
+        "Size": "174178 Acres",
+        "Updated": "2/17/2021",
+        "href": "/incident/7048/",
+        "_source": "data/data_us/source/firedata_2021_03_07.html"
+    },
+    {
+        "Incident": "Slater/Devil Fires",
+        "Type": "Wildfire",
+        "State": "California, USA",
+        "Size": "157229 Acres",
+        "Updated": "2/17/2021",
+        "href": "/incident/7173/",
+        "_source": "data/data_us/source/firedata_2021_03_07.html"
+    },
+    {
+        "Incident": "Archie Creek Fire",
+        "Type": "Wildfire",
+        "State": "Oregon, USA",
+        "Size": "131542 Acres",
+        "Updated": "12/9/2020",
+        "href": "/incident/7176/",
+        "_source": "data/data_us/source/firedata_2021_03_07.html"
+    },
+    {
+        "Incident": "Dolan Fire",
+        "Type": "Wildfire",
+        "State": "California, USA",
+        "Size": "124924 Acres",
+        "Updated": "1/19/2021",
+        "href": "/incident/7018/",
+        "_source": "data/data_us/source/firedata_2021_03_07.html"
+    },
+    {
+        "Incident": "Grizzly Creek Fire",
+        "Type": "Wildfire",
+        "State": "Colorado, USA",
+        "Size": "32631 Acres",
+        "Updated": "12/18/2020",
+        "href": "/incident/6942/",
+        "_source": "data/data_us/source/firedata_2021_03_07.html"
+    },
+    {
+        "Incident": "P-515 Fire",
+        "Type": "Wildfire",
+        "State": "Oregon, USA",
+        "Size": "4609 Acres",
+        "Updated": "12/10/2020",
+        "href": "/incident/7050/",
+        "_source": "data/data_us/source/firedata_2021_03_07.html"
+    },
+    {
+        "Incident": "Bent Twig",
+        "Type": "Wildfire",
+        "State": "Texas, USA",
+        "Size": "1100 Acres",
+        "Updated": "2/6/2021",
+        "href": "/incident/7324/",
+        "_source": "data/data_us/source/firedata_2021_03_07.html"
+    },
+    {
+        "Incident": "Bonita",
+        "Type": "Wildfire",
+        "State": "California, USA",
+        "Size": "715 Acres",
+        "Updated": "1/26/2021",
+        "href": "/incident/7312/",
+        "_source": "data/data_us/source/firedata_2021_03_07.html"
+    },
+    {
+        "Incident": "McKenzie Ranch",
+        "Type": "Prescribed Fire",
+        "State": "California, USA",
+        "Size": "500 Acres",
+        "Updated": "5 days ago",
+        "href": "/incident/7333/",
+        "_source": "data/data_us/source/firedata_2021_03_07.html"
+    },
+    {
+        "Incident": "Sharp Fire",
+        "Type": "Wildfire",
+        "State": "Texas, USA",
+        "Size": "206 Acres",
+        "Updated": "2/8/2021",
+        "href": "/incident/7326/",
+        "_source": "data/data_us/source/firedata_2021_03_07.html"
+    },
+    {
+        "Incident": "Waco Wetlands Prescribed Fire",
+        "Type": "Prescribed Fire",
+        "State": "Texas, USA",
+        "Size": "130 Acres",
+        "Updated": "2 days ago",
+        "href": "/incident/7336/",
+        "_source": "data/data_us/source/firedata_2021_03_07.html"
+    },
+    {
+        "Incident": "WDRD Prescribed Burning",
+        "Type": "Prescribed Fire",
+        "State": "California, USA",
+        "Size": "60 Acres",
+        "Updated": "2/22/2021",
+        "href": "/incident/7329/",
+        "_source": "data/data_us/source/firedata_2021_03_07.html"
+    },
+    {
+        "Incident": "KRRD 2021 Prescribed Fire",
+        "Type": "Prescribed Fire",
+        "State": "California, USA",
+        "Size": "26 Acres",
+        "Updated": "6 days ago",
+        "href": "/incident/7319/",
+        "_source": "data/data_us/source/firedata_2021_03_07.html"
+    },
+    {
+        "Incident": "2021 Humboldt-Toiyabe Initial Attack",
+        "Type": "Wildfire",
+        "State": "Nevada, USA",
+        "Size": "1 Acres",
+        "Updated": "1/25/2021",
+        "href": "/incident/7304/",
+        "_source": "data/data_us/source/firedata_2021_03_07.html"
+    },
+    {
+        "Incident": "Hoosier National Forest Prescribed Burns",
+        "Type": "Prescribed Fire",
+        "State": "Indiana, USA",
+        "Size": "0 Acres",
+        "Updated": "2 days ago",
+        "href": "/incident/6666/",
+        "_source": "data/data_us/source/firedata_2021_03_07.html"
+    },
+    {
+        "Incident": "Shasta-Trinity RX Burning 2020/2021",
+        "Type": "Prescribed Fire",
+        "State": "California, USA",
+        "Size": "0 Acres",
+        "Updated": "2 days ago",
+        "href": "/incident/7268/",
+        "_source": "data/data_us/source/firedata_2021_03_07.html"
+    },
+    {
+        "Incident": "2021 Humboldt-Toiyabe Prescribed Fire",
+        "Type": "Prescribed Fire",
+        "State": "Nevada, USA",
+        "Size": "0 Acres",
+        "Updated": "4 days ago",
+        "href": "/incident/7310/",
+        "_source": "data/data_us/source/firedata_2021_03_07.html"
+    },
+    {
+        "Incident": "Klamath NF RX Burning 2020/2021",
+        "Type": "Prescribed Fire",
+        "State": "California, USA",
+        "Size": "0 Acres",
+        "Updated": "5 days ago",
+        "href": "/incident/7274/",
+        "_source": "data/data_us/source/firedata_2021_03_07.html"
+    },
+    {
+        "Incident": "Slash Pile Burning 2021",
+        "Type": "Prescribed Fire",
+        "State": "Colorado, USA",
+        "Size": "0 Acres",
+        "Updated": "2/26/2021",
+        "href": "/incident/4648/",
+        "_source": "data/data_us/source/firedata_2021_03_07.html"
+    },
+    {
+        "Incident": "Payette NF 2021 Spring Prescribed Fire",
+        "Type": "Prescribed Fire",
+        "State": "Idaho, USA",
+        "Size": "0 Acres",
+        "Updated": "2/25/2021",
+        "href": "/incident/7332/",
+        "_source": "data/data_us/source/firedata_2021_03_07.html"
+    },
+    {
+        "Incident": "Cameron Peak Post-Fire BAER",
+        "Type": "Burned Area Emergency Response",
+        "State": "Colorado, USA",
+        "Size": "0 Acres",
+        "Updated": "2/23/2021",
+        "href": "/incident/7210/",
+        "_source": "data/data_us/source/firedata_2021_03_07.html"
+    },
+    {
+        "Incident": "2020-21 Royal Gorge FO Pile Burns",
+        "Type": "Prescribed Fire",
+        "State": "Colorado, USA",
+        "Size": "0 Acres",
+        "Updated": "2/4/2021",
+        "href": "/incident/7266/",
+        "_source": "data/data_us/source/firedata_2021_03_07.html"
+    },
+    {
+        "Incident": "San Juan NF Prescribed Fire Program",
+        "Type": "Prescribed Fire",
+        "State": "Colorado, USA",
+        "Size": "0 Acres",
+        "Updated": "1/27/2021",
+        "href": "/incident/6288/",
+        "_source": "data/data_us/source/firedata_2021_03_07.html"
+    },
+    {
+        "Incident": "Cleveland RX Burning 2021",
+        "Type": "Prescribed Fire",
+        "State": "California, USA",
+        "Size": "0 Acres",
+        "Updated": "1/25/2021",
+        "href": "/incident/7317/",
+        "_source": "data/data_us/source/firedata_2021_03_07.html"
+    },
+    {
+        "Incident": "Williams Fork Post-Fire BAER",
+        "Type": "Burned Area Emergency Response",
+        "State": "Colorado, USA",
+        "Size": "0 Acres",
+        "Updated": "12/22/2020",
+        "href": "/incident/7211/",
+        "_source": "data/data_us/source/firedata_2021_03_07.html"
+    },
+    {
+        "Incident": "East Troublesome Post-Fire BAER",
+        "Type": "Burned Area Emergency Response",
+        "State": "Colorado, USA",
+        "Size": "0 Acres",
+        "Updated": "12/17/2020",
+        "href": "/incident/7267/",
+        "_source": "data/data_us/source/firedata_2021_03_07.html"
+    },
+    {
+        "Incident": "CalWood and Lefthand Post-Fire BAER",
+        "Type": "Burned Area Emergency Response",
+        "State": "Colorado, USA",
+        "Size": "0 Acres",
+        "Updated": "12/17/2020",
+        "href": "/incident/7290/",
+        "_source": "data/data_us/source/firedata_2021_03_07.html"
+    },
+    {
+        "Incident": "Fall Prescribed Fire Projects 2020",
+        "Type": "Prescribed Fire",
+        "State": "Oregon, USA",
+        "Size": "0 Acres",
+        "Updated": "12/7/2020",
+        "href": "/incident/7216/",
+        "_source": "data/data_us/source/firedata_2021_03_07.html"
+    }
+]

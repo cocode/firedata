@@ -1,0 +1,263 @@
+[
+    {
+        "Incident": "Blue River Fire",
+        "Type": "Wildfire",
+        "State": "Arizona, USA",
+        "Size": "30380 Acres",
+        "Updated": "19 min. ago",
+        "href": "/incident/6742/",
+        "_source": "data/data_us/source/firedata_2020_06_12.html"
+    },
+    {
+        "Incident": "Sawtooth Fire ",
+        "Type": "Wildfire",
+        "State": "Arizona, USA",
+        "Size": "24729 Acres",
+        "Updated": "2 days ago",
+        "href": "/incident/6730/",
+        "_source": "data/data_us/source/firedata_2020_06_12.html"
+    },
+    {
+        "Incident": "Farm Camp Fire",
+        "Type": "Wildfire",
+        "State": "New Mexico, USA",
+        "Size": "12000 Acres",
+        "Updated": "3 days ago",
+        "href": "/incident/6746/",
+        "_source": "data/data_us/source/firedata_2020_06_12.html"
+    },
+    {
+        "Incident": "Isom Creek",
+        "Type": "Wildfire",
+        "State": "Alaska, USA",
+        "Size": "10618 Acres",
+        "Updated": "14 hrs. ago",
+        "href": "/incident/6758/",
+        "_source": "data/data_us/source/firedata_2020_06_12.html"
+    },
+    {
+        "Incident": "Good Fire",
+        "Type": "Wildfire",
+        "State": "New Mexico, USA",
+        "Size": "7640 Acres",
+        "Updated": "1:20 hrs. ago",
+        "href": "/incident/6739/",
+        "_source": "data/data_us/source/firedata_2020_06_12.html"
+    },
+    {
+        "Incident": "Bighorn",
+        "Type": "Wildfire",
+        "State": "Arizona, USA",
+        "Size": "6200 Acres",
+        "Updated": "4 min. ago",
+        "href": "/incident/6741/",
+        "_source": "data/data_us/source/firedata_2020_06_12.html"
+    },
+    {
+        "Incident": "Tadpole Fire",
+        "Type": "Wildfire",
+        "State": "New Mexico, USA",
+        "Size": "5300 Acres",
+        "Updated": "1:16 hrs. ago",
+        "href": "/incident/6737/",
+        "_source": "data/data_us/source/firedata_2020_06_12.html"
+    },
+    {
+        "Incident": "Bringham Fire",
+        "Type": "Wildfire",
+        "State": "Arizona, USA",
+        "Size": "4800 Acres",
+        "Updated": "14 hrs. ago",
+        "href": "/incident/6747/",
+        "_source": "data/data_us/source/firedata_2020_06_12.html"
+    },
+    {
+        "Incident": "Dry Lake Fire",
+        "Type": "Wildfire",
+        "State": "Arizona, USA",
+        "Size": "4350 Acres",
+        "Updated": "18 min. ago",
+        "href": "/incident/6743/",
+        "_source": "data/data_us/source/firedata_2020_06_12.html"
+    },
+    {
+        "Incident": "Range Fire ",
+        "Type": "Wildfire",
+        "State": "Arizona, USA",
+        "Size": "3286 Acres",
+        "Updated": "6/1/2020",
+        "href": "/incident/6727/",
+        "_source": "data/data_us/source/firedata_2020_06_12.html"
+    },
+    {
+        "Incident": "Tortolita Fire ",
+        "Type": "Wildfire",
+        "State": "Arizona, USA",
+        "Size": "3140 Acres",
+        "Updated": "16 hrs. ago",
+        "href": "/incident/6738/",
+        "_source": "data/data_us/source/firedata_2020_06_12.html"
+    },
+    {
+        "Incident": "Blue West Fire",
+        "Type": "Wildfire",
+        "State": "Texas, USA",
+        "Size": "2000 Acres",
+        "Updated": "2 hrs. ago",
+        "href": "/incident/6763/",
+        "_source": "data/data_us/source/firedata_2020_06_12.html"
+    },
+    {
+        "Incident": "Arroyo Grande Fire",
+        "Type": "Wildfire",
+        "State": "Texas, USA",
+        "Size": "1530 Acres",
+        "Updated": "1:03 hrs. ago",
+        "href": "/incident/6761/",
+        "_source": "data/data_us/source/firedata_2020_06_12.html"
+    },
+    {
+        "Incident": "East Desert Fire ",
+        "Type": "Wildfire",
+        "State": "Arizona, USA",
+        "Size": "1492 Acres",
+        "Updated": "5/25/2020",
+        "href": "/incident/6712/",
+        "_source": "data/data_us/source/firedata_2020_06_12.html"
+    },
+    {
+        "Incident": "Mangum Fire",
+        "Type": "Wildfire",
+        "State": "Arizona, USA",
+        "Size": "1200 Acres",
+        "Updated": "6 min. ago",
+        "href": "/incident/6748/",
+        "_source": "data/data_us/source/firedata_2020_06_12.html"
+    },
+    {
+        "Incident": "Uvas",
+        "Type": "Wildfire",
+        "State": "New Mexico, USA",
+        "Size": "1135 Acres",
+        "Updated": "1:19 hrs. ago",
+        "href": "/incident/6751/",
+        "_source": "data/data_us/source/firedata_2020_06_12.html"
+    },
+    {
+        "Incident": "Taft Fire",
+        "Type": "Wildfire",
+        "State": "Nevada, USA",
+        "Size": "1118 Acres",
+        "Updated": "5/20/2020",
+        "href": "/incident/6707/",
+        "_source": "data/data_us/source/firedata_2020_06_12.html"
+    },
+    {
+        "Incident": "Ocotillo Fire ",
+        "Type": "Wildfire",
+        "State": "Arizona, USA",
+        "Size": "980 Acres",
+        "Updated": "6/2/2020",
+        "href": "/incident/6728/",
+        "_source": "data/data_us/source/firedata_2020_06_12.html"
+    },
+    {
+        "Incident": "Pig Fire",
+        "Type": "Wildfire",
+        "State": "Texas, USA",
+        "Size": "610 Acres",
+        "Updated": "11 hrs. ago",
+        "href": "/incident/6759/",
+        "_source": "data/data_us/source/firedata_2020_06_12.html"
+    },
+    {
+        "Incident": "Cedar Central Prescribed Burn",
+        "Type": "Prescribed Fire",
+        "State": "California, USA",
+        "Size": "245 Acres",
+        "Updated": "6/3/2020",
+        "href": "/incident/6353/",
+        "_source": "data/data_us/source/firedata_2020_06_12.html"
+    },
+    {
+        "Incident": "Wilson Crossing Fire",
+        "Type": "Wildfire",
+        "State": "Colorado, USA",
+        "Size": "143 Acres",
+        "Updated": "20 hrs. ago",
+        "href": "/incident/6735/",
+        "_source": "data/data_us/source/firedata_2020_06_12.html"
+    },
+    {
+        "Incident": "Los Charcos",
+        "Type": "Wildfire",
+        "State": "New Mexico, USA",
+        "Size": "98 Acres",
+        "Updated": "2 hrs. ago",
+        "href": "/incident/6714/",
+        "_source": "data/data_us/source/firedata_2020_06_12.html"
+    },
+    {
+        "Incident": "Kern River Ranger District Prescribed RX",
+        "Type": "Prescribed Fire",
+        "State": "California, USA",
+        "Size": "67 Acres",
+        "Updated": "3/18/2020",
+        "href": "/incident/6664/",
+        "_source": "data/data_us/source/firedata_2020_06_12.html"
+    },
+    {
+        "Incident": "Fell Lane Fire",
+        "Type": "Wildfire",
+        "State": "Texas, USA",
+        "Size": "57 Acres",
+        "Updated": "16 hrs. ago",
+        "href": "/incident/6757/",
+        "_source": "data/data_us/source/firedata_2020_06_12.html"
+    },
+    {
+        "Incident": "SHF Lightning Fires 2020",
+        "Type": "Wildfire",
+        "State": "California, USA",
+        "Size": "15 Acres",
+        "Updated": "6 days ago",
+        "href": "/incident/6733/",
+        "_source": "data/data_us/source/firedata_2020_06_12.html"
+    },
+    {
+        "Incident": "Guns and Hoses Fire",
+        "Type": "Wildfire",
+        "State": "Texas, USA",
+        "Size": "11 Acres",
+        "Updated": "13 hrs. ago",
+        "href": "/incident/6760/",
+        "_source": "data/data_us/source/firedata_2020_06_12.html"
+    },
+    {
+        "Incident": "June Lightning 2020",
+        "Type": "Wildfire",
+        "State": "California, USA",
+        "Size": "6 Acres",
+        "Updated": "6 days ago",
+        "href": "/incident/6736/",
+        "_source": "data/data_us/source/firedata_2020_06_12.html"
+    },
+    {
+        "Incident": "2020 Rx Burns",
+        "Type": "Prescribed Fire",
+        "State": "Arizona, USA",
+        "Size": "0 Acres",
+        "Updated": "4/22/2020",
+        "href": "/incident/6604/",
+        "_source": "data/data_us/source/firedata_2020_06_12.html"
+    },
+    {
+        "Incident": "Klamath NF Winter RX Burning",
+        "Type": "Prescribed Fire",
+        "State": "California, USA",
+        "Size": "0 Acres",
+        "Updated": "4/1/2020",
+        "href": "/incident/6595/",
+        "_source": "data/data_us/source/firedata_2020_06_12.html"
+    }
+]

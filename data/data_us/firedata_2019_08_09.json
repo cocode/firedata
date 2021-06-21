@@ -1,0 +1,398 @@
+[
+    {
+        "Incident": "Oregon Lakes",
+        "Type": "Wildfire",
+        "State": "Alaska, USA",
+        "Size": "31850 Acres",
+        "Updated": "13 hrs. ago",
+        "href": "/incident/6308/",
+        "_source": "data/data_us/source/firedata_2019_08_09.html"
+    },
+    {
+        "Incident": "Indian Peaks Prescribed Fire",
+        "Type": "Prescribed Fire",
+        "State": "New Mexico, USA",
+        "Size": "9300 Acres",
+        "Updated": "1 day ago",
+        "href": "/incident/6351/",
+        "_source": "data/data_us/source/firedata_2019_08_09.html"
+    },
+    {
+        "Incident": "Kaibab NF South Zone Rx Fire",
+        "Type": "Prescribed Fire",
+        "State": "Arizona, USA",
+        "Size": "5200 Acres",
+        "Updated": "4/22/2019",
+        "href": "/incident/5922/",
+        "_source": "data/data_us/source/firedata_2019_08_09.html"
+    },
+    {
+        "Incident": "Red Feather Prescribed Burn",
+        "Type": "Prescribed Fire",
+        "State": "Colorado, USA",
+        "Size": "4348 Acres",
+        "Updated": "5/3/2019",
+        "href": "/incident/5027/",
+        "_source": "data/data_us/source/firedata_2019_08_09.html"
+    },
+    {
+        "Incident": "Elkhorn-Pingree Hill Prescribed Burns",
+        "Type": "Prescribed Fire",
+        "State": "Colorado, USA",
+        "Size": "4104 Acres",
+        "Updated": "4/24/2019",
+        "href": "/incident/4727/",
+        "_source": "data/data_us/source/firedata_2019_08_09.html"
+    },
+    {
+        "Incident": "Maroon Fire",
+        "Type": "Wildfire",
+        "State": "Arizona, USA",
+        "Size": "2000 Acres",
+        "Updated": "21 hrs. ago",
+        "href": "/incident/6352/",
+        "_source": "data/data_us/source/firedata_2019_08_09.html"
+    },
+    {
+        "Incident": "Memorial Fire",
+        "Type": "Wildfire",
+        "State": "South Carolina, USA",
+        "Size": "1600 Acres",
+        "Updated": "3 hrs. ago",
+        "href": "/incident/6356/",
+        "_source": "data/data_us/source/firedata_2019_08_09.html"
+    },
+    {
+        "Incident": "Thomas Mountain Rx",
+        "Type": "Prescribed Fire",
+        "State": "California, USA",
+        "Size": "1074 Acres",
+        "Updated": "4/30/2019",
+        "href": "/incident/6255/",
+        "_source": "data/data_us/source/firedata_2019_08_09.html"
+    },
+    {
+        "Incident": "Castolon Fire",
+        "Type": "Wildfire",
+        "State": "Texas, USA",
+        "Size": "944 Acres",
+        "Updated": "2 days ago",
+        "href": "/incident/6355/",
+        "_source": "data/data_us/source/firedata_2019_08_09.html"
+    },
+    {
+        "Incident": "Bluff Mesa Rx",
+        "Type": "Prescribed Fire",
+        "State": "California, USA",
+        "Size": "867 Acres",
+        "Updated": "5/19/2019",
+        "href": "/incident/6257/",
+        "_source": "data/data_us/source/firedata_2019_08_09.html"
+    },
+    {
+        "Incident": "Grindstone Mountain Prescribed Burn",
+        "Type": "Prescribed Fire",
+        "State": "Virginia, USA",
+        "Size": "830 Acres",
+        "Updated": "3/20/2019",
+        "href": "/incident/6276/",
+        "_source": "data/data_us/source/firedata_2019_08_09.html"
+    },
+    {
+        "Incident": "Tonto National Forest Rx Burns 2019",
+        "Type": "Prescribed Fire",
+        "State": "Arizona, USA",
+        "Size": "820 Acres",
+        "Updated": "5/7/2019",
+        "href": "/incident/5925/",
+        "_source": "data/data_us/source/firedata_2019_08_09.html"
+    },
+    {
+        "Incident": "North School Section Prescribed Fire",
+        "Type": "Prescribed Fire",
+        "State": "Minnesota, USA",
+        "Size": "700 Acres",
+        "Updated": "21 hrs. ago",
+        "href": "/incident/6362/",
+        "_source": "data/data_us/source/firedata_2019_08_09.html"
+    },
+    {
+        "Incident": "Pitcha Pine Prescribed Fire",
+        "Type": "Prescribed Fire",
+        "State": "Minnesota, USA",
+        "Size": "556 Acres",
+        "Updated": "21 hrs. ago",
+        "href": "/incident/6364/",
+        "_source": "data/data_us/source/firedata_2019_08_09.html"
+    },
+    {
+        "Incident": "Hoyle",
+        "Type": "Wildfire",
+        "State": "Arizona, USA",
+        "Size": "503 Acres",
+        "Updated": "5/9/2019",
+        "href": "/incident/6306/",
+        "_source": "data/data_us/source/firedata_2019_08_09.html"
+    },
+    {
+        "Incident": "Lake Vesuvius Prescribed Fire",
+        "Type": "Prescribed Fire",
+        "State": "Ohio, USA",
+        "Size": "445 Acres",
+        "Updated": "3/11/2019",
+        "href": "/incident/6269/",
+        "_source": "data/data_us/source/firedata_2019_08_09.html"
+    },
+    {
+        "Incident": "Upper Bailey Unit A ",
+        "Type": "Prescribed Fire",
+        "State": "Ohio, USA",
+        "Size": "415 Acres",
+        "Updated": "3/20/2019",
+        "href": "/incident/6277/",
+        "_source": "data/data_us/source/firedata_2019_08_09.html"
+    },
+    {
+        "Incident": "Mitawan Prescribed Fire Project",
+        "Type": "Prescribed Fire",
+        "State": "Minnesota, USA",
+        "Size": "212 Acres",
+        "Updated": "2 days ago",
+        "href": "/incident/6359/",
+        "_source": "data/data_us/source/firedata_2019_08_09.html"
+    },
+    {
+        "Incident": "Compartment #1 Fire",
+        "Type": "Wildfire",
+        "State": "Georgia, USA",
+        "Size": "185 Acres",
+        "Updated": "4 days ago",
+        "href": "/incident/6348/",
+        "_source": "data/data_us/source/firedata_2019_08_09.html"
+    },
+    {
+        "Incident": "Mill Fire",
+        "Type": "Wildfire",
+        "State": "Arizona, USA",
+        "Size": "179 Acres",
+        "Updated": "5/8/2019",
+        "href": "/incident/6309/",
+        "_source": "data/data_us/source/firedata_2019_08_09.html"
+    },
+    {
+        "Incident": "Valhalla Prescribed Fire Project",
+        "Type": "Prescribed Fire",
+        "State": "Minnesota, USA",
+        "Size": "161 Acres",
+        "Updated": "1 day ago",
+        "href": "/incident/6361/",
+        "_source": "data/data_us/source/firedata_2019_08_09.html"
+    },
+    {
+        "Incident": "Boise NF Prescribed Fire 2019",
+        "Type": "Prescribed Fire",
+        "State": "Idaho, USA",
+        "Size": "100 Acres",
+        "Updated": "4/25/2019",
+        "href": "/incident/5751/",
+        "_source": "data/data_us/source/firedata_2019_08_09.html"
+    },
+    {
+        "Incident": "Plouff Creek Prescribed Fire Unit",
+        "Type": "Prescribed Fire",
+        "State": "Minnesota, USA",
+        "Size": "55 Acres",
+        "Updated": "3 days ago",
+        "href": "/incident/6357/",
+        "_source": "data/data_us/source/firedata_2019_08_09.html"
+    },
+    {
+        "Incident": "Baker Lake Prescribed Fire",
+        "Type": "Prescribed Fire",
+        "State": "Minnesota, USA",
+        "Size": "40 Acres",
+        "Updated": "1:22 hrs. ago",
+        "href": "/incident/6366/",
+        "_source": "data/data_us/source/firedata_2019_08_09.html"
+    },
+    {
+        "Incident": "Coldwater Fire",
+        "Type": "Wildfire",
+        "State": "Arizona, USA",
+        "Size": "40 Acres",
+        "Updated": "22 hrs. ago",
+        "href": "/incident/6363/",
+        "_source": "data/data_us/source/firedata_2019_08_09.html"
+    },
+    {
+        "Incident": "Tomahawk Prescribed Fire Project",
+        "Type": "Prescribed Fire",
+        "State": "Minnesota, USA",
+        "Size": "12 Acres",
+        "Updated": "2 days ago",
+        "href": "/incident/6360/",
+        "_source": "data/data_us/source/firedata_2019_08_09.html"
+    },
+    {
+        "Incident": "Kern River Ranger District Prescribed RX",
+        "Type": "Prescribed Fire",
+        "State": "California, USA",
+        "Size": "10 Acres",
+        "Updated": "5/22/2019",
+        "href": "/incident/5663/",
+        "_source": "data/data_us/source/firedata_2019_08_09.html"
+    },
+    {
+        "Incident": "South Rim Prescribed Burn",
+        "Type": "Prescribed Fire",
+        "State": "Arizona, USA",
+        "Size": "0 Acres",
+        "Updated": "19 hrs. ago",
+        "href": "/incident/6275/",
+        "_source": "data/data_us/source/firedata_2019_08_09.html"
+    },
+    {
+        "Incident": "San Juan NF Prescribed Fire Program",
+        "Type": "Prescribed Fire",
+        "State": "Colorado, USA",
+        "Size": "0 Acres",
+        "Updated": "1 day ago",
+        "href": "/incident/6288/",
+        "_source": "data/data_us/source/firedata_2019_08_09.html"
+    },
+    {
+        "Incident": "2019 Malheur NF Prescribed Fire",
+        "Type": "Prescribed Fire",
+        "State": "Oregon, USA",
+        "Size": "0 Acres",
+        "Updated": "2 days ago",
+        "href": "/incident/6299/",
+        "_source": "data/data_us/source/firedata_2019_08_09.html"
+    },
+    {
+        "Incident": "Payette NF Prescribed Fire, 2019",
+        "Type": "Prescribed Fire",
+        "State": "Idaho, USA",
+        "Size": "0 Acres",
+        "Updated": "7 days ago",
+        "href": "/incident/6290/",
+        "_source": "data/data_us/source/firedata_2019_08_09.html"
+    },
+    {
+        "Incident": "Cedar Central Prescribed Burn",
+        "Type": "Prescribed Fire",
+        "State": "California, USA",
+        "Size": "0 Acres",
+        "Updated": "5/22/2019",
+        "href": "/incident/6353/",
+        "_source": "data/data_us/source/firedata_2019_08_09.html"
+    },
+    {
+        "Incident": "Shasta-Trinity Prescribed Fires 2018-19",
+        "Type": "Prescribed Fire",
+        "State": "California, USA",
+        "Size": "0 Acres",
+        "Updated": "5/20/2019",
+        "href": "/incident/6239/",
+        "_source": "data/data_us/source/firedata_2019_08_09.html"
+    },
+    {
+        "Incident": "2019 Umatilla NF Prescribed Fire",
+        "Type": "Prescribed Fire",
+        "State": "Oregon, USA",
+        "Size": "0 Acres",
+        "Updated": "5/13/2019",
+        "href": "/incident/5808/",
+        "_source": "data/data_us/source/firedata_2019_08_09.html"
+    },
+    {
+        "Incident": "South Rim Piles",
+        "Type": "Prescribed Fire",
+        "State": "Arizona, USA",
+        "Size": "0 Acres",
+        "Updated": "5/10/2019",
+        "href": "/incident/6321/",
+        "_source": "data/data_us/source/firedata_2019_08_09.html"
+    },
+    {
+        "Incident": "Slide Fire",
+        "Type": "Wildfire",
+        "State": "Arizona, USA",
+        "Size": "0 Acres",
+        "Updated": "5/7/2019",
+        "href": "/incident/6323/",
+        "_source": "data/data_us/source/firedata_2019_08_09.html"
+    },
+    {
+        "Incident": "Blue Ridge Prescribed Burn",
+        "Type": "Prescribed Fire",
+        "State": "Colorado, USA",
+        "Size": "0 Acres",
+        "Updated": "5/5/2019",
+        "href": "/incident/6198/",
+        "_source": "data/data_us/source/firedata_2019_08_09.html"
+    },
+    {
+        "Incident": "Slash Pile Burning 2018/2019",
+        "Type": "Prescribed Fire",
+        "State": "Colorado, USA",
+        "Size": "0 Acres",
+        "Updated": "5/3/2019",
+        "href": "/incident/4648/",
+        "_source": "data/data_us/source/firedata_2019_08_09.html"
+    },
+    {
+        "Incident": "Spring / Summer Prescribed Fire",
+        "Type": "Prescribed Fire",
+        "State": "Arizona, USA",
+        "Size": "0 Acres",
+        "Updated": "5/2/2019",
+        "href": "/incident/6285/",
+        "_source": "data/data_us/source/firedata_2019_08_09.html"
+    },
+    {
+        "Incident": "Spring 2019 Prescribed Fires",
+        "Type": "Prescribed Fire",
+        "State": "Michigan, USA",
+        "Size": "0 Acres",
+        "Updated": "4/25/2019",
+        "href": "/incident/6300/",
+        "_source": "data/data_us/source/firedata_2019_08_09.html"
+    },
+    {
+        "Incident": "Wallowa-Whitman 2019 Prescribed Fire",
+        "Type": "Prescribed Fire",
+        "State": "Oregon, USA",
+        "Size": "0 Acres",
+        "Updated": "4/22/2019",
+        "href": "/incident/6289/",
+        "_source": "data/data_us/source/firedata_2019_08_09.html"
+    },
+    {
+        "Incident": "Hoosier National Forest Prescribed Burns",
+        "Type": "Prescribed Fire",
+        "State": "Indiana, USA",
+        "Size": "0 Acres",
+        "Updated": "4/16/2019",
+        "href": "/incident/6246/",
+        "_source": "data/data_us/source/firedata_2019_08_09.html"
+    },
+    {
+        "Incident": "Rendija Rx",
+        "Type": "Prescribed Fire",
+        "State": "New Mexico, USA",
+        "Size": "0 Acres",
+        "Updated": "4/2/2019",
+        "href": "/incident/6286/",
+        "_source": "data/data_us/source/firedata_2019_08_09.html"
+    },
+    {
+        "Incident": "SBNF Storm Damage",
+        "Type": "Flood",
+        "State": "California, USA",
+        "Size": "0 Acres",
+        "Updated": "3/28/2019",
+        "href": "/incident/6265/",
+        "_source": "data/data_us/source/firedata_2019_08_09.html"
+    }
+]

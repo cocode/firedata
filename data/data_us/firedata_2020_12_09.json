@@ -6,43 +6,61 @@
         "Size": "1032648 Acres",
         "Updated": "11/12/2020",
         "href": "/incident/6983/",
-        "_source": "data/data_us/source/firedata_2020_12_25.html"
+        "_source": "data/data_us/source/firedata_2020_12_09.html"
     },
     {
         "Incident": "Creek Fire",
         "Type": "Wildfire",
         "State": "California, USA",
         "Size": "379895 Acres",
-        "Updated": "12/3/2020",
+        "Updated": "5 days ago",
         "href": "/incident/7147/",
-        "_source": "data/data_us/source/firedata_2020_12_25.html"
+        "_source": "data/data_us/source/firedata_2020_12_09.html"
     },
     {
         "Incident": "North Complex",
         "Type": "Wildfire",
         "State": "California, USA",
         "Size": "318935 Acres",
-        "Updated": "12/7/2020",
+        "Updated": "1 day ago",
         "href": "/incident/6997/",
-        "_source": "data/data_us/source/firedata_2020_12_25.html"
+        "_source": "data/data_us/source/firedata_2020_12_09.html"
+    },
+    {
+        "Incident": "Pearl Hill Fire",
+        "Type": "Wildfire",
+        "State": "Washington, USA",
+        "Size": "223730 Acres",
+        "Updated": "9/16/2020",
+        "href": "/incident/7169/",
+        "_source": "data/data_us/source/firedata_2020_12_09.html"
     },
     {
         "Incident": "Cameron Peak Fire",
         "Type": "Wildfire",
         "State": "Colorado, USA",
         "Size": "208913 Acres",
-        "Updated": "7 days ago",
+        "Updated": "7 hrs. ago",
         "href": "/incident/6964/",
-        "_source": "data/data_us/source/firedata_2020_12_25.html"
+        "_source": "data/data_us/source/firedata_2020_12_09.html"
     },
     {
         "Incident": "Lionshead Fire",
         "Type": "Wildfire",
         "State": "Oregon, USA",
         "Size": "204469 Acres",
-        "Updated": "12/10/2020",
+        "Updated": "10/17/2020",
         "href": "/incident/7049/",
-        "_source": "data/data_us/source/firedata_2020_12_25.html"
+        "_source": "data/data_us/source/firedata_2020_12_09.html"
+    },
+    {
+        "Incident": "East Troublesome Fire",
+        "Type": "Wildfire",
+        "State": "Colorado, USA",
+        "Size": "193812 Acres",
+        "Updated": "7 days ago",
+        "href": "/incident/7242/",
+        "_source": "data/data_us/source/firedata_2020_12_09.html"
     },
     {
         "Incident": "Beachie Creek Fire",
@@ -51,7 +69,7 @@
         "Size": "193573 Acres",
         "Updated": "10/28/2020",
         "href": "/incident/7001/",
-        "_source": "data/data_us/source/firedata_2020_12_25.html"
+        "_source": "data/data_us/source/firedata_2020_12_09.html"
     },
     {
         "Incident": "Mullen Fire",
@@ -60,16 +78,16 @@
         "Size": "176878 Acres",
         "Updated": "11/19/2020",
         "href": "/incident/7208/",
-        "_source": "data/data_us/source/firedata_2020_12_25.html"
+        "_source": "data/data_us/source/firedata_2020_12_09.html"
     },
     {
         "Incident": "SQF Complex",
         "Type": "Wildfire",
         "State": "California, USA",
         "Size": "174178 Acres",
-        "Updated": "12/6/2020",
+        "Updated": "2 days ago",
         "href": "/incident/7048/",
-        "_source": "data/data_us/source/firedata_2020_12_25.html"
+        "_source": "data/data_us/source/firedata_2020_12_09.html"
     },
     {
         "Incident": "Holiday Farm Fire",
@@ -78,43 +96,61 @@
         "Size": "173393 Acres",
         "Updated": "10/12/2020",
         "href": "/incident/7170/",
-        "_source": "data/data_us/source/firedata_2020_12_25.html"
+        "_source": "data/data_us/source/firedata_2020_12_09.html"
     },
     {
         "Incident": "Slater/Devil Fires",
         "Type": "Wildfire",
         "State": "California, USA",
         "Size": "157229 Acres",
-        "Updated": "12/10/2020",
+        "Updated": "11/28/2020",
         "href": "/incident/7173/",
-        "_source": "data/data_us/source/firedata_2020_12_25.html"
+        "_source": "data/data_us/source/firedata_2020_12_09.html"
+    },
+    {
+        "Incident": "Pine Gulch Fire",
+        "Type": "Wildfire",
+        "State": "Colorado, USA",
+        "Size": "139007 Acres",
+        "Updated": "9/24/2020",
+        "href": "/incident/6906/",
+        "_source": "data/data_us/source/firedata_2020_12_09.html"
     },
     {
         "Incident": "Riverside Fire",
         "Type": "Wildfire",
         "State": "Oregon, USA",
         "Size": "138054 Acres",
-        "Updated": "12/3/2020",
+        "Updated": "5 days ago",
         "href": "/incident/7174/",
-        "_source": "data/data_us/source/firedata_2020_12_25.html"
+        "_source": "data/data_us/source/firedata_2020_12_09.html"
     },
     {
         "Incident": "Archie Creek Fire",
         "Type": "Wildfire",
         "State": "Oregon, USA",
         "Size": "131542 Acres",
-        "Updated": "12/9/2020",
+        "Updated": "11/17/2020",
         "href": "/incident/7176/",
-        "_source": "data/data_us/source/firedata_2020_12_25.html"
+        "_source": "data/data_us/source/firedata_2020_12_09.html"
+    },
+    {
+        "Incident": "Whitney Fire",
+        "Type": "Wildfire",
+        "State": "Washington, USA",
+        "Size": "127430 Acres",
+        "Updated": "9/16/2020",
+        "href": "/incident/7183/",
+        "_source": "data/data_us/source/firedata_2020_12_09.html"
     },
     {
         "Incident": "Dolan Fire",
         "Type": "Wildfire",
         "State": "California, USA",
         "Size": "124924 Acres",
-        "Updated": "12/13/2020",
+        "Updated": "5 days ago",
         "href": "/incident/7018/",
-        "_source": "data/data_us/source/firedata_2020_12_25.html"
+        "_source": "data/data_us/source/firedata_2020_12_09.html"
     },
     {
         "Incident": "Woodhead Fire",
@@ -123,7 +159,7 @@
         "Size": "96614 Acres",
         "Updated": "11/6/2020",
         "href": "/incident/7163/",
-        "_source": "data/data_us/source/firedata_2020_12_25.html"
+        "_source": "data/data_us/source/firedata_2020_12_09.html"
     },
     {
         "Incident": "Badger",
@@ -132,7 +168,7 @@
         "Size": "90143 Acres",
         "Updated": "10/13/2020",
         "href": "/incident/7196/",
-        "_source": "data/data_us/source/firedata_2020_12_25.html"
+        "_source": "data/data_us/source/firedata_2020_12_09.html"
     },
     {
         "Incident": "East Fork Fire",
@@ -141,7 +177,7 @@
         "Size": "89463 Acres",
         "Updated": "11/2/2020",
         "href": "/incident/7052/",
-        "_source": "data/data_us/source/firedata_2020_12_25.html"
+        "_source": "data/data_us/source/firedata_2020_12_09.html"
     },
     {
         "Incident": "Evans Canyon Fire",
@@ -150,7 +186,25 @@
         "Size": "75817 Acres",
         "Updated": "11/6/2020",
         "href": "/incident/7132/",
-        "_source": "data/data_us/source/firedata_2020_12_25.html"
+        "_source": "data/data_us/source/firedata_2020_12_09.html"
+    },
+    {
+        "Incident": "Griffin Fire",
+        "Type": "Wildfire",
+        "State": "Arizona, USA",
+        "Size": "61821 Acres",
+        "Updated": "9/23/2020",
+        "href": "/incident/7020/",
+        "_source": "data/data_us/source/firedata_2020_12_09.html"
+    },
+    {
+        "Incident": "Sarpy",
+        "Type": "Wildfire",
+        "State": "Montana, USA",
+        "Size": "52010 Acres",
+        "Updated": "9/14/2020",
+        "href": "/incident/7143/",
+        "_source": "data/data_us/source/firedata_2020_12_09.html"
     },
     {
         "Incident": "Brattain Fire",
@@ -159,7 +213,16 @@
         "Size": "50951 Acres",
         "Updated": "9/28/2020",
         "href": "/incident/7172/",
-        "_source": "data/data_us/source/firedata_2020_12_25.html"
+        "_source": "data/data_us/source/firedata_2020_12_09.html"
+    },
+    {
+        "Incident": "Indian Creek Fire",
+        "Type": "Wildfire",
+        "State": "Oregon, USA",
+        "Size": "48128 Acres",
+        "Updated": "9/16/2020",
+        "href": "/incident/6991/",
+        "_source": "data/data_us/source/firedata_2020_12_09.html"
     },
     {
         "Incident": "Cow Canyon",
@@ -168,7 +231,7 @@
         "Size": "35371 Acres",
         "Updated": "10/28/2020",
         "href": "/incident/7158/",
-        "_source": "data/data_us/source/firedata_2020_12_25.html"
+        "_source": "data/data_us/source/firedata_2020_12_09.html"
     },
     {
         "Incident": "Apple Fire",
@@ -177,7 +240,7 @@
         "Size": "33424 Acres",
         "Updated": "11/18/2020",
         "href": "/incident/6902/",
-        "_source": "data/data_us/source/firedata_2020_12_25.html"
+        "_source": "data/data_us/source/firedata_2020_12_09.html"
     },
     {
         "Incident": "South Obenchain Fire",
@@ -186,16 +249,16 @@
         "Size": "32671 Acres",
         "Updated": "9/30/2020",
         "href": "/incident/7185/",
-        "_source": "data/data_us/source/firedata_2020_12_25.html"
+        "_source": "data/data_us/source/firedata_2020_12_09.html"
     },
     {
         "Incident": "Grizzly Creek Fire",
         "Type": "Wildfire",
         "State": "Colorado, USA",
         "Size": "32631 Acres",
-        "Updated": "6 days ago",
+        "Updated": "4 days ago",
         "href": "/incident/6942/",
-        "_source": "data/data_us/source/firedata_2020_12_25.html"
+        "_source": "data/data_us/source/firedata_2020_12_09.html"
     },
     {
         "Incident": "Slink Fire",
@@ -204,16 +267,16 @@
         "Size": "26759 Acres",
         "Updated": "10/22/2020",
         "href": "/incident/7105/",
-        "_source": "data/data_us/source/firedata_2020_12_25.html"
+        "_source": "data/data_us/source/firedata_2020_12_09.html"
     },
     {
         "Incident": "Big Hollow Fire",
         "Type": "Wildfire",
         "State": "Washington, USA",
         "Size": "24995 Acres",
-        "Updated": "12/1/2020",
+        "Updated": "7 days ago",
         "href": "/incident/7171/",
-        "_source": "data/data_us/source/firedata_2020_12_25.html"
+        "_source": "data/data_us/source/firedata_2020_12_09.html"
     },
     {
         "Incident": "El Dorado Fire",
@@ -222,7 +285,7 @@
         "Size": "22744 Acres",
         "Updated": "11/18/2020",
         "href": "/incident/7148/",
-        "_source": "data/data_us/source/firedata_2020_12_25.html"
+        "_source": "data/data_us/source/firedata_2020_12_09.html"
     },
     {
         "Incident": "Middle Fork Fire",
@@ -231,7 +294,7 @@
         "Size": "20517 Acres",
         "Updated": "11/23/2020",
         "href": "/incident/7153/",
-        "_source": "data/data_us/source/firedata_2020_12_25.html"
+        "_source": "data/data_us/source/firedata_2020_12_09.html"
     },
     {
         "Incident": "Mountain View Fire",
@@ -240,7 +303,7 @@
         "Size": "20385 Acres",
         "Updated": "11/25/2020",
         "href": "/incident/7270/",
-        "_source": "data/data_us/source/firedata_2020_12_25.html"
+        "_source": "data/data_us/source/firedata_2020_12_09.html"
     },
     {
         "Incident": "Buck Fire",
@@ -249,7 +312,16 @@
         "Size": "19477 Acres",
         "Updated": "10/14/2020",
         "href": "/incident/7102/",
-        "_source": "data/data_us/source/firedata_2020_12_25.html"
+        "_source": "data/data_us/source/firedata_2020_12_09.html"
+    },
+    {
+        "Incident": "Babb-Malden/Manning Fires",
+        "Type": "Wildfire",
+        "State": "Washington, USA",
+        "Size": "18254 Acres",
+        "Updated": "9/16/2020",
+        "href": "/incident/7187/",
+        "_source": "data/data_us/source/firedata_2020_12_09.html"
     },
     {
         "Incident": "White River",
@@ -258,7 +330,7 @@
         "Size": "17442 Acres",
         "Updated": "11/13/2020",
         "href": "/incident/7013/",
-        "_source": "data/data_us/source/firedata_2020_12_25.html"
+        "_source": "data/data_us/source/firedata_2020_12_09.html"
     },
     {
         "Incident": "Encinos Fire ",
@@ -267,7 +339,16 @@
         "Size": "14905 Acres",
         "Updated": "10/26/2020",
         "href": "/incident/7235/",
-        "_source": "data/data_us/source/firedata_2020_12_25.html"
+        "_source": "data/data_us/source/firedata_2020_12_09.html"
+    },
+    {
+        "Incident": "Williams Fork Fire",
+        "Type": "Wildfire",
+        "State": "Colorado, USA",
+        "Size": "14833 Acres",
+        "Updated": "7 days ago",
+        "href": "/incident/6971/",
+        "_source": "data/data_us/source/firedata_2020_12_09.html"
     },
     {
         "Incident": "Porphyry Fire",
@@ -276,7 +357,7 @@
         "Size": "14486 Acres",
         "Updated": "9/28/2020",
         "href": "/incident/7146/",
-        "_source": "data/data_us/source/firedata_2020_12_25.html"
+        "_source": "data/data_us/source/firedata_2020_12_09.html"
     },
     {
         "Incident": "Sears Fire",
@@ -285,7 +366,25 @@
         "Size": "14476 Acres",
         "Updated": "10/16/2020",
         "href": "/incident/7218/",
-        "_source": "data/data_us/source/firedata_2020_12_25.html"
+        "_source": "data/data_us/source/firedata_2020_12_09.html"
+    },
+    {
+        "Incident": "Two Four Two Fire",
+        "Type": "Wildfire",
+        "State": "Oregon, USA",
+        "Size": "14473 Acres",
+        "Updated": "9/22/2020",
+        "href": "/incident/7159/",
+        "_source": "data/data_us/source/firedata_2020_12_09.html"
+    },
+    {
+        "Incident": "Pine Hollow Fire",
+        "Type": "Wildfire",
+        "State": "Arizona, USA",
+        "Size": "11405 Acres",
+        "Updated": "9/10/2020",
+        "href": "/incident/6899/",
+        "_source": "data/data_us/source/firedata_2020_12_09.html"
     },
     {
         "Incident": "Shissler Fire",
@@ -294,7 +393,7 @@
         "Size": "11000 Acres",
         "Updated": "10/27/2020",
         "href": "/incident/7014/",
-        "_source": "data/data_us/source/firedata_2020_12_25.html"
+        "_source": "data/data_us/source/firedata_2020_12_09.html"
     },
     {
         "Incident": "Luna Fire ",
@@ -303,7 +402,16 @@
         "Size": "10142 Acres",
         "Updated": "11/4/2020",
         "href": "/incident/7246/",
-        "_source": "data/data_us/source/firedata_2020_12_25.html"
+        "_source": "data/data_us/source/firedata_2020_12_09.html"
+    },
+    {
+        "Incident": "Calwood Fire",
+        "Type": "Wildfire",
+        "State": "Colorado, USA",
+        "Size": "10106 Acres",
+        "Updated": "11/14/2020",
+        "href": "/incident/7245/",
+        "_source": "data/data_us/source/firedata_2020_12_09.html"
     },
     {
         "Incident": "Thielsen",
@@ -312,7 +420,16 @@
         "Size": "9975 Acres",
         "Updated": "10/10/2020",
         "href": "/incident/7195/",
-        "_source": "data/data_us/source/firedata_2020_12_25.html"
+        "_source": "data/data_us/source/firedata_2020_12_09.html"
+    },
+    {
+        "Incident": "Superstition Fire",
+        "Type": "Wildfire",
+        "State": "Arizona, USA",
+        "Size": "9539 Acres",
+        "Updated": "9/23/2020",
+        "href": "/incident/7046/",
+        "_source": "data/data_us/source/firedata_2020_12_09.html"
     },
     {
         "Incident": "Horse Fire",
@@ -321,7 +438,25 @@
         "Size": "9537 Acres",
         "Updated": "11/5/2020",
         "href": "/incident/7244/",
-        "_source": "data/data_us/source/firedata_2020_12_25.html"
+        "_source": "data/data_us/source/firedata_2020_12_09.html"
+    },
+    {
+        "Incident": "Rattlesnake Fire",
+        "Type": "Wildfire",
+        "State": "California, USA",
+        "Size": "8177 Acres",
+        "Updated": "2 days ago",
+        "href": "/incident/7131/",
+        "_source": "data/data_us/source/firedata_2020_12_09.html"
+    },
+    {
+        "Incident": "Bond Fire",
+        "Type": "Wildfire",
+        "State": "California, USA",
+        "Size": "6686 Acres",
+        "Updated": "11 hrs. ago",
+        "href": "/incident/7275/",
+        "_source": "data/data_us/source/firedata_2020_12_09.html"
     },
     {
         "Incident": "Snow",
@@ -330,7 +465,16 @@
         "Size": "6254 Acres",
         "Updated": "11/18/2020",
         "href": "/incident/7207/",
-        "_source": "data/data_us/source/firedata_2020_12_25.html"
+        "_source": "data/data_us/source/firedata_2020_12_09.html"
+    },
+    {
+        "Incident": "William Fire",
+        "Type": "Wildfire",
+        "State": "Utah, USA",
+        "Size": "5832 Acres",
+        "Updated": "9/23/2020",
+        "href": "/incident/7178/",
+        "_source": "data/data_us/source/firedata_2020_12_09.html"
     },
     {
         "Incident": "Sourdough Fire",
@@ -339,7 +483,25 @@
         "Size": "5811 Acres",
         "Updated": "11/3/2020",
         "href": "/incident/7259/",
-        "_source": "data/data_us/source/firedata_2020_12_25.html"
+        "_source": "data/data_us/source/firedata_2020_12_09.html"
+    },
+    {
+        "Incident": "Apple Acres Fire",
+        "Type": "Wildfire",
+        "State": "Washington, USA",
+        "Size": "5500 Acres",
+        "Updated": "9/15/2020",
+        "href": "/incident/7181/",
+        "_source": "data/data_us/source/firedata_2020_12_09.html"
+    },
+    {
+        "Incident": "Yogo Fire",
+        "Type": "Wildfire",
+        "State": "Montana, USA",
+        "Size": "5309 Acres",
+        "Updated": "10/23/2020",
+        "href": "/incident/7229/",
+        "_source": "data/data_us/source/firedata_2020_12_09.html"
     },
     {
         "Incident": "Woodward Fire",
@@ -348,16 +510,25 @@
         "Size": "4929 Acres",
         "Updated": "10/9/2020",
         "href": "/incident/7062/",
-        "_source": "data/data_us/source/firedata_2020_12_25.html"
+        "_source": "data/data_us/source/firedata_2020_12_09.html"
+    },
+    {
+        "Incident": "Klaus Fire",
+        "Type": "Wildfire",
+        "State": "Arizona, USA",
+        "Size": "4864 Acres",
+        "Updated": "9/14/2020",
+        "href": "/incident/6952/",
+        "_source": "data/data_us/source/firedata_2020_12_09.html"
     },
     {
         "Incident": "P-515 Fire",
         "Type": "Wildfire",
         "State": "Oregon, USA",
         "Size": "4609 Acres",
-        "Updated": "12/10/2020",
+        "Updated": "9/17/2020",
         "href": "/incident/7050/",
-        "_source": "data/data_us/source/firedata_2020_12_25.html"
+        "_source": "data/data_us/source/firedata_2020_12_09.html"
     },
     {
         "Incident": "State Creek Fire",
@@ -366,7 +537,25 @@
         "Size": "4400 Acres",
         "Updated": "10/31/2020",
         "href": "/incident/7142/",
-        "_source": "data/data_us/source/firedata_2020_12_25.html"
+        "_source": "data/data_us/source/firedata_2020_12_09.html"
+    },
+    {
+        "Incident": "Drumming Fire",
+        "Type": "Wildfire",
+        "State": "Montana, USA",
+        "Size": "4351 Acres",
+        "Updated": "10/3/2020",
+        "href": "/incident/7088/",
+        "_source": "data/data_us/source/firedata_2020_12_09.html"
+    },
+    {
+        "Incident": "Sunnyside Complex",
+        "Type": "Wildfire",
+        "State": "Idaho, USA",
+        "Size": "4351 Acres",
+        "Updated": "9/18/2020",
+        "href": "/incident/7164/",
+        "_source": "data/data_us/source/firedata_2020_12_09.html"
     },
     {
         "Incident": "Medio Fire BAER Team",
@@ -375,7 +564,7 @@
         "Size": "4010 Acres",
         "Updated": "10/14/2020",
         "href": "/incident/7133/",
-        "_source": "data/data_us/source/firedata_2020_12_25.html"
+        "_source": "data/data_us/source/firedata_2020_12_09.html"
     },
     {
         "Incident": "Medio Fire",
@@ -384,7 +573,7 @@
         "Size": "4010 Acres",
         "Updated": "10/12/2020",
         "href": "/incident/7031/",
-        "_source": "data/data_us/source/firedata_2020_12_25.html"
+        "_source": "data/data_us/source/firedata_2020_12_09.html"
     },
     {
         "Incident": "Grouse Fire",
@@ -393,7 +582,7 @@
         "Size": "3999 Acres",
         "Updated": "11/24/2020",
         "href": "/incident/7154/",
-        "_source": "data/data_us/source/firedata_2020_12_25.html"
+        "_source": "data/data_us/source/firedata_2020_12_09.html"
     },
     {
         "Incident": "Habanero Fire",
@@ -402,7 +591,7 @@
         "Size": "3247 Acres",
         "Updated": "10/27/2020",
         "href": "/incident/7252/",
-        "_source": "data/data_us/source/firedata_2020_12_25.html"
+        "_source": "data/data_us/source/firedata_2020_12_09.html"
     },
     {
         "Incident": "Ridge Fire",
@@ -411,7 +600,7 @@
         "Size": "3079 Acres",
         "Updated": "11/20/2020",
         "href": "/incident/6990/",
-        "_source": "data/data_us/source/firedata_2020_12_25.html"
+        "_source": "data/data_us/source/firedata_2020_12_09.html"
     },
     {
         "Incident": "Beaver Fire",
@@ -420,7 +609,7 @@
         "Size": "2992 Acres",
         "Updated": "10/23/2020",
         "href": "/incident/7128/",
-        "_source": "data/data_us/source/firedata_2020_12_25.html"
+        "_source": "data/data_us/source/firedata_2020_12_09.html"
     },
     {
         "Incident": "Cinnabar Fire",
@@ -429,7 +618,16 @@
         "Size": "2948 Acres",
         "Updated": "10/16/2020",
         "href": "/incident/7063/",
-        "_source": "data/data_us/source/firedata_2020_12_25.html"
+        "_source": "data/data_us/source/firedata_2020_12_09.html"
+    },
+    {
+        "Incident": "Laura 2 Fire",
+        "Type": "Wildfire",
+        "State": "California, USA",
+        "Size": "2800 Acres",
+        "Updated": "11/24/2020",
+        "href": "/incident/7269/",
+        "_source": "data/data_us/source/firedata_2020_12_09.html"
     },
     {
         "Incident": "Trap Fire ",
@@ -438,7 +636,25 @@
         "Size": "2627 Acres",
         "Updated": "10/26/2020",
         "href": "/incident/7204/",
-        "_source": "data/data_us/source/firedata_2020_12_25.html"
+        "_source": "data/data_us/source/firedata_2020_12_09.html"
+    },
+    {
+        "Incident": "Downey Creek Fire",
+        "Type": "Wildfire",
+        "State": "Washington, USA",
+        "Size": "2570 Acres",
+        "Updated": "9/21/2020",
+        "href": "/incident/7190/",
+        "_source": "data/data_us/source/firedata_2020_12_09.html"
+    },
+    {
+        "Incident": "Fox Fire",
+        "Type": "Wildfire",
+        "State": "California, USA",
+        "Size": "2188 Acres",
+        "Updated": "11/1/2020",
+        "href": "/incident/7203/",
+        "_source": "data/data_us/source/firedata_2020_12_09.html"
     },
     {
         "Incident": "Fork Fire",
@@ -447,7 +663,7 @@
         "Size": "1673 Acres",
         "Updated": "11/9/2020",
         "href": "/incident/7165/",
-        "_source": "data/data_us/source/firedata_2020_12_25.html"
+        "_source": "data/data_us/source/firedata_2020_12_09.html"
     },
     {
         "Incident": "Marion Fire",
@@ -456,7 +672,16 @@
         "Size": "1520 Acres",
         "Updated": "10/23/2020",
         "href": "/incident/7058/",
-        "_source": "data/data_us/source/firedata_2020_12_25.html"
+        "_source": "data/data_us/source/firedata_2020_12_09.html"
+    },
+    {
+        "Incident": "Moraine Fire",
+        "Type": "Wildfire",
+        "State": "California, USA",
+        "Size": "1316 Acres",
+        "Updated": "11/22/2020",
+        "href": "/incident/7089/",
+        "_source": "data/data_us/source/firedata_2020_12_09.html"
     },
     {
         "Incident": "Center Creek Trail Fire",
@@ -465,7 +690,7 @@
         "Size": "1281 Acres",
         "Updated": "10/25/2020",
         "href": "/incident/7166/",
-        "_source": "data/data_us/source/firedata_2020_12_25.html"
+        "_source": "data/data_us/source/firedata_2020_12_09.html"
     },
     {
         "Incident": "Bullfrog Fire",
@@ -474,7 +699,16 @@
         "Size": "1185 Acres",
         "Updated": "11/14/2020",
         "href": "/incident/7191/",
-        "_source": "data/data_us/source/firedata_2020_12_25.html"
+        "_source": "data/data_us/source/firedata_2020_12_09.html"
+    },
+    {
+        "Incident": "Elk Fire",
+        "Type": "Wildfire",
+        "State": "Nevada, USA",
+        "Size": "927 Acres",
+        "Updated": "9/14/2020",
+        "href": "/incident/7032/",
+        "_source": "data/data_us/source/firedata_2020_12_09.html"
     },
     {
         "Incident": "Bryan Mountain Fire",
@@ -483,16 +717,34 @@
         "Size": "900 Acres",
         "Updated": "11/10/2020",
         "href": "/incident/7227/",
-        "_source": "data/data_us/source/firedata_2020_12_25.html"
+        "_source": "data/data_us/source/firedata_2020_12_09.html"
     },
     {
-        "Incident": "Left Field Fire",
+        "Incident": "Garnet Fire",
         "Type": "Wildfire",
-        "State": "Texas, USA",
-        "Size": "814 Acres",
-        "Updated": "6 hrs. ago",
-        "href": "/incident/7293/",
-        "_source": "data/data_us/source/firedata_2020_12_25.html"
+        "State": "Montana, USA",
+        "Size": "866 Acres",
+        "Updated": "10/3/2020",
+        "href": "/incident/6988/",
+        "_source": "data/data_us/source/firedata_2020_12_09.html"
+    },
+    {
+        "Incident": "Ether Hollow ",
+        "Type": "Wildfire",
+        "State": "Utah, USA",
+        "Size": "849 Acres",
+        "Updated": "9/23/2020",
+        "href": "/incident/7180/",
+        "_source": "data/data_us/source/firedata_2020_12_09.html"
+    },
+    {
+        "Incident": "Spud Rock Fire",
+        "Type": "Wildfire",
+        "State": "Arizona, USA",
+        "Size": "760 Acres",
+        "Updated": "9/12/2020",
+        "href": "/incident/6969/",
+        "_source": "data/data_us/source/firedata_2020_12_09.html"
     },
     {
         "Incident": "Ice Fire",
@@ -501,7 +753,25 @@
         "Size": "596 Acres",
         "Updated": "10/29/2020",
         "href": "/incident/7251/",
-        "_source": "data/data_us/source/firedata_2020_12_25.html"
+        "_source": "data/data_us/source/firedata_2020_12_09.html"
+    },
+    {
+        "Incident": "Whitetail Loop Fire",
+        "Type": "Wildfire",
+        "State": "Idaho, USA",
+        "Size": "499 Acres",
+        "Updated": "9/14/2020",
+        "href": "/incident/7122/",
+        "_source": "data/data_us/source/firedata_2020_12_09.html"
+    },
+    {
+        "Incident": "Rattlesnake Fire",
+        "Type": "Wildfire",
+        "State": "Oregon, USA",
+        "Size": "497 Acres",
+        "Updated": "9/24/2020",
+        "href": "/incident/7069/",
+        "_source": "data/data_us/source/firedata_2020_12_09.html"
     },
     {
         "Incident": "Lefthand Canyon Fire",
@@ -510,7 +780,16 @@
         "Size": "460 Acres",
         "Updated": "10/28/2020",
         "href": "/incident/7247/",
-        "_source": "data/data_us/source/firedata_2020_12_25.html"
+        "_source": "data/data_us/source/firedata_2020_12_09.html"
+    },
+    {
+        "Incident": "Lobo Mesa Fire",
+        "Type": "Wildfire",
+        "State": "Montana, USA",
+        "Size": "320 Acres",
+        "Updated": "9/23/2020",
+        "href": "/incident/7194/",
+        "_source": "data/data_us/source/firedata_2020_12_09.html"
     },
     {
         "Incident": "Colorado 2",
@@ -519,7 +798,16 @@
         "Size": "257 Acres",
         "Updated": "10/13/2020",
         "href": "/incident/7236/",
-        "_source": "data/data_us/source/firedata_2020_12_25.html"
+        "_source": "data/data_us/source/firedata_2020_12_09.html"
+    },
+    {
+        "Incident": "Lion Creek",
+        "Type": "Wildfire",
+        "State": "Montana, USA",
+        "Size": "190 Acres",
+        "Updated": "10/23/2020",
+        "href": "/incident/7011/",
+        "_source": "data/data_us/source/firedata_2020_12_09.html"
     },
     {
         "Incident": "Racetrack Fire",
@@ -528,7 +816,7 @@
         "Size": "150 Acres",
         "Updated": "10/28/2020",
         "href": "/incident/7249/",
-        "_source": "data/data_us/source/firedata_2020_12_25.html"
+        "_source": "data/data_us/source/firedata_2020_12_09.html"
     },
     {
         "Incident": "Ironwood Fire",
@@ -537,16 +825,7 @@
         "Size": "135 Acres",
         "Updated": "10/20/2020",
         "href": "/incident/7250/",
-        "_source": "data/data_us/source/firedata_2020_12_25.html"
-    },
-    {
-        "Incident": "Mesa Fire",
-        "Type": "Wildfire",
-        "State": "California, USA",
-        "Size": "100 Acres",
-        "Updated": "11 hrs. ago",
-        "href": "/incident/7292/",
-        "_source": "data/data_us/source/firedata_2020_12_25.html"
+        "_source": "data/data_us/source/firedata_2020_12_09.html"
     },
     {
         "Incident": "Point Fire",
@@ -555,16 +834,16 @@
         "Size": "93 Acres",
         "Updated": "11/9/2020",
         "href": "/incident/7254/",
-        "_source": "data/data_us/source/firedata_2020_12_25.html"
+        "_source": "data/data_us/source/firedata_2020_12_09.html"
     },
     {
         "Incident": "Canyon Wildfire",
         "Type": "Wildfire",
         "State": "California, USA",
         "Size": "83 Acres",
-        "Updated": "6 days ago",
+        "Updated": "23 hrs. ago",
         "href": "/incident/7276/",
-        "_source": "data/data_us/source/firedata_2020_12_25.html"
+        "_source": "data/data_us/source/firedata_2020_12_09.html"
     },
     {
         "Incident": "Catalina Fire",
@@ -573,7 +852,25 @@
         "Size": "47 Acres",
         "Updated": "10/28/2020",
         "href": "/incident/7248/",
-        "_source": "data/data_us/source/firedata_2020_12_25.html"
+        "_source": "data/data_us/source/firedata_2020_12_09.html"
+    },
+    {
+        "Incident": "Mica Bowl Fire",
+        "Type": "Wildfire",
+        "State": "Arizona, USA",
+        "Size": "26 Acres",
+        "Updated": "9/12/2020",
+        "href": "/incident/6970/",
+        "_source": "data/data_us/source/firedata_2020_12_09.html"
+    },
+    {
+        "Incident": "Mt. Lena Fire",
+        "Type": "Wildfire",
+        "State": "Washington, USA",
+        "Size": "20 Acres",
+        "Updated": "9/11/2020",
+        "href": "/incident/7184/",
+        "_source": "data/data_us/source/firedata_2020_12_09.html"
     },
     {
         "Incident": "Horton Fire",
@@ -582,34 +879,61 @@
         "Size": "6 Acres",
         "Updated": "10/15/2020",
         "href": "/incident/7241/",
-        "_source": "data/data_us/source/firedata_2020_12_25.html"
+        "_source": "data/data_us/source/firedata_2020_12_09.html"
     },
     {
-        "Incident": "Slash Pile Burning 2021",
+        "Incident": "2020 Humboldt-Toiyabe Initial Attack",
+        "Type": "Wildfire",
+        "State": "Nevada, USA",
+        "Size": "1 Acres",
+        "Updated": "9/22/2020",
+        "href": "/incident/6779/",
+        "_source": "data/data_us/source/firedata_2020_12_09.html"
+    },
+    {
+        "Incident": "Klamath NF RX Burning 2020/2021",
+        "Type": "Prescribed Fire",
+        "State": "California, USA",
+        "Size": "0 Acres",
+        "Updated": "7 hrs. ago",
+        "href": "/incident/7274/",
+        "_source": "data/data_us/source/firedata_2020_12_09.html"
+    },
+    {
+        "Incident": "Fall Prescribed Fire Projects 2020",
+        "Type": "Prescribed Fire",
+        "State": "Oregon, USA",
+        "Size": "0 Acres",
+        "Updated": "1 day ago",
+        "href": "/incident/7216/",
+        "_source": "data/data_us/source/firedata_2020_12_09.html"
+    },
+    {
+        "Incident": "2020-21 Royal Gorge FO Pile Burns",
         "Type": "Prescribed Fire",
         "State": "Colorado, USA",
         "Size": "0 Acres",
-        "Updated": "2 days ago",
-        "href": "/incident/4648/",
-        "_source": "data/data_us/source/firedata_2020_12_25.html"
-    },
-    {
-        "Incident": "Williams Fork Post-Fire BAER",
-        "Type": "Burned Area Emergency Response",
-        "State": "Colorado, USA",
-        "Size": "0 Acres",
-        "Updated": "2 days ago",
-        "href": "/incident/7211/",
-        "_source": "data/data_us/source/firedata_2020_12_25.html"
+        "Updated": "5 days ago",
+        "href": "/incident/7266/",
+        "_source": "data/data_us/source/firedata_2020_12_09.html"
     },
     {
         "Incident": "Shasta-Trinity RX Burning 2020/2021",
         "Type": "Prescribed Fire",
         "State": "California, USA",
         "Size": "0 Acres",
-        "Updated": "7 days ago",
+        "Updated": "6 days ago",
         "href": "/incident/7268/",
-        "_source": "data/data_us/source/firedata_2020_12_25.html"
+        "_source": "data/data_us/source/firedata_2020_12_09.html"
+    },
+    {
+        "Incident": "Woodhead BAER",
+        "Type": "Burned Area Emergency Response",
+        "State": "Idaho, USA",
+        "Size": "0 Acres",
+        "Updated": "7 days ago",
+        "href": "/incident/7262/",
+        "_source": "data/data_us/source/firedata_2020_12_09.html"
     },
     {
         "Incident": "East Troublesome Post-Fire BAER",
@@ -618,61 +942,16 @@
         "Size": "0 Acres",
         "Updated": "7 days ago",
         "href": "/incident/7267/",
-        "_source": "data/data_us/source/firedata_2020_12_25.html"
-    },
-    {
-        "Incident": "CalWood and Lefthand Post-Fire BAER",
-        "Type": "Burned Area Emergency Response",
-        "State": "Colorado, USA",
-        "Size": "0 Acres",
-        "Updated": "7 days ago",
-        "href": "/incident/7290/",
-        "_source": "data/data_us/source/firedata_2020_12_25.html"
+        "_source": "data/data_us/source/firedata_2020_12_09.html"
     },
     {
         "Incident": "Cameron Peak Post-Fire BAER",
         "Type": "Burned Area Emergency Response",
         "State": "Colorado, USA",
         "Size": "0 Acres",
-        "Updated": "7 days ago",
+        "Updated": "11/20/2020",
         "href": "/incident/7210/",
-        "_source": "data/data_us/source/firedata_2020_12_25.html"
-    },
-    {
-        "Incident": "Klamath NF RX Burning 2020/2021",
-        "Type": "Prescribed Fire",
-        "State": "California, USA",
-        "Size": "0 Acres",
-        "Updated": "7 days ago",
-        "href": "/incident/7274/",
-        "_source": "data/data_us/source/firedata_2020_12_25.html"
-    },
-    {
-        "Incident": "Fall Prescribed Fire Projects 2020",
-        "Type": "Prescribed Fire",
-        "State": "Oregon, USA",
-        "Size": "0 Acres",
-        "Updated": "12/7/2020",
-        "href": "/incident/7216/",
-        "_source": "data/data_us/source/firedata_2020_12_25.html"
-    },
-    {
-        "Incident": "2020-21 Royal Gorge FO Pile Burns",
-        "Type": "Prescribed Fire",
-        "State": "Colorado, USA",
-        "Size": "0 Acres",
-        "Updated": "12/3/2020",
-        "href": "/incident/7266/",
-        "_source": "data/data_us/source/firedata_2020_12_25.html"
-    },
-    {
-        "Incident": "Woodhead BAER",
-        "Type": "Burned Area Emergency Response",
-        "State": "Idaho, USA",
-        "Size": "0 Acres",
-        "Updated": "12/1/2020",
-        "href": "/incident/7262/",
-        "_source": "data/data_us/source/firedata_2020_12_25.html"
+        "_source": "data/data_us/source/firedata_2020_12_09.html"
     },
     {
         "Incident": "SQF Complex Post-Fire BAER",
@@ -681,7 +960,7 @@
         "Size": "0 Acres",
         "Updated": "11/19/2020",
         "href": "/incident/7240/",
-        "_source": "data/data_us/source/firedata_2020_12_25.html"
+        "_source": "data/data_us/source/firedata_2020_12_09.html"
     },
     {
         "Incident": "Slater/Devil Post-Fire BAER",
@@ -690,7 +969,7 @@
         "Size": "0 Acres",
         "Updated": "11/17/2020",
         "href": "/incident/7237/",
-        "_source": "data/data_us/source/firedata_2020_12_25.html"
+        "_source": "data/data_us/source/firedata_2020_12_09.html"
     },
     {
         "Incident": "Creek Post-Fire BAER",
@@ -699,7 +978,7 @@
         "Size": "0 Acres",
         "Updated": "11/14/2020",
         "href": "/incident/7221/",
-        "_source": "data/data_us/source/firedata_2020_12_25.html"
+        "_source": "data/data_us/source/firedata_2020_12_09.html"
     },
     {
         "Incident": "San Juan NF Prescribed Fire Program",
@@ -708,7 +987,7 @@
         "Size": "0 Acres",
         "Updated": "11/12/2020",
         "href": "/incident/6288/",
-        "_source": "data/data_us/source/firedata_2020_12_25.html"
+        "_source": "data/data_us/source/firedata_2020_12_09.html"
     },
     {
         "Incident": "Red Salmon Post-Fire BAER",
@@ -717,7 +996,7 @@
         "Size": "0 Acres",
         "Updated": "11/6/2020",
         "href": "/incident/7253/",
-        "_source": "data/data_us/source/firedata_2020_12_25.html"
+        "_source": "data/data_us/source/firedata_2020_12_09.html"
     },
     {
         "Incident": "August Complex Post-Fire BAER",
@@ -726,7 +1005,7 @@
         "Size": "0 Acres",
         "Updated": "11/5/2020",
         "href": "/incident/7228/",
-        "_source": "data/data_us/source/firedata_2020_12_25.html"
+        "_source": "data/data_us/source/firedata_2020_12_09.html"
     },
     {
         "Incident": "Lake Post-Fire BAER",
@@ -735,7 +1014,7 @@
         "Size": "0 Acres",
         "Updated": "11/4/2020",
         "href": "/incident/7115/",
-        "_source": "data/data_us/source/firedata_2020_12_25.html"
+        "_source": "data/data_us/source/firedata_2020_12_09.html"
     },
     {
         "Incident": "Ranch2 Post-Fire BAER",
@@ -744,7 +1023,7 @@
         "Size": "0 Acres",
         "Updated": "11/4/2020",
         "href": "/incident/7114/",
-        "_source": "data/data_us/source/firedata_2020_12_25.html"
+        "_source": "data/data_us/source/firedata_2020_12_09.html"
     },
     {
         "Incident": "Dolan Post-Fire BAER",
@@ -753,7 +1032,7 @@
         "Size": "0 Acres",
         "Updated": "11/1/2020",
         "href": "/incident/7231/",
-        "_source": "data/data_us/source/firedata_2020_12_25.html"
+        "_source": "data/data_us/source/firedata_2020_12_09.html"
     },
     {
         "Incident": "El Dorado Post-Fire BAER",
@@ -762,7 +1041,7 @@
         "Size": "0 Acres",
         "Updated": "11/1/2020",
         "href": "/incident/7217/",
-        "_source": "data/data_us/source/firedata_2020_12_25.html"
+        "_source": "data/data_us/source/firedata_2020_12_09.html"
     },
     {
         "Incident": "Snow Post-Fire BAER",
@@ -771,7 +1050,7 @@
         "Size": "0 Acres",
         "Updated": "11/1/2020",
         "href": "/incident/7214/",
-        "_source": "data/data_us/source/firedata_2020_12_25.html"
+        "_source": "data/data_us/source/firedata_2020_12_09.html"
     },
     {
         "Incident": "Apple Post-Fire BAER",
@@ -780,7 +1059,7 @@
         "Size": "0 Acres",
         "Updated": "11/1/2020",
         "href": "/incident/6939/",
-        "_source": "data/data_us/source/firedata_2020_12_25.html"
+        "_source": "data/data_us/source/firedata_2020_12_09.html"
     },
     {
         "Incident": "Bobcat Post-Fire BAER",
@@ -789,7 +1068,7 @@
         "Size": "0 Acres",
         "Updated": "11/1/2020",
         "href": "/incident/7232/",
-        "_source": "data/data_us/source/firedata_2020_12_25.html"
+        "_source": "data/data_us/source/firedata_2020_12_09.html"
     },
     {
         "Incident": "Valley Post-Fire BAER",
@@ -798,7 +1077,7 @@
         "Size": "0 Acres",
         "Updated": "11/1/2020",
         "href": "/incident/7202/",
-        "_source": "data/data_us/source/firedata_2020_12_25.html"
+        "_source": "data/data_us/source/firedata_2020_12_09.html"
     },
     {
         "Incident": "Western Oregon USFS BAER",
@@ -807,7 +1086,7 @@
         "Size": "0 Acres",
         "Updated": "10/28/2020",
         "href": "/incident/7222/",
-        "_source": "data/data_us/source/firedata_2020_12_25.html"
+        "_source": "data/data_us/source/firedata_2020_12_09.html"
     },
     {
         "Incident": "2020 Umatilla NF Prescribed Fire",
@@ -816,6 +1095,24 @@
         "Size": "0 Acres",
         "Updated": "10/16/2020",
         "href": "/incident/5808/",
-        "_source": "data/data_us/source/firedata_2020_12_25.html"
+        "_source": "data/data_us/source/firedata_2020_12_09.html"
+    },
+    {
+        "Incident": "Williams Fork Post-Fire BAER",
+        "Type": "Burned Area Emergency Response",
+        "State": "Colorado, USA",
+        "Size": "0 Acres",
+        "Updated": "9/24/2020",
+        "href": "/incident/7211/",
+        "_source": "data/data_us/source/firedata_2020_12_09.html"
+    },
+    {
+        "Incident": "Grizzly Creek Post-Fire BAER",
+        "Type": "Burned Area Emergency Response",
+        "State": "Colorado, USA",
+        "Size": "0 Acres",
+        "Updated": "9/23/2020",
+        "href": "/incident/7209/",
+        "_source": "data/data_us/source/firedata_2020_12_09.html"
     }
 ]

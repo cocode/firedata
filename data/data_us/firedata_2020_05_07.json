@@ -1,0 +1,92 @@
+[
+    {
+        "Incident": "Holcombe Road Fire",
+        "Type": "Wildfire",
+        "State": "Texas, USA",
+        "Size": "25958 Acres",
+        "Updated": "5 days ago",
+        "href": "/incident/6689/",
+        "_source": "data/data_us/source/firedata_2020_05_07.html"
+    },
+    {
+        "Incident": "Elkhorn-Pingree Hill Prescribed Burns",
+        "Type": "Prescribed Fire",
+        "State": "Colorado, USA",
+        "Size": "4104 Acres",
+        "Updated": "3/11/2020",
+        "href": "/incident/4727/",
+        "_source": "data/data_us/source/firedata_2020_05_07.html"
+    },
+    {
+        "Incident": "Kern River Ranger District Prescribed RX",
+        "Type": "Prescribed Fire",
+        "State": "California, USA",
+        "Size": "67 Acres",
+        "Updated": "3/18/2020",
+        "href": "/incident/6664/",
+        "_source": "data/data_us/source/firedata_2020_05_07.html"
+    },
+    {
+        "Incident": "2020 Rx Burns",
+        "Type": "Prescribed Fire",
+        "State": "Arizona, USA",
+        "Size": "0 Acres",
+        "Updated": "4/22/2020",
+        "href": "/incident/6604/",
+        "_source": "data/data_us/source/firedata_2020_05_07.html"
+    },
+    {
+        "Incident": "Klamath NF Winter RX Burning",
+        "Type": "Prescribed Fire",
+        "State": "California, USA",
+        "Size": "0 Acres",
+        "Updated": "4/1/2020",
+        "href": "/incident/6595/",
+        "_source": "data/data_us/source/firedata_2020_05_07.html"
+    },
+    {
+        "Incident": "Spring Rx Fire in South Central Oregon",
+        "Type": "Prescribed Fire",
+        "State": "Oregon, USA",
+        "Size": "0 Acres",
+        "Updated": "3/25/2020",
+        "href": "/incident/6682/",
+        "_source": "data/data_us/source/firedata_2020_05_07.html"
+    },
+    {
+        "Incident": "Payette Spring Prescribed Fire",
+        "Type": "Prescribed Fire",
+        "State": "Idaho, USA",
+        "Size": "0 Acres",
+        "Updated": "3/10/2020",
+        "href": "/incident/6681/",
+        "_source": "data/data_us/source/firedata_2020_05_07.html"
+    },
+    {
+        "Incident": "Hoosier National Forest Prescribed Burns",
+        "Type": "Prescribed Fire",
+        "State": "Indiana, USA",
+        "Size": "0 Acres",
+        "Updated": "3/9/2020",
+        "href": "/incident/6666/",
+        "_source": "data/data_us/source/firedata_2020_05_07.html"
+    },
+    {
+        "Incident": "Mark Twain NF 2020 Rx Fire",
+        "Type": "Prescribed Fire",
+        "State": "Missouri, USA",
+        "Size": "0 Acres",
+        "Updated": "3/9/2020",
+        "href": "/incident/6674/",
+        "_source": "data/data_us/source/firedata_2020_05_07.html"
+    },
+    {
+        "Incident": "Slash Pile Burning 2019-2020",
+        "Type": "Prescribed Fire",
+        "State": "Colorado, USA",
+        "Size": "0 Acres",
+        "Updated": "3/3/2020",
+        "href": "/incident/4648/",
+        "_source": "data/data_us/source/firedata_2020_05_07.html"
+    }
+]

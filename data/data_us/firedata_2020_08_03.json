@@ -1,0 +1,632 @@
+[
+    {
+        "Incident": "Bush Fire",
+        "Type": "Wildfire",
+        "State": "Arizona, USA",
+        "Size": "193455 Acres",
+        "Updated": "7/6/2020",
+        "href": "/incident/6773/",
+        "_source": "data/data_us/source/firedata_2020_08_03.html"
+    },
+    {
+        "Incident": "Bighorn",
+        "Type": "Wildfire",
+        "State": "Arizona, USA",
+        "Size": "119987 Acres",
+        "Updated": "7/23/2020",
+        "href": "/incident/6741/",
+        "_source": "data/data_us/source/firedata_2020_08_03.html"
+    },
+    {
+        "Incident": "July Complex 2020",
+        "Type": "Wildfire",
+        "State": "California, USA",
+        "Size": "83261 Acres",
+        "Updated": "3 hrs. ago",
+        "href": "/incident/6881/",
+        "_source": "data/data_us/source/firedata_2020_08_03.html"
+    },
+    {
+        "Incident": "Canal",
+        "Type": "Wildfire",
+        "State": "Utah, USA",
+        "Size": "78065 Acres",
+        "Updated": "7/9/2020",
+        "href": "/incident/6817/",
+        "_source": "data/data_us/source/firedata_2020_08_03.html"
+    },
+    {
+        "Incident": "Mangum Fire",
+        "Type": "Wildfire",
+        "State": "Arizona, USA",
+        "Size": "71450 Acres",
+        "Updated": "3 days ago",
+        "href": "/incident/6748/",
+        "_source": "data/data_us/source/firedata_2020_08_03.html"
+    },
+    {
+        "Incident": "Blue River 2",
+        "Type": "Wildfire",
+        "State": "Arizona, USA",
+        "Size": "28051 Acres",
+        "Updated": "7/20/2020",
+        "href": "/incident/6860/",
+        "_source": "data/data_us/source/firedata_2020_08_03.html"
+    },
+    {
+        "Incident": "Apple Fire",
+        "Type": "Wildfire",
+        "State": "California, USA",
+        "Size": "26450 Acres",
+        "Updated": "1:32 hrs. ago",
+        "href": "/incident/6902/",
+        "_source": "data/data_us/source/firedata_2020_08_03.html"
+    },
+    {
+        "Incident": "Cub Fire",
+        "Type": "Wildfire",
+        "State": "New Mexico, USA",
+        "Size": "25950 Acres",
+        "Updated": "7 days ago",
+        "href": "/incident/6819/",
+        "_source": "data/data_us/source/firedata_2020_08_03.html"
+    },
+    {
+        "Incident": "Sawtooth Fire ",
+        "Type": "Wildfire",
+        "State": "Arizona, USA",
+        "Size": "24729 Acres",
+        "Updated": "6/19/2020",
+        "href": "/incident/6730/",
+        "_source": "data/data_us/source/firedata_2020_08_03.html"
+    },
+    {
+        "Incident": "Bringham Fire",
+        "Type": "Wildfire",
+        "State": "Arizona, USA",
+        "Size": "23142 Acres",
+        "Updated": "3 days ago",
+        "href": "/incident/6747/",
+        "_source": "data/data_us/source/firedata_2020_08_03.html"
+    },
+    {
+        "Incident": "Gold Fire",
+        "Type": "Wildfire",
+        "State": "California, USA",
+        "Size": "22634 Acres",
+        "Updated": "1 day ago",
+        "href": "/incident/6879/",
+        "_source": "data/data_us/source/firedata_2020_08_03.html"
+    },
+    {
+        "Incident": "Good Fire",
+        "Type": "Wildfire",
+        "State": "New Mexico, USA",
+        "Size": "17950 Acres",
+        "Updated": "7/24/2020",
+        "href": "/incident/6739/",
+        "_source": "data/data_us/source/firedata_2020_08_03.html"
+    },
+    {
+        "Incident": "Neiber Fire",
+        "Type": "Wildfire",
+        "State": "Wyoming, USA",
+        "Size": "17545 Acres",
+        "Updated": "7/22/2020",
+        "href": "/incident/6866/",
+        "_source": "data/data_us/source/firedata_2020_08_03.html"
+    },
+    {
+        "Incident": "Vics Peak",
+        "Type": "Wildfire",
+        "State": "New Mexico, USA",
+        "Size": "14624 Acres",
+        "Updated": "7/20/2020",
+        "href": "/incident/6788/",
+        "_source": "data/data_us/source/firedata_2020_08_03.html"
+    },
+    {
+        "Incident": "Bishop",
+        "Type": "Wildfire",
+        "State": "Nevada, USA",
+        "Size": "13008 Acres",
+        "Updated": "44 min. ago",
+        "href": "/incident/6897/",
+        "_source": "data/data_us/source/firedata_2020_08_03.html"
+    },
+    {
+        "Incident": "Wood Springs 2 Fire",
+        "Type": "Wildfire",
+        "State": "Arizona, USA",
+        "Size": "12861 Acres",
+        "Updated": "7/13/2020",
+        "href": "/incident/6813/",
+        "_source": "data/data_us/source/firedata_2020_08_03.html"
+    },
+    {
+        "Incident": "Isom Creek Fire (#187)",
+        "Type": "Wildfire",
+        "State": "Alaska, USA",
+        "Size": "12180 Acres",
+        "Updated": "6/22/2020",
+        "href": "/incident/6758/",
+        "_source": "data/data_us/source/firedata_2020_08_03.html"
+    },
+    {
+        "Incident": "Pine Hollow Fire",
+        "Type": "Wildfire",
+        "State": "Arizona, USA",
+        "Size": "11373 Acres",
+        "Updated": "27 min. ago",
+        "href": "/incident/6899/",
+        "_source": "data/data_us/source/firedata_2020_08_03.html"
+    },
+    {
+        "Incident": "Tadpole Fire",
+        "Type": "Wildfire",
+        "State": "New Mexico, USA",
+        "Size": "11159 Acres",
+        "Updated": "7/23/2020",
+        "href": "/incident/6737/",
+        "_source": "data/data_us/source/firedata_2020_08_03.html"
+    },
+    {
+        "Incident": "Hog Fire",
+        "Type": "Wildfire",
+        "State": "California, USA",
+        "Size": "9564 Acres",
+        "Updated": "1 day ago",
+        "href": "/incident/6878/",
+        "_source": "data/data_us/source/firedata_2020_08_03.html"
+    },
+    {
+        "Incident": "Thumb Fire",
+        "Type": "Wildfire",
+        "State": "Arizona, USA",
+        "Size": "8354 Acres",
+        "Updated": "7 days ago",
+        "href": "/incident/6870/",
+        "_source": "data/data_us/source/firedata_2020_08_03.html"
+    },
+    {
+        "Incident": "Greenhouse Fire",
+        "Type": "Wildfire",
+        "State": "Washington, USA",
+        "Size": "5146 Acres",
+        "Updated": "2 days ago",
+        "href": "/incident/6885/",
+        "_source": "data/data_us/source/firedata_2020_08_03.html"
+    },
+    {
+        "Incident": "Central Fire",
+        "Type": "Wildfire",
+        "State": "Arizona, USA",
+        "Size": "4499 Acres",
+        "Updated": "7/1/2020",
+        "href": "/incident/6792/",
+        "_source": "data/data_us/source/firedata_2020_08_03.html"
+    },
+    {
+        "Incident": "Fawn Creek Fire",
+        "Type": "Wildfire",
+        "State": "Colorado, USA",
+        "Size": "3226 Acres",
+        "Updated": "7 days ago",
+        "href": "/incident/6861/",
+        "_source": "data/data_us/source/firedata_2020_08_03.html"
+    },
+    {
+        "Incident": "Mays Fire",
+        "Type": "Wildfire",
+        "State": "Texas, USA",
+        "Size": "3000 Acres",
+        "Updated": "4 hrs. ago",
+        "href": "/incident/6908/",
+        "_source": "data/data_us/source/firedata_2020_08_03.html"
+    },
+    {
+        "Incident": "Poeville",
+        "Type": "Wildfire",
+        "State": "Nevada, USA",
+        "Size": "2975 Acres",
+        "Updated": "7/6/2020",
+        "href": "/incident/6810/",
+        "_source": "data/data_us/source/firedata_2020_08_03.html"
+    },
+    {
+        "Incident": "Cottonwood",
+        "Type": "Wildfire",
+        "State": "Nevada, USA",
+        "Size": "2817 Acres",
+        "Updated": "7/26/2020",
+        "href": "/incident/6871/",
+        "_source": "data/data_us/source/firedata_2020_08_03.html"
+    },
+    {
+        "Incident": "Mahogany",
+        "Type": "Wildfire",
+        "State": "Nevada, USA",
+        "Size": "2758 Acres",
+        "Updated": "7/25/2020",
+        "href": "/incident/6811/",
+        "_source": "data/data_us/source/firedata_2020_08_03.html"
+    },
+    {
+        "Incident": "Navarro Fire",
+        "Type": "Wildfire",
+        "State": "Arizona, USA",
+        "Size": "2306 Acres",
+        "Updated": "7/15/2020",
+        "href": "/incident/6848/",
+        "_source": "data/data_us/source/firedata_2020_08_03.html"
+    },
+    {
+        "Incident": "Anglin Fire",
+        "Type": "Wildfire",
+        "State": "Washington, USA",
+        "Size": "1992 Acres",
+        "Updated": "1 day ago",
+        "href": "/incident/6893/",
+        "_source": "data/data_us/source/firedata_2020_08_03.html"
+    },
+    {
+        "Incident": "Red Salmon Complex",
+        "Type": "Wildfire",
+        "State": "California, USA",
+        "Size": "1876 Acres",
+        "Updated": " 1 min. ago",
+        "href": "/incident/6891/",
+        "_source": "data/data_us/source/firedata_2020_08_03.html"
+    },
+    {
+        "Incident": "S4 Fire",
+        "Type": "Wildfire",
+        "State": "California, USA",
+        "Size": "1802 Acres",
+        "Updated": "1 day ago",
+        "href": "/incident/6892/",
+        "_source": "data/data_us/source/firedata_2020_08_03.html"
+    },
+    {
+        "Incident": "Wilson Road",
+        "Type": "Wildfire",
+        "State": "South Dakota, USA",
+        "Size": "1577 Acres",
+        "Updated": "7/9/2020",
+        "href": "/incident/6782/",
+        "_source": "data/data_us/source/firedata_2020_08_03.html"
+    },
+    {
+        "Incident": "Pine Gulch Fire",
+        "Type": "Wildfire",
+        "State": "Colorado, USA",
+        "Size": "1500 Acres",
+        "Updated": "1:53 hrs. ago",
+        "href": "/incident/6906/",
+        "_source": "data/data_us/source/firedata_2020_08_03.html"
+    },
+    {
+        "Incident": "Monarch Fire",
+        "Type": "Wildfire",
+        "State": "Texas, USA",
+        "Size": "1271 Acres",
+        "Updated": "17 hrs. ago",
+        "href": "/incident/6883/",
+        "_source": "data/data_us/source/firedata_2020_08_03.html"
+    },
+    {
+        "Incident": "Ben Young Fire",
+        "Type": "Wildfire",
+        "State": "Oregon, USA",
+        "Size": "1249 Acres",
+        "Updated": "6 days ago",
+        "href": "/incident/6880/",
+        "_source": "data/data_us/source/firedata_2020_08_03.html"
+    },
+    {
+        "Incident": "Aquila Fire",
+        "Type": "Wildfire",
+        "State": "Arizona, USA",
+        "Size": "893 Acres",
+        "Updated": "6/26/2020",
+        "href": "/incident/6799/",
+        "_source": "data/data_us/source/firedata_2020_08_03.html"
+    },
+    {
+        "Incident": "Polles Fire",
+        "Type": "Wildfire",
+        "State": "Arizona, USA",
+        "Size": "628 Acres",
+        "Updated": "7/15/2020",
+        "href": "/incident/6825/",
+        "_source": "data/data_us/source/firedata_2020_08_03.html"
+    },
+    {
+        "Incident": "Lost Creek Fire",
+        "Type": "Wildfire",
+        "State": "Wyoming, USA",
+        "Size": "591 Acres",
+        "Updated": "6/22/2020",
+        "href": "/incident/6767/",
+        "_source": "data/data_us/source/firedata_2020_08_03.html"
+    },
+    {
+        "Incident": "Pocket Fire Complex",
+        "Type": "Wildfire",
+        "State": "Texas, USA",
+        "Size": "512 Acres",
+        "Updated": "1:26 hrs. ago",
+        "href": "/incident/6904/",
+        "_source": "data/data_us/source/firedata_2020_08_03.html"
+    },
+    {
+        "Incident": "Fresnal Fire",
+        "Type": "Wildfire",
+        "State": "Arizona, USA",
+        "Size": "502 Acres",
+        "Updated": "7/11/2020",
+        "href": "/incident/6835/",
+        "_source": "data/data_us/source/firedata_2020_08_03.html"
+    },
+    {
+        "Incident": "Pig Fire",
+        "Type": "Wildfire",
+        "State": "Arizona, USA",
+        "Size": "480 Acres",
+        "Updated": " 1 min. ago",
+        "href": "/incident/6907/",
+        "_source": "data/data_us/source/firedata_2020_08_03.html"
+    },
+    {
+        "Incident": "Stump Fire",
+        "Type": "Wildfire",
+        "State": "California, USA",
+        "Size": "300 Acres",
+        "Updated": "2 hrs. ago",
+        "href": "/incident/6905/",
+        "_source": "data/data_us/source/firedata_2020_08_03.html"
+    },
+    {
+        "Incident": "Wolf Fire",
+        "Type": "Wildfire",
+        "State": "Colorado, USA",
+        "Size": "274 Acres",
+        "Updated": "7 days ago",
+        "href": "/incident/6863/",
+        "_source": "data/data_us/source/firedata_2020_08_03.html"
+    },
+    {
+        "Incident": "Bertschi Road Fire",
+        "Type": "Wildfire",
+        "State": "Washington, USA",
+        "Size": "250 Acres",
+        "Updated": "7/24/2020",
+        "href": "/incident/6868/",
+        "_source": "data/data_us/source/firedata_2020_08_03.html"
+    },
+    {
+        "Incident": "Chikamin",
+        "Type": "Wildfire",
+        "State": "Washington, USA",
+        "Size": "240 Acres",
+        "Updated": "2 hrs. ago",
+        "href": "/incident/6901/",
+        "_source": "data/data_us/source/firedata_2020_08_03.html"
+    },
+    {
+        "Incident": "Dam Fire",
+        "Type": "Wildfire",
+        "State": "California, USA",
+        "Size": "220 Acres",
+        "Updated": "1:32 hrs. ago",
+        "href": "/incident/6900/",
+        "_source": "data/data_us/source/firedata_2020_08_03.html"
+    },
+    {
+        "Incident": "Stewart Fire",
+        "Type": "Wildfire",
+        "State": "Colorado, USA",
+        "Size": "212 Acres",
+        "Updated": "7 days ago",
+        "href": "/incident/6862/",
+        "_source": "data/data_us/source/firedata_2020_08_03.html"
+    },
+    {
+        "Incident": "Ojo de Los Casos",
+        "Type": "Wildfire",
+        "State": "New Mexico, USA",
+        "Size": "180 Acres",
+        "Updated": "5 days ago",
+        "href": "/incident/6837/",
+        "_source": "data/data_us/source/firedata_2020_08_03.html"
+    },
+    {
+        "Incident": "Castaic",
+        "Type": "Wildfire",
+        "State": "California, USA",
+        "Size": "178 Acres",
+        "Updated": "16 hrs. ago",
+        "href": "/incident/6903/",
+        "_source": "data/data_us/source/firedata_2020_08_03.html"
+    },
+    {
+        "Incident": "Goose Creek",
+        "Type": "Wildfire",
+        "State": "Colorado, USA",
+        "Size": "171 Acres",
+        "Updated": "7/22/2020",
+        "href": "/incident/6812/",
+        "_source": "data/data_us/source/firedata_2020_08_03.html"
+    },
+    {
+        "Incident": "Iris Fire",
+        "Type": "Wildfire",
+        "State": "California, USA",
+        "Size": "120 Acres",
+        "Updated": "3 days ago",
+        "href": "/incident/6877/",
+        "_source": "data/data_us/source/firedata_2020_08_03.html"
+    },
+    {
+        "Incident": "Sand Creek Fire",
+        "Type": "Wildfire",
+        "State": "Colorado, USA",
+        "Size": "107 Acres",
+        "Updated": "6 days ago",
+        "href": "/incident/6790/",
+        "_source": "data/data_us/source/firedata_2020_08_03.html"
+    },
+    {
+        "Incident": "Milepost 21",
+        "Type": "Wildfire",
+        "State": "California, USA",
+        "Size": "100 Acres",
+        "Updated": "7 days ago",
+        "href": "/incident/6882/",
+        "_source": "data/data_us/source/firedata_2020_08_03.html"
+    },
+    {
+        "Incident": "Golden Fire",
+        "Type": "Wildfire",
+        "State": "Idaho, USA",
+        "Size": "91 Acres",
+        "Updated": "3 hrs. ago",
+        "href": "/incident/6898/",
+        "_source": "data/data_us/source/firedata_2020_08_03.html"
+    },
+    {
+        "Incident": "Matlock Fire",
+        "Type": "Wildfire",
+        "State": "Oregon, USA",
+        "Size": "85 Acres",
+        "Updated": " 1 min. ago",
+        "href": "/incident/6896/",
+        "_source": "data/data_us/source/firedata_2020_08_03.html"
+    },
+    {
+        "Incident": "Loading Pen",
+        "Type": "Wildfire",
+        "State": "Colorado, USA",
+        "Size": "42 Acres",
+        "Updated": "7/9/2020",
+        "href": "/incident/6775/",
+        "_source": "data/data_us/source/firedata_2020_08_03.html"
+    },
+    {
+        "Incident": "Bald Fire",
+        "Type": "Wildfire",
+        "State": "California, USA",
+        "Size": "23 Acres",
+        "Updated": "22 hrs. ago",
+        "href": "/incident/6895/",
+        "_source": "data/data_us/source/firedata_2020_08_03.html"
+    },
+    {
+        "Incident": "Split Fire",
+        "Type": "Wildfire",
+        "State": "Utah, USA",
+        "Size": "18 Acres",
+        "Updated": "7/6/2020",
+        "href": "/incident/6822/",
+        "_source": "data/data_us/source/firedata_2020_08_03.html"
+    },
+    {
+        "Incident": "Bridge Fire",
+        "Type": "Wildfire",
+        "State": "California, USA",
+        "Size": "16 Acres",
+        "Updated": "5 days ago",
+        "href": "/incident/6890/",
+        "_source": "data/data_us/source/firedata_2020_08_03.html"
+    },
+    {
+        "Incident": "SHF Lightning Fires 2020",
+        "Type": "Wildfire",
+        "State": "California, USA",
+        "Size": "15 Acres",
+        "Updated": "23 hrs. ago",
+        "href": "/incident/6733/",
+        "_source": "data/data_us/source/firedata_2020_08_03.html"
+    },
+    {
+        "Incident": "Blue Jay ",
+        "Type": "Wildfire",
+        "State": "California, USA",
+        "Size": "14 Acres",
+        "Updated": "20 hrs. ago",
+        "href": "/incident/6888/",
+        "_source": "data/data_us/source/firedata_2020_08_03.html"
+    },
+    {
+        "Incident": "Ant Fire",
+        "Type": "Wildfire",
+        "State": "California, USA",
+        "Size": "10 Acres",
+        "Updated": "6/19/2020",
+        "href": "/incident/6771/",
+        "_source": "data/data_us/source/firedata_2020_08_03.html"
+    },
+    {
+        "Incident": "June Lightning 2020",
+        "Type": "Wildfire",
+        "State": "California, USA",
+        "Size": "6 Acres",
+        "Updated": "6/12/2020",
+        "href": "/incident/6736/",
+        "_source": "data/data_us/source/firedata_2020_08_03.html"
+    },
+    {
+        "Incident": "Humboldt-Toiyabe 2020 Initial Attack ",
+        "Type": "Wildfire",
+        "State": "Nevada, USA",
+        "Size": "1 Acres",
+        "Updated": "6 days ago",
+        "href": "/incident/6779/",
+        "_source": "data/data_us/source/firedata_2020_08_03.html"
+    },
+    {
+        "Incident": "KNF Lightning July 2020",
+        "Type": "Wildfire",
+        "State": "California, USA",
+        "Size": "0 Acres",
+        "Updated": "3 days ago",
+        "href": "/incident/6887/",
+        "_source": "data/data_us/source/firedata_2020_08_03.html"
+    },
+    {
+        "Incident": "Six Rivers Lightning Fires 2020",
+        "Type": "Wildfire",
+        "State": "California, USA",
+        "Size": "0 Acres",
+        "Updated": "3 days ago",
+        "href": "/incident/6894/",
+        "_source": "data/data_us/source/firedata_2020_08_03.html"
+    },
+    {
+        "Incident": "2020 Tonto NF BAER Information",
+        "Type": "Burned Area Emergency Response",
+        "State": "Arizona, USA",
+        "Size": "0 Acres",
+        "Updated": "3 days ago",
+        "href": "/incident/6803/",
+        "_source": "data/data_us/source/firedata_2020_08_03.html"
+    },
+    {
+        "Incident": "Modoc Lightning Fires 2020",
+        "Type": "Wildfire",
+        "State": "California, USA",
+        "Size": "0 Acres",
+        "Updated": "4 days ago",
+        "href": "/incident/6875/",
+        "_source": "data/data_us/source/firedata_2020_08_03.html"
+    },
+    {
+        "Incident": "2020 Coronado BAER",
+        "Type": "Burned Area Emergency Response",
+        "State": "Arizona, USA",
+        "Size": "0 Acres",
+        "Updated": "7/17/2020",
+        "href": "/incident/6796/",
+        "_source": "data/data_us/source/firedata_2020_08_03.html"
+    }
+]
