@@ -25,9 +25,9 @@ class DataStore:
         filename = self.get_filename(day)
         return os.path.exists(filename)
 
-    def save_date_data(self, date_of_data: date, jdata):
+    def save_date_data(self, date_of_data: date, fire_data):
         filename = self.get_filename(date_of_data)
-        self.save_data(filename, jdata)
+        self.save_data(filename, fire_data)
 
     def save_todays_data(self, jdata):
         """
@@ -42,7 +42,6 @@ class DataStore:
     def save_data(filename: str, jdata):
         formatted = json.dumps(jdata, indent=4)
         a = os.path.abspath(filename)
-        print(F"bas {a}")
         with open(filename, "w") as f:
             f.write(formatted)
 
