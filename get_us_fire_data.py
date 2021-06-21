@@ -261,19 +261,19 @@ def run_wayback():
         path = archive_directory + "/" + filename
         with open(path) as f:
             archive = f.read()
-        data = parse(archive)
-        for incident in data:
+        fire_data = parse(archive)
+        for incident in fire_data:
             incident['_source'] = path
-        print(json.dumps(data, indent=4))
+        print(json.dumps(fire_data, indent=4))
         data_store = get_data_store()
         data_date = datetime.date(year,month, day)
         already_exists = data_store.does_data_exist(data_date)
         print(F"Data already in data store: {already_exists}")
         if not already_exists:
-            data_store.save_date_data(data_date, json)
+            data_store.save_date_data(data_date, fire_data)
 
 
 if __name__ == "__main__":
-    run()
-    #run_wayback()
+    #run()
+    run_wayback()
     print("Done.")
