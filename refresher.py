@@ -34,10 +34,12 @@ class Refresh:
 
     @staticmethod
     def fetch_data(url):
-        '''
+        """
         Fetch the data from the cal fire website.
-        :return:
-        '''
+        :param url: The url to fetch data from.
+        :return: The contents of the webpage, or None
+        """
+
         try:
             response = requests.get(url)
             if response.status_code != 200:
