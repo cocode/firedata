@@ -27,8 +27,10 @@ class Refresh:
         print(F"Fetching data from {self.url}")
         data = self.fetch_data(self.url)
         jdata = self.parse(data)
+        print(F"JSON data parsed. Len = {len(jdata)}")
         #jdata = json.loads(data) # Convert to json is a quick validation
         self.ds.save_todays_data(jdata)
+        print("Data saved.")
 
     @staticmethod
     def fetch_data(url):
@@ -48,6 +50,6 @@ class Refresh:
         except Exception as e:
             print(F'Other exception: {e}')
             return None
-
+        print(F"HTTP request succeed. Response size={len(response.content)}")
         return response.content
 
