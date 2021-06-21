@@ -19,6 +19,7 @@ head_preamble = \
 <head>
 <meta charset="utf-8">
 <style>
+    .introduction {margin-left: 100px; margin-right: 100px;}
     .foot {font-size:50%; font-family: Verdana, sans-serif; margin-bottom: 0px; margin-top: 0px}
     .chart_target {width: 100%; }
     .chart_foot {margin-left: 100px; width: 100%}
@@ -173,6 +174,9 @@ class WebPage:
     def write_body(self, output):
         output.write("<body>\n")
         output.write("<h1>California Fire Data</h1>")
+        output.write('<p class="introduction">This site attempts to visualize California fire data.</p>')
+        output.write('<p class="introduction">Fires in california may be fought by Federal agencies, California State agencies ("Cal Fire"), ')
+        output.write(' or local agencies, and the reporting is different for all. </p>')
         for chart in self.charts:
             self.write_body_charts(output, chart)
         output.write("<hr>\n")
