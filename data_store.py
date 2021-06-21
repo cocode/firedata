@@ -71,7 +71,7 @@ class DataStore:
                 continue;
             month = ff[2]
             day = ff[3].split(".")[0]
-            assert 2020 <= int(year) <= 2099
+            assert 2018 <= int(year) <= 2099
             assert 1 <= int(month) <= 12
             assert 1 <= int(day) <= 31
             filename = F"{self.get_data_dir()}/{f}"
