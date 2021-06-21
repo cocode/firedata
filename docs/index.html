@@ -24,7 +24,7 @@ var data = new google.visualization.DataTable();
 data.addColumn("date", "Season Start Date")
 data.addColumn("number", "Acres Burned")
 var options = {
-    "title": "Cal Fire (only) Fire Data 2021",
+    "title": "Cal Fire (only) Fire Data",
     "hAxis": {
         "title": "Date Recorded"
     },
@@ -33,6 +33,7 @@ var options = {
     }
 }
 data.addRows([
+[new Date(2021, 4, 1), 0],
 [new Date(2021, 4, 26), 11483],
 [new Date(2021, 4, 31), 13038],
 [new Date(2021, 5, 1), 13363],
@@ -46,8 +47,61 @@ data.addRows([
 [new Date(2021, 5, 18), 18676],
 [new Date(2021, 5, 19), 19284],
 [new Date(2021, 5, 20), 19915],
+[new Date(2021, 5, 21), 20757],
 ]);
-var chart = new google.visualization.ColumnChart(document.getElementById("acres_chart"))
+var chart = new google.visualization.ColumnChart(document.getElementById("acres_b_chart"))
+chart.draw(data, options);
+var data = new google.visualization.DataTable();
+data.addColumn("date", "Season Start Date")
+data.addColumn("number", "Acres Burned")
+var options = {
+    "title": "Federal Fire Data for California only",
+    "hAxis": {
+        "title": "Year"
+    },
+    "vAxis": {
+        "title": "Total Acres Burned"
+    }
+}
+data.addRows([
+[new Date(2021, 4, 1), 0],
+[new Date(2021, 5, 12), 2079],
+[new Date(2021, 5, 14), 400],
+[new Date(2021, 5, 15), 0],
+[new Date(2021, 5, 16), -39],
+[new Date(2021, 5, 17), 165],
+[new Date(2021, 5, 18), 0],
+[new Date(2021, 5, 19), 2000],
+[new Date(2021, 5, 20), 2691],
+[new Date(2021, 5, 21), 386],
+]);
+var chart = new google.visualization.ColumnChart(document.getElementById("us_chart"))
+chart.draw(data, options);
+var data = new google.visualization.DataTable();
+data.addColumn("date", "Season Start Date")
+data.addColumn("number", "Acres Burned")
+var options = {
+    "title": "Federal Fire Data for the Whole US",
+    "hAxis": {
+        "title": "Year"
+    },
+    "vAxis": {
+        "title": "Total Acres Burned"
+    }
+}
+data.addRows([
+[new Date(2021, 4, 1), 0],
+[new Date(2021, 5, 12), 2079],
+[new Date(2021, 5, 14), 400],
+[new Date(2021, 5, 15), 0],
+[new Date(2021, 5, 16), -39],
+[new Date(2021, 5, 17), 165],
+[new Date(2021, 5, 18), 0],
+[new Date(2021, 5, 19), 2000],
+[new Date(2021, 5, 20), 2691],
+[new Date(2021, 5, 21), 988905],
+]);
+var chart = new google.visualization.ColumnChart(document.getElementById("us_chart_2"))
 chart.draw(data, options);
 var data = new google.visualization.DataTable();
 data.addColumn("date", "Season Start Date")
@@ -98,133 +152,150 @@ data.addRows([
 [new Date(2018, 11, 31), 1063414, 793548],
 [new Date(2019, 11, 31), 137134, 124170],
 ]);
-var chart = new google.visualization.ColumnChart(document.getElementById("hist_acres_chart"))
+var chart = new google.visualization.ColumnChart(document.getElementById("hist_b_chart"))
 chart.draw(data, options);
 }
 </script>
 </head>
 <body>
-<h1>California Fire Data</h1><div class="chart_target" id="acres_chart"></div>
+<h1>California Fire Data</h1><div class="chart_target" id="acres_b_chart"></div>
 <div class="chart_foot">
 This chart only contains data on fires handled by Cal Fire, and not fires fought by federal and local agencies.
 </div>
 <br>
-<div class="chart_target" id="hist_acres_chart"></div>
+<div class="chart_target" id="us_chart"></div>
+<div class="chart_target" id="us_chart_2"></div>
+<div class="chart_target" id="hist_b_chart"></div>
 <div class="chart_foot">
-From the 2019 Redbook: <b>"Due to the changes in data collection, methods, and systems over the years, information may not always be comparable and data may be of differing accuracy or completeness.</b>"
+From the 2019 Redbook: <b>Due to the changes in data collection, methods, and systems over the years, information may not always be comparable and data may be of differing accuracy or completeness.</b>
 </div>
 <br>
 <hr>
-<p>Change between last two data points (days):</p><table>
-    <TR>
-        <th>Acres Burned</td>
-        <th>Change</td>
-        <th>% Contained</td>
-        <th>Change</td>
-        <th>Incident Name</td>
-    </TR>
-    <TR>
+<p>Calfire: Change between last two data points (days):</p><table>
+    <tr>
+        <th>Acres Burned</th>
+        <th>Change</th>
+        <th>% Contained</th>
+        <th>Change</th>
+        <th>Incident Name</th>
+    </tr>
+    <tr>
         <td style='text-align: right;'>800.0</td>
         <td style='text-align: left;'></td>
-        <td style='text-align: right;'>70.0</td>
-        <td style='text-align: right;'>+40.0</td>
+        <td style='text-align: right;'>90.0</td>
+        <td style='text-align: right;'>+20.0</td>
         <td style='text-align: left;'>Success Fire</td>
-    </TR>
-    <TR>
+    </tr>
+    <tr>
+        <td style='text-align: right;'>600.0</td>
+        <td style='text-align: right;'>new</td>
+        <td style='text-align: right;'>15.0</td>
+        <td style='text-align: right;'>new</td>
+        <td style='text-align: left;'>Cow Fire</td>
+    </tr>
+    <tr>
         <td style='text-align: right;'>560.0</td>
-        <td style='text-align: right;'>+141.0</td>
-        <td style='text-align: right;'>60.0</td>
-        <td style='text-align: right;'>+50.0</td>
+        <td style='text-align: left;'></td>
+        <td style='text-align: right;'>80.0</td>
+        <td style='text-align: right;'>+20.0</td>
         <td style='text-align: left;'>Alabama Fire</td>
-    </TR>
-    <TR>
-        <td style='text-align: right;'>343.0</td>
-        <td style='text-align: right;'>new</td>
-        <td style='text-align: right;'>5.0</td>
-        <td style='text-align: right;'>new</td>
+    </tr>
+    <tr>
+        <td style='text-align: right;'>515.0</td>
+        <td style='text-align: right;'>+172.0</td>
+        <td style='text-align: right;'>25.0</td>
+        <td style='text-align: right;'>+20.0</td>
         <td style='text-align: left;'>Overland Fire</td>
-    </TR>
-    <TR>
+    </tr>
+    <tr>
         <td style='text-align: right;'>341.0</td>
         <td style='text-align: left;'></td>
         <td style='text-align: right;'>90.0</td>
         <td style='text-align: left;'></td>
         <td style='text-align: left;'>Flats Fire</td>
-    </TR>
-    <TR>
-        <td style='text-align: right;'>108.0</td>
-        <td style='text-align: left;'></td>
-        <td style='text-align: right;'>98.0</td>
-        <td style='text-align: right;'>+8.0</td>
-        <td style='text-align: left;'>Rock Fire</td>
-    </TR>
-    <TR>
+    </tr>
+    <tr>
         <td style='text-align: right;'>95.0</td>
-        <td style='text-align: right;'>new</td>
-        <td style='text-align: right;'>40.0</td>
-        <td style='text-align: right;'>new</td>
+        <td style='text-align: left;'></td>
+        <td style='text-align: right;'>90.0</td>
+        <td style='text-align: right;'>+50.0</td>
         <td style='text-align: left;'>Bautista Fire</td>
-    </TR>
-    <TR>
+    </tr>
+    <tr>
         <td style='text-align: right;'>50.0</td>
         <td style='text-align: right;'>new</td>
-        <td style='text-align: right;'>90.0</td>
+        <td style='text-align: right;'>20.0</td>
         <td style='text-align: right;'>new</td>
+        <td style='text-align: left;'>Clevenger Fire</td>
+    </tr>
+    <tr>
+        <td style='text-align: right;'>50.0</td>
+        <td style='text-align: left;'></td>
+        <td style='text-align: right;'>90.0</td>
+        <td style='text-align: left;'></td>
         <td style='text-align: left;'>Crane Fire</td>
-    </TR>
-    <TR>
+    </tr>
+    <tr>
         <td style='text-align: right;'>50.0</td>
         <td style='text-align: left;'></td>
         <td style='text-align: right;'>42.0</td>
         <td style='text-align: left;'></td>
         <td style='text-align: left;'>Pomo Fire</td>
-    </TR>
-    <TR>
-        <td style='text-align: right;'>11.0</td>
-        <td style='text-align: right;'>+2.0</td>
-        <td style='text-align: right;'>85.0</td>
-        <td style='text-align: right;'>+10.0</td>
-        <td style='text-align: left;'>Antelope Fire</td>
-    </TR>
-    <TR>
+    </tr>
+    <tr>
+        <td style='text-align: right;'>20.0</td>
+        <td style='text-align: right;'>new</td>
+        <td style='text-align: right;'>0.0</td>
+        <td style='text-align: right;'>new</td>
+        <td style='text-align: right;'>76 Fire</td>
+    </tr>
+    <tr>
+        <td style='text-align: right;'>~</td>
+        <td style='text-align: left;'></td>
+        <td style='text-align: right;'>~</td>
+        <td style='text-align: left;'></td>
+        <td style='text-align: left;'>Inyo Creek Fire</td>
+    </tr>
+    <tr>
         <td style='text-align: right;'>~</td>
         <td style='text-align: left;'></td>
         <td style='text-align: right;'>~</td>
         <td style='text-align: left;'></td>
         <td style='text-align: left;'>Willow Fire</td>
-    </TR>
-    <TR>
+    </tr>
+    <tr>
         <td style='text-align: right;'>~</td>
         <td style='text-align: left;'></td>
         <td style='text-align: right;'>~</td>
         <td style='text-align: left;'></td>
         <td style='text-align: left;'>Nettle Fire</td>
-    </TR>
-    <TR>
+    </tr>
+    <tr>
         <td style='text-align: right;'>~</td>
         <td style='text-align: left;'></td>
         <td style='text-align: right;'>~</td>
         <td style='text-align: left;'></td>
         <td style='text-align: left;'>Dairy Fire</td>
-    </TR>
-</table><hr><table>
-        <th style='text-align:left;'>Item</td>
-        <th style='text-align:right;'>Value</td>
+    </tr>
+</table><hr><p>Calfire: Active Incident Summary (days):</p><table>
+    <tr>
+        <th style='text-align:left'>Cal Fire Stat</th>
+        <th style='text-align:right;'>Value</th>
     <TR>
-        <td style='text-align: left; border: 1px solid black; padding: 10px'>Number of active incidents:</td>
-        <td style='text-align: right; border: 1px solid black; padding: 10px'>12</td>
+        <td style='text-align: left; border: 1px solid black; padding: 10px'>Number of active incidents</td>
+        <td style='text-align: right; border: 1px solid black; padding: 10px'>14</td>
     </TR>
     <TR>
         <td style='text-align: left; border: 1px solid black; padding: 10px'>New or growing fires</td>
-        <td style='text-align: right; border: 1px solid black; padding: 10px'>5</td>
+        <td style='text-align: right; border: 1px solid black; padding: 10px'>4</td>
     </TR>
     <TR>
         <td style='text-align: left; border: 1px solid black; padding: 10px'>Total acres burned, active fires</td>
-        <td style='text-align: right; border: 1px solid black; padding: 10px'>2358.0</td>
+        <td style='text-align: right; border: 1px solid black; padding: 10px'>3081.0</td>
     </TR>
     <TR>
         <td style='text-align: left; border: 1px solid black; padding: 10px'>New acres burned</td>
-        <td style='text-align: right; border: 1px solid black; padding: 10px'>631.0</td>
+        <td style='text-align: right; border: 1px solid black; padding: 10px'>842.0</td>
     </TR>
 </table><hr>
     

@@ -22,6 +22,10 @@ jobs:
           python -m pip install --upgrade pip
           # pip install flake8 pytest
           if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+          echo "Starting it update mypy"
+          mypy --version
+          echo doing mypy --incremental --cache-dir .mypy_cache --install-types
+          mypy --incremental --cache-dir .mypy_cache --install-types
       - name: Lint with flake8
         run: |
           # stop the build if there are Python syntax errors or undefined names
@@ -31,9 +35,5 @@ jobs:
       - name: Test with pytest
         run: |
           python --version
-          ls -al
-          ls -al data
-          ls -al data/data_test
-          python test_get_cal_fire_data.py
           pytest
           mypy .
