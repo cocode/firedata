@@ -41,11 +41,13 @@ def get_id(incident):
 
 
 # Could also use from operator import itemgetter, attrgetter
-def summarize(ds):
+def summarize(ds, year:int):
     awidth = 14
     dwidth = 10
 
-    jdata = ds.load_all_data()
+    jdata = ds.load_all_data(filter_to_year=year)
+    if len(jdata) == 0:
+        return 0
     jdata_today = jdata[-1]
     if len(jdata) > 1:
         yesterday = jdata[-2]

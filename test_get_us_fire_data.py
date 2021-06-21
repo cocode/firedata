@@ -1,4 +1,6 @@
 from unittest import TestCase
+
+import get_us_fire_data
 from get_us_fire_data import get_size, get_annual_acres_helper
 from data_store import DataStore
 
@@ -39,3 +41,13 @@ class Test(TestCase):
         self.assertEqual(11, v[2])
         self.assertEqual(100, v[3])
         print(total_by_days)
+
+    def test_summarize(self):
+        ds = DataStore("data/data_us")
+        acres_burned = get_us_fire_data.summarize(ds, 2019)
+        self.assertEqual(0, acres_burned)
+
+        acres_burned = get_us_fire_data.summarize(ds, 2020)
+        self.assertEqual(2493647, acres_burned)
+
+
