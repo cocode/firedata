@@ -1,0 +1,26 @@
+[
+    {
+        "Incident": "Test Fire #1",
+        "Type": "First time this fire is seen",
+        "State": "California, USA",
+        "Size": "97 Acres",
+        "Updated": "22 hrs. ago",
+        "href": "/incident/1/"
+    },
+    {
+        "Incident": "Test Fire #2",
+        "Type": "First time this fire is seena",
+        "State": "California, USA",
+        "Size": "100 Acres",
+        "Updated": "23 hrs. ago",
+        "href": "/incident/2/"
+    },
+    {
+        "Incident": "Test Fire #3",
+        "Type": "First time this fire is seena",
+        "State": "California, USA",
+        "Size": "37 Acres",
+        "Updated": "23 hrs. ago",
+        "href": "/incident/3/"
+    }
+]
