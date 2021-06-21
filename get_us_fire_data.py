@@ -36,14 +36,27 @@ def get_size(fire_info:dict):
     return return_value
 
 
-def get_id(incident):
+def get_unique_id(incident):
     """
-    Gets a unique id for this incident
+    Gets a unique id for this incident.
+    Originally, we just used href as a unique, but sometimes fires don't get their own URL, and
+    get the default "/incident//", or even None.
     :param incident:
     :return:
     """
-    return incident['href']
+    has_href = 'href' in incident
+    has_name = 'Incident' in incident
+    if 'href' in incident:
+        href = incident['href']
+        if href is not None and href != "/incident//":
+            return href
 
+    if 'Incident' in incident:
+        name = incident['Incident']
+        if name:
+            return name
+
+    raise Exception(F"No unique id for incident {incident}")
 
 # Old name. Makes it unclear what the results are.
 def summarize(ds, year: int):
@@ -86,9 +99,9 @@ def get_daily_delta(ds, year: int):
             acres_burned += ab # changed
 
         if yesterday:
-            id = get_id(fire)
+            id = get_unique_id(fire)
             yesterday_data = yesterday['data']
-            yes = [item for item in yesterday_data if get_id(item) == id]
+            yes = [item for item in yesterday_data if get_unique_id(item) == id]
             assert len(yes) < 2
             f2 = yes[0] if len(yes) else None
             old_size = get_size(f2)
@@ -121,7 +134,7 @@ def verify_ids_unique(incidents):
     """
     check_unique = set()
     for incident in incidents:
-        unique_fire_id = get_id(incident)
+        unique_fire_id = get_unique_id(incident)
         if unique_fire_id in check_unique:
             raise Exception(F"Fire ID not unique: {unique_fire_id}")
         check_unique.add(unique_fire_id)
@@ -156,7 +169,7 @@ def get_annual_acres_helper(all_data, year):
         verify_ids_unique(day_data)
 
         for incident in day_data:
-            unique_fire_id = get_id(incident)
+            unique_fire_id = get_unique_id(incident)
             ab = incident['Size']
             ab = ab.strip()
             if ab:
@@ -245,8 +258,18 @@ def run():
     print(annual)
 
 
-def run_wayback():
+def get_archive_directory():
     archive_directory = DATA_STORE_PATH+"/source"
+    return archive_directory
+
+
+def run_wayback():
+    """
+    This method takes already downloaded snapshots of a webpage, and extracts the fire data
+    using parse(), and saves it to the datastore, but only if it's not already present.
+    :return:
+    """
+    archive_directory = get_archive_directory()
     files = os.listdir(archive_directory)
     for filename in files:
         if not filename.endswith(".html"):
@@ -262,15 +285,27 @@ def run_wayback():
         with open(path) as f:
             archive = f.read()
         fire_data = parse(archive)
+        # Problem: We use href as a unique ID a fire. It turns out not all fires have a unique href ("/incident//)
+        # instead of the usual "/incident/1234".
         for incident in fire_data:
             incident['_source'] = path
-        print(json.dumps(fire_data, indent=4))
+            # We use the href as a unique identifier. We want the original href, not the internet archive version.
+            href:str = incident['href']
+            assert href.startswith("/web/")
+            index = href.find("/incident/")
+            assert index != -1
+            href = href[index:]
+            incident['href'] = href
+        #print(json.dumps(fire_data, indent=4))
         data_store = get_data_store()
         data_date = datetime.date(year,month, day)
         already_exists = data_store.does_data_exist(data_date)
-        print(F"Data already in data store: {already_exists}")
-        if not already_exists:
+        if already_exists:
+            print(F"Skipping {filename}")
+        else:
+            print(F"Writing from {filename}")
             data_store.save_date_data(data_date, fire_data)
+        print
 
 
 if __name__ == "__main__":
