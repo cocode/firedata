@@ -16,10 +16,18 @@ class DataStore:
     def get_data_dir(self):
         return self.data_dir
 
-    def get_filename(self,day):
+    def get_filename(self, day: date):
         dstring = day.strftime("%Y_%m_%d")
         filename = F"{self.get_data_dir()}/firedata_{dstring}.json"
         return filename
+
+    def does_data_exist(self, day: date):
+        filename = self.get_filename(day)
+        return os.path.exists(filename)
+
+    def save_date_data(self, date_of_data: date, jdata):
+        filename = self.get_filename(date_of_data)
+        self.save_data(filename, jdata)
 
     def save_todays_data(self, jdata):
         """
@@ -28,11 +36,10 @@ class DataStore:
         :return:
         """
         today = date.today()
-        filename = self.get_filename(today)
-        self.save_data(filename, jdata)
+        self.save_date_data(today, jdata)
 
     @staticmethod
-    def save_data(filename, jdata):
+    def save_data(filename: str, jdata):
         formatted = json.dumps(jdata, indent=4)
         a = os.path.abspath(filename)
         print(F"bas {a}")
@@ -83,7 +90,7 @@ class DataStore:
             all_data.append(returned_data)
         return all_data
 
-    def load_data_day(self, day):
+    def load_data_day(self, day:date):
         '''
         Loads that data from a particular day
         :param day:
@@ -93,15 +100,9 @@ class DataStore:
         return self.load_data_file(filename)
 
     @staticmethod
-    def load_data_file(filename):
+    def load_data_file(filename:str):
         #print(f"{filename}")
         with open(filename, "r") as f:
             string_data = f.read()
         j = json.loads(string_data)
         return j
-
-
-if __name__ == "__main__":
-    ds = DataStore("data/data_test")
-    jd = { "A": 1}
-    ds.save_todays_data(jd)
