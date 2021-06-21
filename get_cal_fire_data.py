@@ -270,10 +270,14 @@ def parse(data):
     return json.loads(data)
 
 
-def collect_data():
-    cal_fire_url = 'https://www.fire.ca.gov/umbraco/Api/IncidentApi/GetIncidents'
+def get_data_store():
     cal_fire_dir = "data/data_cal"
     data_store = DataStore(cal_fire_dir)
+    return data_store
+
+def collect_data():
+    cal_fire_url = 'https://www.fire.ca.gov/umbraco/Api/IncidentApi/GetIncidents'
+    data_store = get_data_store()
     refresher = Refresh(cal_fire_url, data_store, parse)
     refresher.refresh()   # Gets the data, only if we don't already have it.
     return data_store
