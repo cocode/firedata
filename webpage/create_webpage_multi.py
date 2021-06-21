@@ -1,6 +1,5 @@
 import datetime
 
-from get_cal_fire_data import collect_data, summarize
 import get_us_fire_data
 import get_cal_fire_data
 import get_historical_data
@@ -46,6 +45,60 @@ google.charts.setOnLoadCallback(drawCharts);
 function drawCharts() {\n
 """
 
+class Analyzer:
+    def get_data(self):
+        return []
+
+
+class AnalyzerUs(Analyzer):
+    def helper(self, year, state=None, x_min_date=None):
+        data_source = get_us_fire_data.get_data_store()
+        acres_burned, days_of_data_found = get_us_fire_data.get_annual_acres(data_source, year=year, state=state)
+        # TODO Could make this a method, but would need to know number of columns to create.
+        data_as_string = ""
+        if x_min_date and len(acres_burned) > 0:
+            current_min = datetime.date(year, acres_burned[0][1], acres_burned[0][2])
+            if current_min > x_min_date:
+                # if acres_burned[0][1] != 1 or acres_burned[0][2] != 1:
+                data_as_string += F"[new Date({year}, {x_min_date.month - 1}, {x_min_date.day}), {0}],\n"
+
+        for i in acres_burned:
+            ab = i[3]
+            data_as_string += F"[new Date({i[0]}, {i[1] - 1}, {i[2]}), {ab}],\n"
+        return data_as_string
+
+    def get_data(self, year, x_min_date=None):
+        return self.helper(year, x_min_date=x_min_date)
+
+
+class AnalyzerUsCa(AnalyzerUs):
+    def get_data(self, year, x_min_date=None):
+        return self.helper(year, "California", x_min_date)
+
+
+class AnalyzerCalFire(Analyzer):
+    def get_data(self, year, x_min_date=None):
+        """
+        Loads the data from self.year. Also generates the summary info printed
+        below the chart.
+        :return:
+        """
+        data_source = get_cal_fire_data.get_data_store()
+        acres_burned, days_of_data_found = get_cal_fire_data.get_annual_acres(data_source, year=year)
+        #self.sum_rows, self.sum_headers, self.sum_summary, ignored = get_cal_fire_data.summarize(data_source, year=year)
+
+        data_as_string = ""
+        if x_min_date and len(acres_burned) > 0:
+            current_min = datetime.date(year, acres_burned[0][1], acres_burned[0][2])
+            if current_min > x_min_date:
+                # if acres_burned[0][1] != 1 or acres_burned[0][2] != 1:
+                data_as_string += F"[new Date({year}, {x_min_date.month - 1}, {x_min_date.day}), {0}],\n"
+
+        for i in acres_burned:
+            data_as_string += F"[new Date({i[0]}, {i[1] - 1}, {i[2]}), {i[3]}],\n"
+        return data_as_string
+
+
 
 class Chart:
     def __init__(self, year, element, columns, options, footer=None):
@@ -56,6 +109,7 @@ class Chart:
         self.footer = footer
         self.chart_data = None # Loaded later
 
+
 class WebPage:
     def __init__(self, year, charts, x_min_date=None):
         self.year = year
@@ -65,8 +119,6 @@ class WebPage:
         self.year_data = None
         self.charts = charts
         self.x_min_date: datetime.date = x_min_date
-
-
 
     def load_historical_data(self):
         """
@@ -82,10 +134,15 @@ class WebPage:
         below the chart.
         :return:
         """
+        h = AnalyzerCalFire()
+        data_as_string = h.get_data(self.year, x_min_date=self.x_min_date)
+        self.year_data = data_as_string
+        return
+
         # Next three lines should be one function
-        data_source = collect_data()  # TODO Do we need to do this, now that we are on github actions?
+        data_source = get_cal_fire_data.collect_data()  # TODO Do we need to do this, now that we are on github actions?
         acres_burned, days_of_data_found = get_cal_fire_data.get_annual_acres(data_source, year=self.year)
-        self.sum_rows, self.sum_headers, self.sum_summary, ignored = summarize(data_source, year=self.year)
+        self.sum_rows, self.sum_headers, self.sum_summary, ignored = get_cal_fire_data.summarize(data_source, year=self.year)
 
         data_as_string = ""
         if self.x_min_date and len(acres_burned) > 0:
@@ -98,31 +155,21 @@ class WebPage:
             data_as_string += F"[new Date({i[0]}, {i[1] - 1}, {i[2]}), {i[3]}],\n"
         self.year_data = data_as_string
 
-    def load_us_helper(self, state=""):
-        data_source = get_us_fire_data.get_data_store()
-        acres_burned, days_of_data_found = get_us_fire_data.get_annual_acres(data_source, year=self.year, state=state)
-
-        data_as_string = ""
-        if self.x_min_date and len(acres_burned) > 0:
-            current_min = datetime.date(self.year, acres_burned[0][1], acres_burned[0][2])
-            if current_min > self.x_min_date:
-                # if acres_burned[0][1] != 1 or acres_burned[0][2] != 1:
-                data_as_string += F"[new Date({self.year}, {self.x_min_date.month - 1}, {self.x_min_date.day}), {0}],\n"
-
-        for i in acres_burned:
-            ab = i[3]
-            data_as_string += F"[new Date({i[0]}, {i[1] - 1}, {i[2]}), {ab}],\n"
-        return data_as_string
-
     def load_us_data(self):
-        self.us_chart_data_ca = self.load_us_helper("California")
-        self.us_chart_data_all = self.load_us_helper()
-
+        h = AnalyzerUs()
+        data = h.get_data(self.year, x_min_date=self.x_min_date)
+        self.us_chart_data_all = data #self.load_us_helper()
+        h = AnalyzerUsCa()
+        data = h.get_data(self.year, x_min_date=self.x_min_date)
+        self.us_chart_data_ca = data # self.load_us_helper("California")
 
     def load_chart_data(self):
         self.load_calfire_year_data()
         self.load_historical_data()
         self.load_us_data()
+        # Load table data
+        data_source = get_cal_fire_data.get_data_store()
+        self.sum_rows, self.sum_headers, self.sum_summary, ignored = get_cal_fire_data.summarize(data_source, year=year)
 
     def get_us_data(self, state=None):
         """TBD
