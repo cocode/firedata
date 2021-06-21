@@ -13,7 +13,7 @@ import io
 # The body
 #   a defintion for an HTML div for each chart.
 
-# Defintions of constant strings used to generate the page
+# Definitions of constant strings used to generate the page
 head_preamble = \
 """
 <head>
@@ -45,8 +45,9 @@ google.charts.setOnLoadCallback(drawCharts);
 function drawCharts() {\n
 """
 
+
 class Analyzer:
-    def get_data(self):
+    def get_data(self, year, x_min_date=None):
         return []
 
 
@@ -99,15 +100,30 @@ class AnalyzerCalFire(Analyzer):
         return data_as_string
 
 
+class AnalyzerCaHistorical(Analyzer):
+    def get_data(self, year, x_min_date=None):
+        historical = get_historical_data.get_stats()
+        hist_string = ""
+        for y in historical:
+            acres = y[2]
+            fed_acres = y[4]
+            acres = acres.replace(",", "")
+            fed_acres = fed_acres.replace(",", "")
+            # Javascript counts months from 0-11, so december is 11
+            hist_string += F'[new Date({y[0]}, 11, 31), {acres}, {fed_acres}],\n'
+        return hist_string
+
 
 class Chart:
-    def __init__(self, year, element, columns, options, footer=None):
+    def __init__(self, year, element, columns, options, footer=None, analyzer=None):
         # TODO Chart data needs to be here, as well.
         self.element = element
         self.columns = columns
         self.options = options
         self.footer = footer
-        self.chart_data = None # Loaded later
+        # Load chart data
+        self.analyzer_name = analyzer
+        self.analyzer = globals()[analyzer]()  # type('TempAnalyzer', (self.analyzer_name,), {})
 
 
 class WebPage:
@@ -167,6 +183,8 @@ class WebPage:
         self.load_calfire_year_data()
         self.load_historical_data()
         self.load_us_data()
+
+    def load_table_data(self):
         # Load table data
         data_source = get_cal_fire_data.get_data_store()
         self.sum_rows, self.sum_headers, self.sum_summary, ignored = get_cal_fire_data.summarize(data_source, year=year)
@@ -308,28 +326,34 @@ def create_webpage(year: int):
         data_charts = json.load(f)
     chart_list = []
     for data_chart in data_charts:
-        c = Chart(year, data_chart['element_id'], data_chart['columns'], data_chart['options'], data_chart['footer'])
+        c = Chart(year, data_chart['element_id'], data_chart['columns'], data_chart['options'], data_chart['footer'],
+                  data_chart['analyzer'])
         chart_list.append(c)
 
     # Set the minimum date, to keep the related charts aligned.
     min_date = datetime.date(year, 5, 1)
     page = WebPage(year, chart_list, min_date)
+    for chart in chart_list:
+        data = chart.analyzer.get_data(year, x_min_date=min_date)
+        chart.chart_data = data
 
-    page.load_chart_data()
-    hist_string = ""
-    for y in page.hist:
-        acres = y[2]
-        fed_acres = y[4]
-        acres = acres.replace(",", "")
-        fed_acres = fed_acres.replace(",", "")
-        # Javascript counts months from 0-11, so december is 11
-        hist_string += F'[new Date({y[0]}, 11, 31), {acres}, {fed_acres}],\n'
+    page.load_table_data()
 
-    # TODO: Get the data from .json
-    chart_list[0].chart_data = page.year_data
-    chart_list[1].chart_data = page.us_chart_data_ca
-    chart_list[2].chart_data = page.us_chart_data_all
-    chart_list[3].chart_data = hist_string
+    # page.load_chart_data()
+    # hist_string = ""
+    # for y in page.hist:
+    #     acres = y[2]
+    #     fed_acres = y[4]
+    #     acres = acres.replace(",", "")
+    #     fed_acres = fed_acres.replace(",", "")
+    #     # Javascript counts months from 0-11, so december is 11
+    #     hist_string += F'[new Date({y[0]}, 11, 31), {acres}, {fed_acres}],\n'
+    #
+    # # TODO: Get the data from .json
+    # chart_list[0].chart_data = page.year_data
+    # chart_list[1].chart_data = page.us_chart_data_ca
+    # chart_list[2].chart_data = page.us_chart_data_all
+    # chart_list[3].chart_data = hist_string
 
     page.create()
 

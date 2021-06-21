@@ -1,5 +1,6 @@
 [
 	{
+		"analyzer": "AnalyzerCalFire",
 		"options": {
 			"title": "Cal Fire (only) Fire Data",
 			"hAxis": {
@@ -23,6 +24,7 @@
 		"element_id": "acres_b_chart"
 	},
 	{
+		"analyzer": "AnalyzerUsCa",
 		"options": {
 			"title": "Federal Fire Data for California only",
 			"hAxis": {
@@ -46,6 +48,7 @@
 		"element_id": "us_chart"
 	},
 	{
+		"analyzer": "AnalyzerUs",
 		"options": {
 			"title": "Federal Fire Data for the Whole US",
 			"hAxis": {
@@ -69,6 +72,7 @@
 		"element_id": "us_chart_2"
 	},
 	{
+		"analyzer": "AnalyzerCaHistorical",
 		"options": {
 			"title": "California Historical Fire Data 1987-2019",
 			"hAxis": {
