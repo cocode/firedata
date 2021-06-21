@@ -16,7 +16,7 @@ class AnalyzerUs(Analyzer):
     def helper(self, year, state=None, x_min_date=None):
         data_source = get_us_fire_data.get_data_store()
         acres_burned, days_of_data_found = get_us_fire_data.get_annual_acres(data_source, year=year, state=state)
-        # TODO Could make this a method, but would need to know number of columns to create.
+        # TODO Could make this a shared method, but would need to know number of columns to create.
         data_as_string = ""
         if x_min_date and len(acres_burned) > 0:
             current_min = datetime.date(year, acres_burned[0][1], acres_burned[0][2])
