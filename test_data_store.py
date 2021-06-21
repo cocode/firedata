@@ -1,4 +1,5 @@
 import os
+import tempfile
 from unittest import TestCase
 from data_store import DataStore
 from datetime import datetime
@@ -50,4 +51,15 @@ class TestDataStore(TestCase):
         d = DataStore(p)
         f = d.load_data_file("data/data_test/firedata_2020_09_09.json")
         self.assertEqual(4, len(f))
+
+    def test_tempdir(self):
+        with tempfile.TemporaryDirectory() as data_store_dir:
+            d = DataStore(data_store_dir)
+            all = d.load_all_data()
+            self.assertEqual(0, len(all))
+            dummy = {"firedata":100}
+            d.save_todays_data(dummy)
+            all = d.load_all_data()
+            self.assertEqual(1, len(all))
+            self.assertEqual(dummy, all[0]['data'])
 
