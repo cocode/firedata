@@ -227,7 +227,7 @@ def run():
     data_store = get_data_store()
     refresher = Refresh(fire_url, data_store, parse)
     refresher.refresh()   # Gets the data, only if we don't already have it.
-    summarize(data_store)
+    summarize(data_store, year=None)
     annual = get_annual_acres(data_store, 2021)
     print(annual)
 
