@@ -40,8 +40,20 @@ def get_id(incident):
     return incident['href']
 
 
-# Could also use from operator import itemgetter, attrgetter
-def summarize(ds, year:int):
+# Old name. Makes it unclear what the results are.
+def summarize(ds, year: int):
+    return get_daily_delta(ds, year)
+
+
+def get_daily_delta(ds, year: int):
+    """
+    This function gives information about the change in fires from one day to the next,
+    it does NOT have overall information about the fires for the year.
+    :param ds:
+    :param year:
+    :return: Number of acres consumed by fires that are currently burning
+    """
+    print("Summary for ", year if year else "all years.")
     awidth = 14
     dwidth = 10
 
@@ -112,9 +124,6 @@ def verify_ids_unique(incidents):
 
 def get_annual_acres_helper(all_data, year):
     """
-    This may not work. Not sure if us data has all fires for the year, or only active ones.
-    TODO Check the above.
-    
     Gets the number of acres burned, for each day of the current (or specified) year.
     Used to generate data for website graphs.
 
