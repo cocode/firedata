@@ -24,7 +24,8 @@ jobs:
           if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
           echo "Starting it update mypy"
           mypy --version
-          mypy --cache-dir .mypy_cache --install-types
+          echo doing mypy --incremental --cache-dir .mypy_cache --install-types
+          mypy --incremental --cache-dir .mypy_cache --install-types
       - name: Lint with flake8
         run: |
           # stop the build if there are Python syntax errors or undefined names
