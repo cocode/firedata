@@ -25,6 +25,7 @@ jobs:
           echo "Starting it update mypy"
           mypy --version
           echo doing mypy --incremental --cache-dir .mypy_cache --install-types
+          mypy data_store.py
           mypy --incremental --cache-dir .mypy_cache --install-types
       - name: Lint with flake8
         run: |
