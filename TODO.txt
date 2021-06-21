@@ -1,6 +1,8 @@
 # TODO Rearrange project structure
     - Separate fetching code from computing code, from display (print, html) code.
         - Done for get_cal_fire_data, still need to do for US and WA.
+        - Make same changes to get_us_fire_data that were made to get_cal_fire_data.
+        - Make same changes to get_wa_fire_data that were made to get_cal_fire_data.
 # TODO Timestamp the data downloaded (currently I just save YYYYMMDD, not time)
 # TODO Graph for delta acres burned in html
 # TODO Bring non-calfire sources up to parity with calfire.
@@ -27,3 +29,10 @@
 # TODO Check to see if reruning collect is overwriting the existing version. My local copies are getting updated.
 # TODO Fetching washington data has been failing, but works locally. Fix it.
 # TODO File dates are off by one. The fetch during evening of the 19th is getting saved as the 20. Perhaps a GMT issue.
+# TODO There is an XML source for WA fire data, which should be much easier to parse. See xmldict
+# TODO get_annual_acres takes a data source and a year, but data source also takes a year. Don't need both.
+# TODO Rename "summarize" to "get_daily_delta", which is clearer.
+# TODO Backfill data from archive.org
+# TODO When calculating us fire data, we don't get a total, we have to compute it by deltas between days
+      - for annual graphs, we really need the last data point in the previous year to be our starting point
+      - for computing deltas, otherwise the first day will show a huge boost of fires.
