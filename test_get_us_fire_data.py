@@ -51,3 +51,6 @@ class Test(TestCase):
         self.assertEqual(2493647, acres_burned)
 
 
+        acres_burned = get_us_fire_data.summarize(ds, year=None)
+
+
