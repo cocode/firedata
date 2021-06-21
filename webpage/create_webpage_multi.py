@@ -98,9 +98,9 @@ class WebPage:
             data_as_string += F"[new Date({i[0]}, {i[1] - 1}, {i[2]}), {i[3]}],\n"
         self.year_data = data_as_string
 
-    def load_us_data(self):
+    def load_us_helper(self, state=""):
         data_source = get_us_fire_data.get_data_store()
-        acres_burned, days_of_data_found = get_us_fire_data.get_annual_acres(data_source, year=self.year, state='California')
+        acres_burned, days_of_data_found = get_us_fire_data.get_annual_acres(data_source, year=self.year, state=state)
 
         data_as_string = ""
         if self.x_min_date and len(acres_burned) > 0:
@@ -112,7 +112,11 @@ class WebPage:
         for i in acres_burned:
             ab = i[3]
             data_as_string += F"[new Date({i[0]}, {i[1] - 1}, {i[2]}), {ab}],\n"
-        self.us_chart_data = data_as_string
+        return data_as_string
+
+    def load_us_data(self):
+        self.us_chart_data_ca = self.load_us_helper("California")
+        self.us_chart_data_all = self.load_us_helper()
 
 
     def load_chart_data(self):
@@ -252,10 +256,7 @@ class WebPage:
             self.write_document(f)
 
 
-if __name__ == "__main__":
-    year = 2021
-
-
+def create_webpage(year: int):
     with open("webpage/chart_calfire.json") as f:
         data_charts = json.load(f)
     chart_list = []
@@ -279,8 +280,13 @@ if __name__ == "__main__":
 
     # TODO: Get the data from .json
     chart_list[0].chart_data = page.year_data
-    chart_list[1].chart_data = page.us_chart_data
-    chart_list[2].chart_data = hist_string
+    chart_list[1].chart_data = page.us_chart_data_ca
+    chart_list[2].chart_data = page.us_chart_data_all
+    chart_list[3].chart_data = hist_string
 
     page.create()
 
+
+if __name__ == "__main__":
+    year = 2021
+    create_webpage(year)
