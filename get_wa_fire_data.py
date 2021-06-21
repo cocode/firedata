@@ -7,23 +7,6 @@
 # also would make changing the data I pull better. I was discarding other states during parsing
 # of us data, so now I don't have historical data for the other states
 
-import requests
-import sys
-import json
-from datetime import date
-import os
-
-
-# Keys in the json blob returned from cal fire. I only care about "Incidents"
-# Incidents
-# MatchedIncidentCount
-# AllAcres
-# AllIncidentCount
-# AllFatalities
-# AllStructures
-# ListIncidents
-# AllYearIncidents
-from requests import HTTPError
 from refresher import Refresh
 from data_store import DataStore
 import bs4 as bs  # type: ignore
@@ -141,6 +124,7 @@ def parse(content):
     """
     soup = bs.BeautifulSoup(content)
     fieldsets = soup.find_all("fieldset")
+    print(F"Found {len(fieldsets)} fields.")
     #    fieldsets = soup.find_all("fieldset", {"summary":"This table displays all active incidents."})
     #print(fieldsets)
     all_fires = []
@@ -171,6 +155,7 @@ def parse(content):
         #print(json.dumps(fire, indent=4))
         all_fires.append(fire)
     all_fires = sorted(all_fires, key=get_size, reverse=True)
+    print(F"JSON data parsing. Found = {len(all_fires)} fires.")
     return all_fires
 
 
