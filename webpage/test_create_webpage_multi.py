@@ -64,4 +64,4 @@ class TestWebPage(TestCase):
 #         self.fail()
 #
         def test_create(self):
-            create_webpage_multi.create_webpage(2021)
+            create_webpage_multi.create_webpage(2021, )
