@@ -24,3 +24,6 @@
 # TODO When creating the webpage, split the "load" and "format for JavaScript" parts of the functionss.
 # TODO Precompute the acres burned per day for US fire data. Do it on download? Need previous day's data to do this.
 # TODO Check that historical us computations are correct. I see a -37 on 2021/06/16. Possible it's in the data.
+# TODO Check to see if reruning collect is overwriting the existing version. My local copies are getting updated.
+# TODO Fetching washington data has been failing, but works locally. Fix it.
+# TODO File dates are off by one. The fetch during evening of the 19th is getting saved as the 20. Perhaps a GMT issue.
