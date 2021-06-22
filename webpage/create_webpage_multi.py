@@ -189,8 +189,10 @@ class WebPage:
         output.write(' or local agencies, and the reporting is different for all. </p>')
         for chart in self.charts:
             self.write_body_charts(output, chart)
-        output.write("<hr>\n")
-        self.write_summary(output)
+        this_year = datetime.date.today().year
+        if self.year == this_year:
+            output.write("<hr>\n")
+            self.write_summary(output)
         output.write("<hr>\n")
         self.write_footer(output)
         output.write("</body>\n")
