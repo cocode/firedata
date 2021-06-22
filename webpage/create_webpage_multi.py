@@ -1,9 +1,7 @@
 import datetime
 
-import get_us_fire_data
 import get_cal_fire_data
-import get_historical_data
-import re, json
+import json
 from webpage.analyzers import AnalyzerUs, AnalyzerUsCa, AnalyzerCalFire, AnalyzerCaHistorical
 # Run with python3 -m webpage.create_webpage_multi from firedata directory
 
@@ -59,8 +57,6 @@ class Chart:
 class WebPage:
     def __init__(self, year, charts):
         self.year: int = year
-        self.subdir = "webpage"
-        self.destination = F"{self.subdir}/fire_multi.html"
         self.acres_burned = None
         self.year_data = None
         self.charts = charts
@@ -173,6 +169,19 @@ class WebPage:
 
     def write_body(self, output):
         output.write("<body>\n")
+        output.write("""
+            <span style="float:right; margin-right:100;">
+            <select style =  "inset-right:100; padding-right:100; margin-right:100;" name="cars" id="cars">
+                <option selected="selected" value="California">California</option>
+                <option value="Washington">Washington</option>
+            </select>
+        """)
+        output.write('<select name="year" id="year">\n')
+        for i in range(2021, 2018, -1):
+            attr = 'selected="selected"' if self.year == i else ""
+            output.write(F'<option {attr} value="{i}">{i}</option>\n')
+        output.write('</select></span>\n');
+
         output.write("<h1>California Fire Data</h1>")
         output.write('<p class="introduction">This site attempts to visualize California fire data.</p>')
         output.write('<p class="introduction">Fires in california may be fought by Federal agencies, California State agencies ("Cal Fire"), ')
@@ -191,12 +200,12 @@ class WebPage:
         self.write_body(output)
         output.write("</html>\n")
 
-    def create(self):
-        with open(self.destination, "w") as f:
+    def create(self, destination: str):
+        with open(destination, "w") as f:
             self.write_document(f)
 
 
-def create_webpage(year: int, x_min_date: datetime.date=None):
+def create_webpage(destination: str, year: int, x_min_date: datetime.date= None):
     with open("webpage/chart_calfire.json") as f:
         data_charts = json.load(f)
     chart_list = []
@@ -211,12 +220,14 @@ def create_webpage(year: int, x_min_date: datetime.date=None):
         chart.chart_data = data
 
     page.load_table_data()
-    page.create()
+    page.create(destination)
 
 
 if __name__ == "__main__":
     year = 2021
-    # Set the minimum date, to keep the related charts aligned.
-    min_date = datetime.date(year, 5, 1)
+    subdir = "webpage"
 
-    create_webpage(year, min_date)
+    # Set the minimum date, to keep the related charts aligned.
+    min_date = datetime.date(year, 1, 1)
+    for year in range(2018, 2021+1):
+        create_webpage(F"{subdir}/fire_{year}.html", year, min_date)
