@@ -269,11 +269,18 @@ def parse(data):
     """
     return json.loads(data)
 
+DATA_STORE_PATH="data/data_cal"
+
 
 def get_data_store():
-    cal_fire_dir = "data/data_cal"
-    data_store = DataStore(cal_fire_dir)
+    data_store = DataStore(DATA_STORE_PATH)
     return data_store
+
+
+def get_archive_directory():
+    archive_directory = DATA_STORE_PATH+"/source"
+    return archive_directory
+
 
 def collect_data():
     cal_fire_url = 'https://www.fire.ca.gov/umbraco/Api/IncidentApi/GetIncidents'

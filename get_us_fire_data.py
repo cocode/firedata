@@ -277,51 +277,6 @@ def get_archive_directory():
     return archive_directory
 
 
-def run_wayback():
-    """
-    This method takes already downloaded snapshots of a webpage, and extracts the fire data
-    using parse(), and saves it to the datastore, but only if it's not already present.
-    :return:
-    """
-    archive_directory = get_archive_directory()
-    files = os.listdir(archive_directory)
-    for filename in files:
-        if not filename.endswith(".html"):
-            continue
-        parts = filename[:-len(".html")].split('_')
-        assert len(parts) == 4
-        year = int(parts[1])
-        month = int(parts[2])
-        day = int(parts[3])
-        assert 1900 < year < 2100 and 1 <= month <= 12 and 1 <= day <=31
-        print(filename)
-        path = archive_directory + "/" + filename
-        with open(path) as f:
-            archive = f.read()
-        fire_data = parse(archive)
-        # Problem: We use href as a unique ID a fire. It turns out not all fires have a unique href ("/incident//)
-        # instead of the usual "/incident/1234".
-        for incident in fire_data:
-            incident['_source'] = path
-            # We use the href as a unique identifier. We want the original href, not the internet archive version.
-            href:str = incident['href']
-            assert href.startswith("/web/")
-            index = href.find("/incident/")
-            assert index != -1
-            href = href[index:]
-            incident['href'] = href
-        #print(json.dumps(fire_data, indent=4))
-        data_store = get_data_store()
-        data_date = datetime.date(year,month, day)
-        already_exists = data_store.does_data_exist(data_date)
-        if already_exists:
-            print(F"Skipping {filename}")
-        else:
-            print(F"Writing from {filename}")
-            data_store.save_date_data(data_date, fire_data)
-        print
-
-
 if __name__ == "__main__":
     #run()
     run_wayback()
