@@ -169,17 +169,18 @@ class WebPage:
 
     def write_body(self, output):
         output.write("<body>\n")
+        """onclick="window.open(document.URL, '_blank', 'location=yes,height=570,width=520,scrollbars=yes,status=yes');">"""
         output.write("""
             <span style="float:right; margin-right:100;">
-            <select style =  "inset-right:100; padding-right:100; margin-right:100;" name="cars" id="cars">
-                <option selected="selected" value="California">California</option>
-                <option value="Washington">Washington</option>
+            <select onchange="alert('Not implemented')" name="cars" id="cars">
+                <option selected="selected" value="fire_2019.html">California</option>
+                <option value="fire_2020.html">Washington</option>
             </select>
         """)
-        output.write('<select name="year" id="year">\n')
+        output.write('<select onchange="window.location=this.options[this.selectedIndex].value;" name="year" id="year">\n')
         for i in range(2021, 2018, -1):
             attr = 'selected="selected"' if self.year == i else ""
-            output.write(F'<option {attr} value="{i}">{i}</option>\n')
+            output.write(F'<option {attr} value="fire_{i}.html">{i}</option>\n')
         output.write('</select></span>\n');
 
         output.write("<h1>California Fire Data</h1>")
@@ -224,10 +225,9 @@ def create_webpage(destination: str, year: int, x_min_date: datetime.date= None)
 
 
 if __name__ == "__main__":
-    year = 2021
     subdir = "webpage"
 
-    # Set the minimum date, to keep the related charts aligned.
-    min_date = datetime.date(year, 1, 1)
     for year in range(2018, 2021+1):
+        # Set the minimum date, to keep the related charts aligned.
+        min_date = datetime.date(year, 1, 1)
         create_webpage(F"{subdir}/fire_{year}.html", year, min_date)
