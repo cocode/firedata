@@ -278,6 +278,5 @@ def get_archive_directory():
 
 
 if __name__ == "__main__":
-    #run()
-    run_wayback()
+    run()
     print("Done.")
