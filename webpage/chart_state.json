@@ -1,0 +1,50 @@
+[
+	{
+		"analyzer": "AnalyzerUsXX",
+		"options": {
+			"title": "Federal Fire Data for {state} for {year}",
+			"hAxis": {
+				"title": "Year"
+			},
+			"vAxis": {
+				"title": "Total Acres Burned"
+			}
+		},
+		"columns": [
+			[
+				"date",
+				"Season Start Date"
+			],
+			[
+				"number",
+				"Acres Burned"
+			]
+		],
+		"footer": "",
+		"element_id": "us_chart"
+	},
+	{
+		"analyzer": "AnalyzerUs",
+		"options": {
+			"title": "Federal Fire Data for the Whole US",
+			"hAxis": {
+				"title": "Year"
+			},
+			"vAxis": {
+				"title": "Total Acres Burned"
+			}
+		},
+		"columns": [
+			[
+				"date",
+				"Season Start Date"
+			],
+			[
+				"number",
+				"Acres Burned"
+			]
+		],
+		"footer": "",
+		"element_id": "us_chart_2"
+	}
+]
