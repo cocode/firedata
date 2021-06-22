@@ -8,12 +8,26 @@ import io
 
 
 class Analyzer:
+    def __init__(self, env):
+        self.env = env
+
     def get_data(self, year, x_min_date=None):
         return []
 
 
 class AnalyzerUs(Analyzer):
+    """
+    Analyzer that pulls one state's information from the federal data.
+    Also base class for specific states.
+    """
+
+    def __init__(self, env):
+        super(AnalyzerUs, self).__init__(env)
+        self.state = None # All states
+
     def helper(self, year, state=None, x_min_date=None):
+        if state == None:
+            state = self.state
         data_source = get_us_fire_data.get_data_store()
         acres_burned, days_of_data_found = get_us_fire_data.get_annual_acres(data_source, year=year, state=state)
         # TODO Could make this a shared method, but would need to know number of columns to create.
@@ -34,11 +48,30 @@ class AnalyzerUs(Analyzer):
 
 
 class AnalyzerUsCa(AnalyzerUs):
+    def __init__(self, env):
+        super(AnalyzerUsCa, self).__init__(env)
+
     def get_data(self, year, x_min_date=None):
         return self.helper(year, "California", x_min_date)
 
 
+class AnalyzerUsXX(AnalyzerUs):
+    """
+    Analyzer that pulls one state's information from the federal data.
+    """
+    def __init__(self, env):
+        super(AnalyzerUsXX, self).__init__(env)
+        self.state = env['state']
+
+
+    def get_data(self, year, x_min_date=None):
+        return self.helper(year, None, x_min_date)
+
+
 class AnalyzerCalFire(Analyzer):
+    def __init__(self, env):
+        super(AnalyzerCalFire, self).__init__(env)
+
     def get_data(self, year, x_min_date=None):
         """
         Loads the data from self.year. Also generates the summary info printed
@@ -61,6 +94,9 @@ class AnalyzerCalFire(Analyzer):
 
 
 class AnalyzerCaHistorical(Analyzer):
+    def __init__(self, env):
+        super(AnalyzerCaHistorical, self).__init__(env)
+
     def get_data(self, year, x_min_date=None):
         historical = get_historical_data.get_stats()
         hist_string = ""

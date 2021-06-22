@@ -1,8 +1,10 @@
 import datetime
+import os
 
+debug_states = ["AZ", "CA", "CO", "VA"]
 import get_cal_fire_data
 import json
-from webpage.analyzers import AnalyzerUs, AnalyzerUsCa, AnalyzerCalFire, AnalyzerCaHistorical
+from webpage.analyzers import AnalyzerUs, AnalyzerUsCa, AnalyzerCalFire, AnalyzerCaHistorical, AnalyzerUsXX
 # Run with python3 -m webpage.create_webpage_multi from firedata directory
 
 # The webpage has several parts. The parts we care about
@@ -43,20 +45,78 @@ google.charts.load('current', {'packages':['corechart']});
 google.charts.setOnLoadCallback(drawCharts);
 function drawCharts() {\n
 """
+
+# Note that the long form of the name is used as a key for federal data, as well being used for display purposes,
+# so don't change case.
+states = {
+    'AK': 'Alaska',
+    'AL': 'Alabama',
+    'AR': 'Arkansas',
+    'AZ': 'Arizona',
+    'CA': 'California',
+    'CO': 'Colorado',
+    'CT': 'Connecticut',
+    'DE': 'Delaware',
+    'FL': 'Florida',
+    'GA': 'Georgia',
+    'HI': 'Hawaii',
+    'IA': 'Iowa',
+    'ID': 'Idaho',
+    'IL': 'Illinois',
+    'IN': 'Indiana',
+    'KS': 'Kansas',
+    'KY': 'Kentucky',
+    'LA': 'Louisiana',
+    'MA': 'Massachusetts',
+    'MD': 'Maryland',
+    'ME': 'Maine',
+    'MI': 'Michigan',
+    'MN': 'Minnesota',
+    'MO': 'Missouri',
+    'MS': 'Mississippi',
+    'MT': 'Montana',
+    'NC': 'North Carolina',
+    'ND': 'North Dakota',
+    'NE': 'Nebraska',
+    'NH': 'New Hampshire',
+    'NJ': 'New Jersey',
+    'NM': 'New Mexico',
+    'NV': 'Nevada',
+    'NY': 'New York',
+    'OH': 'Ohio',
+    'OK': 'Oklahoma',
+    'OR': 'Oregon',
+    'PA': 'Pennsylvania',
+    'RI': 'Rhode Island',
+    'SC': 'South Carolina',
+    'SD': 'South Dakota',
+    'TN': 'Tennessee',
+    'TX': 'Texas',
+    'UT': 'Utah',
+    'VA': 'Virginia',
+    'VT': 'Vermont',
+    'WA': 'Washington',
+    'WI': 'Wisconsin',
+    'WV': 'West Virginia',
+    'WY': 'Wyoming'}
+
+
 class Chart:
-    def __init__(self, year, element, columns, options, footer=None, analyzer=None):
+    def __init__(self, year, state, element, columns, options, footer=None, analyzer=None):
         self.element = element
         self.columns = columns
         self.options = options
         self.footer = footer
         self.analyzer_name = analyzer
-        self.analyzer = globals()[analyzer]()  # type('TempAnalyzer', (self.analyzer_name,), {})
+        p = {"st": state, "state": states[state], "year":year}
+        self.analyzer = globals()[analyzer](p)  # type('TempAnalyzer', (self.analyzer_name,), {})
         self.chart_data = None
 
 
 class WebPage:
-    def __init__(self, year, charts):
+    def __init__(self, year, charts, state:str):
         self.year: int = year
+        self.state:str = state
         self.acres_burned = None
         self.year_data = None
         self.charts = charts
@@ -69,7 +129,7 @@ class WebPage:
     def write_chart_begin(self, output, chart):
         output.write('var data = new google.visualization.DataTable();\n')
         for column in chart.columns:
-            output.write(F'data.addColumn("{column[0]}", "{column[1]}")\n');
+            output.write(F'data.addColumn("{column[0]}", "{column[1]}")\n')
 
     def write_chart_options(self, output, options):
         output.write("var options = ")
@@ -128,7 +188,8 @@ class WebPage:
             output.write("<br>\n")
 
     def write_summary(self, output):
-        # Temp hard code it.
+        if self.state != "CA":
+            return
         output.write('<p>Calfire: Change between last two data points (days):</p>')
         output.write('<table>\n')
         output.write("    <tr>\n")
@@ -172,21 +233,22 @@ class WebPage:
         """onclick="window.open(document.URL, '_blank', 'location=yes,height=570,width=520,scrollbars=yes,status=yes');">"""
         output.write("""
             <span style="float:right; margin-right:100;">
-            <select onchange="alert('Not implemented')" name="cars" id="cars">
-                <option selected="selected" value="fire_2019.html">California</option>
-                <option value="fire_2020.html">Washington</option>
-            </select>
-        """)
+            <select onchange="window.location=this.options[this.selectedIndex].value" name="states" id="states">""")
+        for i in debug_states:
+            attr = 'selected="selected"' if self.state == i else ""
+            output.write(F'<option {attr} value="fire_{i.lower()}_{self.year}.html">{states[i]}</option>\n')
+        output.write('</select>\n');
+
         output.write('<select onchange="window.location=this.options[this.selectedIndex].value;" name="year" id="year">\n')
         for i in range(2021, 2018, -1):
             attr = 'selected="selected"' if self.year == i else ""
-            output.write(F'<option {attr} value="fire_{i}.html">{i}</option>\n')
+            output.write(F'<option {attr} value="fire_{self.state.lower()}_{i}.html">{i}</option>\n')
         output.write('</select></span>\n');
-
-        output.write("<h1>California Fire Data</h1>")
-        output.write('<p class="introduction">This site attempts to visualize California fire data.</p>')
-        output.write('<p class="introduction">Fires in california may be fought by Federal agencies, California State agencies ("Cal Fire"), ')
-        output.write(' or local agencies, and the reporting is different for all. </p>')
+        p = {"st":states[self.state]}
+        output.write("<h1>{st} Fire Data</h1>".format(**p))
+        output.write('<p class="introduction">This site attempts to visualize {st} fire data.</p>'.format(**p))
+        output.write('<p class="introduction">Fires in {st} may be fought by Federal agencies, State agencies, '.format(**p))
+        output.write(' or local agencies, and the reporting is different for all, so data may be incomplete or inaccurate.</p>')
         for chart in self.charts:
             self.write_body_charts(output, chart)
         this_year = datetime.date.today().year
@@ -208,16 +270,33 @@ class WebPage:
             self.write_document(f)
 
 
-def create_webpage(destination: str, year: int, x_min_date: datetime.date= None):
-    with open("webpage/chart_calfire.json") as f:
+def create_webpage(destination: str, year: int, state: str, x_min_date: datetime.date= None):
+    """
+
+    :param destination:
+    :param year:
+    :param state: two char state abbrev.
+    :param x_min_date:
+    :return:
+    """
+    assert state in states
+    template = F"webpage/chart_{state.lower()}.json"
+    if not os.path.exists(template):
+        template = F"webpage/chart_state.json"
+    with open(template) as f:
         data_charts = json.load(f)
+    for cur_chart in data_charts:
+        if 'options' in cur_chart and 'title' in cur_chart['options']:
+            p = {"st": state, "state": states[state], "year": year}
+            cur_chart['options']['title'] = cur_chart['options']['title'].format(**p)
+
     chart_list = []
     for data_chart in data_charts:
-        c = Chart(year, data_chart['element_id'], data_chart['columns'], data_chart['options'], data_chart['footer'],
+        c = Chart(year, state, data_chart['element_id'], data_chart['columns'], data_chart['options'], data_chart['footer'],
                   data_chart['analyzer'])
         chart_list.append(c)
 
-    page = WebPage(year, chart_list)
+    page = WebPage(year, chart_list, state)
     for chart in chart_list:
         data = chart.analyzer.get_data(year, x_min_date=x_min_date)
         chart.chart_data = data
@@ -229,7 +308,8 @@ def create_webpage(destination: str, year: int, x_min_date: datetime.date= None)
 if __name__ == "__main__":
     subdir = "webpage"
 
-    for year in range(2018, 2021+1):
-        # Set the minimum date, to keep the related charts aligned.
-        min_date = datetime.date(year, 1, 1)
-        create_webpage(F"{subdir}/fire_{year}.html", year, min_date)
+    for state in debug_states:
+        for year in range(2018, 2021+1):
+            # Set the minimum date, to keep the related charts aligned.
+            min_date = datetime.date(year, 1, 1)
+            create_webpage(F"{subdir}/fire_{state.lower()}_{year}.html", year, state, min_date)

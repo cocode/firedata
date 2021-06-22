@@ -67,4 +67,4 @@ class TestWebPage(TestCase):
         def test_create(self):
             with tempfile.NamedTemporaryFile() as f:
                 destination = f.name
-                create_webpage_multi.create_webpage(destination, 2019)
+                create_webpage_multi.create_webpage(destination, 2019, "CA")
