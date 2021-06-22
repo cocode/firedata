@@ -1,3 +1,4 @@
+import tempfile
 from unittest import TestCase
 from webpage import create_webpage_multi
 
@@ -64,4 +65,6 @@ class TestWebPage(TestCase):
 #         self.fail()
 #
         def test_create(self):
-            create_webpage_multi.create_webpage(2021, )
+            with tempfile.NamedTemporaryFile() as f:
+                destination = f.name
+                create_webpage_multi.create_webpage(destination, 2019)
