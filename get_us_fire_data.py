@@ -140,7 +140,7 @@ def verify_ids_unique(incidents):
         check_unique.add(unique_fire_id)
 
 
-def get_annual_acres_helper(all_data, year):
+def get_annual_acres_helper(all_data, year, previous_data=None):
     """
     Gets the number of acres burned, for each day of the current (or specified) year.
     Used to generate data for website graphs.
@@ -148,15 +148,30 @@ def get_annual_acres_helper(all_data, year):
     Unlike cal fire data, where I can just look like a top-level field, I think
     for US I must sum all incidents on each day.
 
+    I also have to look back to the last day before the year starts. Otherwise, on January 1,
+    all fires seem to be new, so the number of acres burned all piles up on that one day.
+
     # TODO Find a better data source.
     # TODO need to parse the year from the filename, and filter to the current year.
     # TODO We should calculate the total acres when we save the data, and add it.
 
-    :param year:
+    :param all_data: All data for the specified year
+    :param previous_data: All data for the year before that. We only need the last day of this.
+    :param year: The year being summarized.
     :return: list of tuples of (year, month, day, acres_burned)
     """
     acres_burned = []
     last_burned = {}
+    # Get a starting point for how much has burned, so we don't put is all on January 1st this year.
+    # These are all the fires that were burning at the end of the previous year.
+    if year is not None and previous_data:
+        meta_data = previous_data[-1]
+        day_data = meta_data['data']
+        for incident in day_data:
+            unique_fire_id = get_unique_id(incident)
+            burned_as_of_today = get_size(incident)
+            last_burned[unique_fire_id] = burned_as_of_today
+
     overall_total_acres_burned = 0
     for meta_data in all_data:
         day_data = meta_data['data']
@@ -170,14 +185,9 @@ def get_annual_acres_helper(all_data, year):
 
         for incident in day_data:
             unique_fire_id = get_unique_id(incident)
-            ab = incident['Size']
-            ab = ab.strip()
+            ab = get_size(incident)
             if ab:
-                if " " in ab:
-                    ab = ab.split()
-                    assert ab[1]=='Acres'
-                    ab = ab[0]  # Take off the word "acres"
-                burned_as_of_today = int(ab)  # What is this file's total burned acres, as of today.
+                burned_as_of_today = int(ab)  # What is this fire's total burned acres, as of today.
                 # Compute delta between current total for this fire, and yesterdays, so we get
                 # acres burned today.
                 if unique_fire_id in last_burned:
@@ -205,7 +215,11 @@ def get_annual_acres(ds:DataStore, year, state=None):
     else:
         include_function = None
     all_data = ds.load_all_data(year, include=include_function)
-    return get_annual_acres_helper(all_data, year)
+    if year is None:
+        previous_data = None
+    else:
+        previous_data = ds.load_all_data(year - 1, include=include_function)
+    return get_annual_acres_helper(all_data, year=year, previous_data=previous_data)
 
 
 def parse(content):
