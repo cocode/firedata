@@ -1,5 +1,5 @@
 """
-Fetch fire info from Federal "InciWeb"
+Fetch, store and filter data fire info from Federal "InciWeb"
 """
 import datetime
 import json
@@ -200,7 +200,7 @@ def get_annual_acres_helper(all_data, year, previous_data=None):
                     last_burned[unique_fire_id] = burned_as_of_today
 
                 days_total += change_in_acres_burned
-        acres_burned.append((year, meta_data["_month"], meta_data["_day"], days_total))
+        acres_burned.append((days_year, meta_data["_month"], meta_data["_day"], days_total))
         overall_total_acres_burned += days_total
     return acres_burned, overall_total_acres_burned
 
@@ -218,6 +218,7 @@ def get_annual_acres(ds:DataStore, year, state=None):
     if year is None:
         previous_data = None
     else:
+        # TODO This doesn't work, if we use the create_webpage option to start the graph at other than the first day.
         previous_data = ds.load_all_data(year - 1, include=include_function)
     return get_annual_acres_helper(all_data, year=year, previous_data=previous_data)
 
