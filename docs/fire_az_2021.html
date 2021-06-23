@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="utf-8">
+<style>
+    .introduction {margin-left: 100px; margin-right: 100px;}
+    .foot {font-size:50%; font-family: Verdana, sans-serif; margin-bottom: 0px; margin-top: 0px}
+    .chart_target {width: 100%; }
+    .chart_foot {margin-left: 100px; width: 100%}
+    table, td, th {border-collapse: collapse; border: 1px solid blue}
+    td, th {padding: 10px}
+    th { background-color: #4488FF;}
+    .sum_table {border-collapse: collapse; border: 10px solid blue}
+
+</style>
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script type="text/javascript">
+
+google.charts.load('current', {'packages':['corechart']});
+google.charts.setOnLoadCallback(drawCharts);
+function drawCharts() {
+
+var data = new google.visualization.DataTable();
+data.addColumn("date", "Season Start Date")
+data.addColumn("number", "Acres Burned")
+var options = {
+    "title": "Federal Fire Data for Arizona for 2021",
+    "hAxis": {
+        "title": "Year"
+    },
+    "vAxis": {
+        "title": "Total Acres Burned"
+    }
+}
+data.addRows([
+[new Date(2021, 0, 1), 0],
+[new Date(2021, 0, 5), 0],
+[new Date(2021, 0, 16), 0],
+[new Date(2021, 0, 21), 0],
+[new Date(2021, 0, 23), 0],
+[new Date(2021, 2, 2), 0],
+[new Date(2021, 2, 7), 0],
+[new Date(2021, 2, 12), 0],
+[new Date(2021, 2, 18), 0],
+[new Date(2021, 3, 12), 5039],
+[new Date(2021, 4, 3), 4023],
+[new Date(2021, 4, 29), 17750],
+[new Date(2021, 5, 3), 3811],
+[new Date(2021, 5, 12), 0],
+[new Date(2021, 5, 14), 0],
+[new Date(2021, 5, 15), 0],
+[new Date(2021, 5, 16), 0],
+[new Date(2021, 5, 17), 0],
+[new Date(2021, 5, 18), 0],
+[new Date(2021, 5, 19), 0],
+[new Date(2021, 5, 20), 323654],
+[new Date(2021, 5, 21), 15421],
+[new Date(2021, 5, 22), 31194],
+]);
+var chart = new google.visualization.ColumnChart(document.getElementById("us_chart"))
+chart.draw(data, options);
+var data = new google.visualization.DataTable();
+data.addColumn("date", "Season Start Date")
+data.addColumn("number", "Acres Burned")
+var options = {
+    "title": "Federal Fire Data for the Whole US",
+    "hAxis": {
+        "title": "Year"
+    },
+    "vAxis": {
+        "title": "Total Acres Burned"
+    }
+}
+data.addRows([
+[new Date(2021, 0, 1), 0],
+[new Date(2021, 0, 5), 0],
+[new Date(2021, 0, 16), 3190],
+[new Date(2021, 0, 21), 115],
+[new Date(2021, 0, 23), 0],
+[new Date(2021, 2, 2), 2528],
+[new Date(2021, 2, 7), 130],
+[new Date(2021, 2, 12), 4873],
+[new Date(2021, 2, 18), 511],
+[new Date(2021, 3, 12), 13980],
+[new Date(2021, 4, 3), 214216],
+[new Date(2021, 4, 29), 74338],
+[new Date(2021, 5, 3), 35272],
+[new Date(2021, 5, 12), 0],
+[new Date(2021, 5, 14), 400],
+[new Date(2021, 5, 15), 0],
+[new Date(2021, 5, 16), -39],
+[new Date(2021, 5, 17), 165],
+[new Date(2021, 5, 18), 0],
+[new Date(2021, 5, 19), 2000],
+[new Date(2021, 5, 20), 464176],
+[new Date(2021, 5, 21), 17212],
+[new Date(2021, 5, 22), 50373],
+]);
+var chart = new google.visualization.ColumnChart(document.getElementById("us_chart_2"))
+chart.draw(data, options);
+}
+</script>
+</head>
+<body>
+
+            <span style="float:right; margin-right:100;">
+            <select onchange="window.location=this.options[this.selectedIndex].value" name="states" id="states"><option selected="selected" value="fire_az_2021.html">Arizona</option>
+<option  value="fire_ca_2021.html">California</option>
+<option  value="fire_co_2021.html">Colorado</option>
+<option  value="fire_va_2021.html">Virginia</option>
+</select>
+<select onchange="window.location=this.options[this.selectedIndex].value;" name="year" id="year">
+<option selected="selected" value="fire_az_2021.html">2021</option>
+<option  value="fire_az_2020.html">2020</option>
+<option  value="fire_az_2019.html">2019</option>
+</select></span>
+<h1>Arizona Fire Data</h1><p class="introduction">This site attempts to visualize Arizona fire data.</p><p class="introduction">Fires in Arizona may be fought by Federal agencies, State agencies,  or local agencies, and the reporting is different for all, so data may be incomplete or inaccurate.</p><div class="chart_target" id="us_chart"></div>
+<div class="chart_target" id="us_chart_2"></div>
+<hr>
+<hr>
+    
+<p class="foot">Source code: <a href="https://github.com/cocode/firedata">https://github.com/cocode/firedata</a></p>
+<p class="foot">Data source: <a href="https://www.fire.ca.gov/incidents">https://www.fire.ca.gov/incidents</a></p>
+<p class="foot">Accuracy not guaranteed</p>
+</body>
+</html>

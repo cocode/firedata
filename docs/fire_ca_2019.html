@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="utf-8">
+<style>
+    .introduction {margin-left: 100px; margin-right: 100px;}
+    .foot {font-size:50%; font-family: Verdana, sans-serif; margin-bottom: 0px; margin-top: 0px}
+    .chart_target {width: 100%; }
+    .chart_foot {margin-left: 100px; width: 100%}
+    table, td, th {border-collapse: collapse; border: 1px solid blue}
+    td, th {padding: 10px}
+    th { background-color: #4488FF;}
+    .sum_table {border-collapse: collapse; border: 10px solid blue}
+
+</style>
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script type="text/javascript">
+
+google.charts.load('current', {'packages':['corechart']});
+google.charts.setOnLoadCallback(drawCharts);
+function drawCharts() {
+
+var data = new google.visualization.DataTable();
+data.addColumn("date", "Season Start Date")
+data.addColumn("number", "Acres Burned")
+var options = {
+    "title": "Cal Fire (only) Fire Data",
+    "hAxis": {
+        "title": "Date Recorded"
+    },
+    "vAxis": {
+        "title": "Cumulative Acres Burned"
+    }
+}
+data.addRows([
+[new Date(2019, 0, 1), 0],
+[new Date(2019, 6, 20), 24604],
+[new Date(2019, 7, 5), 42905],
+[new Date(2019, 9, 29), 241742],
+]);
+var chart = new google.visualization.ColumnChart(document.getElementById("acres_b_chart"))
+chart.draw(data, options);
+var data = new google.visualization.DataTable();
+data.addColumn("date", "Season Start Date")
+data.addColumn("number", "Acres Burned")
+var options = {
+    "title": "Federal Fire Data for California only",
+    "hAxis": {
+        "title": "Year"
+    },
+    "vAxis": {
+        "title": "Total Acres Burned"
+    }
+}
+data.addRows([
+[new Date(2019, 0, 1), 0],
+[new Date(2019, 3, 23), 1074],
+[new Date(2019, 5, 1), 861],
+[new Date(2019, 7, 9), 0],
+[new Date(2019, 11, 30), 3208],
+]);
+var chart = new google.visualization.ColumnChart(document.getElementById("us_chart"))
+chart.draw(data, options);
+var data = new google.visualization.DataTable();
+data.addColumn("date", "Season Start Date")
+data.addColumn("number", "Acres Burned")
+var options = {
+    "title": "Federal Fire Data for the Whole US",
+    "hAxis": {
+        "title": "Year"
+    },
+    "vAxis": {
+        "title": "Total Acres Burned"
+    }
+}
+data.addRows([
+[new Date(2019, 0, 1), 0],
+[new Date(2019, 3, 23), 14077],
+[new Date(2019, 5, 1), 54326],
+[new Date(2019, 7, 9), 0],
+[new Date(2019, 11, 30), -947],
+]);
+var chart = new google.visualization.ColumnChart(document.getElementById("us_chart_2"))
+chart.draw(data, options);
+var data = new google.visualization.DataTable();
+data.addColumn("date", "Season Start Date")
+data.addColumn("number", "Acres Burned")
+data.addColumn("number", "Fed Acres Burned")
+var options = {
+    "title": "California Historical Fire Data 1987-2019",
+    "hAxis": {
+        "title": "Year"
+    },
+    "vAxis": {
+        "title": "Total Acres Burned"
+    },
+    "isStacked": "true"
+}
+data.addRows([
+[new Date(1987, 11, 31), 87000, 744000],
+[new Date(1988, 11, 31), 191000, 96000],
+[new Date(1989, 11, 31), 73600, 87800],
+[new Date(1990, 11, 31), 212100, 128100],
+[new Date(1991, 11, 31), 23100, 18800],
+[new Date(1992, 11, 31), 191490, 86340],
+[new Date(1993, 11, 31), 122606, 67646],
+[new Date(1994, 11, 31), 140792, 359227],
+[new Date(1995, 11, 31), 121198, 78414],
+[new Date(1996, 11, 31), 232624, 488010],
+[new Date(1997, 11, 31), 57788, 198431],
+[new Date(1998, 11, 31), 92456, 90246],
+[new Date(1999, 11, 31), 285272, 865621],
+[new Date(2000, 11, 31), 72718, 218578],
+[new Date(2001, 11, 31), 90985, 275152],
+[new Date(2002, 11, 31), 112810, 366842],
+[new Date(2003, 11, 31), 404328, 399635],
+[new Date(2004, 11, 31), 168134, 110082],
+[new Date(2005, 11, 31), 74004, 139399],
+[new Date(2006, 11, 31), 222896, 603378],
+[new Date(2007, 11, 31), 434667, 990730],
+[new Date(2008, 11, 31), 380310, 1153973],
+[new Date(2009, 11, 31), 75960, 339908],
+[new Date(2010, 11, 31), 25438, 98871],
+[new Date(2011, 11, 31), 51889, 73124],
+[new Date(2012, 11, 31), 128956, 687013],
+[new Date(2013, 11, 31), 114473, 450126],
+[new Date(2014, 11, 31), 163067, 451810],
+[new Date(2015, 11, 31), 291282, 577115],
+[new Date(2016, 11, 31), 244556, 412990],
+[new Date(2017, 11, 31), 467497, 746701],
+[new Date(2018, 11, 31), 1063414, 793548],
+[new Date(2019, 11, 31), 137134, 124170],
+]);
+var chart = new google.visualization.ColumnChart(document.getElementById("hist_b_chart"))
+chart.draw(data, options);
+}
+</script>
+</head>
+<body>
+
+            <span style="float:right; margin-right:100;">
+            <select onchange="window.location=this.options[this.selectedIndex].value" name="states" id="states"><option  value="fire_az_2019.html">Arizona</option>
+<option selected="selected" value="fire_ca_2019.html">California</option>
+<option  value="fire_co_2019.html">Colorado</option>
+<option  value="fire_va_2019.html">Virginia</option>
+</select>
+<select onchange="window.location=this.options[this.selectedIndex].value;" name="year" id="year">
+<option  value="fire_ca_2021.html">2021</option>
+<option  value="fire_ca_2020.html">2020</option>
+<option selected="selected" value="fire_ca_2019.html">2019</option>
+</select></span>
+<h1>California Fire Data</h1><p class="introduction">This site attempts to visualize California fire data.</p><p class="introduction">Fires in California may be fought by Federal agencies, State agencies,  or local agencies, and the reporting is different for all, so data may be incomplete or inaccurate.</p><div class="chart_target" id="acres_b_chart"></div>
+<div class="chart_foot">
+This chart only contains data on fires handled by Cal Fire, and not fires fought by federal and local agencies.
+</div>
+<br>
+<div class="chart_target" id="us_chart"></div>
+<div class="chart_target" id="us_chart_2"></div>
+<div class="chart_target" id="hist_b_chart"></div>
+<div class="chart_foot">
+From the 2019 Redbook: <b>Due to the changes in data collection, methods, and systems over the years, information may not always be comparable and data may be of differing accuracy or completeness.</b>
+</div>
+<br>
+<hr>
+    
+<p class="foot">Source code: <a href="https://github.com/cocode/firedata">https://github.com/cocode/firedata</a></p>
+<p class="foot">Data source: <a href="https://www.fire.ca.gov/incidents">https://www.fire.ca.gov/incidents</a></p>
+<p class="foot">Accuracy not guaranteed</p>
+</body>
+</html>

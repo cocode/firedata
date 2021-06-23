@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="utf-8">
+<style>
+    .introduction {margin-left: 100px; margin-right: 100px;}
+    .foot {font-size:50%; font-family: Verdana, sans-serif; margin-bottom: 0px; margin-top: 0px}
+    .chart_target {width: 100%; }
+    .chart_foot {margin-left: 100px; width: 100%}
+    table, td, th {border-collapse: collapse; border: 1px solid blue}
+    td, th {padding: 10px}
+    th { background-color: #4488FF;}
+    .sum_table {border-collapse: collapse; border: 10px solid blue}
+
+</style>
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script type="text/javascript">
+
+google.charts.load('current', {'packages':['corechart']});
+google.charts.setOnLoadCallback(drawCharts);
+function drawCharts() {
+
+var data = new google.visualization.DataTable();
+data.addColumn("date", "Season Start Date")
+data.addColumn("number", "Acres Burned")
+var options = {
+    "title": "Federal Fire Data for Arizona for 2018",
+    "hAxis": {
+        "title": "Year"
+    },
+    "vAxis": {
+        "title": "Total Acres Burned"
+    }
+}
+data.addRows([
+[new Date(2018, 0, 1), 0],
+[new Date(2018, 4, 29), 39875],
+[new Date(2018, 6, 6), 0],
+[new Date(2018, 6, 7), 0],
+[new Date(2018, 7, 8), 0],
+[new Date(2018, 7, 9), 0],
+[new Date(2018, 11, 4), 3934],
+[new Date(2018, 11, 7), -315],
+]);
+var chart = new google.visualization.ColumnChart(document.getElementById("us_chart"))
+chart.draw(data, options);
+var data = new google.visualization.DataTable();
+data.addColumn("date", "Season Start Date")
+data.addColumn("number", "Acres Burned")
+var options = {
+    "title": "Federal Fire Data for the Whole US",
+    "hAxis": {
+        "title": "Year"
+    },
+    "vAxis": {
+        "title": "Total Acres Burned"
+    }
+}
+data.addRows([
+[new Date(2018, 0, 1), 0],
+[new Date(2018, 4, 29), 1211909],
+[new Date(2018, 6, 6), 0],
+[new Date(2018, 6, 7), 0],
+[new Date(2018, 7, 8), 0],
+[new Date(2018, 7, 9), 0],
+[new Date(2018, 11, 4), 1051342],
+[new Date(2018, 11, 7), -304],
+]);
+var chart = new google.visualization.ColumnChart(document.getElementById("us_chart_2"))
+chart.draw(data, options);
+}
+</script>
+</head>
+<body>
+
+            <span style="float:right; margin-right:100;">
+            <select onchange="window.location=this.options[this.selectedIndex].value" name="states" id="states"><option selected="selected" value="fire_az_2018.html">Arizona</option>
+<option  value="fire_ca_2018.html">California</option>
+<option  value="fire_co_2018.html">Colorado</option>
+<option  value="fire_va_2018.html">Virginia</option>
+</select>
+<select onchange="window.location=this.options[this.selectedIndex].value;" name="year" id="year">
+<option  value="fire_az_2021.html">2021</option>
+<option  value="fire_az_2020.html">2020</option>
+<option  value="fire_az_2019.html">2019</option>
+</select></span>
+<h1>Arizona Fire Data</h1><p class="introduction">This site attempts to visualize Arizona fire data.</p><p class="introduction">Fires in Arizona may be fought by Federal agencies, State agencies,  or local agencies, and the reporting is different for all, so data may be incomplete or inaccurate.</p><div class="chart_target" id="us_chart"></div>
+<div class="chart_target" id="us_chart_2"></div>
+<hr>
+    
+<p class="foot">Source code: <a href="https://github.com/cocode/firedata">https://github.com/cocode/firedata</a></p>
+<p class="foot">Data source: <a href="https://www.fire.ca.gov/incidents">https://www.fire.ca.gov/incidents</a></p>
+<p class="foot">Accuracy not guaranteed</p>
+</body>
+</html>

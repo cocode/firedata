@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="utf-8">
+<style>
+    .introduction {margin-left: 100px; margin-right: 100px;}
+    .foot {font-size:50%; font-family: Verdana, sans-serif; margin-bottom: 0px; margin-top: 0px}
+    .chart_target {width: 100%; }
+    .chart_foot {margin-left: 100px; width: 100%}
+    table, td, th {border-collapse: collapse; border: 1px solid blue}
+    td, th {padding: 10px}
+    th { background-color: #4488FF;}
+    .sum_table {border-collapse: collapse; border: 10px solid blue}
+
+</style>
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script type="text/javascript">
+
+google.charts.load('current', {'packages':['corechart']});
+google.charts.setOnLoadCallback(drawCharts);
+function drawCharts() {
+
+var data = new google.visualization.DataTable();
+data.addColumn("date", "Season Start Date")
+data.addColumn("number", "Acres Burned")
+var options = {
+    "title": "Cal Fire (only) Fire Data",
+    "hAxis": {
+        "title": "Date Recorded"
+    },
+    "vAxis": {
+        "title": "Cumulative Acres Burned"
+    }
+}
+data.addRows([
+[new Date(2020, 0, 1), 0],
+[new Date(2020, 7, 22), 883712],
+[new Date(2020, 7, 23), 1037490],
+[new Date(2020, 7, 24), 1122307],
+[new Date(2020, 7, 25), 1126026],
+[new Date(2020, 7, 26), 1165075],
+[new Date(2020, 7, 27), 1176154],
+[new Date(2020, 7, 28), 1233409],
+[new Date(2020, 7, 29), 1245353],
+[new Date(2020, 7, 30), 1246535],
+[new Date(2020, 8, 1), 1259989],
+[new Date(2020, 8, 2), 1270320],
+[new Date(2020, 8, 3), 1272840],
+[new Date(2020, 8, 4), 1280426],
+[new Date(2020, 8, 5), 1281554],
+[new Date(2020, 8, 6), 1376716],
+[new Date(2020, 8, 7), 1377274],
+[new Date(2020, 8, 8), 1461885],
+[new Date(2020, 8, 9), 1468356],
+[new Date(2020, 8, 10), 1701647],
+[new Date(2020, 8, 11), 1712816],
+[new Date(2020, 8, 12), 2584611],
+[new Date(2020, 8, 13), 2599400],
+[new Date(2020, 8, 14), 2599400],
+[new Date(2020, 8, 15), 2506622],
+[new Date(2020, 8, 16), 2549937],
+[new Date(2020, 8, 17), 2883610],
+[new Date(2020, 8, 19), 2722315],
+[new Date(2020, 8, 20), 2732328],
+[new Date(2020, 8, 21), 2749987],
+[new Date(2020, 8, 23), 2763076],
+[new Date(2020, 8, 24), 2789266],
+[new Date(2020, 8, 25), 2794968],
+[new Date(2020, 8, 26), 2819779],
+[new Date(2020, 8, 27), 2812897],
+[new Date(2020, 8, 28), 2844174],
+[new Date(2020, 8, 29), 2995749],
+[new Date(2020, 9, 1), 3053058],
+[new Date(2020, 9, 2), 2761701],
+[new Date(2020, 9, 3), 2628282],
+[new Date(2020, 9, 4), 2641153],
+[new Date(2020, 9, 5), 2656155],
+[new Date(2020, 9, 6), 2673422],
+[new Date(2020, 9, 8), 2689690],
+[new Date(2020, 9, 9), 2694751],
+[new Date(2020, 9, 12), 2703820],
+[new Date(2020, 9, 14), 2875603],
+[new Date(2020, 9, 15), 2880623],
+[new Date(2020, 9, 16), 2883667],
+[new Date(2020, 9, 17), 2888311],
+[new Date(2020, 9, 18), 2888568],
+[new Date(2020, 9, 19), 2892610],
+[new Date(2020, 9, 21), 2894743],
+[new Date(2020, 9, 22), 1341551],
+[new Date(2020, 9, 23), 1341586],
+[new Date(2020, 9, 25), 1341864],
+[new Date(2020, 9, 26), 1344127],
+[new Date(2020, 9, 27), 1369815],
+[new Date(2020, 9, 28), 1369815],
+[new Date(2020, 9, 29), 1369851],
+[new Date(2020, 9, 31), 1369083],
+[new Date(2020, 10, 3), 1368437],
+[new Date(2020, 10, 5), 1368707],
+[new Date(2020, 10, 6), 1368707],
+[new Date(2020, 10, 11), 1455738],
+[new Date(2020, 10, 13), 1455738],
+[new Date(2020, 10, 14), 1455738],
+[new Date(2020, 10, 16), 1455738],
+[new Date(2020, 10, 25), 2511179],
+[new Date(2020, 10, 27), 2511179],
+[new Date(2020, 10, 30), 2511179],
+[new Date(2020, 11, 3), 2515072],
+[new Date(2020, 11, 4), 2518553],
+[new Date(2020, 11, 5), 2518553],
+[new Date(2020, 11, 6), 2519778],
+[new Date(2020, 11, 10), 2519175],
+[new Date(2020, 11, 15), 2521108],
+[new Date(2020, 11, 23), 2521282],
+[new Date(2020, 11, 29), 2521282],
+[new Date(2020, 11, 30), 2521282],
+]);
+var chart = new google.visualization.ColumnChart(document.getElementById("acres_b_chart"))
+chart.draw(data, options);
+var data = new google.visualization.DataTable();
+data.addColumn("date", "Season Start Date")
+data.addColumn("number", "Acres Burned")
+var options = {
+    "title": "Federal Fire Data for California only",
+    "hAxis": {
+        "title": "Year"
+    },
+    "vAxis": {
+        "title": "Total Acres Burned"
+    }
+}
+data.addRows([
+[new Date(2020, 0, 1), 0],
+[new Date(2020, 0, 11), 0],
+[new Date(2020, 4, 7), 37],
+[new Date(2020, 5, 12), 266],
+[new Date(2020, 5, 17), 543],
+[new Date(2020, 5, 21), 83],
+[new Date(2020, 5, 30), 553],
+[new Date(2020, 6, 27), 47065],
+[new Date(2020, 7, 3), 99493],
+[new Date(2020, 7, 20), 237966],
+[new Date(2020, 7, 23), 489836],
+[new Date(2020, 7, 25), 140080],
+[new Date(2020, 7, 29), 139248],
+[new Date(2020, 8, 6), 241817],
+[new Date(2020, 8, 8), 549653],
+[new Date(2020, 8, 9), 99],
+[new Date(2020, 8, 10), 757350],
+[new Date(2020, 8, 11), -280312],
+[new Date(2020, 8, 12), 459123],
+[new Date(2020, 8, 13), 29457],
+[new Date(2020, 8, 14), 18957],
+[new Date(2020, 8, 15), -15987],
+[new Date(2020, 8, 16), 14783],
+[new Date(2020, 8, 17), 123157],
+[new Date(2020, 8, 19), 95579],
+[new Date(2020, 8, 20), 27021],
+[new Date(2020, 8, 22), 23827],
+[new Date(2020, 8, 25), 58584],
+[new Date(2020, 8, 26), 10443],
+[new Date(2020, 8, 27), 21209],
+[new Date(2020, 8, 28), 15432],
+[new Date(2020, 8, 29), 67295],
+[new Date(2020, 8, 30), 2889],
+[new Date(2020, 9, 1), 24380],
+[new Date(2020, 9, 2), 13866],
+[new Date(2020, 9, 3), 31811],
+[new Date(2020, 9, 4), 1697],
+[new Date(2020, 9, 5), 38929],
+[new Date(2020, 9, 6), 11442],
+[new Date(2020, 9, 7), 386],
+[new Date(2020, 9, 8), 22228],
+[new Date(2020, 9, 9), 10206],
+[new Date(2020, 9, 10), 3878],
+[new Date(2020, 9, 11), 10918],
+[new Date(2020, 9, 12), -689],
+[new Date(2020, 9, 13), 5195],
+[new Date(2020, 9, 14), 894],
+[new Date(2020, 9, 15), 5258],
+[new Date(2020, 9, 16), 3016],
+[new Date(2020, 9, 17), 5043],
+[new Date(2020, 9, 18), 2088],
+[new Date(2020, 9, 19), 2622],
+[new Date(2020, 9, 20), 2133],
+[new Date(2020, 9, 21), 392],
+[new Date(2020, 9, 22), 6110],
+[new Date(2020, 9, 23), 159],
+[new Date(2020, 9, 25), 9110],
+[new Date(2020, 9, 26), 3891],
+[new Date(2020, 9, 27), 5776],
+[new Date(2020, 9, 28), 4300],
+[new Date(2020, 9, 30), 2051],
+[new Date(2020, 9, 31), 777],
+[new Date(2020, 10, 1), -25],
+[new Date(2020, 10, 3), -1294],
+[new Date(2020, 10, 8), 3164],
+[new Date(2020, 10, 11), 247],
+[new Date(2020, 10, 14), 3219],
+[new Date(2020, 10, 15), 93],
+[new Date(2020, 10, 17), 0],
+[new Date(2020, 10, 19), 30879],
+[new Date(2020, 10, 21), -7200],
+[new Date(2020, 10, 28), -318],
+[new Date(2020, 11, 6), 7511],
+[new Date(2020, 11, 9), -742],
+[new Date(2020, 11, 11), 0],
+[new Date(2020, 11, 18), 0],
+[new Date(2020, 11, 25), 100],
+]);
+var chart = new google.visualization.ColumnChart(document.getElementById("us_chart"))
+chart.draw(data, options);
+var data = new google.visualization.DataTable();
+data.addColumn("date", "Season Start Date")
+data.addColumn("number", "Acres Burned")
+var options = {
+    "title": "Federal Fire Data for the Whole US",
+    "hAxis": {
+        "title": "Year"
+    },
+    "vAxis": {
+        "title": "Total Acres Burned"
+    }
+}
+data.addRows([
+[new Date(2020, 0, 1), 0],
+[new Date(2020, 0, 11), 250],
+[new Date(2020, 4, 7), 30099],
+[new Date(2020, 5, 12), 123083],
+[new Date(2020, 5, 17), 183851],
+[new Date(2020, 5, 21), 146783],
+[new Date(2020, 5, 30), 173126],
+[new Date(2020, 6, 27), 288709],
+[new Date(2020, 7, 3), 131759],
+[new Date(2020, 7, 20), 542416],
+[new Date(2020, 7, 23), 616291],
+[new Date(2020, 7, 25), 183713],
+[new Date(2020, 7, 29), 237310],
+[new Date(2020, 8, 6), 603677],
+[new Date(2020, 8, 8), 549653],
+[new Date(2020, 8, 9), 99],
+[new Date(2020, 8, 10), 757350],
+[new Date(2020, 8, 11), 968248],
+[new Date(2020, 8, 12), 459123],
+[new Date(2020, 8, 13), 29457],
+[new Date(2020, 8, 14), 368690],
+[new Date(2020, 8, 15), -15987],
+[new Date(2020, 8, 16), 164640],
+[new Date(2020, 8, 17), 123157],
+[new Date(2020, 8, 19), 95579],
+[new Date(2020, 8, 20), 27021],
+[new Date(2020, 8, 22), 231797],
+[new Date(2020, 8, 25), 58584],
+[new Date(2020, 8, 26), 10443],
+[new Date(2020, 8, 27), 21209],
+[new Date(2020, 8, 28), 15432],
+[new Date(2020, 8, 29), 67295],
+[new Date(2020, 8, 30), 127155],
+[new Date(2020, 9, 1), 24380],
+[new Date(2020, 9, 2), 13866],
+[new Date(2020, 9, 3), 31811],
+[new Date(2020, 9, 4), 1697],
+[new Date(2020, 9, 5), 38929],
+[new Date(2020, 9, 6), 11442],
+[new Date(2020, 9, 7), 102239],
+[new Date(2020, 9, 8), 22228],
+[new Date(2020, 9, 9), 10206],
+[new Date(2020, 9, 10), 57126],
+[new Date(2020, 9, 11), 20898],
+[new Date(2020, 9, 12), 12973],
+[new Date(2020, 9, 13), 18586],
+[new Date(2020, 9, 14), 894],
+[new Date(2020, 9, 15), 5258],
+[new Date(2020, 9, 16), 3016],
+[new Date(2020, 9, 17), 5043],
+[new Date(2020, 9, 18), 2088],
+[new Date(2020, 9, 19), 2622],
+[new Date(2020, 9, 20), 122029],
+[new Date(2020, 9, 21), 392],
+[new Date(2020, 9, 22), 6110],
+[new Date(2020, 9, 23), 159],
+[new Date(2020, 9, 25), 9110],
+[new Date(2020, 9, 26), 3891],
+[new Date(2020, 9, 27), 5776],
+[new Date(2020, 9, 28), 4300],
+[new Date(2020, 9, 30), 200001],
+[new Date(2020, 9, 31), 777],
+[new Date(2020, 10, 1), 5175],
+[new Date(2020, 10, 3), -1294],
+[new Date(2020, 10, 8), 4063],
+[new Date(2020, 10, 11), 269],
+[new Date(2020, 10, 14), 3303],
+[new Date(2020, 10, 15), 93],
+[new Date(2020, 10, 17), 0],
+[new Date(2020, 10, 19), 30879],
+[new Date(2020, 10, 21), -7200],
+[new Date(2020, 10, 28), -318],
+[new Date(2020, 11, 6), 7511],
+[new Date(2020, 11, 9), -742],
+[new Date(2020, 11, 11), 0],
+[new Date(2020, 11, 18), 0],
+[new Date(2020, 11, 25), 914],
+]);
+var chart = new google.visualization.ColumnChart(document.getElementById("us_chart_2"))
+chart.draw(data, options);
+var data = new google.visualization.DataTable();
+data.addColumn("date", "Season Start Date")
+data.addColumn("number", "Acres Burned")
+data.addColumn("number", "Fed Acres Burned")
+var options = {
+    "title": "California Historical Fire Data 1987-2019",
+    "hAxis": {
+        "title": "Year"
+    },
+    "vAxis": {
+        "title": "Total Acres Burned"
+    },
+    "isStacked": "true"
+}
+data.addRows([
+[new Date(1987, 11, 31), 87000, 744000],
+[new Date(1988, 11, 31), 191000, 96000],
+[new Date(1989, 11, 31), 73600, 87800],
+[new Date(1990, 11, 31), 212100, 128100],
+[new Date(1991, 11, 31), 23100, 18800],
+[new Date(1992, 11, 31), 191490, 86340],
+[new Date(1993, 11, 31), 122606, 67646],
+[new Date(1994, 11, 31), 140792, 359227],
+[new Date(1995, 11, 31), 121198, 78414],
+[new Date(1996, 11, 31), 232624, 488010],
+[new Date(1997, 11, 31), 57788, 198431],
+[new Date(1998, 11, 31), 92456, 90246],
+[new Date(1999, 11, 31), 285272, 865621],
+[new Date(2000, 11, 31), 72718, 218578],
+[new Date(2001, 11, 31), 90985, 275152],
+[new Date(2002, 11, 31), 112810, 366842],
+[new Date(2003, 11, 31), 404328, 399635],
+[new Date(2004, 11, 31), 168134, 110082],
+[new Date(2005, 11, 31), 74004, 139399],
+[new Date(2006, 11, 31), 222896, 603378],
+[new Date(2007, 11, 31), 434667, 990730],
+[new Date(2008, 11, 31), 380310, 1153973],
+[new Date(2009, 11, 31), 75960, 339908],
+[new Date(2010, 11, 31), 25438, 98871],
+[new Date(2011, 11, 31), 51889, 73124],
+[new Date(2012, 11, 31), 128956, 687013],
+[new Date(2013, 11, 31), 114473, 450126],
+[new Date(2014, 11, 31), 163067, 451810],
+[new Date(2015, 11, 31), 291282, 577115],
+[new Date(2016, 11, 31), 244556, 412990],
+[new Date(2017, 11, 31), 467497, 746701],
+[new Date(2018, 11, 31), 1063414, 793548],
+[new Date(2019, 11, 31), 137134, 124170],
+]);
+var chart = new google.visualization.ColumnChart(document.getElementById("hist_b_chart"))
+chart.draw(data, options);
+}
+</script>
+</head>
+<body>
+
+            <span style="float:right; margin-right:100;">
+            <select onchange="window.location=this.options[this.selectedIndex].value" name="states" id="states"><option  value="fire_az_2020.html">Arizona</option>
+<option selected="selected" value="fire_ca_2020.html">California</option>
+<option  value="fire_co_2020.html">Colorado</option>
+<option  value="fire_va_2020.html">Virginia</option>
+</select>
+<select onchange="window.location=this.options[this.selectedIndex].value;" name="year" id="year">
+<option  value="fire_ca_2021.html">2021</option>
+<option selected="selected" value="fire_ca_2020.html">2020</option>
+<option  value="fire_ca_2019.html">2019</option>
+</select></span>
+<h1>California Fire Data</h1><p class="introduction">This site attempts to visualize California fire data.</p><p class="introduction">Fires in California may be fought by Federal agencies, State agencies,  or local agencies, and the reporting is different for all, so data may be incomplete or inaccurate.</p><div class="chart_target" id="acres_b_chart"></div>
+<div class="chart_foot">
+This chart only contains data on fires handled by Cal Fire, and not fires fought by federal and local agencies.
+</div>
+<br>
+<div class="chart_target" id="us_chart"></div>
+<div class="chart_target" id="us_chart_2"></div>
+<div class="chart_target" id="hist_b_chart"></div>
+<div class="chart_foot">
+From the 2019 Redbook: <b>Due to the changes in data collection, methods, and systems over the years, information may not always be comparable and data may be of differing accuracy or completeness.</b>
+</div>
+<br>
+<hr>
+    
+<p class="foot">Source code: <a href="https://github.com/cocode/firedata">https://github.com/cocode/firedata</a></p>
+<p class="foot">Data source: <a href="https://www.fire.ca.gov/incidents">https://www.fire.ca.gov/incidents</a></p>
+<p class="foot">Accuracy not guaranteed</p>
+</body>
+</html>
