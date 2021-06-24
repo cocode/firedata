@@ -1,6 +1,6 @@
 # FireData Project
 [![Fetch and Build](https://github.com/cocode/firedata/actions/workflows/fetch.yml/badge.svg)](https://github.com/cocode/firedata/actions/workflows/fetch.yml)
-
+[![Run Tests](https://github.com/cocode/firedata/actions/workflows/run_tests.yml/badge.svg)](https://github.com/cocode/firedata/actions/workflows/run_tests.yml)
 Project Status: Under development
 
 This project displays data about the California fire season. It collects data from 
