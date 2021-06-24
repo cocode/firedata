@@ -24,7 +24,9 @@ git commit -m "Automatic add of new fire data"
 
 # Build and commit the webpage.
 python3 -m webpage.create_webpage_multi
-cp webpage/fire_multi.html docs/index.html
+cp webpage/fire_*.html docs/
+cp docs/fire_ca_2021.html docs/index.html
+
 git add docs
 git commit -m "Add newly generated web page"
 
