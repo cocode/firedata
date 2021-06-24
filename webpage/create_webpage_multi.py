@@ -306,10 +306,8 @@ def create_webpage(destination: str, year: int, state: str, x_min_date: datetime
 
 
 if __name__ == "__main__":
-    subdir = "webpage"
-
     for state in debug_states:
         for year in range(2018, 2021+1):
             # Set the minimum date, to keep the related charts aligned.
             min_date = datetime.date(year, 1, 1)
-            create_webpage(F"{subdir}/fire_{state.lower()}_{year}.html", year, state, min_date)
+            create_webpage(F"docs/fire_{state.lower()}_{year}.html", year, state, min_date)
