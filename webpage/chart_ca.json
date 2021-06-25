@@ -95,6 +95,10 @@
 			[
 				"number",
 				"Fed Acres Burned"
+			],
+			[
+				"number",
+				"Local Acres Burned"
 			]
 		],
 		"footer": "From the 2019 Redbook: <b>Due to the changes in data collection, methods, and systems over the years, information may not always be comparable and data may be of differing accuracy or completeness.</b>",

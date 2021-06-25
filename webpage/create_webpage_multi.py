@@ -1,7 +1,7 @@
 import datetime
 import os
+import sys
 
-debug_states = ["AZ", "CA", "CO", "VA"]
 import get_cal_fire_data
 import json
 from webpage.analyzers import AnalyzerUs, AnalyzerUsCa, AnalyzerCalFire, AnalyzerCaHistorical, AnalyzerUsXX
@@ -234,7 +234,7 @@ class WebPage:
         output.write("""
             <span style="float:right; margin-right:100;">
             <select onchange="window.location=this.options[this.selectedIndex].value" name="states" id="states">""")
-        for i in debug_states:
+        for i in states:
             attr = 'selected="selected"' if self.state == i else ""
             output.write(F'<option {attr} value="fire_{i.lower()}_{self.year}.html">{states[i]}</option>\n')
         output.write('</select>\n');
@@ -306,7 +306,15 @@ def create_webpage(destination: str, year: int, state: str, x_min_date: datetime
 
 
 if __name__ == "__main__":
-    for state in debug_states:
+    requested_states = states
+    if len(sys.argv):
+        # We don't need to generate every state, every time. # TODO same for years
+        requested_states = sys.argv[1].split(",")
+    for state in requested_states:
+        state = state.upper()
+        if state not in states:
+            print(F"Invalid two-character state abbreviation: {state}")
+            sys.exit(1)
         for year in range(2018, 2021+1):
             # Set the minimum date, to keep the related charts aligned.
             min_date = datetime.date(year, 1, 1)
