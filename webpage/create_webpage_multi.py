@@ -306,10 +306,12 @@ def create_webpage(destination: str, year: int, state: str, x_min_date: datetime
 
 
 if __name__ == "__main__":
-    requested_states = states
+    # Less efficient to copy than just "requested_states = states", but it gets mypy to stop complaining.
+    requested_states = [state for state in states.keys()]
     if len(sys.argv) > 1:
-        # We don't need to generate every state, every time. # TODO same for years
-        requested_states = sys.argv[1].split(",")
+        # We don't need to generate every state, every time. # TODO do the same for "years"
+        state_param: str = sys.argv[1]
+        requested_states = state_param.split(",")
     for state in requested_states:
         state = state.upper()
         if state not in states:
