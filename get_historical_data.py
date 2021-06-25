@@ -64,6 +64,7 @@ def _write_converted_data(row_data):
     with open(output_file_name, "w") as f:
         f.write(json.dumps(rows, indent=4))
 
+
 def get_2019_data():
     """
     Add data from 2019 to the historical table. The are in different formats, so we
@@ -79,7 +80,8 @@ def get_2019_data():
     fed_2019_acres = table[3][2] + table[4][2]  + table[5][2] + table[6][2] + table[7][2] + table[8][2]
     total_fires = cf_2019_fires + fed_2019_fires
     total_acres = cf_2019_acres + fed_2019_acres
-    row = [str(2019), str(cf_2019_fires), str(cf_2019_acres), str(fed_2019_fires), str(fed_2019_acres), "N/A", "N/A",
+    # Don't have official numbers for local agencies for 2019. Use zero for now.
+    row = [str(2019), str(cf_2019_fires), str(cf_2019_acres), str(fed_2019_fires), str(fed_2019_acres), "0", "0",
            str(total_fires), str(total_acres)]
     print(row)
     return row
@@ -130,14 +132,16 @@ def get_fed_history():
         ('2019', '50477', '4664364'),
         ('2020', '58950', '10122336'),
     ]
+
+
 if __name__ == "__main__":
     rows = _get_source_data()
     d2019 = get_2019_data()
     rows.append(d2019)
     _write_converted_data(rows)
 
-    rows = get_stats()
-    #print(rows)
-    get_2019_data()
+    # rows = get_stats()
+    # #print(rows)
+    # get_2019_data()
 
 
