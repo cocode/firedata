@@ -16,10 +16,65 @@ class DataStore:
     def get_data_dir(self):
         return self.data_dir
 
+    def get_source_dir(self):
+        """
+        The directory where we store the source of the data we parse.
+        We did not originally save this, so the will may not be present for all data.
+        We did save it when back filling from the internet archive, so old source files to exist.
+        :return:
+        """
+        return os.path.join(self.data_dir, "source")
+
     def get_filename(self, day: date):
         dstring = day.strftime("%Y_%m_%d")
         filename = F"{self.get_data_dir()}/firedata_{dstring}.json"
         return filename
+
+    def get_source_filename(self, day: date, extension=".html"):
+        """
+        Get the filename to store the source data that we parse to get the actual data.
+        :param day:
+        :param extension: The file extension.
+        :return:
+        """
+        dstring = day.strftime("%Y_%m_%d")
+        filename = F"{self.get_source_dir()}/firedata_{dstring}.{extension}"
+        return filename
+
+    def save_source_data(self, data: str, day: date, force=False, extension=".html"):
+        """
+        Store the source data for the page we parse to get fire data.
+        :param data:
+        :param day:
+        :param force:
+        :param extension:
+        :return: None
+        """
+        if not os.path.exists(self.get_source_dir()):
+            os.mkdir(self.get_source_dir())
+        filename = self.get_source_filename(day, extension=extension)
+        if os.path.exists(filename) and not force:
+            return
+        with open(filename, "w") as f:
+            f.write(data)
+        return
+
+    def get_source_data(self, day: date, extension=".html"):
+        """
+        Get the source data for the page we parse to get fire data.
+        :param day:
+        :param extension:
+        :return: The data
+        """
+        if not os.path.exists(self.get_source_dir()):
+            os.mkdir(self.get_source_dir())
+        filename = self.get_source_filename(day, extension=extension)
+        if not os.path.exists(filename):
+            return
+
+        with open(filename, "r") as f:
+            data = f.read()
+        return data
 
     def does_data_exist(self, day: date):
         filename = self.get_filename(day)
