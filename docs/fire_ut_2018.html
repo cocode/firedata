@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="utf-8">
+<style>
+    .introduction {margin-left: 100px; margin-right: 100px;}
+    .foot {font-size:50%; font-family: Verdana, sans-serif; margin-bottom: 0px; margin-top: 0px}
+    .chart_target {width: 100%; }
+    .chart_foot {margin-left: 100px; width: 100%}
+    table, td, th {border-collapse: collapse; border: 1px solid blue}
+    td, th {padding: 10px}
+    th { background-color: #4488FF;}
+    .sum_table {border-collapse: collapse; border: 10px solid blue}
+
+</style>
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script type="text/javascript">
+
+google.charts.load('current', {'packages':['corechart']});
+google.charts.setOnLoadCallback(drawCharts);
+function drawCharts() {
+
+var data = new google.visualization.DataTable();
+data.addColumn("date", "Season Start Date")
+data.addColumn("number", "Acres Burned")
+var options = {
+    "title": "Federal Fire Data for Utah for 2018",
+    "hAxis": {
+        "title": "Year"
+    },
+    "vAxis": {
+        "title": "Total Acres Burned"
+    }
+}
+data.addRows([
+[new Date(2018, 0, 1), 0],
+[new Date(2018, 4, 29), 82842],
+[new Date(2018, 6, 6), 0],
+[new Date(2018, 6, 7), 0],
+[new Date(2018, 7, 8), 0],
+[new Date(2018, 7, 9), 0],
+[new Date(2018, 11, 4), 0],
+[new Date(2018, 11, 7), 0],
+]);
+var chart = new google.visualization.ColumnChart(document.getElementById("us_chart"))
+chart.draw(data, options);
+var data = new google.visualization.DataTable();
+data.addColumn("date", "Season Start Date")
+data.addColumn("number", "Acres Burned")
+var options = {
+    "title": "Federal Fire Data for the Whole US",
+    "hAxis": {
+        "title": "Year"
+    },
+    "vAxis": {
+        "title": "Total Acres Burned"
+    }
+}
+data.addRows([
+[new Date(2018, 0, 1), 0],
+[new Date(2018, 4, 29), 1211909],
+[new Date(2018, 6, 6), 0],
+[new Date(2018, 6, 7), 0],
+[new Date(2018, 7, 8), 0],
+[new Date(2018, 7, 9), 0],
+[new Date(2018, 11, 4), 1051342],
+[new Date(2018, 11, 7), -304],
+]);
+var chart = new google.visualization.ColumnChart(document.getElementById("us_chart_2"))
+chart.draw(data, options);
+}
+</script>
+</head>
+<body>
+
+            <span style="float:right; margin-right:100;">
+            <select onchange="window.location=this.options[this.selectedIndex].value" name="states" id="states"><option  value="fire_ak_2018.html">Alaska</option>
+<option  value="fire_al_2018.html">Alabama</option>
+<option  value="fire_ar_2018.html">Arkansas</option>
+<option  value="fire_az_2018.html">Arizona</option>
+<option  value="fire_ca_2018.html">California</option>
+<option  value="fire_co_2018.html">Colorado</option>
+<option  value="fire_ct_2018.html">Connecticut</option>
+<option  value="fire_de_2018.html">Delaware</option>
+<option  value="fire_fl_2018.html">Florida</option>
+<option  value="fire_ga_2018.html">Georgia</option>
+<option  value="fire_hi_2018.html">Hawaii</option>
+<option  value="fire_ia_2018.html">Iowa</option>
+<option  value="fire_id_2018.html">Idaho</option>
+<option  value="fire_il_2018.html">Illinois</option>
+<option  value="fire_in_2018.html">Indiana</option>
+<option  value="fire_ks_2018.html">Kansas</option>
+<option  value="fire_ky_2018.html">Kentucky</option>
+<option  value="fire_la_2018.html">Louisiana</option>
+<option  value="fire_ma_2018.html">Massachusetts</option>
+<option  value="fire_md_2018.html">Maryland</option>
+<option  value="fire_me_2018.html">Maine</option>
+<option  value="fire_mi_2018.html">Michigan</option>
+<option  value="fire_mn_2018.html">Minnesota</option>
+<option  value="fire_mo_2018.html">Missouri</option>
+<option  value="fire_ms_2018.html">Mississippi</option>
+<option  value="fire_mt_2018.html">Montana</option>
+<option  value="fire_nc_2018.html">North Carolina</option>
+<option  value="fire_nd_2018.html">North Dakota</option>
+<option  value="fire_ne_2018.html">Nebraska</option>
+<option  value="fire_nh_2018.html">New Hampshire</option>
+<option  value="fire_nj_2018.html">New Jersey</option>
+<option  value="fire_nm_2018.html">New Mexico</option>
+<option  value="fire_nv_2018.html">Nevada</option>
+<option  value="fire_ny_2018.html">New York</option>
+<option  value="fire_oh_2018.html">Ohio</option>
+<option  value="fire_ok_2018.html">Oklahoma</option>
+<option  value="fire_or_2018.html">Oregon</option>
+<option  value="fire_pa_2018.html">Pennsylvania</option>
+<option  value="fire_ri_2018.html">Rhode Island</option>
+<option  value="fire_sc_2018.html">South Carolina</option>
+<option  value="fire_sd_2018.html">South Dakota</option>
+<option  value="fire_tn_2018.html">Tennessee</option>
+<option  value="fire_tx_2018.html">Texas</option>
+<option selected="selected" value="fire_ut_2018.html">Utah</option>
+<option  value="fire_va_2018.html">Virginia</option>
+<option  value="fire_vt_2018.html">Vermont</option>
+<option  value="fire_wa_2018.html">Washington</option>
+<option  value="fire_wi_2018.html">Wisconsin</option>
+<option  value="fire_wv_2018.html">West Virginia</option>
+<option  value="fire_wy_2018.html">Wyoming</option>
+</select>
+<select onchange="window.location=this.options[this.selectedIndex].value;" name="year" id="year">
+<option  value="fire_ut_2021.html">2021</option>
+<option  value="fire_ut_2020.html">2020</option>
+<option  value="fire_ut_2019.html">2019</option>
+</select></span>
+<h1>Utah Fire Data</h1><p class="introduction">This site attempts to visualize Utah fire data.</p><p class="introduction">Fires in Utah may be fought by Federal agencies, State agencies,  or local agencies, and the reporting is different for all, so data may be incomplete or inaccurate.</p><div class="chart_target" id="us_chart"></div>
+<div class="chart_target" id="us_chart_2"></div>
+<hr>
+    
+<p class="foot">Source code: <a href="https://github.com/cocode/firedata">https://github.com/cocode/firedata</a></p>
+<p class="foot">Data source: <a href="https://www.fire.ca.gov/incidents">https://www.fire.ca.gov/incidents</a></p>
+<p class="foot">Accuracy not guaranteed</p>
+</body>
+</html>

@@ -87,6 +87,7 @@ var data = new google.visualization.DataTable();
 data.addColumn("date", "Season Start Date")
 data.addColumn("number", "Acres Burned")
 data.addColumn("number", "Fed Acres Burned")
+data.addColumn("number", "Local Acres Burned")
 var options = {
     "title": "California Historical Fire Data 1987-2019",
     "hAxis": {
@@ -98,39 +99,39 @@ var options = {
     "isStacked": "true"
 }
 data.addRows([
-[new Date(1987, 11, 31), 87000, 744000],
-[new Date(1988, 11, 31), 191000, 96000],
-[new Date(1989, 11, 31), 73600, 87800],
-[new Date(1990, 11, 31), 212100, 128100],
-[new Date(1991, 11, 31), 23100, 18800],
-[new Date(1992, 11, 31), 191490, 86340],
-[new Date(1993, 11, 31), 122606, 67646],
-[new Date(1994, 11, 31), 140792, 359227],
-[new Date(1995, 11, 31), 121198, 78414],
-[new Date(1996, 11, 31), 232624, 488010],
-[new Date(1997, 11, 31), 57788, 198431],
-[new Date(1998, 11, 31), 92456, 90246],
-[new Date(1999, 11, 31), 285272, 865621],
-[new Date(2000, 11, 31), 72718, 218578],
-[new Date(2001, 11, 31), 90985, 275152],
-[new Date(2002, 11, 31), 112810, 366842],
-[new Date(2003, 11, 31), 404328, 399635],
-[new Date(2004, 11, 31), 168134, 110082],
-[new Date(2005, 11, 31), 74004, 139399],
-[new Date(2006, 11, 31), 222896, 603378],
-[new Date(2007, 11, 31), 434667, 990730],
-[new Date(2008, 11, 31), 380310, 1153973],
-[new Date(2009, 11, 31), 75960, 339908],
-[new Date(2010, 11, 31), 25438, 98871],
-[new Date(2011, 11, 31), 51889, 73124],
-[new Date(2012, 11, 31), 128956, 687013],
-[new Date(2013, 11, 31), 114473, 450126],
-[new Date(2014, 11, 31), 163067, 451810],
-[new Date(2015, 11, 31), 291282, 577115],
-[new Date(2016, 11, 31), 244556, 412990],
-[new Date(2017, 11, 31), 467497, 746701],
-[new Date(2018, 11, 31), 1063414, 793548],
-[new Date(2019, 11, 31), 137134, 124170],
+[new Date(1987, 11, 31), 87000, 744000, 42000],
+[new Date(1988, 11, 31), 191000, 96000, 58000],
+[new Date(1989, 11, 31), 73600, 87800, 12000],
+[new Date(1990, 11, 31), 212100, 128100, 25000],
+[new Date(1991, 11, 31), 23100, 18800, 2300],
+[new Date(1992, 11, 31), 191490, 86340, 4915],
+[new Date(1993, 11, 31), 122606, 67646, 119527],
+[new Date(1994, 11, 31), 140792, 359227, 26200],
+[new Date(1995, 11, 31), 121198, 78414, 10203],
+[new Date(1996, 11, 31), 232624, 488010, 31738],
+[new Date(1997, 11, 31), 57788, 198431, 27666],
+[new Date(1998, 11, 31), 92456, 90246, 32710],
+[new Date(1999, 11, 31), 285272, 865621, 21957],
+[new Date(2000, 11, 31), 72718, 218578, 3730],
+[new Date(2001, 11, 31), 90985, 275152, 11203],
+[new Date(2002, 11, 31), 112810, 366842, 58564],
+[new Date(2003, 11, 31), 404328, 399635, 161807],
+[new Date(2004, 11, 31), 168134, 110082, 32808],
+[new Date(2005, 11, 31), 74004, 139399, 65811],
+[new Date(2006, 11, 31), 222896, 603378, 37071],
+[new Date(2007, 11, 31), 434667, 990730, 95565],
+[new Date(2008, 11, 31), 380310, 1153973, 59407],
+[new Date(2009, 11, 31), 75960, 339908, 36101],
+[new Date(2010, 11, 31), 25438, 98871, 10153],
+[new Date(2011, 11, 31), 51889, 73124, 103586],
+[new Date(2012, 11, 31), 128956, 687013, 13255],
+[new Date(2013, 11, 31), 114473, 450126, 37036],
+[new Date(2014, 11, 31), 163067, 451810, 10663],
+[new Date(2015, 11, 31), 291282, 577115, 6137],
+[new Date(2016, 11, 31), 244556, 412990, 12078],
+[new Date(2017, 11, 31), 467497, 746701, 385442],
+[new Date(2018, 11, 31), 1063414, 793548, 118124],
+[new Date(2019, 11, 31), 137134, 124170, 0],
 ]);
 var chart = new google.visualization.ColumnChart(document.getElementById("hist_b_chart"))
 chart.draw(data, options);
@@ -140,10 +141,56 @@ chart.draw(data, options);
 <body>
 
             <span style="float:right; margin-right:100;">
-            <select onchange="window.location=this.options[this.selectedIndex].value" name="states" id="states"><option  value="fire_az_2019.html">Arizona</option>
+            <select onchange="window.location=this.options[this.selectedIndex].value" name="states" id="states"><option  value="fire_ak_2019.html">Alaska</option>
+<option  value="fire_al_2019.html">Alabama</option>
+<option  value="fire_ar_2019.html">Arkansas</option>
+<option  value="fire_az_2019.html">Arizona</option>
 <option selected="selected" value="fire_ca_2019.html">California</option>
 <option  value="fire_co_2019.html">Colorado</option>
+<option  value="fire_ct_2019.html">Connecticut</option>
+<option  value="fire_de_2019.html">Delaware</option>
+<option  value="fire_fl_2019.html">Florida</option>
+<option  value="fire_ga_2019.html">Georgia</option>
+<option  value="fire_hi_2019.html">Hawaii</option>
+<option  value="fire_ia_2019.html">Iowa</option>
+<option  value="fire_id_2019.html">Idaho</option>
+<option  value="fire_il_2019.html">Illinois</option>
+<option  value="fire_in_2019.html">Indiana</option>
+<option  value="fire_ks_2019.html">Kansas</option>
+<option  value="fire_ky_2019.html">Kentucky</option>
+<option  value="fire_la_2019.html">Louisiana</option>
+<option  value="fire_ma_2019.html">Massachusetts</option>
+<option  value="fire_md_2019.html">Maryland</option>
+<option  value="fire_me_2019.html">Maine</option>
+<option  value="fire_mi_2019.html">Michigan</option>
+<option  value="fire_mn_2019.html">Minnesota</option>
+<option  value="fire_mo_2019.html">Missouri</option>
+<option  value="fire_ms_2019.html">Mississippi</option>
+<option  value="fire_mt_2019.html">Montana</option>
+<option  value="fire_nc_2019.html">North Carolina</option>
+<option  value="fire_nd_2019.html">North Dakota</option>
+<option  value="fire_ne_2019.html">Nebraska</option>
+<option  value="fire_nh_2019.html">New Hampshire</option>
+<option  value="fire_nj_2019.html">New Jersey</option>
+<option  value="fire_nm_2019.html">New Mexico</option>
+<option  value="fire_nv_2019.html">Nevada</option>
+<option  value="fire_ny_2019.html">New York</option>
+<option  value="fire_oh_2019.html">Ohio</option>
+<option  value="fire_ok_2019.html">Oklahoma</option>
+<option  value="fire_or_2019.html">Oregon</option>
+<option  value="fire_pa_2019.html">Pennsylvania</option>
+<option  value="fire_ri_2019.html">Rhode Island</option>
+<option  value="fire_sc_2019.html">South Carolina</option>
+<option  value="fire_sd_2019.html">South Dakota</option>
+<option  value="fire_tn_2019.html">Tennessee</option>
+<option  value="fire_tx_2019.html">Texas</option>
+<option  value="fire_ut_2019.html">Utah</option>
 <option  value="fire_va_2019.html">Virginia</option>
+<option  value="fire_vt_2019.html">Vermont</option>
+<option  value="fire_wa_2019.html">Washington</option>
+<option  value="fire_wi_2019.html">Wisconsin</option>
+<option  value="fire_wv_2019.html">West Virginia</option>
+<option  value="fire_wy_2019.html">Wyoming</option>
 </select>
 <select onchange="window.location=this.options[this.selectedIndex].value;" name="year" id="year">
 <option  value="fire_ca_2021.html">2021</option>

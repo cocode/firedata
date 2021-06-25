@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="utf-8">
+<style>
+    .introduction {margin-left: 100px; margin-right: 100px;}
+    .foot {font-size:50%; font-family: Verdana, sans-serif; margin-bottom: 0px; margin-top: 0px}
+    .chart_target {width: 100%; }
+    .chart_foot {margin-left: 100px; width: 100%}
+    table, td, th {border-collapse: collapse; border: 1px solid blue}
+    td, th {padding: 10px}
+    th { background-color: #4488FF;}
+    .sum_table {border-collapse: collapse; border: 10px solid blue}
+
+</style>
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script type="text/javascript">
+
+google.charts.load('current', {'packages':['corechart']});
+google.charts.setOnLoadCallback(drawCharts);
+function drawCharts() {
+
+var data = new google.visualization.DataTable();
+data.addColumn("date", "Season Start Date")
+data.addColumn("number", "Acres Burned")
+var options = {
+    "title": "Federal Fire Data for Florida for 2020",
+    "hAxis": {
+        "title": "Year"
+    },
+    "vAxis": {
+        "title": "Total Acres Burned"
+    }
+}
+data.addRows([
+[new Date(2020, 0, 1), 0],
+[new Date(2020, 0, 11), 0],
+[new Date(2020, 4, 7), 0],
+[new Date(2020, 5, 12), 0],
+[new Date(2020, 5, 17), 0],
+[new Date(2020, 5, 21), 0],
+[new Date(2020, 5, 30), 0],
+[new Date(2020, 6, 27), 0],
+[new Date(2020, 7, 3), 0],
+[new Date(2020, 7, 20), 0],
+[new Date(2020, 7, 23), 0],
+[new Date(2020, 7, 25), 0],
+[new Date(2020, 7, 29), 0],
+[new Date(2020, 8, 6), 0],
+[new Date(2020, 8, 8), 0],
+[new Date(2020, 8, 9), 0],
+[new Date(2020, 8, 10), 0],
+[new Date(2020, 8, 11), 0],
+[new Date(2020, 8, 12), 0],
+[new Date(2020, 8, 13), 0],
+[new Date(2020, 8, 14), 0],
+[new Date(2020, 8, 15), 0],
+[new Date(2020, 8, 16), 0],
+[new Date(2020, 8, 17), 0],
+[new Date(2020, 8, 19), 0],
+[new Date(2020, 8, 20), 0],
+[new Date(2020, 8, 22), 0],
+[new Date(2020, 8, 25), 0],
+[new Date(2020, 8, 26), 0],
+[new Date(2020, 8, 27), 0],
+[new Date(2020, 8, 28), 0],
+[new Date(2020, 8, 29), 0],
+[new Date(2020, 8, 30), 0],
+[new Date(2020, 9, 1), 0],
+[new Date(2020, 9, 2), 0],
+[new Date(2020, 9, 3), 0],
+[new Date(2020, 9, 4), 0],
+[new Date(2020, 9, 5), 0],
+[new Date(2020, 9, 6), 0],
+[new Date(2020, 9, 7), 0],
+[new Date(2020, 9, 8), 0],
+[new Date(2020, 9, 9), 0],
+[new Date(2020, 9, 10), 0],
+[new Date(2020, 9, 11), 0],
+[new Date(2020, 9, 12), 0],
+[new Date(2020, 9, 13), 0],
+[new Date(2020, 9, 14), 0],
+[new Date(2020, 9, 15), 0],
+[new Date(2020, 9, 16), 0],
+[new Date(2020, 9, 17), 0],
+[new Date(2020, 9, 18), 0],
+[new Date(2020, 9, 19), 0],
+[new Date(2020, 9, 20), 0],
+[new Date(2020, 9, 21), 0],
+[new Date(2020, 9, 22), 0],
+[new Date(2020, 9, 23), 0],
+[new Date(2020, 9, 25), 0],
+[new Date(2020, 9, 26), 0],
+[new Date(2020, 9, 27), 0],
+[new Date(2020, 9, 28), 0],
+[new Date(2020, 9, 30), 0],
+[new Date(2020, 9, 31), 0],
+[new Date(2020, 10, 1), 0],
+[new Date(2020, 10, 3), 0],
+[new Date(2020, 10, 8), 0],
+[new Date(2020, 10, 11), 0],
+[new Date(2020, 10, 14), 0],
+[new Date(2020, 10, 15), 0],
+[new Date(2020, 10, 17), 0],
+[new Date(2020, 10, 19), 0],
+[new Date(2020, 10, 21), 0],
+[new Date(2020, 10, 28), 0],
+[new Date(2020, 11, 6), 0],
+[new Date(2020, 11, 9), 0],
+[new Date(2020, 11, 11), 0],
+[new Date(2020, 11, 18), 0],
+[new Date(2020, 11, 25), 0],
+]);
+var chart = new google.visualization.ColumnChart(document.getElementById("us_chart"))
+chart.draw(data, options);
+var data = new google.visualization.DataTable();
+data.addColumn("date", "Season Start Date")
+data.addColumn("number", "Acres Burned")
+var options = {
+    "title": "Federal Fire Data for the Whole US",
+    "hAxis": {
+        "title": "Year"
+    },
+    "vAxis": {
+        "title": "Total Acres Burned"
+    }
+}
+data.addRows([
+[new Date(2020, 0, 1), 0],
+[new Date(2020, 0, 11), 250],
+[new Date(2020, 4, 7), 30099],
+[new Date(2020, 5, 12), 123083],
+[new Date(2020, 5, 17), 183851],
+[new Date(2020, 5, 21), 146783],
+[new Date(2020, 5, 30), 173126],
+[new Date(2020, 6, 27), 288709],
+[new Date(2020, 7, 3), 131759],
+[new Date(2020, 7, 20), 542416],
+[new Date(2020, 7, 23), 616291],
+[new Date(2020, 7, 25), 183713],
+[new Date(2020, 7, 29), 237310],
+[new Date(2020, 8, 6), 603677],
+[new Date(2020, 8, 8), 549653],
+[new Date(2020, 8, 9), 99],
+[new Date(2020, 8, 10), 757350],
+[new Date(2020, 8, 11), 968248],
+[new Date(2020, 8, 12), 459123],
+[new Date(2020, 8, 13), 29457],
+[new Date(2020, 8, 14), 368690],
+[new Date(2020, 8, 15), -15987],
+[new Date(2020, 8, 16), 164640],
+[new Date(2020, 8, 17), 123157],
+[new Date(2020, 8, 19), 95579],
+[new Date(2020, 8, 20), 27021],
+[new Date(2020, 8, 22), 231797],
+[new Date(2020, 8, 25), 58584],
+[new Date(2020, 8, 26), 10443],
+[new Date(2020, 8, 27), 21209],
+[new Date(2020, 8, 28), 15432],
+[new Date(2020, 8, 29), 67295],
+[new Date(2020, 8, 30), 127155],
+[new Date(2020, 9, 1), 24380],
+[new Date(2020, 9, 2), 13866],
+[new Date(2020, 9, 3), 31811],
+[new Date(2020, 9, 4), 1697],
+[new Date(2020, 9, 5), 38929],
+[new Date(2020, 9, 6), 11442],
+[new Date(2020, 9, 7), 102239],
+[new Date(2020, 9, 8), 22228],
+[new Date(2020, 9, 9), 10206],
+[new Date(2020, 9, 10), 57126],
+[new Date(2020, 9, 11), 20898],
+[new Date(2020, 9, 12), 12973],
+[new Date(2020, 9, 13), 18586],
+[new Date(2020, 9, 14), 894],
+[new Date(2020, 9, 15), 5258],
+[new Date(2020, 9, 16), 3016],
+[new Date(2020, 9, 17), 5043],
+[new Date(2020, 9, 18), 2088],
+[new Date(2020, 9, 19), 2622],
+[new Date(2020, 9, 20), 122029],
+[new Date(2020, 9, 21), 392],
+[new Date(2020, 9, 22), 6110],
+[new Date(2020, 9, 23), 159],
+[new Date(2020, 9, 25), 9110],
+[new Date(2020, 9, 26), 3891],
+[new Date(2020, 9, 27), 5776],
+[new Date(2020, 9, 28), 4300],
+[new Date(2020, 9, 30), 200001],
+[new Date(2020, 9, 31), 777],
+[new Date(2020, 10, 1), 5175],
+[new Date(2020, 10, 3), -1294],
+[new Date(2020, 10, 8), 4063],
+[new Date(2020, 10, 11), 269],
+[new Date(2020, 10, 14), 3303],
+[new Date(2020, 10, 15), 93],
+[new Date(2020, 10, 17), 0],
+[new Date(2020, 10, 19), 30879],
+[new Date(2020, 10, 21), -7200],
+[new Date(2020, 10, 28), -318],
+[new Date(2020, 11, 6), 7511],
+[new Date(2020, 11, 9), -742],
+[new Date(2020, 11, 11), 0],
+[new Date(2020, 11, 18), 0],
+[new Date(2020, 11, 25), 914],
+]);
+var chart = new google.visualization.ColumnChart(document.getElementById("us_chart_2"))
+chart.draw(data, options);
+}
+</script>
+</head>
+<body>
+
+            <span style="float:right; margin-right:100;">
+            <select onchange="window.location=this.options[this.selectedIndex].value" name="states" id="states"><option  value="fire_ak_2020.html">Alaska</option>
+<option  value="fire_al_2020.html">Alabama</option>
+<option  value="fire_ar_2020.html">Arkansas</option>
+<option  value="fire_az_2020.html">Arizona</option>
+<option  value="fire_ca_2020.html">California</option>
+<option  value="fire_co_2020.html">Colorado</option>
+<option  value="fire_ct_2020.html">Connecticut</option>
+<option  value="fire_de_2020.html">Delaware</option>
+<option selected="selected" value="fire_fl_2020.html">Florida</option>
+<option  value="fire_ga_2020.html">Georgia</option>
+<option  value="fire_hi_2020.html">Hawaii</option>
+<option  value="fire_ia_2020.html">Iowa</option>
+<option  value="fire_id_2020.html">Idaho</option>
+<option  value="fire_il_2020.html">Illinois</option>
+<option  value="fire_in_2020.html">Indiana</option>
+<option  value="fire_ks_2020.html">Kansas</option>
+<option  value="fire_ky_2020.html">Kentucky</option>
+<option  value="fire_la_2020.html">Louisiana</option>
+<option  value="fire_ma_2020.html">Massachusetts</option>
+<option  value="fire_md_2020.html">Maryland</option>
+<option  value="fire_me_2020.html">Maine</option>
+<option  value="fire_mi_2020.html">Michigan</option>
+<option  value="fire_mn_2020.html">Minnesota</option>
+<option  value="fire_mo_2020.html">Missouri</option>
+<option  value="fire_ms_2020.html">Mississippi</option>
+<option  value="fire_mt_2020.html">Montana</option>
+<option  value="fire_nc_2020.html">North Carolina</option>
+<option  value="fire_nd_2020.html">North Dakota</option>
+<option  value="fire_ne_2020.html">Nebraska</option>
+<option  value="fire_nh_2020.html">New Hampshire</option>
+<option  value="fire_nj_2020.html">New Jersey</option>
+<option  value="fire_nm_2020.html">New Mexico</option>
+<option  value="fire_nv_2020.html">Nevada</option>
+<option  value="fire_ny_2020.html">New York</option>
+<option  value="fire_oh_2020.html">Ohio</option>
+<option  value="fire_ok_2020.html">Oklahoma</option>
+<option  value="fire_or_2020.html">Oregon</option>
+<option  value="fire_pa_2020.html">Pennsylvania</option>
+<option  value="fire_ri_2020.html">Rhode Island</option>
+<option  value="fire_sc_2020.html">South Carolina</option>
+<option  value="fire_sd_2020.html">South Dakota</option>
+<option  value="fire_tn_2020.html">Tennessee</option>
+<option  value="fire_tx_2020.html">Texas</option>
+<option  value="fire_ut_2020.html">Utah</option>
+<option  value="fire_va_2020.html">Virginia</option>
+<option  value="fire_vt_2020.html">Vermont</option>
+<option  value="fire_wa_2020.html">Washington</option>
+<option  value="fire_wi_2020.html">Wisconsin</option>
+<option  value="fire_wv_2020.html">West Virginia</option>
+<option  value="fire_wy_2020.html">Wyoming</option>
+</select>
+<select onchange="window.location=this.options[this.selectedIndex].value;" name="year" id="year">
+<option  value="fire_fl_2021.html">2021</option>
+<option selected="selected" value="fire_fl_2020.html">2020</option>
+<option  value="fire_fl_2019.html">2019</option>
+</select></span>
+<h1>Florida Fire Data</h1><p class="introduction">This site attempts to visualize Florida fire data.</p><p class="introduction">Fires in Florida may be fought by Federal agencies, State agencies,  or local agencies, and the reporting is different for all, so data may be incomplete or inaccurate.</p><div class="chart_target" id="us_chart"></div>
+<div class="chart_target" id="us_chart_2"></div>
+<hr>
+    
+<p class="foot">Source code: <a href="https://github.com/cocode/firedata">https://github.com/cocode/firedata</a></p>
+<p class="foot">Data source: <a href="https://www.fire.ca.gov/incidents">https://www.fire.ca.gov/incidents</a></p>
+<p class="foot">Accuracy not guaranteed</p>
+</body>
+</html>
