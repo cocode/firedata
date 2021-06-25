@@ -307,7 +307,7 @@ def create_webpage(destination: str, year: int, state: str, x_min_date: datetime
 
 if __name__ == "__main__":
     requested_states = states
-    if len(sys.argv > 1):
+    if len(sys.argv) > 1:
         # We don't need to generate every state, every time. # TODO same for years
         requested_states = sys.argv[1].split(",")
     for state in requested_states:
