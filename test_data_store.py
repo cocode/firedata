@@ -71,6 +71,20 @@ class TestDataStore(TestCase):
             self.assertEqual(1, len(all))
             self.assertEqual(dummy, all[0]['data'])
 
+    def test_get_source_data(self):
+        with tempfile.TemporaryDirectory() as data_store_dir:
+            print(data_store_dir)
+            self.assertTrue(os.path.exists(data_store_dir))
+            self.assertFalse(os.path.exists(os.path.join(data_store_dir, "source")))
+
+            d = DataStore(data_store_dir)
+            when = date(2020, 5, 17)
+            # Read from empty repo.
+            read_data = d.get_source_data(when)
+            self.assertIsNone(read_data)
+            self.assertTrue(os.path.exists(os.path.join(data_store_dir, "source")))
+
+
     def test_get_source_filename(self):
         with tempfile.TemporaryDirectory() as data_store_dir:
             d = DataStore(data_store_dir)
