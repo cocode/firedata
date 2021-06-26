@@ -276,7 +276,7 @@ def get_data_store():
     data_store = DataStore(DATA_STORE_PATH)
     return data_store
 
-
+# Only used by wayback. Going forward, use new get/save source data methods in data_store.
 def get_archive_directory():
     archive_directory = DATA_STORE_PATH+"/source"
     return archive_directory
