@@ -2,7 +2,7 @@ import os
 import tempfile
 from unittest import TestCase
 from data_store import DataStore
-from datetime import datetime
+from datetime import date
 
 
 class TestDataStore(TestCase):
@@ -12,14 +12,20 @@ class TestDataStore(TestCase):
         self.assertEqual(source, d.get_data_dir())
 
     def test_get_filename(self):
-        when = datetime(2020, 5, 17)
+        when = date(2020, 5, 17)
         with tempfile.TemporaryDirectory() as data_store_dir:
             d = DataStore(data_store_dir)
             filename = d.get_filename(when)
             self.assertEqual(F'{data_store_dir}/firedata_2020_05_17.json', filename)
 
-    def test_save_todays_data(self):
-        pass  # TBD
+    def test_save_date_data(self):
+        with tempfile.TemporaryDirectory() as data_store_dir:
+            d = DataStore(data_store_dir)
+            today = date.today()
+            d.save_date_data(today, {"test_data": "true"})
+            data = d.load_data_day(today)
+            self.assertTrue(data['test_data'])
+
 
     def test_save_data(self):
         pass  # TBD
@@ -69,7 +75,7 @@ class TestDataStore(TestCase):
         with tempfile.TemporaryDirectory() as data_store_dir:
             d = DataStore(data_store_dir)
             source = "I am source data"
-            when = datetime(2020, 5, 17)
+            when = date(2020, 5, 17)
             d.save_source_data(source, when)
             read_data = d.get_source_data(when)
             self.assertEqual(source, read_data)
