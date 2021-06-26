@@ -6,12 +6,13 @@ from datetime import date
 import os
 import json
 from requests import HTTPError
+from data_store import DataStore
 
 
 class Refresh:
-    def __init__(self, url, ds, parse):
+    def __init__(self, url, ds: DataStore, parse):
         self.url = url
-        self.ds = ds
+        self.ds: DataStore = ds
         self.parse = parse
 
     def refresh(self):
@@ -20,13 +21,23 @@ class Refresh:
         to not hit their server every time I want to make a change.
         :return: Fire data as json
         """
-        today = date.today()
+
+        today: date = date.today()
         filename_today = self.ds.get_filename(today)
         if os.path.exists(filename_today):
-            return
-        print(F"Fetching data from {self.url}")
-        data = self.fetch_data(self.url)
-        jdata = self.parse(data)
+            return # TODO check for source more recent than data?
+        # Check for cached data.
+        source_data: str = self.ds.get_source_data(today)
+        if source_data is None:
+            print(F"Fetching data from {self.url}")
+            source_bytes = self.fetch_data(self.url)
+            # TODO figure out the encoding (or pass it in, can't always tell)
+            source_data = source_bytes.decode("utf-8")
+            self.ds.save_source_data(data=source_data, day=today)
+        else:
+            print(F"Using cached data.")
+
+        jdata = self.parse(source_data)
         print(F"JSON data parsed. Len = {len(jdata)}")
         #jdata = json.loads(data) # Convert to json is a quick validation
         self.ds.save_todays_data(jdata)
