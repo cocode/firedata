@@ -4,7 +4,7 @@ import sys
 
 import get_cal_fire_data
 import json
-from webpage.analyzers import AnalyzerUs, AnalyzerUsCa, AnalyzerCalFire, AnalyzerCaHistorical, AnalyzerUsXX
+from webpage.analyzers import AnalyzerUs, AnalyzerUsCa, AnalyzerCalFire, AnalyzerCaHistorical, AnalyzerUsXX, AnalyzerAZ
 # Run with python3 -m webpage.create_webpage_multi from firedata directory
 
 # The webpage has several parts. The parts we care about
@@ -109,6 +109,7 @@ class Chart:
         self.footer = footer
         self.analyzer_name = analyzer
         p = {"st": state, "state": states[state], "year":year}
+        # If you get a key error here, you probably need to import the analyzer, above.
         self.analyzer = globals()[analyzer](p)  # type('TempAnalyzer', (self.analyzer_name,), {})
         self.chart_data = None
 
@@ -245,10 +246,10 @@ class WebPage:
             output.write(F'<option {attr} value="fire_{self.state.lower()}_{i}.html">{i}</option>\n')
         output.write('</select></span>\n');
         p = {"st":states[self.state]}
-        output.write("<h1>{st} Fire Data</h1>".format(**p))
-        output.write('<p class="introduction">This site attempts to visualize {st} fire data.</p>'.format(**p))
-        output.write('<p class="introduction">Fires in {st} may be fought by Federal agencies, State agencies, '.format(**p))
-        output.write(' or local agencies, and the reporting is different for all, so data may be incomplete or inaccurate.</p>')
+        output.write("<h1>{st} Fire Data</h1>\n".format(**p))
+        output.write('<p class="introduction">This site attempts to visualize {st} fire data.</p>\n'.format(**p))
+        output.write('<p class="introduction">Fires in {st} may be fought by Federal agencies, State agencies,\n'.format(**p))
+        output.write(' or local agencies, and the reporting is different for all, so data may be incomplete or inaccurate.</p>\n')
         for chart in self.charts:
             self.write_body_charts(output, chart)
         this_year = datetime.date.today().year
@@ -308,16 +309,21 @@ def create_webpage(destination: str, year: int, state: str, x_min_date: datetime
 if __name__ == "__main__":
     # Less efficient to copy than just "requested_states = states", but it gets mypy to stop complaining.
     requested_states = [state for state in states.keys()]
+    requested_years = [2018,2019,2020,2021]
     if len(sys.argv) > 1:
-        # We don't need to generate every state, every time. # TODO do the same for "years"
+        # We don't need to generate every state, every time.
         state_param: str = sys.argv[1]
         requested_states = state_param.split(",")
+    if len(sys.argv) > 2:
+        # We don't need to generate every year, every time.
+        years_param: str = sys.argv[2]
+        requested_years = [int(year) for year in years_param.split(",")]
     for state in requested_states:
         state = state.upper()
         if state not in states:
             print(F"Invalid two-character state abbreviation: {state}")
             sys.exit(1)
-        for year in range(2018, 2021+1):
+        for year in requested_years:
             # Set the minimum date, to keep the related charts aligned.
             min_date = datetime.date(year, 1, 1)
             create_webpage(F"docs/fire_{state.lower()}_{year}.html", year, state, min_date)
