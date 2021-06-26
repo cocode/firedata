@@ -26,6 +26,13 @@ class TestDataStore(TestCase):
             data = d.load_data_day(today)
             self.assertTrue(data['test_data'])
 
+    def test_does_data_exist(self):
+        with tempfile.TemporaryDirectory() as data_store_dir:
+            d = DataStore(data_store_dir)
+            today = date.today()
+            self.assertFalse(d.does_data_exist(today))
+            d.save_date_data(today, {"test_data": "true"})
+            self.assertTrue(d.does_data_exist(today))
 
     def test_save_data(self):
         pass  # TBD
