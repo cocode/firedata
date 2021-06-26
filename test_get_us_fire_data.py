@@ -5,11 +5,6 @@ from get_us_fire_data import get_size, get_annual_acres_helper
 from data_store import DataStore
 
 
-def get_empty_data():
-    all_data = {"data":[]}
-    return all_data
-
-
 class Test(TestCase):
     def test_get_size(self):
         f = None
