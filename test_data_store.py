@@ -13,9 +13,10 @@ class TestDataStore(TestCase):
 
     def test_get_filename(self):
         when = datetime(2020, 5, 17)
-        d = DataStore("/tmp")
-        filename = d.get_filename(when)
-        self.assertEqual('/tmp/firedata_2020_05_17.json', filename)
+        with tempfile.TemporaryDirectory() as data_store_dir:
+            d = DataStore(data_store_dir)
+            filename = d.get_filename(when)
+            self.assertEqual(F'{data_store_dir}/firedata_2020_05_17.json', filename)
 
     def test_save_todays_data(self):
         pass  # TBD
