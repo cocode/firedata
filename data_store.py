@@ -30,7 +30,7 @@ class DataStore:
         filename = F"{self.get_data_dir()}/firedata_{dstring}.json"
         return filename
 
-    def get_source_filename(self, day: date, extension=".html"):
+    def get_source_filename(self, day: date, extension="html"):
         """
         Get the filename to store the source data that we parse to get the actual data.
         :param day:
@@ -41,7 +41,7 @@ class DataStore:
         filename = F"{self.get_source_dir()}/firedata_{dstring}.{extension}"
         return filename
 
-    def save_source_data(self, data: str, day: date, force=False, extension=".html"):
+    def save_source_data(self, data: str, day: date, force=False, extension="html"):
         """
         Store the source data for the page we parse to get fire data.
         :param data:
