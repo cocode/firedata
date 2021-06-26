@@ -99,7 +99,7 @@ class TestDataStore(TestCase):
         with tempfile.TemporaryDirectory() as data_store_dir:
             print(data_store_dir)
             self.assertTrue(os.path.exists(data_store_dir))
-            fp = os.path.join(data_store_dir, "xx.yy")
+            fp = os.path.join(data_store_dir, "xx.json") # Use .json to pass the first test.
             Path(fp).touch()
             self.assertTrue(os.path.exists(fp))
             d = DataStore(data_store_dir)
