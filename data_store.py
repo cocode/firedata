@@ -59,7 +59,7 @@ class DataStore:
             f.write(data)
         return
 
-    def get_source_data(self, day: date, extension=".html"):
+    def get_source_data(self, day: date, extension="html"):
         """
         Get the source data for the page we parse to get fire data.
         :param day:
