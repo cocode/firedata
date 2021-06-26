@@ -3,7 +3,7 @@ import tempfile
 from unittest import TestCase
 from data_store import DataStore
 from datetime import date
-
+from pathlib import Path
 
 class TestDataStore(TestCase):
     def test_get_data_dir(self):
@@ -90,6 +90,22 @@ class TestDataStore(TestCase):
             read_data = d.get_source_data(when)
             self.assertIsNone(read_data)
             self.assertTrue(os.path.exists(os.path.join(data_store_dir, "source")))
+
+    def test_skip_files(self):
+        """
+        Test that we skip over files we don't expect in the data store.
+        :return:
+        """
+        with tempfile.TemporaryDirectory() as data_store_dir:
+            print(data_store_dir)
+            self.assertTrue(os.path.exists(data_store_dir))
+            fp = os.path.join(data_store_dir, "xx.yy")
+            Path(fp).touch()
+            self.assertTrue(os.path.exists(fp))
+            d = DataStore(data_store_dir)
+            f = d.load_all_data()
+            self.assertEqual(0, len(f))
+            self.assertTrue(os.path.exists(fp))
 
 
     def test_get_source_filename(self):
