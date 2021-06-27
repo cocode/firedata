@@ -25,7 +25,23 @@ var data = new google.visualization.DataTable();
 data.addColumn("date", "Season Start Date")
 data.addColumn("number", "Acres Burned")
 var options = {
-    "title": "Federal Fire Data for Arizona for 2021",
+    "title": "Arizona Fire Data",
+    "hAxis": {
+        "title": "Date Recorded"
+    },
+    "vAxis": {
+        "title": "Cumulative Acres Burned"
+    }
+}
+data.addRows([
+]);
+var chart = new google.visualization.ColumnChart(document.getElementById("acres_b_chart"))
+chart.draw(data, options);
+var data = new google.visualization.DataTable();
+data.addColumn("date", "Season Start Date")
+data.addColumn("number", "Acres Burned")
+var options = {
+    "title": "Federal Fire Data for Arizona only",
     "hAxis": {
         "title": "Year"
     },
@@ -61,6 +77,7 @@ data.addRows([
 [new Date(2021, 5, 24), 21005],
 [new Date(2021, 5, 25), 221],
 [new Date(2021, 5, 26), 16657],
+[new Date(2021, 5, 27), 17403],
 ]);
 var chart = new google.visualization.ColumnChart(document.getElementById("us_chart"))
 chart.draw(data, options);
@@ -104,6 +121,7 @@ data.addRows([
 [new Date(2021, 5, 24), 30544],
 [new Date(2021, 5, 25), 501],
 [new Date(2021, 5, 26), 16063],
+[new Date(2021, 5, 27), 17695],
 ]);
 var chart = new google.visualization.ColumnChart(document.getElementById("us_chart_2"))
 chart.draw(data, options);
@@ -169,7 +187,16 @@ chart.draw(data, options);
 <option  value="fire_az_2020.html">2020</option>
 <option  value="fire_az_2019.html">2019</option>
 </select></span>
-<h1>Arizona Fire Data</h1><p class="introduction">This site attempts to visualize Arizona fire data.</p><p class="introduction">Fires in Arizona may be fought by Federal agencies, State agencies,  or local agencies, and the reporting is different for all, so data may be incomplete or inaccurate.</p><div class="chart_target" id="us_chart"></div>
+<h1>Arizona Fire Data</h1>
+<p class="introduction">This site attempts to visualize Arizona fire data.</p>
+<p class="introduction">Fires in Arizona may be fought by Federal agencies, State agencies,
+ or local agencies, and the reporting is different for all, so data may be incomplete or inaccurate.</p>
+<div class="chart_target" id="acres_b_chart"></div>
+<div class="chart_foot">
+Source: https://gacc.nifc.gov/swcc/predictive/intelligence/daily/UPLOAD_Files_toSWCC/YTD_10_INFORM_Protection_5_Website_Intell.csv
+</div>
+<br>
+<div class="chart_target" id="us_chart"></div>
 <div class="chart_target" id="us_chart_2"></div>
 <hr>
 <hr>

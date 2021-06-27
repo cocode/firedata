@@ -61,6 +61,7 @@ data.addRows([
 [new Date(2021, 5, 24), 0],
 [new Date(2021, 5, 25), 0],
 [new Date(2021, 5, 26), 0],
+[new Date(2021, 5, 27), 0],
 ]);
 var chart = new google.visualization.ColumnChart(document.getElementById("us_chart"))
 chart.draw(data, options);
@@ -104,6 +105,7 @@ data.addRows([
 [new Date(2021, 5, 24), 30544],
 [new Date(2021, 5, 25), 501],
 [new Date(2021, 5, 26), 16063],
+[new Date(2021, 5, 27), 17695],
 ]);
 var chart = new google.visualization.ColumnChart(document.getElementById("us_chart_2"))
 chart.draw(data, options);
@@ -169,7 +171,11 @@ chart.draw(data, options);
 <option  value="fire_nd_2020.html">2020</option>
 <option  value="fire_nd_2019.html">2019</option>
 </select></span>
-<h1>North Dakota Fire Data</h1><p class="introduction">This site attempts to visualize North Dakota fire data.</p><p class="introduction">Fires in North Dakota may be fought by Federal agencies, State agencies,  or local agencies, and the reporting is different for all, so data may be incomplete or inaccurate.</p><div class="chart_target" id="us_chart"></div>
+<h1>North Dakota Fire Data</h1>
+<p class="introduction">This site attempts to visualize North Dakota fire data.</p>
+<p class="introduction">Fires in North Dakota may be fought by Federal agencies, State agencies,
+ or local agencies, and the reporting is different for all, so data may be incomplete or inaccurate.</p>
+<div class="chart_target" id="us_chart"></div>
 <div class="chart_target" id="us_chart_2"></div>
 <hr>
 <hr>
