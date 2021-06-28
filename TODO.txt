@@ -1,3 +1,4 @@
+# All graphs should be cumulative. fed is not. Historical is not. WA is not. Must be consistent.
 # TODO Rearrange project structure
     - Separate fetching code from computing code, from display (print, html) code.
         - Done for get_cal_fire_data, still need to do for US and WA.
@@ -6,15 +7,14 @@
 # TODO Timestamp the data downloaded (currently I just save YYYYMMDD, not time)
 # TODO Graph for delta acres burned in html
 # TODO Bring non-calfire sources up to parity with calfire.
-# TODO Only rebuild the webpage if we get new data from calfire
-# TODO github action fails if no changes since last run, as commit returns 1
+# TODO Only rebuild the webpage if we get new data
+# TODO github action fails if no changes since last run, as commit returns 1. Fix.
 # TODO Chart this year vs last year on daily chart.
 # TODO Allow user to select year to display.
-# TODO for federal data, I'm only collecting california. I should get all states, and save it.
 # TODO Make fetching from the different sources independent jobs. If WA fails, we shouldn't fail CA or US
-# TODO Add tests, and add test workflow.
-    - Test workflow working.
-    - Need more tests.
+#     - One job per source, to fetch data
+#     - One job to build the webpage (only rebuild if things have changed)
+# TODO Add more tests.
 # TODO We load the data for the fires several times. Each function loads the data again. Fix that.
 # TODO The calfire summary should print the two dates it is comparing
 # TODO Convert the historical data chart to a stacked bar chart, and include all agencies.
@@ -36,3 +36,13 @@
 # TODO When calculating us fire data, we don't get a total, we have to compute it by deltas between days
       - for annual graphs, we really need the last data point in the previous year to be our starting point
       - for computing deltas, otherwise the first day will show a huge boost of fires.
+      - Can't do this by year, in case we start the graphs on may 1 (well, if we go through the whole year, it's ok)
+# TODO Create charts for each state, with only federal chart data, if we don't have a state getter
+# TODO create federal history graph (add it to california and generic states) federal_fire_history.txt, I think
+# TODO Display number of active fires for each state.
+# It's a but odd that california leads with calfire chart, while every other state leads with federal, as that's all they have
+    - it makes it not comparable, when you switch from one state to the next.
+# TODO Starting the webpage at other than january 1 is incompatible with the federal was of calculating deltas. See TODO in get_us_fire_data
+# TODO Add local data to california fire data.
+# TODO replace negative burn days with zero. It makes the graphs look better, and negative burns are not meaningful.
+    - Negative burn days happen with the revise the estimate for a fire's size. (I think).
