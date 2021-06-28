@@ -116,6 +116,138 @@ def summarize(ds):
     print(F"New acres burned....: {acres_added:>20,}")
 
 
+def get_annual_acres(ds:DataStore, year:int):
+    """
+    Gets the number of acres burned, for each day of the current (or specified) year.
+    Used to generate data for website graphs.
+
+    :param ds:
+    :param year:
+    :return: list of tuples (year, month, day, acres burned that day).
+    """
+    all_data = ds.load_all_data(year)
+    acres_burned = []
+    for meta_data in all_data:
+        day_data = meta_data['data']
+        days_year = meta_data["_year"]
+        if days_year != year:
+            continue
+        ab = day_data['acres_burned']
+        ab = int(ab)
+        acres_burned.append((days_year, meta_data["_month"], meta_data["_day"], ab))
+    return acres_burned, len(all_data)
+
+
+def get_unique_id(incident):
+    """
+    Gets a unique id for this incident.
+    Originally, we just used href as a unique, but sometimes fires don't get their own URL, and
+    get the default "/incident//", or even None.
+    :param incident:
+    :return:
+    """
+    has_num = 'Incident Number' in incident
+    has_name = 'Incident Name' in incident
+    if has_num:
+        return incident['Incident Number']
+
+    if has_name:
+        name = incident['Incident Name']
+
+    raise Exception(F"No unique id for incident {incident}")
+
+
+def verify_ids_unique(incidents):
+    """
+    Make sure fire ids are unique. Don't trust your data sources!
+    Raises an Exception on duplicate
+    :param incidents:
+    :return: None
+    """
+    check_unique = set()
+    for incident in incidents:
+        unique_fire_id = get_unique_id(incident)
+        if unique_fire_id in check_unique:
+            raise Exception(F"Fire ID not unique: {unique_fire_id}")
+        check_unique.add(unique_fire_id)
+
+
+def get_annual_acres_helper(all_data, year, previous_data=None):
+    """
+    TODO Merge this with the version in get_us_fire_data. Maybe common parent class?
+    Gets the number of acres burned, for each day of the current (or specified) year.
+    Used to generate data for website graphs.
+
+    Unlike cal fire data, where I can just look like a top-level field, I think
+    for US I must sum all incidents on each day, then subtract the previous day's
+    value, on  a per fire basis.
+
+    I also have to look back to the last day before the year starts. Otherwise, on January 1,
+    all fires seem to be new, so the number of acres burned all piles up on that one day.
+
+    # TODO Find a better data source.
+    # TODO We should calculate the total acres when we save the data, and add it.
+
+    :param all_data: All data for the specified year
+    :param previous_data: All data for the year before that. We only need the last day of this.
+    :param year: The year being summarized.
+    :return: list of tuples of (year, month, day, acres_burned)
+    """
+    acres_burned = []
+    last_burned = {}
+    # Get a starting point for how much has burned, so we don't put is all on January 1st this year.
+    # These are all the fires that were burning at the end of the previous year.
+    if year is not None and previous_data:
+        meta_data = previous_data[-1]
+        day_data = meta_data['data']
+        for incident in day_data:
+            unique_fire_id = get_unique_id(incident)
+            burned_as_of_today = get_size(incident)
+            last_burned[unique_fire_id] = burned_as_of_today
+
+    overall_total_acres_burned = 0
+    for meta_data in all_data:
+        day_data = meta_data['data']
+        days_year = meta_data["_year"]
+        if year is not None and days_year != year:
+            continue
+        days_total = 0
+
+        # Make sure fire ids are unique.
+        verify_ids_unique(day_data)
+
+        for incident in day_data:
+            unique_fire_id = get_unique_id(incident)
+            ab = get_size(incident)
+            if ab:
+                burned_as_of_today = int(ab)  # What is this fire's total burned acres, as of today.
+                # Compute delta between current total for this fire, and yesterdays, so we get
+                # acres burned today.
+                if unique_fire_id in last_burned:
+                    previous_total = last_burned[unique_fire_id]
+                    last_burned[unique_fire_id] = burned_as_of_today
+                    change_in_acres_burned = burned_as_of_today - previous_total  # Get change since last data point.
+                else:
+                    # New fire. Change is total acres burned today.
+                    change_in_acres_burned = burned_as_of_today
+                    last_burned[unique_fire_id] = burned_as_of_today
+
+                days_total += change_in_acres_burned
+        acres_burned.append((days_year, meta_data["_month"], meta_data["_day"], days_total))
+        overall_total_acres_burned += days_total
+    return acres_burned, overall_total_acres_burned
+
+
+def get_annual_acres(ds:DataStore, year, state=None):
+    all_data = ds.load_all_data(year)
+    if year is None:
+        previous_data = None
+    else:
+        # TODO This doesn't work, if we use the create_webpage option to start the graph at other than the first day.
+        previous_data = ds.load_all_data(year - 1)
+    return get_annual_acres_helper(all_data, year=year, previous_data=previous_data)
+
+
 def parse(content):
     """
     Parse the page downloaded from the URL
@@ -158,14 +290,19 @@ def parse(content):
     print(F"JSON data parsing. Found = {len(all_fires)} fires.")
     return all_fires
 
+def get_data_store():
+    data_store = DataStore("data/data_wa")
+    return data_store
 
 def run():
     fire_url = 'https://gacc.nifc.gov/nwcc/information/fire_info.aspx'
 #    fire_url = 'file:///Users/tom/PycharmProjects/Pandas/fire/data_wa/sample.html'
-    data_store = DataStore("data/data_wa")
+    data_store = get_data_store()
     refresher = Refresh(fire_url, data_store, parse)
     refresher.refresh()   # Gets the data, only if we don't already have it.
     summarize(data_store)
+    all_fires, days = get_annual_acres(data_store, 2021)
+    print(all_fires)
 
 
 if __name__ == "__main__":

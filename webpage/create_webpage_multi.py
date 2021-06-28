@@ -4,7 +4,9 @@ import sys
 
 import get_cal_fire_data
 import json
-from webpage.analyzers import AnalyzerUs, AnalyzerUsCa, AnalyzerCalFire, AnalyzerCaHistorical, AnalyzerUsXX, AnalyzerAZ
+# PYyCharm thinks these are unused, but they are active. They are loaded dynamically
+from webpage.analyzers import AnalyzerUs, AnalyzerUsCa, AnalyzerCalFire, AnalyzerCaHistorical
+from webpage.analyzers import AnalyzerUsXX, AnalyzerAZ, AnalyzerWA
 # Run with python3 -m webpage.create_webpage_multi from firedata directory
 
 # The webpage has several parts. The parts we care about

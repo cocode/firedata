@@ -1,0 +1,74 @@
+[
+	{
+		"analyzer": "AnalyzerWA",
+		"options": {
+			"title": "Washington State Fire Data",
+			"hAxis": {
+				"title": "Date Recorded"
+			},
+			"vAxis": {
+				"title": "Cumulative Acres Burned"
+			}
+		},
+		"footer": "Source: https://gacc.nifc.gov/nwcc/information/fire_info.aspx",
+		"columns": [
+			[
+				"date",
+				"Season Start Date"
+			],
+			[
+				"number",
+				"Acres Burned"
+			]
+		],
+		"element_id": "acres_b_chart"
+	},
+	{
+		"analyzer": "AnalyzerUsXX",
+		"options": {
+			"title": "Federal Fire Data for Washington State only",
+			"hAxis": {
+				"title": "Year"
+			},
+			"vAxis": {
+				"title": "Total Acres Burned"
+			}
+		},
+		"columns": [
+			[
+				"date",
+				"Season Start Date"
+			],
+			[
+				"number",
+				"Acres Burned"
+			]
+		],
+		"footer": "",
+		"element_id": "us_chart"
+	},
+	{
+		"analyzer": "AnalyzerUs",
+		"options": {
+			"title": "Federal Fire Data for the Whole US",
+			"hAxis": {
+				"title": "Year"
+			},
+			"vAxis": {
+				"title": "Total Acres Burned"
+			}
+		},
+		"columns": [
+			[
+				"date",
+				"Season Start Date"
+			],
+			[
+				"number",
+				"Acres Burned"
+			]
+		],
+		"footer": "",
+		"element_id": "us_chart_2"
+	}
+]

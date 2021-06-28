@@ -7,6 +7,8 @@ import get_historical_data
 import re, json
 import io
 
+import get_wa_fire_data
+
 
 class Analyzer:
     def __init__(self, env):
@@ -127,6 +129,30 @@ class AnalyzerAZ(Analyzer):
         """
         data_source = get_az_fire_data.get_data_store()
         acres_burned, days_of_data_found = get_az_fire_data.get_annual_acres(data_source, year=year)
+
+        data_as_string = ""
+        if x_min_date and len(acres_burned) > 0:
+            current_min = datetime.date(year, acres_burned[0][1], acres_burned[0][2])
+            if current_min > x_min_date:
+                # if acres_burned[0][1] != 1 or acres_burned[0][2] != 1:
+                data_as_string += F"[new Date({year}, {x_min_date.month - 1}, {x_min_date.day}), {0}],\n"
+
+        for i in acres_burned:
+            data_as_string += F"[new Date({i[0]}, {i[1] - 1}, {i[2]}), {i[3]}],\n"
+        return data_as_string
+
+class AnalyzerWA(Analyzer):
+    def __init__(self, env):
+        super(AnalyzerWA, self).__init__(env)
+
+    def get_data(self, year, x_min_date=None):
+        """
+        Loads the data from self.year. Also generates the summary info printed
+        below the chart.
+        :return:
+        """
+        data_source = get_wa_fire_data.get_data_store()
+        acres_burned, days_of_data_found = get_wa_fire_data.get_annual_acres(data_source, year=year)
 
         data_as_string = ""
         if x_min_date and len(acres_burned) > 0:
