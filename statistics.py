@@ -21,7 +21,6 @@ class Statistics:
                 raise Exception(F"Fire ID not unique: {unique_fire_id}")
             check_unique.add(unique_fire_id)
 
-
     def get_annual_acres_helper(self, all_data, year, previous_data=None, get_unique_id=None, get_size=None,cumulative=False):
         """
         Gets the number of acres burned, for each day of the current (or specified) year.
@@ -55,8 +54,8 @@ class Statistics:
         for meta_data in all_data:
             day_data = meta_data['data']
             days_year = meta_data["_year"]
-            if year is not None and days_year != year:
-                continue
+            # This is now filtered in the data store. Let's just assert it here, rather than filtering again.
+            assert year is None or days_year == year
             days_total = 0
 
             # Make sure fire ids are unique.
