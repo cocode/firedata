@@ -25,7 +25,41 @@ var data = new google.visualization.DataTable();
 data.addColumn("date", "Season Start Date")
 data.addColumn("number", "Acres Burned")
 var options = {
-    "title": "Federal Fire Data for Washington for 2021",
+    "title": "Washington State Fire Data",
+    "hAxis": {
+        "title": "Date Recorded"
+    },
+    "vAxis": {
+        "title": "Cumulative Acres Burned"
+    }
+}
+data.addRows([
+[new Date(2021, 0, 1), 0],
+[new Date(2021, 4, 26), 0],
+[new Date(2021, 5, 12), 9305],
+[new Date(2021, 5, 14), 9305],
+[new Date(2021, 5, 15), 9305],
+[new Date(2021, 5, 16), 9305],
+[new Date(2021, 5, 17), 9305],
+[new Date(2021, 5, 18), 9305],
+[new Date(2021, 5, 19), 9305],
+[new Date(2021, 5, 20), 14305],
+[new Date(2021, 5, 21), 14305],
+[new Date(2021, 5, 22), 16655],
+[new Date(2021, 5, 24), 17272],
+[new Date(2021, 5, 25), 17272],
+[new Date(2021, 5, 26), 17763],
+[new Date(2021, 5, 27), 18254],
+[new Date(2021, 5, 28), 18254],
+[new Date(2021, 5, 29), 18254],
+]);
+var chart = new google.visualization.ColumnChart(document.getElementById("acres_b_chart"))
+chart.draw(data, options);
+var data = new google.visualization.DataTable();
+data.addColumn("date", "Season Start Date")
+data.addColumn("number", "Acres Burned")
+var options = {
+    "title": "Federal Fire Data for Washington State only",
     "hAxis": {
         "title": "Year"
     },
@@ -63,6 +97,7 @@ data.addRows([
 [new Date(2021, 5, 26), 0],
 [new Date(2021, 5, 27), 0],
 [new Date(2021, 5, 28), 0],
+[new Date(2021, 5, 29), 0],
 ]);
 var chart = new google.visualization.ColumnChart(document.getElementById("us_chart"))
 chart.draw(data, options);
@@ -82,32 +117,33 @@ data.addRows([
 [new Date(2021, 0, 1), 0],
 [new Date(2021, 0, 5), 0],
 [new Date(2021, 0, 16), 3190],
-[new Date(2021, 0, 21), 115],
-[new Date(2021, 0, 23), 0],
-[new Date(2021, 2, 2), 2528],
-[new Date(2021, 2, 7), 130],
-[new Date(2021, 2, 12), 4873],
-[new Date(2021, 2, 18), 511],
-[new Date(2021, 3, 12), 13980],
-[new Date(2021, 4, 3), 214216],
-[new Date(2021, 4, 29), 74338],
-[new Date(2021, 5, 3), 35272],
-[new Date(2021, 5, 12), 0],
-[new Date(2021, 5, 14), 400],
-[new Date(2021, 5, 15), 0],
-[new Date(2021, 5, 16), -39],
-[new Date(2021, 5, 17), 165],
-[new Date(2021, 5, 18), 0],
-[new Date(2021, 5, 19), 2000],
-[new Date(2021, 5, 20), 464176],
-[new Date(2021, 5, 21), 17212],
-[new Date(2021, 5, 22), 50373],
-[new Date(2021, 5, 23), 40165],
-[new Date(2021, 5, 24), 30544],
-[new Date(2021, 5, 25), 501],
-[new Date(2021, 5, 26), 16063],
-[new Date(2021, 5, 27), 17695],
-[new Date(2021, 5, 28), 29177],
+[new Date(2021, 0, 21), 3305],
+[new Date(2021, 0, 23), 3305],
+[new Date(2021, 2, 2), 5833],
+[new Date(2021, 2, 7), 5963],
+[new Date(2021, 2, 12), 10836],
+[new Date(2021, 2, 18), 11347],
+[new Date(2021, 3, 12), 25327],
+[new Date(2021, 4, 3), 239543],
+[new Date(2021, 4, 29), 313881],
+[new Date(2021, 5, 3), 349153],
+[new Date(2021, 5, 12), 349153],
+[new Date(2021, 5, 14), 349553],
+[new Date(2021, 5, 15), 349553],
+[new Date(2021, 5, 16), 349514],
+[new Date(2021, 5, 17), 349679],
+[new Date(2021, 5, 18), 349679],
+[new Date(2021, 5, 19), 351679],
+[new Date(2021, 5, 20), 815855],
+[new Date(2021, 5, 21), 833067],
+[new Date(2021, 5, 22), 883440],
+[new Date(2021, 5, 23), 923605],
+[new Date(2021, 5, 24), 954149],
+[new Date(2021, 5, 25), 954650],
+[new Date(2021, 5, 26), 970713],
+[new Date(2021, 5, 27), 988408],
+[new Date(2021, 5, 28), 1017585],
+[new Date(2021, 5, 29), 1021841],
 ]);
 var chart = new google.visualization.ColumnChart(document.getElementById("us_chart_2"))
 chart.draw(data, options);
@@ -177,6 +213,11 @@ chart.draw(data, options);
 <p class="introduction">This site attempts to visualize Washington fire data.</p>
 <p class="introduction">Fires in Washington may be fought by Federal agencies, State agencies,
  or local agencies, and the reporting is different for all, so data may be incomplete or inaccurate.</p>
+<div class="chart_target" id="acres_b_chart"></div>
+<div class="chart_foot">
+Source: https://gacc.nifc.gov/nwcc/information/fire_info.aspx
+</div>
+<br>
 <div class="chart_target" id="us_chart"></div>
 <div class="chart_target" id="us_chart_2"></div>
 <hr>
