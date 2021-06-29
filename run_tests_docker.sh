@@ -1,4 +1,4 @@
-set -euo PIPEFAIL
+set -euo pipefail
 git pull
 pytest
 mypy .
