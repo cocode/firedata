@@ -1,7 +1,7 @@
 from unittest import TestCase
 
 from data_store import DataStore
-from get_ca_fire_data import get_delta, summarize, summarize_ytd
+from get_ca_fire_data import get_delta, summarize, summarize_ytd, filter_by_year
 import json
 
 
@@ -49,4 +49,23 @@ class Test(TestCase):
         summarize_ytd(ds, 2021) # Test for year with no data
         summarize_ytd(ds, 2022) # Test for year with no data
 
+    def test_filter_by_year(self):
+        data = [
+            {
+                "ArchiveYear": 2001,
+            },
+            {
+                "ArchiveYear": 2002,
+            },
+            {
+                "ArchiveYear": 2003,
+            }
+        ]
+        output = filter_by_year(data, 2002)
+        expected = [
+            {
+                "ArchiveYear": 2002,
+            }
+        ]
+        self.assertEqual(expected, output)
 
