@@ -111,7 +111,7 @@ class TestStatistics(TestCase):
                                                                       None,
                                                                       lambda x:x['id'],
                                                                       lambda x:x['acres'],
-                                                                      cummulative=True)
+                                                                      cumulative=True)
         self.assertEqual((2021, 6, 28, 100), daily[0])
         self.assertEqual((2021, 6, 29, 100), daily[1])
         self.assertEqual((2021, 6, 30, 207), daily[2])
