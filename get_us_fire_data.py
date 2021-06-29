@@ -128,9 +128,9 @@ def get_daily_delta(ds, year: int):
     return acres_burned
 
 
-def get_annual_acres_helper(all_data, year, previous_data=None):
+def get_annual_acres_helper(all_data, year, previous_data=None, cummulative=False):
     return stats.get_annual_acres_helper(all_data, year=year, previous_data=previous_data,
-                                         get_unique_id=get_unique_id, get_size=get_size)
+                                         get_unique_id=get_unique_id, get_size=get_size, cummulative=cummulative)
 
 
 def get_annual_acres(ds:DataStore, year, state=None):
