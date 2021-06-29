@@ -11,6 +11,9 @@ from refresher import Refresh
 from data_store import DataStore
 import bs4 as bs  # type: ignore
 
+from statistics import Statistics
+stats = Statistics()
+
 
 def get_size(x):
     if x is None:
@@ -116,28 +119,6 @@ def summarize(ds):
     print(F"New acres burned....: {acres_added:>20,}")
 
 
-def get_annual_acres(ds:DataStore, year:int):
-    """
-    Gets the number of acres burned, for each day of the current (or specified) year.
-    Used to generate data for website graphs.
-
-    :param ds:
-    :param year:
-    :return: list of tuples (year, month, day, acres burned that day).
-    """
-    all_data = ds.load_all_data(year)
-    acres_burned = []
-    for meta_data in all_data:
-        day_data = meta_data['data']
-        days_year = meta_data["_year"]
-        if days_year != year:
-            continue
-        ab = day_data['acres_burned']
-        ab = int(ab)
-        acres_burned.append((days_year, meta_data["_month"], meta_data["_day"], ab))
-    return acres_burned, len(all_data)
-
-
 def get_unique_id(incident):
     """
     Gets a unique id for this incident.
@@ -155,21 +136,6 @@ def get_unique_id(incident):
         name = incident['Incident Name']
 
     raise Exception(F"No unique id for incident {incident}")
-
-
-def verify_ids_unique(incidents):
-    """
-    Make sure fire ids are unique. Don't trust your data sources!
-    Raises an Exception on duplicate
-    :param incidents:
-    :return: None
-    """
-    check_unique = set()
-    for incident in incidents:
-        unique_fire_id = get_unique_id(incident)
-        if unique_fire_id in check_unique:
-            raise Exception(F"Fire ID not unique: {unique_fire_id}")
-        check_unique.add(unique_fire_id)
 
 
 def get_annual_acres_helper(all_data, year, previous_data=None):
@@ -214,7 +180,7 @@ def get_annual_acres_helper(all_data, year, previous_data=None):
         days_total = 0
 
         # Make sure fire ids are unique.
-        verify_ids_unique(day_data)
+        stats.verify_ids_unique(day_data, get_unique_id)
 
         for incident in day_data:
             unique_fire_id = get_unique_id(incident)
