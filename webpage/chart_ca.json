@@ -10,7 +10,7 @@
 				"title": "Cumulative Acres Burned"
 			}
 		},
-		"footer": "This chart only contains data on fires handled by Cal Fire, and not fires fought by federal and local agencies.",
+		"footer": "Source: https://www.fire.ca.gov/umbraco/Api/IncidentApi/GetIncidents",
 		"columns": [
 			[
 				"date",
