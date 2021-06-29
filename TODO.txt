@@ -1,4 +1,5 @@
-# All graphs should be cumulative. fed is not. Historical is not. WA is not. Must be consistent.
+# All annual graphs are cumulative. Historical is not, which makes sense, as it is multi-year..
+# Fix 2020 cal historical data. It's too low.
 # TODO Rearrange project structure
     - Separate fetching code from computing code, from display (print, html) code.
         - Done for get_cal_fire_data, still need to do for US and WA.
