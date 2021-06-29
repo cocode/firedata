@@ -148,7 +148,7 @@ def get_annual_acres(ds:DataStore, year, state=None):
     else:
         # TODO This doesn't work, if we use the create_webpage option to start the graph at other than the first day.
         previous_data = ds.load_all_data(year - 1, include=include_function)
-    return get_annual_acres_helper(all_data, year=year, previous_data=previous_data)
+    return get_annual_acres_helper(all_data, year=year, previous_data=previous_data, cumulative=True)
 
 
 def parse(content):

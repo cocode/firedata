@@ -149,7 +149,7 @@ def get_annual_acres(ds:DataStore, year, state=None):
                                          year=year,
                                          previous_data=previous_data,
                                          get_unique_id=get_unique_id,
-                                         get_size=get_size)
+                                         get_size=get_size, cumulative=True)
 
 
 def parse(content):
