@@ -100,8 +100,8 @@ class TestStatistics(TestCase):
         ]
 
         s = Statistics()
-        daily, count = s.get_annual_acres_helper(data, 2021, None, lambda x:x['id'], lambda x:x['acres'])
-        self.assertEqual(count, 3)
+        daily, overall_total_acres_burned = s.get_annual_acres_helper(data, 2021, None, lambda x:x['id'], lambda x:x['acres'])
         self.assertEqual((2021, 6, 28, 100), daily[0])
         self.assertEqual((2021, 6, 29, 0), daily[1])
         self.assertEqual((2021, 6, 30, 107), daily[2])
+        self.assertEqual(overall_total_acres_burned, 207)
