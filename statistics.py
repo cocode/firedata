@@ -27,14 +27,11 @@ class Statistics:
         Gets the number of acres burned, for each day of the current (or specified) year.
         Used to generate data for website graphs.
 
-        Unlike cal fire data, where I can just look like a top-level field, I think
-        for US I must sum all incidents on each day, then subtract the previous day's
-        value, on  a per fire basis.
+        This implementation is for sources that provide a daily value for each fire, and we have to
+        look at the previous day's fires to compute the growth.
 
         I also have to look back to the last day before the year starts. Otherwise, on January 1,
         all fires seem to be new, so the number of acres burned all piles up on that one day.
-
-        # TODO Find a better data source.
         # TODO We should calculate the total acres when we save the data, and add it.
 
         :param all_data: All data for the specified year
