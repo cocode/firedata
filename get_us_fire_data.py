@@ -10,8 +10,11 @@ from refresher import Refresh
 from data_store import DataStore
 import bs4 as bs # type: ignore
 
+from statistics import Statistics
+
 DATA_STORE_PATH="data/data_us"
 
+stats = Statistics()
 
 def get_size(fire_info:dict):
     """
@@ -125,34 +128,19 @@ def get_daily_delta(ds, year: int):
     return acres_burned
 
 
-def verify_ids_unique(incidents):
-    """
-    Make sure fire ids are unique. Don't trust your data sources!
-    Raises an Exception on duplicate
-    :param incidents:
-    :return: None
-    """
-    check_unique = set()
-    for incident in incidents:
-        unique_fire_id = get_unique_id(incident)
-        if unique_fire_id in check_unique:
-            raise Exception(F"Fire ID not unique: {unique_fire_id}")
-        check_unique.add(unique_fire_id)
-
-
 def get_annual_acres_helper(all_data, year, previous_data=None):
     """
     Gets the number of acres burned, for each day of the current (or specified) year.
     Used to generate data for website graphs.
 
     Unlike cal fire data, where I can just look like a top-level field, I think
-    for US I must sum all incidents on each day.
+    for US I must sum all incidents on each day, then subtract the previous day's
+    value, on  a per fire basis.
 
     I also have to look back to the last day before the year starts. Otherwise, on January 1,
     all fires seem to be new, so the number of acres burned all piles up on that one day.
 
     # TODO Find a better data source.
-    # TODO need to parse the year from the filename, and filter to the current year.
     # TODO We should calculate the total acres when we save the data, and add it.
 
     :param all_data: All data for the specified year
@@ -181,7 +169,7 @@ def get_annual_acres_helper(all_data, year, previous_data=None):
         days_total = 0
 
         # Make sure fire ids are unique.
-        verify_ids_unique(day_data)
+        stats.verify_ids_unique(day_data, get_unique_id)
 
         for incident in day_data:
             unique_fire_id = get_unique_id(incident)
