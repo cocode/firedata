@@ -4,9 +4,9 @@
 
 Project Status: Under development
 
-This project displays data about the California fire season. It collects data from 
-Cal Fire, and other sources, and create charts. The chart can be viewed here: 
-https://cocode.github.io/firedata/
+This project displays data about the fire season for the selected year.
+It collects data from US Fire data, Cal Fire, and other sources, and creates charts.
+The chart can be viewed here: https://cocode.github.io/firedata/
 
 ## Data 
 This project scrapes data from [Cal Fire](https://www.fire.ca.gov/incidents), and other sites. 
@@ -62,4 +62,10 @@ https://calfireslo.org/current-slu-vegetation-fire-statistics/
 * https://emlab.msi.ucsb.edu/sites/emlab.msi.ucsb.edu/files/wildfire-brief.pdf
 * https://osfm.fire.ca.gov/divisions/wildfire-planning-engineering/california-incident-data-and-statistics-program/archived-statistic-reports/
 * https://www.fire.ca.gov/programs/fire-protection/reports/
-
+* US Fire Administration  
+  * https://www.usfa.fema.gov/nfirs/
+  * https://www.usfa.fema.gov/index.html
+  * https://www.usfa.fema.gov/wui/data/nfirs-wildland-module.html - how do I get this data?
+  * "istorically, NFIRS data have not proved useful in understanding the nature and magnitude of the wildland fire problem. The optional Wildland Fire Module attempts to rectify this"
+  * all the data, but free form: https://gacc.nifc.gov/swcc/predictive/intelligence/daily/SWCC_Morning_Situation_Report/SWCC_Morning_Situation_Report.htm
+  * Good, by state: https://www.nifc.gov/fire-information/nfn
