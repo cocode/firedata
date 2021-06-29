@@ -12,7 +12,7 @@ from datetime import date
 
 from refresher import Refresh
 from data_store import DataStore
-from get_cal_fire_data import summarize, summarize_ytd, get_annual_acres, collect_data
+from get_ca_fire_data import summarize, summarize_ytd, get_annual_acres, collect_data
 
 
 def print_items(stats, format_title='.<', format_value='>20'):

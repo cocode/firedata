@@ -1,7 +1,7 @@
 from unittest import TestCase
 
 from data_store import DataStore
-from get_cal_fire_data import get_delta, summarize, summarize_ytd
+from get_ca_fire_data import get_delta, summarize, summarize_ytd
 import json
 
 

@@ -2,7 +2,7 @@ import datetime
 import os
 import sys
 
-import get_cal_fire_data
+import get_ca_fire_data
 import json
 # PYyCharm thinks these are unused, but they are active. They are loaded dynamically
 from webpage.analyzers import AnalyzerUs, AnalyzerUsCa, AnalyzerCalFire, AnalyzerCaHistorical
@@ -126,8 +126,8 @@ class WebPage:
 
     def load_table_data(self):
         # Load table data
-        data_source = get_cal_fire_data.get_data_store()
-        self.sum_rows, self.sum_headers, self.sum_summary, ignored = get_cal_fire_data.summarize(data_source, year=self.year)
+        data_source = get_ca_fire_data.get_data_store()
+        self.sum_rows, self.sum_headers, self.sum_summary, ignored = get_ca_fire_data.summarize(data_source, year=self.year)
 
     def write_chart_begin(self, output, chart):
         output.write('var data = new google.visualization.DataTable();\n')

@@ -11,7 +11,7 @@ import datetime
 import json
 import os
 
-import get_cal_fire_data
+import get_ca_fire_data
 from data_store import DataStore
 import get_us_fire_data
 from time import sleep
@@ -168,7 +168,7 @@ def fetch_us():
 
 
 def fetch_ca():
-    archive_dir = get_cal_fire_data.get_archive_directory()
+    archive_dir = get_ca_fire_data.get_archive_directory()
     pages, pages_failed, pages_skipped = fetch_all_snapshots(archive_dir, "wayback_ca_snapshots.txt", target_url='https://www.fire.ca.gov/umbraco/Api/IncidentApi/GetIncidents')
     print(F"{pages} pages downloaded, {pages_failed} pages failed to download.  {pages_skipped} pages skipped. Total: {pages+pages_failed+pages_skipped}.")
     return pages, pages_failed, pages_skipped
@@ -182,9 +182,9 @@ def update_from_archive_us():
 
 
 def update_from_archive_ca():
-    archive_dir = get_cal_fire_data.get_archive_directory()
-    data_store = get_cal_fire_data.get_data_store()
-    counter = run_parsing(archive_dir, data_store, get_cal_fire_data.parse)
+    archive_dir = get_ca_fire_data.get_archive_directory()
+    data_store = get_ca_fire_data.get_data_store()
+    counter = run_parsing(archive_dir, data_store, get_ca_fire_data.parse)
     print(F"Update {counter} records.")
 
 

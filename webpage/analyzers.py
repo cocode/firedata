@@ -2,7 +2,7 @@ import datetime
 
 import get_az_fire_data
 import get_us_fire_data
-import get_cal_fire_data
+import get_ca_fire_data
 import get_historical_data
 import re, json
 import io
@@ -83,8 +83,8 @@ class AnalyzerCalFire(Analyzer):
         below the chart.
         :return:
         """
-        data_source = get_cal_fire_data.get_data_store()
-        acres_burned, days_of_data_found = get_cal_fire_data.get_annual_acres(data_source, year=year)
+        data_source = get_ca_fire_data.get_data_store()
+        acres_burned, days_of_data_found = get_ca_fire_data.get_annual_acres(data_source, year=year)
 
         data_as_string = ""
         if x_min_date and len(acres_burned) > 0:
