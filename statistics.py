@@ -22,7 +22,7 @@ class Statistics:
             check_unique.add(unique_fire_id)
 
 
-    def get_annual_acres_helper(self, all_data, year, previous_data=None, get_unique_id=None, get_size=None):
+    def get_annual_acres_helper(self, all_data, year, previous_data=None, get_unique_id=None, get_size=None,cummulative=False):
         """
         Gets the number of acres burned, for each day of the current (or specified) year.
         Used to generate data for website graphs.
@@ -79,6 +79,11 @@ class Statistics:
                         last_burned[unique_fire_id] = burned_as_of_today
 
                     days_total += change_in_acres_burned
-            acres_burned.append((days_year, meta_data["_month"], meta_data["_day"], days_total))
+            #acres_burned.append((days_year, meta_data["_month"], meta_data["_day"], days_total))
             overall_total_acres_burned += days_total
+            if cummulative:
+                acres_burned.append((days_year, meta_data["_month"], meta_data["_day"], overall_total_acres_burned))
+            else:
+                acres_burned.append((days_year, meta_data["_month"], meta_data["_day"], days_total))
+
         return acres_burned, overall_total_acres_burned

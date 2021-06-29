@@ -105,3 +105,14 @@ class TestStatistics(TestCase):
         self.assertEqual((2021, 6, 29, 0), daily[1])
         self.assertEqual((2021, 6, 30, 107), daily[2])
         self.assertEqual(overall_total_acres_burned, 207)
+
+        daily, overall_total_acres_burned = s.get_annual_acres_helper(data,
+                                                                      2021,
+                                                                      None,
+                                                                      lambda x:x['id'],
+                                                                      lambda x:x['acres'],
+                                                                      cummulative=True)
+        self.assertEqual((2021, 6, 28, 100), daily[0])
+        self.assertEqual((2021, 6, 29, 100), daily[1])
+        self.assertEqual((2021, 6, 30, 207), daily[2])
+        self.assertEqual(overall_total_acres_burned, 207)
