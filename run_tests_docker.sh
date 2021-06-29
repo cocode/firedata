@@ -1,5 +1,6 @@
-git clone https://github.com/cocode/firedata.git
-cd /firedata
+set -euo PIPEFAIL
+git pull
 pytest
 mypy .
 coverage run -m pytest
+coverage report -m
