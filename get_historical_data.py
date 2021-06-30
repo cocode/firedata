@@ -86,6 +86,27 @@ def get_2019_data():
     print(row)
     return row
 
+def get_2020_data():
+    """
+    Add data from 2020 to the historical table. The 2020 Redbook is not out yet, so source the
+    calfire state data https://www.fire.ca.gov/stats-events/:
+    "January 1, 2020 through December 29, 2020 	8,112 	1,443,152"
+    "2020 Combined YTD (CALFIRE & Federal) 	9,917 	4,257,863"
+
+    :return:
+    """
+    cf_2020_fires = 8112
+    cf_2020_acres = 1443152
+    total_fires = 9917
+    total_acres = 4257863
+    fed_2020_fires = total_fires - cf_2020_fires
+    fed_2020_acres = total_acres - cf_2020_acres
+
+    # Don't have official numbers for local agencies for 2019. Use zero for now.
+    row = [str(2020), str(cf_2020_fires), str(cf_2020_acres), str(fed_2020_fires), str(fed_2020_acres), "0", "0",
+           str(total_fires), str(total_acres)]
+    print(row)
+    return row
 
 def get_fed_history():
     """
@@ -138,6 +159,10 @@ if __name__ == "__main__":
     rows = _get_source_data()
     d2019 = get_2019_data()
     rows.append(d2019)
+
+    d2020 = get_2020_data()
+    rows.append(d2020)
+
     _write_converted_data(rows)
 
     # rows = get_stats()
