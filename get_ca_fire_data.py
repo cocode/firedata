@@ -147,7 +147,8 @@ def get_annual_acres(ds:DataStore, year:int):
     for meta_data in all_data:
         day_data = meta_data['data']
         days_year = meta_data["_year"]
-        assert(days_year == year)
+        if year is not None:
+            assert(days_year == year)
         ab = day_data['AllAcres']
         ab = int(ab)
         acres_burned.append((days_year, meta_data["_month"], meta_data["_day"], ab))
