@@ -133,7 +133,7 @@ class DataStore:
             #print("FILENAME", filename)
             one_days_data = self.load_data_file(filename)
             if include is not None:
-                # This may need more work to genearalize it. Working on it for US data source.
+                # This may need more work to generalize it. Working on it for US data source.
                 one_days_data = [item for item in one_days_data if include(item)]
             # Wrap the returned data in a dict, with some metadata
             returned_data = {'data': one_days_data}
