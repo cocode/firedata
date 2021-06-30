@@ -8,7 +8,7 @@ on:
   workflow_dispatch:
       inputs:
         CheckInResults:
-          description: 'Should results be checked into get'     
+          description: 'Should results be checked into git'     
           required: true
           default: 'yes'
   
