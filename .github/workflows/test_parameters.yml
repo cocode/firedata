@@ -22,22 +22,17 @@ jobs:
   fetch:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
+    env:
+      run_git: ${{ github.event.inputs.CheckInResults }}
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
+      - name: Set API_URL environment variable
+        if: env.API_URL == null
+        run: echo "run_git=yes" >> $GITHUB_ENV
 
       - name: Run a shell script which fetches the data, and builds the website.
-        run: |
-          echo "start"
-          echo The parameter value was ${{ github.event.inputs.CheckInResults }}
-          run_git = ${{ github.event.inputs.CheckInResults }}
-          if [ -n $run_git ]; then
-            run_git="yes"
-          if [ ${{ run_git }} = "yes" ]; then
-            echo "Would run git"
-          else
-            echo "Would not run git"
-          fi
-
+        run: echo "run_git=$env.run_git"
+    
