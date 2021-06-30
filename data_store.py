@@ -122,6 +122,7 @@ class DataStore:
                 continue
             ff = f.split('_')
             year = ff[1]
+            year_int = int(year) # Cause exception, if we have the wrong format data.
             if filter_to_year is not None and filter_to_year != year:
                 continue;
             month = ff[2]
