@@ -15,12 +15,12 @@ def get_data_store():
     data_store = DataStore(DATA_STORE_PATH)
     return data_store
 
-def summarize():
-    print()
-    print(F"Number of incidents.: {len(incidents):20,}")
-    print(F"New or growing fires: {growing_fires:20,}")
-    print(F"Total acres burned..: {acres_burned:>20,}")
-    print(F"New acres burned....: {acres_added:>20,}")
+# def summarize():
+#     print()
+#     print(F"Number of incidents.: {len(incidents):20,}")
+#     print(F"New or growing fires: {growing_fires:20,}")
+#     print(F"Total acres burned..: {acres_burned:>20,}")
+#     print(F"New acres burned....: {acres_added:>20,}")
 
 
 def parse(content):
