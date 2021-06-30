@@ -17,11 +17,11 @@ echo "+================================================"
 echo Running COVERAGE
 echo "-================================================"
 
-#coverage run -m pytest
+coverage run -m pytest
 echo "+================================================"
 echo Running COVERAGE REPORT
 echo "-================================================"
-#coverage report -m
+coverage report -m
 
 echo "================================================="
 echo DONE run_tests_docker.sh
