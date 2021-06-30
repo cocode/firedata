@@ -76,8 +76,19 @@ class Test(TestCase):
 
     def test_load_most_recent(self):
         with tempfile.TemporaryDirectory() as data_store_dir:
+            # Check empty data store
             ds = DataStore(data_store_dir)
-            today, yesterday = get_ca_fire_data.load_most_recent(ds)
-            self.assertEqual(None, today)
-            self.assertEqual([], yesterday)
+            yesterday, today = get_ca_fire_data.load_most_recent(ds)
+            self.assertEqual(None, yesterday)
+            self.assertEqual([], today)
 
+            # Check data store with one item
+            data = {
+                "Incidents": [
+                    {"acres":100}
+                    ]
+            }
+            ds.save_todays_data(data)
+            yesterday, today = get_ca_fire_data.load_most_recent(ds)
+            self.assertEqual(None, yesterday)
+            self.assertEqual(data, today)
