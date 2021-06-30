@@ -103,7 +103,7 @@ def load_most_recent(ds: DataStore):
     Loads the most recent two data points from the data store.
 
     :param ds:
-    :return:
+    :return: tuple (yesterday's data, today's data)
     """
     jdata = ds.load_all_data()
     if len(jdata) < 1:
