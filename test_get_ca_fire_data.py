@@ -1,3 +1,4 @@
+import tempfile
 from unittest import TestCase
 
 from data_store import DataStore
@@ -20,11 +21,11 @@ class Test(TestCase):
         self.assertEqual(0, b)
 
         a, b = get_delta(newer, older, "increasing", 4)
-        self.assertEqual("  +1", a) # We format with explict leading +/- signs.
+        self.assertEqual("  +1", a)  # We format with explict leading +/- signs.
         self.assertEqual(1, b)
 
         a, b = get_delta(newer, older, "decreasing", 3)
-        self.assertEqual(" -1",a)
+        self.assertEqual(" -1", a)
         self.assertEqual(-1, b)
 
         a, b = get_delta(newer, older, "new", 3)
@@ -37,17 +38,17 @@ class Test(TestCase):
 
     def test_summarize(self):
         ds = DataStore("data/data_cal")
-        summarize(ds, 2019) # Test for year with no data - just check that it runs.
-        summarize(ds, 2020) # Test for year with no data - just check that it runs.
-        summarize(ds, 2021) # Test for year with no data - just check that it runs.
-        summarize(ds, 2022) # Test for year with no data - just check that it runs.
+        summarize(ds, 2019)  # Test for year with no data - just check that it runs.
+        summarize(ds, 2020)  # Test for year with no data - just check that it runs.
+        summarize(ds, 2021)  # Test for year with no data - just check that it runs.
+        summarize(ds, 2022)  # Test for year with no data - just check that it runs.
 
     def test_summarize_ytd(self):
         ds = DataStore("data/data_cal")
-        summarize_ytd(ds, 2019) # Test for year with no data
-        summarize_ytd(ds, 2020) # Test for year with no data
-        summarize_ytd(ds, 2021) # Test for year with no data
-        summarize_ytd(ds, 2022) # Test for year with no data
+        summarize_ytd(ds, 2019)  # Test for year with no data
+        summarize_ytd(ds, 2020)  # Test for year with no data
+        summarize_ytd(ds, 2021)  # Test for year with no data
+        summarize_ytd(ds, 2022)  # Test for year with no data
 
     def test_filter_by_year(self):
         data = [
@@ -68,7 +69,13 @@ class Test(TestCase):
             }
         ]
         self.assertEqual(expected, output)
-        
+
         output = filter_by_year(data, None)
         self.assertEqual(data, output)
+
+    def test_load_most_recent(self):
+        with tempfile.TemporaryDirectory() as data_store_dir:
+            ds = DataStore(data_store_dir)
+            data = ds.load_all_data()
+            self.assertEqual([], data)
 
