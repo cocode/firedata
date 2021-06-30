@@ -34,5 +34,5 @@ jobs:
         run: echo "run_git=yes" >> $GITHUB_ENV
 
       - name: Run a shell script which fetches the data, and builds the website.
-        run: echo "run_git=$env.run_git"
+        run: echo "run_git=$run_git"
     
