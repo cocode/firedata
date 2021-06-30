@@ -68,4 +68,7 @@ class Test(TestCase):
             }
         ]
         self.assertEqual(expected, output)
+        
+        output = filter_by_year(data, None)
+        self.assertEqual(data, output)
 
