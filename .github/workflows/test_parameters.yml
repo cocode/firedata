@@ -31,7 +31,13 @@ jobs:
       - name: Run a shell script which fetches the data, and builds the website.
         run: |
           echo The parameter value was ${{ github.event.inputs.CheckInResults }}
-          if [ ${{ github.event.inputs.CheckInResults }} = "yes" ]; then
+          
+          run_git = ${{ github.event.inputs.CheckInResults }}
+          if [ -n $run_git ]; then
+            run_git="yes"
+            
+          
+          if [ ${{ run_git }} = "yes" ]; then
             echo "Would run git"
           else
             echo "Would not run git"
