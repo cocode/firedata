@@ -29,8 +29,8 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
-      - name: Set API_URL environment variable
-        if: env.API_URL == null
+      - name: Set run_git environment variable
+        if: env.run_git == null
         run: echo "run_git=yes" >> $GITHUB_ENV
 
       - name: Run a shell script which fetches the data, and builds the website.
