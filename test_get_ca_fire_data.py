@@ -1,6 +1,6 @@
 import tempfile
 from unittest import TestCase
-
+from datetime import date
 from data_store import DataStore
 from get_ca_fire_data import get_delta, summarize, summarize_ytd, filter_by_year
 import get_ca_fire_data
@@ -85,10 +85,35 @@ class Test(TestCase):
             # Check data store with one item
             data = {
                 "Incidents": [
-                    {"acres":100}
+                    {"AcresBurned":100}
                     ]
             }
             ds.save_todays_data(data)
             yesterday, today = get_ca_fire_data.load_most_recent(ds)
             self.assertEqual(None, yesterday)
             self.assertEqual(data, today)
+
+    def test_get_data(self):
+        with tempfile.TemporaryDirectory() as data_store_dir:
+            # Check empty data store
+            ds = DataStore(data_store_dir)
+            one, two, three = get_ca_fire_data.get_data(ds, 2021)
+            self.assertIsNone(one)
+            self.assertEqual([], two)
+            self.assertEqual([], three)
+
+            # Check data store with one item, but filtering by year to zero items.
+            year = 2018
+            data = {
+                "Incidents": [
+                    {"AcresBurned": 10037.6, 'ArchiveYear': year}
+                ],
+            }
+            some_date = date(year,1,2)
+            ds.save_date_data(some_date, data)
+
+            year = some_date.year
+            one, two, three = get_ca_fire_data.get_data(ds, year+1)
+            self.assertIsNone(one)
+            self.assertEqual(data, two)
+            self.assertEqual([], three)
