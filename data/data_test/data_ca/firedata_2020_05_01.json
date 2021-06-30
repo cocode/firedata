@@ -1,0 +1,16 @@
+{
+  "Incidents": [
+    {
+      "UniqueId": "17596a7a-31fc-4270-8aaf-efe1df3ba848",
+      "Name": "Whiskey Fire",
+      "AcresBurned": 31.0
+    },
+    {
+      "UniqueId": "17596a7a-31fc-4270-8aaf-efe1df3ba848",
+      "Name": "Some new Fire",
+      "AcresBurned": 23.0
+    }
+  ],
+  "AllAcres": 54
+}
+

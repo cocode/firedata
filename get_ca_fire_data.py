@@ -132,10 +132,11 @@ def get_data(ds:DataStore, year: int):
     return yesterday, jdata_today, filtered_fires
 
 
-def get_annual_acres(ds:DataStore, year:int, cumulative=False):
+def get_annual_acres(ds:DataStore, year:int):
     """
     Gets the number of acres burned, for each day of the current (or specified) year.
     Used to generate data for website graphs.
+    Note: CA data is already cumulative, so we don't need a cumulative option. We could add a NON-cummulative option.
 
     :param ds:
     :param year:
@@ -143,18 +144,13 @@ def get_annual_acres(ds:DataStore, year:int, cumulative=False):
     """
     all_data = ds.load_all_data(year)
     acres_burned = []
-    total_acres_burned = 0
     for meta_data in all_data:
         day_data = meta_data['data']
         days_year = meta_data["_year"]
         assert(days_year == year)
         ab = day_data['AllAcres']
         ab = int(ab)
-        total_acres_burned += ab
-        if cumulative:
-            acres_burned.append((days_year, meta_data["_month"], meta_data["_day"], total_acres_burned))
-        else:
-            acres_burned.append((days_year, meta_data["_month"], meta_data["_day"], ab))
+        acres_burned.append((days_year, meta_data["_month"], meta_data["_day"], ab))
     return acres_burned, len(all_data)
 
 

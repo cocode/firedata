@@ -37,6 +37,12 @@ class Test(TestCase):
         self.assertEqual("   ", a)
         self.assertEqual(0, b)
 
+    def test_get_annual_acres(self):
+        ds = DataStore("data/data_test/data_ca")
+        acres_burned, data_count = get_ca_fire_data.get_annual_acres(ds, 2020)
+        self.assertEqual(54, acres_burned[-1][3])
+        self.assertEqual(2, data_count)
+
     def test_summarize(self):
         ds = DataStore("data/data_cal")
         summarize(ds, 2019)  # Test for year with no data - just check that it runs.
