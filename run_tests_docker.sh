@@ -3,7 +3,7 @@ echo Running run_tests_docker.sh
 echo "-================================================"
 
 set -euo pipefail
-cat run_tests_docker.sh
+cat run_tests_docker.sh | sed "s/^/        /"
 
 echo "+================================================"
 echo Running GIT PULL
