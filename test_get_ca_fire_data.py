@@ -3,6 +3,7 @@ from unittest import TestCase
 
 from data_store import DataStore
 from get_ca_fire_data import get_delta, summarize, summarize_ytd, filter_by_year
+import get_ca_fire_data
 import json
 
 
@@ -76,6 +77,7 @@ class Test(TestCase):
     def test_load_most_recent(self):
         with tempfile.TemporaryDirectory() as data_store_dir:
             ds = DataStore(data_store_dir)
-            data = ds.load_all_data()
-            self.assertEqual([], data)
+            today, yesterday = get_ca_fire_data.load_most_recent(ds)
+            self.assertEqual(None, today)
+            self.assertEqual([], yesterday)
 
