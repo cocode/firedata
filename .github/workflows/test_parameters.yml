@@ -1,6 +1,6 @@
 # This is a basic workflow to help you get started with Actions
 
-name: Fetch and Build
+name: Test Wrokflow Parameters
 
 # Controls when the action will run. 
 on:
