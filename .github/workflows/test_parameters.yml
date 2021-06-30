@@ -1,6 +1,6 @@
 # This is a basic workflow to help you get started with Actions
 
-name: Test Wrokflow Parameters
+name: Test Workflow Parameters
 
 # Controls when the action will run. 
 on:
@@ -30,4 +30,4 @@ jobs:
 
       - name: Run a shell script which fetches the data, and builds the website.
         run: |
-          echo The parameter value was ${{ github.event.inputs.logLevel }}
+          echo The parameter value was ${{ github.event.inputs.CheckInResults }}
