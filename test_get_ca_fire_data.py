@@ -50,6 +50,17 @@ class Test(TestCase):
         summarize(ds, 2021)  # Test for year with no data - just check that it runs.
         summarize(ds, 2022)  # Test for year with no data - just check that it runs.
 
+    def test_summarize2(self):
+        ds = DataStore("data/data_test/data_ca2")
+        rows, headings, summary, print_headings = summarize(ds, year=None)  # Test for data with no prior day
+        self.assertEqual(2,len(rows))
+        self.assertEqual(2,summary[0][1])
+        self.assertEqual(0,summary[1][1])
+        self.assertEqual(50,summary[2][1])
+        self.assertEqual(0,summary[3][1])
+
+        print()
+
     def test_summarize_ytd(self):
         ds = DataStore("data/data_cal")
         summarize_ytd(ds, 2019)  # Test for year with no data
