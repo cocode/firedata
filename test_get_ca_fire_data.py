@@ -61,6 +61,11 @@ class Test(TestCase):
 
         print()
 
+    def test_summarize2(self):
+        parsed = get_ca_fire_data.parse('{"foo":2}')
+        self.assertEqual(2, parsed['foo'])
+
+
     def test_summarize_ytd(self):
         ds = DataStore("data/data_cal")
         summarize_ytd(ds, 2019)  # Test for year with no data
