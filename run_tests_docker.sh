@@ -1,3 +1,4 @@
+# Have to rebuild the docker image with --no-cache, if this file changes.
 echo "+================================================"
 echo Running run_tests_docker.sh
 echo "-================================================"
