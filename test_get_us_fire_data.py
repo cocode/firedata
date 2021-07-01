@@ -14,6 +14,9 @@ class Test(TestCase):
             self.assertIsNone(get_size(f))
         f = {"Size":"40 Acres"}
         self.assertEqual(40, get_size(f))
+        f = {"Size":"   "}
+        self.assertEqual(0, get_size(f))
+
 
     def test_get_annual_acres2(self):
         ds = DataStore("data/data_test/us2")
