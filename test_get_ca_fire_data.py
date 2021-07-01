@@ -65,6 +65,9 @@ class Test(TestCase):
         parsed = get_ca_fire_data.parse('{"foo":2}')
         self.assertEqual(2, parsed['foo'])
 
+    def test_get_archive_directory(self):
+        ad = get_ca_fire_data.get_archive_directory()
+        self.assertEqual("data/data_cal/source", ad)
 
     def test_summarize_ytd(self):
         ds = DataStore("data/data_cal")
