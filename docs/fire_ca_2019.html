@@ -132,6 +132,7 @@ data.addRows([
 [new Date(2017, 11, 31), 467497, 746701, 385442],
 [new Date(2018, 11, 31), 1063414, 793548, 118124],
 [new Date(2019, 11, 31), 137134, 124170, 0],
+[new Date(2020, 11, 31), 1443152, 2814711, 0],
 ]);
 var chart = new google.visualization.ColumnChart(document.getElementById("hist_b_chart"))
 chart.draw(data, options);
@@ -203,7 +204,7 @@ chart.draw(data, options);
  or local agencies, and the reporting is different for all, so data may be incomplete or inaccurate.</p>
 <div class="chart_target" id="acres_b_chart"></div>
 <div class="chart_foot">
-This chart only contains data on fires handled by Cal Fire, and not fires fought by federal and local agencies.
+Source: https://www.fire.ca.gov/umbraco/Api/IncidentApi/GetIncidents
 </div>
 <br>
 <div class="chart_target" id="us_chart"></div>
