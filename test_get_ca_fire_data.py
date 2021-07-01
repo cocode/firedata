@@ -61,7 +61,7 @@ class Test(TestCase):
 
         print()
 
-    def test_summarize2(self):
+    def test_pasre(self):
         parsed = get_ca_fire_data.parse('{"foo":2}')
         self.assertEqual(2, parsed['foo'])
 
