@@ -16,6 +16,12 @@ stats = Statistics()
 
 
 def get_size(x):
+    """
+    Extracts the number of acres in the "Acres" field.
+    TODO: This code is almost duplicated in get_us_fire_data.get_size() Dedupe it.
+    :param x:
+    :return:
+    """
     if x is None:
         return 0
     s = None
@@ -24,8 +30,14 @@ def get_size(x):
     if not s:
         return 0
     y = s.split()
+    if not y:
+        return 0
     z = y[0]
     zz = z.replace(",","")
+    # Got a field with just a comma once, got to handle that.
+    zz = zz.strip()
+    if not zz:
+        return 0
     q = int(zz)
     return q
 
@@ -39,6 +51,9 @@ def get_containment(x):
     if not s:
         return 0
     zz = s.replace("%","")
+    zz = zz.strip()
+    if not zz:
+        return 0
     q = int(zz)
     return q
 
