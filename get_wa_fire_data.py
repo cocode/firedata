@@ -49,8 +49,12 @@ def get_id(fire):
     return fire["Incident Number"]
 
 
-# Could also use from operator import itemgetter, attrgetter
 def summarize(ds):
+    """
+    Prints a summary of the information we have for WA. This is not currently used in the web interface.
+    :param ds:
+    :return:
+    """
     dwidth = 10
     awidth = 14
     pwidth = 5 # percentage field width (for containment)
