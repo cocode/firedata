@@ -48,8 +48,6 @@ class Refresh:
                 self.ds.save_source_data(data=source_data, day=today)
             else:
                 raise Exception("No source data received in refresh_date")
-        else:
-            print(F"Using cached data.")
 
         jdata = self.parse(source_data)
         print(F"JSON data parsed. Len = {len(jdata)}")
