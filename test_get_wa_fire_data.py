@@ -62,3 +62,16 @@ class Test(TestCase):
         print(summary)
 
 
+    def test_get_unique_id(self):
+        incident = {
+            'Incident Number': 1,
+            'Incident Name': "Name!"
+        }
+        self.assertEqual(1, get_wa_fire_data.get_unique_id(incident))
+        incident = {
+            'Incident Name': "Name!"
+        }
+        self.assertEqual("Name!", get_wa_fire_data.get_unique_id(incident))
+        incident = {}
+        with self.assertRaises(KeyError):
+            get_wa_fire_data.get_unique_id(incident)
