@@ -9,7 +9,13 @@ echo PYTHONPATH: $PYTHONPATH
 echo PWD: $PWD
 python3 --version
 
+if [[ $HOSTNAME == *"MacBook-Pro.local"  ]]
+then
+  echo "Don't run this on local machine! Only github."
+  exit 1
+fi
 # Set up enough info that we can do a push back to the repository.
+
 git config user.name "FireData Action Bot"
 git config user.email "<>"
 
