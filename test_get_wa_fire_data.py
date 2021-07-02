@@ -48,5 +48,9 @@ class Test(TestCase):
         fn = lambda x: " "  # Contorted edge case to make sure we get code coverage on a test.
         self.assertEqual(0, utilities.get_value(f, k, ",", fn))
 
-
+    def test_summarize(self):
+        data_store = DataStore("data/data_wa")
+        # Just running it forces all data to be loaded and checked that it's valid.
+        summary = get_wa_fire_data.summarize(data_store)
+        print(summary)
 
