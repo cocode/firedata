@@ -46,4 +46,25 @@ class TestRefresh(TestCase):
             data = ds.load_data_day(today)
             self.assertTrue(expected_data, data)
 
+    def test_refresh_no_source(self):
+        # Check the error case, where we don't get source data
+        url = "https://example.com"
+        mock_get = MagicMock()
+        retval = MyResponse()
+        retval.status_code = 200
+        expected_data = ""
+        retval.content = expected_data
+
+        mock_get.return_value = retval
+        requests.get = mock_get
+        with tempfile.TemporaryDirectory() as data_store_dir:
+            def parse(x):
+                return json.loads(x)
+            ds = DataStore(data_store_dir)
+            r = refresher.Refresh(url, ds, parse)
+            today = date.today()
+            with self.assertRaises(Exception):
+                r.refresh()
+
+
 
