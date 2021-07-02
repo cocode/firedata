@@ -58,6 +58,7 @@ data.addRows([
 [new Date(2021, 5, 28), 22783],
 [new Date(2021, 5, 29), 24449],
 [new Date(2021, 5, 30), 42113],
+[new Date(2021, 6, 2), 53641],
 ]);
 var chart = new google.visualization.ColumnChart(document.getElementById("acres_b_chart"))
 chart.draw(data, options);
@@ -105,6 +106,7 @@ data.addRows([
 [new Date(2021, 5, 28), 10585],
 [new Date(2021, 5, 29), 11551],
 [new Date(2021, 5, 30), 34102],
+[new Date(2021, 6, 2), 44619],
 ]);
 var chart = new google.visualization.ColumnChart(document.getElementById("us_chart"))
 chart.draw(data, options);
@@ -152,6 +154,7 @@ data.addRows([
 [new Date(2021, 5, 28), 1017585],
 [new Date(2021, 5, 29), 1021841],
 [new Date(2021, 5, 30), 1046666],
+[new Date(2021, 6, 2), 1073511],
 ]);
 var chart = new google.visualization.ColumnChart(document.getElementById("us_chart_2"))
 chart.draw(data, options);
@@ -296,25 +299,46 @@ From the 2019 Redbook: <b>Due to the changes in data collection, methods, and sy
         <th>Incident Name</th>
     </tr>
     <tr>
-        <td style='text-align: right;'>17,591.0</td>
-        <td style='text-align: right;'>new</td>
+        <td style='text-align: right;'>19,680.0</td>
+        <td style='text-align: right;'>+2,089.0</td>
         <td style='text-align: right;'>19.0</td>
-        <td style='text-align: right;'>new</td>
+        <td style='text-align: left;'></td>
         <td style='text-align: left;'>Lava Fire</td>
+    </tr>
+    <tr>
+        <td style='text-align: right;'>9,439.0</td>
+        <td style='text-align: right;'>new</td>
+        <td style='text-align: right;'>6.0</td>
+        <td style='text-align: right;'>new</td>
+        <td style='text-align: left;'>Tennant Fire</td>
     </tr>
     <tr>
         <td style='text-align: right;'>1,984.0</td>
         <td style='text-align: left;'></td>
-        <td style='text-align: right;'>85.0</td>
-        <td style='text-align: right;'>+35.0</td>
+        <td style='text-align: right;'>90.0</td>
+        <td style='text-align: right;'>+5.0</td>
         <td style='text-align: left;'>Shell Fire</td>
     </tr>
     <tr>
         <td style='text-align: right;'>118.0</td>
-        <td style='text-align: right;'>+88.0</td>
-        <td style='text-align: right;'>70.0</td>
-        <td style='text-align: right;'>+50.0</td>
+        <td style='text-align: left;'></td>
+        <td style='text-align: right;'>85.0</td>
+        <td style='text-align: right;'>+15.0</td>
         <td style='text-align: left;'>Beswick Fire</td>
+    </tr>
+    <tr>
+        <td style='text-align: right;'>~</td>
+        <td style='text-align: left;'></td>
+        <td style='text-align: right;'>~</td>
+        <td style='text-align: left;'></td>
+        <td style='text-align: left;'>R-1 Fire</td>
+    </tr>
+    <tr>
+        <td style='text-align: right;'>~</td>
+        <td style='text-align: left;'></td>
+        <td style='text-align: right;'>~</td>
+        <td style='text-align: left;'></td>
+        <td style='text-align: left;'>Dotta Fire</td>
     </tr>
     <tr>
         <td style='text-align: right;'>~</td>
@@ -328,7 +352,7 @@ From the 2019 Redbook: <b>Due to the changes in data collection, methods, and sy
         <td style='text-align: left;'></td>
         <td style='text-align: right;'>~</td>
         <td style='text-align: left;'></td>
-        <td style='text-align: left;'>Tennant Fire</td>
+        <td style='text-align: left;'>Salt Fire</td>
     </tr>
     <tr>
         <td style='text-align: right;'>~</td>
@@ -378,7 +402,7 @@ From the 2019 Redbook: <b>Due to the changes in data collection, methods, and sy
         <th style='text-align:right;'>Value</th>
     <TR>
         <td style='text-align: left; border: 1px solid black; padding: 10px'>Number of active incidents</td>
-        <td style='text-align: right; border: 1px solid black; padding: 10px'>11</td>
+        <td style='text-align: right; border: 1px solid black; padding: 10px'>14</td>
     </TR>
     <TR>
         <td style='text-align: left; border: 1px solid black; padding: 10px'>New or growing fires</td>
@@ -386,11 +410,11 @@ From the 2019 Redbook: <b>Due to the changes in data collection, methods, and sy
     </TR>
     <TR>
         <td style='text-align: left; border: 1px solid black; padding: 10px'>Total acres burned, active fires</td>
-        <td style='text-align: right; border: 1px solid black; padding: 10px'>19693.0</td>
+        <td style='text-align: right; border: 1px solid black; padding: 10px'>31221.0</td>
     </TR>
     <TR>
         <td style='text-align: left; border: 1px solid black; padding: 10px'>New acres burned</td>
-        <td style='text-align: right; border: 1px solid black; padding: 10px'>17679.0</td>
+        <td style='text-align: right; border: 1px solid black; padding: 10px'>11528.0</td>
     </TR>
 </table><hr>
     
