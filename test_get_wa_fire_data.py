@@ -44,4 +44,9 @@ class Test(TestCase):
         f = {"Acres":"     "}
         self.assertEqual(0, utilities.get_value(f, k, ",", fn))
 
+        f = {"Acres":"  10 "}
+        fn = lambda x: " "  # Contorted edge case to make sure we get code coverage on a test.
+        self.assertEqual(0, utilities.get_value(f, k, ",", fn))
+
+
 
