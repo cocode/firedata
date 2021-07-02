@@ -38,4 +38,12 @@ class TestRefresh(TestCase):
             self.assertEqual(1, len(all_data))
             self.assertEqual(expected_data, all_data[0]['data'])
 
+            # Now make sure we don't refretch data that is already in data store.
+            expected_data2 = {"AcresBurned": 202}
+            retval.content = bytes(json.dumps(expected_data2, indent=4), 'utf-8')  # Return dict as byte string
+            # We should still have the original data in the data store, after refresh.
+            r.refresh()
+            data = ds.load_data_day(today)
+            self.assertTrue(expected_data, data)
+
 
