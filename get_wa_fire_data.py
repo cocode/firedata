@@ -2,7 +2,7 @@
 
 # source
 
-# TODO Should frst fetch and cache raw page. Then parse from there. That way I don't have to
+# TODO Should first fetch and cache raw page. Then parse from there. That way I don't have to
 # refetch when debugging parser.
 # also would make changing the data I pull better. I was discarding other states during parsing
 # of us data, so now I don't have historical data for the other states
@@ -10,38 +10,11 @@
 from refresher import Refresh
 from data_store import DataStore
 import bs4 as bs  # type: ignore
+import utilities
 
 from statistics import Statistics
 stats = Statistics()
 
-
-def get_value(d, k, chars, fn=None):
-    """
-    Gets a value from a dict, given key. d may be None, k may not be present, chars need to be removed,
-    and we have fn to remove anythign else, like, the word "Acres"
-
-    :param d: A dict
-    :param k: The key
-    :param chars: Chars to remove
-    :param fn: A function to process the data
-    :return: the value as an int, if parseable, else 0
-    """
-    if not d or k not in d:
-        return 0
-    value = d[k]
-    for c in chars:
-        value = value.replace(c, "")            # Can remove commas, percents signs, etc.
-    v2 = value.strip()
-    if not v2:
-        return 0
-
-    v3 = fn(v2) if fn is not None else v2   # Can remove words like "acres"
-    v4 = v3.strip()
-    if not v4:
-        return 0
-
-    v5 = int(v4)
-    return v5
 
 
 def get_size(x):
@@ -51,11 +24,11 @@ def get_size(x):
     :param x:
     :return:
     """
-    return get_value(x, "Acres", ",", lambda x: x.split()[0])
+    return utilities.get_value(x, "Acres", ",", lambda x: x.split()[0])
 
 
 def get_containment(x):
-    return get_value(x, "Percent Contained", "%")
+    return utilities.get_value(x, "Percent Contained", "%")
 
 
 # f-strings in python suck at handling None, so this class helps

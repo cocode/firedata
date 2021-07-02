@@ -1,6 +1,7 @@
 from unittest import TestCase
 
 import get_wa_fire_data
+import utilities
 from data_store import DataStore
 
 
@@ -33,14 +34,14 @@ class Test(TestCase):
         fn = lambda x: x.split()[0]
         k = "Acres"
         f = None
-        self.assertEqual(0, get_wa_fire_data.get_value(f, k, ",", fn))
+        self.assertEqual(0, utilities.get_value(f, k, ",", fn))
         f = {}
-        self.assertEqual(0, get_wa_fire_data.get_value(f, k, ",", fn))
+        self.assertEqual(0, utilities.get_value(f, k, ",", fn))
         f = {"Acres":"40 Acres"}
-        self.assertEqual(40, get_wa_fire_data.get_value(f, k, ",", fn))
+        self.assertEqual(40, utilities.get_value(f, k, ",", fn))
         f = {"Acres":" ,"}
-        self.assertEqual(0, get_wa_fire_data.get_value(f, k, ",", fn))
+        self.assertEqual(0, utilities.get_value(f, k, ",", fn))
         f = {"Acres":"     "}
-        self.assertEqual(0, get_wa_fire_data.get_value(f, k, ",", fn))
+        self.assertEqual(0, utilities.get_value(f, k, ",", fn))
 
 
