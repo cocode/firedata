@@ -1,3 +1,4 @@
+from datetime import date
 from unittest import TestCase
 
 import get_wa_fire_data
@@ -75,3 +76,9 @@ class Test(TestCase):
         incident = {}
         with self.assertRaises(KeyError):
             get_wa_fire_data.get_unique_id(incident)
+
+    def test_parse(self):
+        data = get_wa_fire_data.get_data_store().get_source_data(date(2021,6,27))
+        results = get_wa_fire_data.parse(data)
+        self.assertEqual(3, len(results))
+        self.assertEqual("6,679", results[0]["Acres"])
