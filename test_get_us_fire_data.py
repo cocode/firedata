@@ -76,8 +76,12 @@ class Test(TestCase):
 
         acres_burned = get_us_fire_data.summarize(ds, 2020)
         self.assertEqual(4250771, acres_burned)
-
-
         acres_burned = get_us_fire_data.summarize(ds, year=None)
+
+        ds = DataStore("data/data_test/us_no_yesterday")
+        acres_burned = get_us_fire_data.summarize(ds, 2019)
+        self.assertEqual(197, acres_burned)
+
+
 
 
