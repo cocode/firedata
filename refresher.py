@@ -19,10 +19,21 @@ class Refresh:
         """
         Fetch today's fire data, if we don't already have a file for today. This allows us
         to not hit their server every time I want to make a change.
-        :return: Fire data as json
+        :return: None - Data is written to the data store.
         """
 
         today: date = date.today()
+        self.refresh_date(today)
+
+    def refresh_date(self, today):
+        """
+        Fetch fire data for "today".
+        For testing, today can be any date, but in production, it's going to fetch
+        the data from the remote site right now, so today's data is all you can get.
+        :param today: The date to use when saving to the data store.
+
+        :return: None - the data is written to the data store.
+        """
         filename_today = self.ds.get_filename(today)
         if os.path.exists(filename_today):
             return # TODO check for source more recent than data?
@@ -32,8 +43,11 @@ class Refresh:
             print(F"Fetching data from {self.url}")
             source_bytes = self.fetch_data(self.url)
             # TODO figure out the encoding (or pass it in, can't always tell)
-            source_data = source_bytes.decode("utf-8")
-            self.ds.save_source_data(data=source_data, day=today)
+            if source_bytes:
+                source_data = source_bytes.decode("utf-8")
+                self.ds.save_source_data(data=source_data, day=today)
+            else:
+                raise Exception("No source data received in refresh_date")
         else:
             print(F"Using cached data.")
 
