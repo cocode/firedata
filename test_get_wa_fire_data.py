@@ -82,3 +82,17 @@ class Test(TestCase):
         results = get_wa_fire_data.parse(data)
         self.assertEqual(3, len(results))
         self.assertEqual("6,679", results[0]["Acres"])
+
+    def test_get_annual_acres(self):
+        data_store = DataStore("data/data_test/data_wa")
+        # Should be no data in 2019, test for that.
+        days, totals = get_wa_fire_data.get_annual_acres(data_store, 2019)
+        self.assertEqual(0, len(days))
+
+        days, total = get_wa_fire_data.get_annual_acres(data_store, 2020)
+        self.assertEqual(1, len(days))
+        self.assertEqual(2020, days[0][0])
+        self.assertEqual(9, days[0][1])
+        self.assertEqual(12, days[0][2])
+        self.assertEqual(1530890, total)
+
