@@ -69,3 +69,4 @@ https://calfireslo.org/current-slu-vegetation-fire-statistics/
   * "istorically, NFIRS data have not proved useful in understanding the nature and magnitude of the wildland fire problem. The optional Wildland Fire Module attempts to rectify this"
   * all the data, but free form: https://gacc.nifc.gov/swcc/predictive/intelligence/daily/SWCC_Morning_Situation_Report/SWCC_Morning_Situation_Report.htm
   * Good, by state: https://www.nifc.gov/fire-information/nfn
+  
