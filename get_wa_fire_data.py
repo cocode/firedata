@@ -52,42 +52,10 @@ def get_size(x):
     :return:
     """
     return get_value(x, "Acres", ",", lambda x: x.split()[0])
-    if x is None:
-        return 0
-    s = None
-    if 'Acres' in x:
-        s = x['Acres']
-    if not s:
-        return 0
-    y = s.split()
-    if not y:
-        return 0
-    z = y[0]
-    zz = z.replace(",","")
-    # Got a field with just a comma once, got to handle that.
-    zz = zz.strip()
-    if not zz:
-        return 0
-    q = int(zz)
-    return q
 
 
 def get_containment(x):
     return get_value(x, "Percent Contained", "%")
-
-    if x is None:
-        return 0
-    s = None
-    if "Percent Contained" in x:
-        s = x["Percent Contained"]
-    if not s:
-        return 0
-    zz = s.replace("%","")
-    zz = zz.strip()
-    if not zz:
-        return 0
-    q = int(zz)
-    return q
 
 
 # f-strings in python suck at handling None, so this class helps
