@@ -125,9 +125,9 @@ def get_unique_id(incident):
         return incident['Incident Number']
 
     if has_name:
-        name = incident['Incident Name']
+        return incident['Incident Name']
 
-    raise Exception(F"No unique id for incident {incident}")
+    raise KeyError(F"No unique id for incident {incident}")
 
 
 def get_annual_acres(ds:DataStore, year, state=None):
