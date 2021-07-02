@@ -54,3 +54,11 @@ class Test(TestCase):
         summary = get_wa_fire_data.summarize(data_store)
         print(summary)
 
+    def test_summary_no_yesterday(self):
+        # Check the 'only have one day of data' case. (no yesterday)
+        data_store = DataStore("data/data_test/data_wa")
+        # Just running it forces all data to be loaded and checked that it's valid.
+        summary = get_wa_fire_data.summarize(data_store)
+        print(summary)
+
+
