@@ -308,7 +308,7 @@ def create_webpage(destination: str, year: int, state: str, x_min_date: datetime
     page.create(destination)
 
 
-if __name__ == "__main__":
+def run(dir_path):
     # Less efficient to copy than just "requested_states = states", but it gets mypy to stop complaining.
     requested_states = [state for state in states.keys()]
     requested_years = [2018,2019,2020,2021]
@@ -328,4 +328,8 @@ if __name__ == "__main__":
         for year in requested_years:
             # Set the minimum date, to keep the related charts aligned.
             min_date = datetime.date(year, 1, 1)
-            create_webpage(F"docs/fire_{state.lower()}_{year}.html", year, state, min_date)
+            create_webpage(F"{dir_path}/fire_{state.lower()}_{year}.html", year, state, min_date)
+
+
+if __name__ == "__main__":
+    run("docs")
