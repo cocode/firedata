@@ -329,13 +329,11 @@ def run(dir_path, args):
     for state in requested_states:
         state = state.upper()
         if state not in states:
-            print(F"Invalid two-character state abbreviation: {state}")
-            sys.exit(1)
+            raise ValueError(F"Invalid two-character state abbreviation: {state}")
         for year in requested_years:
             # Set the minimum date, to keep the related charts aligned.
             min_date = datetime.date(year, 1, 1)
             create_webpage(F"{dir_path}/fire_{state.lower()}_{year}.html", year, state, min_date)
-
 
 if __name__ == "__main__":
     run("docs", sys.argv)

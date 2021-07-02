@@ -26,6 +26,10 @@ class TestWebPage(TestCase):
             self.assertTrue(os.path.exists(os.path.join(dest_dir, "fire_az_2021.html")))
             self.assertTrue(os.path.exists(os.path.join(dest_dir, "fire_ca_2021.html")))
             self.assertTrue(os.path.exists(os.path.join(dest_dir, "fire_ny_2021.html")))
+            # Check that we validate the state.
+            with self.assertRaises(ValueError):
+                create_webpage_multi.run(dest_dir, ["program_name", "ZZ", "2021"])
+
 
 #     def test_load_historical_data(self):
 #         self.fail()
