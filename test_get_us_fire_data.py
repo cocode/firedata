@@ -8,10 +8,9 @@ from data_store import DataStore
 class Test(TestCase):
     def test_get_size(self):
         f = None
-        self.assertIsNone(get_size(f))
+        self.assertEqual(0, get_size(f))
         f = {}
-        with self.assertRaises(KeyError):
-            self.assertIsNone(get_size(f))
+        self.assertEqual(0, get_size(f))
         f = {"Size":"40 Acres"}
         self.assertEqual(40, get_size(f))
         f = {"Size":"   "}

@@ -6,6 +6,7 @@ import json
 import os
 from typing import Optional, Callable, Any
 
+import utilities
 from refresher import Refresh
 from data_store import DataStore
 import bs4 as bs # type: ignore
@@ -22,21 +23,10 @@ def get_size(fire_info:dict):
     :param fire_info: A dict including the field 'Size' or None.
     :return: Maybe return, None, if fire_info is None, or 0, if 'Size is blank/empty, or the size as an int.
     """
-    if fire_info is None:
-        # May be None, when checking if a fire existed yesterday.
-        return None
+    return utilities.get_value(fire_info, "Size", ",", lambda x: x.split()[0])
 
-    fire_size = fire_info['Size']
-    fire_size = fire_size.strip()
-    if not fire_size:
-        return 0           # Blank value for 'Size'
-
-    y = fire_size.split()  # US data has sizes like "40 Acres"
-    assert 2 == len(y)
-    numeric_part = y[0]               # Only take the number.
-    assert "Acres" == y[1] # Add better handling when we ever see anything other than acres.
-    return_value = int(numeric_part)
-    return return_value
+    #Changes with utilities version, we don't raise KeyError, and we don't:
+    #    assert "Acres" == y[1] # Add better handling when we ever see anything other than acres.
 
 
 def get_unique_id(incident):

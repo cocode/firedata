@@ -17,18 +17,18 @@ stats = Statistics()
 
 
 
-def get_size(x):
+def get_size(fire_data):
     """
     Extracts the number of acres in the "Acres" field.
     TODO: This code is almost duplicated in get_us_fire_data.get_size() Dedupe it.
     :param x:
     :return:
     """
-    return utilities.get_value(x, "Acres", ",", lambda x: x.split()[0])
+    return utilities.get_value(fire_data, "Acres", ",", lambda x: x.split()[0])
 
 
-def get_containment(x):
-    return utilities.get_value(x, "Percent Contained", "%")
+def get_containment(fire_data):
+    return utilities.get_value(fire_data, "Percent Contained", "%")
 
 
 # f-strings in python suck at handling None, so this class helps
