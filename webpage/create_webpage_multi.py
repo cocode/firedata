@@ -308,17 +308,23 @@ def create_webpage(destination: str, year: int, state: str, x_min_date: datetime
     page.create(destination)
 
 
-def run(dir_path):
+def run(dir_path, args):
+    """
+
+    :param dir_path:
+    :param args:
+    :return:
+    """
     # Less efficient to copy than just "requested_states = states", but it gets mypy to stop complaining.
     requested_states = [state for state in states.keys()]
     requested_years = [2018,2019,2020,2021]
-    if len(sys.argv) > 1:
+    if len(args) > 1:
         # We don't need to generate every state, every time.
-        state_param: str = sys.argv[1]
+        state_param: str = args[1]
         requested_states = state_param.split(",")
-    if len(sys.argv) > 2:
+    if len(args) > 2:
         # We don't need to generate every year, every time.
-        years_param: str = sys.argv[2]
+        years_param: str = args[2]
         requested_years = [int(year) for year in years_param.split(",")]
     for state in requested_states:
         state = state.upper()
@@ -332,4 +338,4 @@ def run(dir_path):
 
 
 if __name__ == "__main__":
-    run("docs")
+    run("docs", sys.argv)

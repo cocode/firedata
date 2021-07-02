@@ -1,9 +1,31 @@
+import os
 import tempfile
 from unittest import TestCase
+
+from data_store import DataStore
 from webpage import create_webpage_multi
 
 
 class TestWebPage(TestCase):
+    # Caution! Has to be run from 'firedata' directory, not 'firedata/webpage'.
+    # pytest does this, but PyCharm doesn't by default
+    def test_create(self):
+        with tempfile.NamedTemporaryFile() as f:
+            destination = f.name
+            # Just test that it creates the file
+            create_webpage_multi.create_webpage(destination, 2019, "CA")
+            self.assertTrue(os.path.exists(destination))
+            print(f)
+
+    # Caution! Has to be run from 'firedata' directory, not 'firedata/webpage'.
+    # pytest does this, but PyCharm doesn't by default
+    def test_run(self):
+        with tempfile.TemporaryDirectory() as dest_dir:
+            create_webpage_multi.run(dest_dir, ["program_name", "AZ,CA", "2021"])
+            # Just test that it creates the file with the correct names.
+            self.assertTrue(os.path.exists(os.path.join(dest_dir, "fire_az_2021.html")))
+            self.assertTrue(os.path.exists(os.path.join(dest_dir, "fire_ca_2021.html")))
+
 #     def test_load_historical_data(self):
 #         self.fail()
 #
@@ -64,7 +86,3 @@ class TestWebPage(TestCase):
 #     def test_write_document(self):
 #         self.fail()
 #
-        def test_create(self):
-            with tempfile.NamedTemporaryFile() as f:
-                destination = f.name
-                create_webpage_multi.create_webpage(destination, 2019, "CA")
