@@ -41,7 +41,11 @@ class Refresh:
         source_data: str = self.ds.get_source_data(today)
         if source_data is None:
             print(F"Fetching data from {self.url}")
-            source_bytes = self.fetch_data(self.url)
+            response = requests.get(self.url)
+            if response.status_code != 200:
+                print("Request failed: ", response.status_code)
+                raise HTTPError  # Not quite right, as request.get can also throw HTTPError
+            source_bytes = response.content
             # TODO figure out the encoding (or pass it in, can't always tell)
             if source_bytes:
                 source_data = source_bytes.decode("utf-8")
@@ -54,27 +58,4 @@ class Refresh:
         #jdata = json.loads(data) # Convert to json is a quick validation
         self.ds.save_todays_data(jdata)
         print("Data saved.")
-
-    @staticmethod
-    def fetch_data(url):
-        """
-        Fetch the data from the cal fire website.
-        :param url: The url to fetch data from.
-        :return: The contents of the webpage, or None
-        """
-
-        try:
-            response = requests.get(url)
-            if response.status_code != 200:
-                print("Request failed: ", response.status_code)
-                return None
-
-        except HTTPError as e:
-            print(F'Got an error: {e}')
-            return None
-        except Exception as e:
-            print(F'Other exception: {e}')
-            return None
-        print(F"HTTP request succeed. Response size={len(response.content)}")
-        return response.content
 

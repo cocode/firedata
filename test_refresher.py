@@ -4,6 +4,9 @@ from datetime import date, datetime
 from unittest import TestCase
 from unittest.mock import MagicMock, patch
 import unittest.mock as mock
+
+from requests import HTTPError
+
 import refresher
 from data_store import DataStore
 import requests
@@ -66,7 +69,6 @@ class TestRefresh(TestCase):
             with self.assertRaises(Exception):
                 r.refresh()
 
-
     def test_request_failed(self):
         # Check the error case, where we don't get source data
         url = "https://example.com"
@@ -82,7 +84,7 @@ class TestRefresh(TestCase):
             ds = DataStore(data_store_dir)
             r = refresher.Refresh(url, ds, parse)
             today = date.today()
-            with self.assertRaises(Exception):
+            with self.assertRaises(HTTPError):
                 r.refresh()
 
 
