@@ -36,7 +36,9 @@ class Statistics:
         :param all_data: All data for the specified year
         :param previous_data: All data for the year before that. We only need the last day of this.
         :param year: The year being summarized.
-        :return: list of tuples of (year, month, day, acres_burned)
+        :return: tuple of
+            list of tuples of (year, month, day, acres_burned)
+            int total acres burned
         """
         acres_burned = []
         last_burned = {}
