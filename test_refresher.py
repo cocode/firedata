@@ -13,6 +13,10 @@ class MyResponse:
     pass
 
 
+def parse(x):
+    return json.loads(x)
+
+
 class TestRefresh(TestCase):
     def test_refresh_with_mock(self):
         url = "https://example.com"
@@ -25,8 +29,6 @@ class TestRefresh(TestCase):
         mock_get.return_value = retval
         requests.get = mock_get
         with tempfile.TemporaryDirectory() as data_store_dir:
-            def parse(x):
-                return json.loads(x)
             ds = DataStore(data_store_dir)
             r = refresher.Refresh(url, ds, parse)
             today = date.today()
@@ -58,8 +60,6 @@ class TestRefresh(TestCase):
         mock_get.return_value = retval
         requests.get = mock_get
         with tempfile.TemporaryDirectory() as data_store_dir:
-            def parse(x):
-                return json.loads(x)
             ds = DataStore(data_store_dir)
             r = refresher.Refresh(url, ds, parse)
             today = date.today()
@@ -79,8 +79,6 @@ class TestRefresh(TestCase):
         mock_get.return_value = retval
         requests.get = mock_get
         with tempfile.TemporaryDirectory() as data_store_dir:
-            def parse(x):
-                return json.loads(x)
             ds = DataStore(data_store_dir)
             r = refresher.Refresh(url, ds, parse)
             today = date.today()
