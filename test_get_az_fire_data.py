@@ -34,9 +34,6 @@ class Test(TestCase):
 
     def test_run(self):
         with tempfile.TemporaryDirectory() as data_store_dir:
-            mock_refresh = MagicMock()
-            old =  Refresh.refresh
-            Refresh.refresh = mock_refresh
-            get_az_fire_data.run(data_store_dir)
-            Refresh.refresh.assert_called_once_with() # with no args.
-            Refresh.refresh = old
+            with patch('refresher.Refresh.refresh') as mock:
+                get_az_fire_data.run(data_store_dir)
+                Refresh.refresh.assert_called_once_with() # with no args.
