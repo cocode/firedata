@@ -54,7 +54,7 @@ class Refresh:
                 source_data = source_bytes.decode("utf-8")
                 self.ds.save_source_data(data=source_data, day=today)
             else:
-                raise Exception("No source data received in refresh_date")
+                raise EOFError("No source data received in refresh_date")
 
         jdata = self.parse(source_data)
         print(F"JSON data parsed. Len = {len(jdata)}")
