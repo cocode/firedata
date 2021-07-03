@@ -197,5 +197,4 @@ def get_archive_directory():
 
 
 if __name__ == "__main__":
-    run()
-    print("Done.")
+    run()  # pragma: no cover

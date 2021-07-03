@@ -7,7 +7,7 @@ import get_wa_fire_data
 import get_us_fire_data
 
 
-if __name__ == "__main__":
+def run():
     functions: dict[str, Callable[[], None]] = {
         "AZ": get_az_fire_data.run,
         "CA": get_ca_fire_data.run,
@@ -21,3 +21,7 @@ if __name__ == "__main__":
             print(F"ERROR on getting {st} fire data", e)
 
     print("Done.")
+
+
+if __name__ == "__main__":
+    run()  # pragma: no cover
