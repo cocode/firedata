@@ -1,8 +1,12 @@
+import tempfile
 from datetime import date
 from unittest import TestCase
 
 import get_az_fire_data
 from data_store import DataStore
+from unittest.mock import MagicMock, patch
+from refresher import Refresh
+
 
 
 class Test(TestCase):
@@ -27,3 +31,12 @@ class Test(TestCase):
         self.assertEqual(6, days[0][1])
         self.assertEqual(26, days[0][2])
         self.assertEqual(468290, days[0][3])
+
+    def test_run(self):
+        with tempfile.TemporaryDirectory() as data_store_dir:
+            mock_refresh = MagicMock()
+            old =  Refresh.refresh
+            Refresh.refresh = mock_refresh
+            get_az_fire_data.run(data_store_dir)
+            Refresh.refresh.assert_called_once_with() # with no args.
+            Refresh.refresh = old
