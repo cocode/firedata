@@ -65,8 +65,8 @@ def _get_source_data():
     return rows
 
 
-def _write_converted_data(row_data):
-    with open(output_file_name, "w") as f:
+def _write_converted_data(ofn, row_data):
+    with open(ofn, "w") as f:
         f.write(json.dumps(row_data, indent=4))
 
 
@@ -163,7 +163,7 @@ def get_fed_history():
     return data
 
 
-def run():
+def run(ofn):
     rows = _get_source_data()
     d2019 = get_2019_data()
     rows.append(d2019)
@@ -171,8 +171,8 @@ def run():
     d2020 = get_2020_data()
     rows.append(d2020)
 
-    _write_converted_data(rows)
+    _write_converted_data(ofn, rows)
 
 if __name__ == "__main__":
-    run()  # pragma: no cover
+    run(output_file_name)  # pragma: no cover
 
