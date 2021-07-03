@@ -336,4 +336,4 @@ def run(dir_path, args):
             create_webpage(F"{dir_path}/fire_{state.lower()}_{year}.html", year, state, min_date)
 
 if __name__ == "__main__":
-    run("docs", sys.argv)
+    run("docs", sys.argv)  # pragma: no cover
