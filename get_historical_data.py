@@ -67,7 +67,7 @@ def _get_source_data():
 
 def _write_converted_data(row_data):
     with open(output_file_name, "w") as f:
-        f.write(json.dumps(rows, indent=4))
+        f.write(json.dumps(row_data, indent=4))
 
 
 def get_2019_data():
