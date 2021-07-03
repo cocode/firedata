@@ -34,3 +34,11 @@ class Test(TestCase):
                 actual = f.read()
 
             self.assertEqual(expected, actual)
+
+    def test_get_source_data(self):
+        data = get_historical_data._get_source_data()
+        self.assertEqual(32, len(data))
+        self.assertEqual("1987", data[0][0])
+        self.assertEqual("2018", data[31][0])
+        self.assertEqual("1,975,086", data[31][8])
+
