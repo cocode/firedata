@@ -70,16 +70,16 @@ def get_annual_acres(ds:DataStore, year:int):
 
 
 
-def run():
+def run(data_dir):
     fire_url = 'https://gacc.nifc.gov/swcc/predictive/intelligence/intelligence.htm'
     # Subpage fetched from above page.
     fire_url = 'https://gacc.nifc.gov/swcc/predictive/intelligence/daily/UPLOAD_Files_toSWCC/YTD_10_INFORM_Protection_5_Website_Intell.csv'
-    data_store = DataStore("data/data_az")
+    data_store = DataStore(data_dir)
     refresher = Refresh(fire_url, data_store, parse)
     refresher.refresh()   # Gets the data, only if we don't already have it.
 #    summarize(data_store)
 
 
 if __name__ == "__main__":
-    run()           # pragma: no cover
+    run("data/data_az")           # pragma: no cover
     print("Done.")  # pragma: no cover
