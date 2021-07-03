@@ -91,6 +91,7 @@ def get_2019_data():
     print(row)
     return row
 
+
 def get_2020_data():
     """
     Add data from 2020 to the historical table. The 2020 Redbook is not out yet, so source the
@@ -112,6 +113,7 @@ def get_2020_data():
            str(total_fires), str(total_acres)]
     print(row)
     return row
+
 
 def get_fed_history():
     """
