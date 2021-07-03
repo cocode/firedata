@@ -18,7 +18,7 @@ echo "+================================================"
 echo Running COVERAGE
 echo "-================================================"
 
-coverage run -m pytest
+coverage run  --branch -m pytest
 echo "+================================================"
 echo Running COVERAGE REPORT
 echo "-================================================"
