@@ -54,7 +54,7 @@ def generate_response(percent):
     response = {
       "schemaVersion": 1,
       "label": "coverage",
-      "message": F"{percent}",
+      "message": F"{percent}%",
       "color": color
     }
     return response
