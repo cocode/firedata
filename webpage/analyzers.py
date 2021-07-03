@@ -68,14 +68,14 @@ class AnalyzerUsXX(AnalyzerUs):
         super(AnalyzerUsXX, self).__init__(env)
         self.state = env['state']
 
-
     def get_data(self, year, x_min_date=None):
         return self.helper(year, None, x_min_date)
 
 
-class AnalyzerCalFire(Analyzer):
+class AnalyzerStateBase(Analyzer):
     def __init__(self, env):
-        super(AnalyzerCalFire, self).__init__(env)
+        super(AnalyzerStateBase, self).__init__(env)
+        self.module = None
 
     def get_data(self, year, x_min_date=None):
         """
@@ -83,8 +83,8 @@ class AnalyzerCalFire(Analyzer):
         below the chart.
         :return:
         """
-        data_source = get_ca_fire_data.get_data_store()
-        acres_burned, days_of_data_found = get_ca_fire_data.get_annual_acres(data_source, year=year)
+        data_source = self.module.get_data_store()
+        acres_burned, days_of_data_found = self.module.get_annual_acres(data_source, year=year)
 
         data_as_string = ""
         if x_min_date and len(acres_burned) > 0:
@@ -96,6 +96,12 @@ class AnalyzerCalFire(Analyzer):
         for i in acres_burned:
             data_as_string += F"[new Date({i[0]}, {i[1] - 1}, {i[2]}), {i[3]}],\n"
         return data_as_string
+
+
+class AnalyzerCalFire(AnalyzerStateBase):
+    def __init__(self, env):
+        super(AnalyzerCalFire, self).__init__(env)
+        self.module = get_ca_fire_data
 
 
 class AnalyzerCaHistorical(Analyzer):
@@ -117,51 +123,14 @@ class AnalyzerCaHistorical(Analyzer):
         return hist_string
 
 
-class AnalyzerAZ(Analyzer):
+class AnalyzerAZ(AnalyzerStateBase):
     def __init__(self, env):
         super(AnalyzerAZ, self).__init__(env)
+        self.module = get_az_fire_data
 
-    def get_data(self, year, x_min_date=None):
-        """
-        Loads the data from self.year. Also generates the summary info printed
-        below the chart.
-        :return:
-        """
-        data_source = get_az_fire_data.get_data_store()
-        acres_burned, days_of_data_found = get_az_fire_data.get_annual_acres(data_source, year=year)
 
-        data_as_string = ""
-        if x_min_date and len(acres_burned) > 0:
-            current_min = datetime.date(year, acres_burned[0][1], acres_burned[0][2])
-            if current_min > x_min_date:
-                # if acres_burned[0][1] != 1 or acres_burned[0][2] != 1:
-                data_as_string += F"[new Date({year}, {x_min_date.month - 1}, {x_min_date.day}), {0}],\n"
-
-        for i in acres_burned:
-            data_as_string += F"[new Date({i[0]}, {i[1] - 1}, {i[2]}), {i[3]}],\n"
-        return data_as_string
-
-class AnalyzerWA(Analyzer):
+class AnalyzerWA(AnalyzerStateBase):
     def __init__(self, env):
         super(AnalyzerWA, self).__init__(env)
-
-    def get_data(self, year, x_min_date=None):
-        """
-        Loads the data from self.year. Also generates the summary info printed
-        below the chart.
-        :return:
-        """
-        data_source = get_wa_fire_data.get_data_store()
-        acres_burned, days_of_data_found = get_wa_fire_data.get_annual_acres(data_source, year=year)
-
-        data_as_string = ""
-        if x_min_date and len(acres_burned) > 0:
-            current_min = datetime.date(year, acres_burned[0][1], acres_burned[0][2])
-            if current_min > x_min_date:
-                # if acres_burned[0][1] != 1 or acres_burned[0][2] != 1:
-                data_as_string += F"[new Date({year}, {x_min_date.month - 1}, {x_min_date.day}), {0}],\n"
-
-        for i in acres_burned:
-            data_as_string += F"[new Date({i[0]}, {i[1] - 1}, {i[2]}), {i[3]}],\n"
-        return data_as_string
+        self.module = get_wa_fire_data
 
