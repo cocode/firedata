@@ -158,6 +158,7 @@ def get_fed_history():
         ('2019', '50477', '4664364'),
         ('2020', '58950', '10122336'),
     ]
+    return data
 
 
 def run():
@@ -171,5 +172,5 @@ def run():
     _write_converted_data(rows)
 
 if __name__ == "__main__":
-    run()
+    run()  # pragma: no cover
 
