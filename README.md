@@ -1,6 +1,7 @@
 # FireData Project
 [![Fetch and Build](https://github.com/cocode/firedata/actions/workflows/fetch.yml/badge.svg)](https://github.com/cocode/firedata/actions/workflows/fetch.yml)
 [![Run Tests](https://github.com/cocode/firedata/actions/workflows/run_tests.yml/badge.svg)](https://github.com/cocode/firedata/actions/workflows/run_tests.yml)
+![Code Coverage](https://img.shields.io/endpoint?style=plastic&url=https%3A%2F%2Fraw.githubusercontent.com%2Fcocode%2Ffiredata%2Fmaster%2Fcode-coverage.txt)
 
 Project Status: Under development
 
