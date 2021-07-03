@@ -1,3 +1,4 @@
+# TODO merges might be less anooying if the webpages were in a different project, which this project generated.
 # TODO make a code coverage github action.
 # TODO Have a "non-checkin" parameter on the fetch job, so I can test the action, without checking in the results
 # TODO Rearrange project structure
