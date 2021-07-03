@@ -57,8 +57,7 @@ def _get_source_data():
             rows.append(columns)
             columns = []
 
-    if len(columns):
-        rows.append(columns)
+    assert len(columns) == 0        # There should be no column left over.
 
     for i in range(len(rows)):
         rows[i] = rows[i][0:2] + rows[i][3:9] + rows[i][10:11]
@@ -172,6 +171,7 @@ def run(ofn):
     rows.append(d2020)
 
     _write_converted_data(ofn, rows)
+
 
 if __name__ == "__main__":
     run(output_file_name)  # pragma: no cover
