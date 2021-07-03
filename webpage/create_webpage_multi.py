@@ -1,6 +1,7 @@
 import datetime
 import os
 import sys
+import argparse
 
 import get_ca_fire_data
 import json
@@ -308,23 +309,25 @@ def create_webpage(destination: str, year: int, state: str, x_min_date: datetime
     page.create(destination)
 
 
-def run(dir_path, args):
+def run(dir_path, states_param=None, years_param=None):
     """
 
     :param dir_path:
-    :param args:
+    :param states_param:
+    :param years_param:
     :return:
     """
     # Less efficient to copy than just "requested_states = states", but it gets mypy to stop complaining.
     requested_states = [state for state in states.keys()]
     requested_years = [2018,2019,2020,2021]
-    if len(args) > 1:
+    if not os.path.exists(dir_path):
+        os.mkdir(dir_path)
+
+    if states_param is not None:
         # We don't need to generate every state, every time.
-        state_param: str = args[1]
-        requested_states = state_param.split(",")
-    if len(args) > 2:
+        requested_states = states_param.split(",")
+    if years_param:
         # We don't need to generate every year, every time.
-        years_param: str = args[2]
         requested_years = [int(year) for year in years_param.split(",")]
     for state in requested_states:
         state = state.upper()
@@ -335,5 +338,14 @@ def run(dir_path, args):
             min_date = datetime.date(year, 1, 1)
             create_webpage(F"{dir_path}/fire_{state.lower()}_{year}.html", year, state, min_date)
 
+
 if __name__ == "__main__":
-    run("docs", sys.argv)  # pragma: no cover
+    parser = argparse.ArgumentParser(description='Build webpages for firedata.')
+    parser.add_argument('--dir', "-d", help='specifies the output directory.')
+    parser.add_argument('--states', "-s", help='specifies the states to build, comma separated. Default is all.')
+    parser.add_argument('--years', "-y", help='specifies the years to build, comma separated. default=2018,2019,2020,2021.')
+    args = parser.parse_args()
+    dir_param = args.dir if args.dir else "docs"
+    states_param = args.states
+    years_param = args.years
+    run(dir_param, states_param, years_param)  # pragma: no cover

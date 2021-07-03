@@ -21,14 +21,14 @@ class TestWebPage(TestCase):
     def test_run(self):
         with tempfile.TemporaryDirectory() as dest_dir:
             # NY doesn't have its own template, so hits that path.
-            create_webpage_multi.run(dest_dir, ["program_name", "AZ,CA,NY", "2021"])
+            create_webpage_multi.run(dest_dir, "AZ,CA,NY", "2021")
             # Just test that it creates the file with the correct names.
             self.assertTrue(os.path.exists(os.path.join(dest_dir, "fire_az_2021.html")))
             self.assertTrue(os.path.exists(os.path.join(dest_dir, "fire_ca_2021.html")))
             self.assertTrue(os.path.exists(os.path.join(dest_dir, "fire_ny_2021.html")))
             # Check that we validate the state.
             with self.assertRaises(ValueError):
-                create_webpage_multi.run(dest_dir, ["program_name", "ZZ", "2021"])
+                create_webpage_multi.run(dest_dir, "ZZ", "2021")
 
 
 #     def test_load_historical_data(self):
