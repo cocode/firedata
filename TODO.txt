@@ -1,4 +1,7 @@
-# TODO merges might be less anooying if the webpages were in a different project, which this project generated.
+# TODO Working on getting docker image to run branch code coverage tests. Should also export artifacts.
+# TODO merges might be less annoying if the webpages were in a different project, which this project generated.
+#   Or just write them to a different directory, like tmp. Or could check it into a web display project.
+#   Keep the fetch and parse code in one project, and webpages in a dedicated project.
 # TODO make a code coverage github action.
 # TODO Have a "non-checkin" parameter on the fetch job, so I can test the action, without checking in the results
 # TODO Rearrange project structure
