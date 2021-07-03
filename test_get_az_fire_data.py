@@ -37,3 +37,16 @@ class Test(TestCase):
             with patch('refresher.Refresh.refresh') as mock:
                 get_az_fire_data.run(data_store_dir)
                 Refresh.refresh.assert_called_once_with() # with no args.
+
+    def test_patch_test(self):
+        """
+        Verify I understand how to patch
+        :return:
+        """
+        result = get_az_fire_data.patch_test("tom")
+        assert result == F"Refresher Patch_tom_test"
+
+        with patch('refresher.Refresh.pt', return_value='Refresher Patch_bill_test') as mock:
+            result = get_az_fire_data.patch_test("tom")
+            assert result ==   F"Refresher Patch_bill_test"
+            Refresh.pt.assert_called_once_with("tom") # with no args.

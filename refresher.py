@@ -15,6 +15,9 @@ class Refresh:
         self.ds: DataStore = ds
         self.parse = parse
 
+    def pt(self, a):
+        return F"Refresher Patch_{a}_test"
+
     def refresh(self):
         """
         Fetch today's fire data, if we don't already have a file for today. This allows us
