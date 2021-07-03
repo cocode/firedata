@@ -34,6 +34,11 @@ var options = {
     }
 }
 data.addRows([
+[new Date(2021, 0, 1), 0],
+[new Date(2021, 5, 25), 468289],
+[new Date(2021, 5, 26), 468290],
+[new Date(2021, 6, 2), 542809],
+[new Date(2021, 6, 3), 542809],
 ]);
 var chart = new google.visualization.ColumnChart(document.getElementById("acres_b_chart"))
 chart.draw(data, options);
@@ -82,6 +87,7 @@ data.addRows([
 [new Date(2021, 5, 29), 511053],
 [new Date(2021, 5, 30), 513147],
 [new Date(2021, 6, 2), 519332],
+[new Date(2021, 6, 3), 523594],
 ]);
 var chart = new google.visualization.ColumnChart(document.getElementById("us_chart"))
 chart.draw(data, options);
@@ -130,6 +136,7 @@ data.addRows([
 [new Date(2021, 5, 29), 1021841],
 [new Date(2021, 5, 30), 1046666],
 [new Date(2021, 6, 2), 1073511],
+[new Date(2021, 6, 3), 1087188],
 ]);
 var chart = new google.visualization.ColumnChart(document.getElementById("us_chart_2"))
 chart.draw(data, options);
