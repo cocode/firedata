@@ -11,3 +11,9 @@ class Test(TestCase):
             self.assertEqual(year, int(h[0]))
             for one in h:
                 self.assertTrue(int(one) > 0)
+
+    def test_get_2020_data(self):
+        data = get_historical_data.get_2020_data()
+        self.assertEqual(int(data[7]), int(data[1]) + int(data[3]) + int(data[5]))
+        self.assertEqual(int(data[8]), int(data[2]) + int(data[4]) + int(data[6]))
+
