@@ -69,6 +69,11 @@ def get_annual_acres(ds:DataStore, year:int):
     return acres_burned, len(all_data)
 
 
+def patch_test(a):
+    def parse(a):
+        return a
+    refresher = Refresh("a", DataStore("/tmp"), parse)
+    return refresher.pt(a)
 
 def run(data_dir):
     fire_url = 'https://gacc.nifc.gov/swcc/predictive/intelligence/intelligence.htm'
