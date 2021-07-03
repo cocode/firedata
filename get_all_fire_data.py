@@ -1,23 +1,23 @@
 from requests import HTTPError
 
+import get_az_fire_data
 import get_ca_fire_data
 import get_wa_fire_data
 import get_us_fire_data
 
 
-
 if __name__ == "__main__":
-    try:
-        get_wa_fire_data.run()
-    except HTTPError as e:
-        print("ERROR on getting WA fire data", e)
-    # Keep trying, the other site may not be having problems.
-    try:
-        get_ca_fire_data.run()
-    except HTTPError as e:
-        print("ERROR on getting CA fire data", e)
-    try:
-        get_us_fire_data.run()
-    except HTTPError as e:
-        print("ERROR on getting US fire data", e)
+    functions = {
+        "AZ": get_az_fire_data.run,
+        "CA": get_ca_fire_data.run,
+        "WA": get_wa_fire_data.run,
+        "US": get_us_fire_data.run,
+    }
+    for st in functions:
+        fn = functions.get(st)
+        try:
+            fn()
+        except HTTPError as e:
+            print(F"ERROR on getting {st} fire data", e)
+
     print("Done.")
