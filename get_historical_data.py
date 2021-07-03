@@ -1,11 +1,16 @@
 """
-This file returns fire data from the last 32 years (up to 2018)
+When run from the command line, this file converts data pulled from the calfire 2018 redbook, and other sources,
+and writes it to a file. This only needs to be done once, then the results are checked in to git.
+
+When get_stats() is called, it returns the contents of the above file.
+
+The data contains fire data from the last 32 years (up to 2018), plus two years of data from other sources.
 
 This file reads the mangled data sourced from the "fires-acres-all-agencies-thru-2018.pdf".
-Copying from that file produces one single run of numbers with no spaces, so I then
-converted to .doc  (https://pdf2doc.com/), and then copied and pasted into the text file.
-But the text file was one number per line, so this file concatenates it back into its original
-rows and columns.
+Just copy/pasting from that file produces one single run of numbers with no spaces, so I instead
+converted to .doc  (https://pdf2doc.com/), and then copied and pasted that into a text file.
+That left the text file with one number per line, so this file concatenates it back into its original
+rows and columns, and saves it.
 
 Columns are
 year
@@ -155,7 +160,7 @@ def get_fed_history():
     ]
 
 
-if __name__ == "__main__":
+def run():
     rows = _get_source_data()
     d2019 = get_2019_data()
     rows.append(d2019)
@@ -165,8 +170,6 @@ if __name__ == "__main__":
 
     _write_converted_data(rows)
 
-    # rows = get_stats()
-    # #print(rows)
-    # get_2019_data()
-
+if __name__ == "__main__":
+    run()
 
