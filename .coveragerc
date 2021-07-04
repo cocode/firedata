@@ -1,3 +1,6 @@
 [run]
-omit = ./venv/*
+omit = 
+    ./venv/*
+    print_cal_fire_data.py
+    wayback.py
 source = .
