@@ -9,7 +9,7 @@ import get_us_fire_data
 
 def run():
     functions: dict[str, Callable[[], None]] = {
-        "AZ": get_az_fire_data.run,
+        # "AZ": get_az_fire_data.run,
         "CA": get_ca_fire_data.run,
         "WA": get_wa_fire_data.run,
         "US": get_us_fire_data.run,
@@ -20,6 +20,7 @@ def run():
         except HTTPError as e:
             print(F"ERROR on getting {st} fire data", e)
 
+    get_az_fire_data.run(get_az_fire_data.DATA_STORE_PATH)
     print("Done.")
 
 
