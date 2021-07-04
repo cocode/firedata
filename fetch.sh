@@ -26,7 +26,10 @@ python3 get_all_fire_data.py
 
 # Add and commit the new data
 git add data
+# If there is no new data, git commit returns non-zero, so turn of checking.
+set +e
 git commit -m "Automatic add of new fire data"
+set -e
 
 # Build and commit the webpage.
 python3 -m webpage.create_webpage_multi
