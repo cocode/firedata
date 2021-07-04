@@ -36,7 +36,9 @@ python3 -m webpage.create_webpage_multi
 cp docs/fire_ca_2021.html docs/index.html
 
 git add docs
+set +e
 git commit -m "Add newly generated web page"
+set -e
 
 # Push all changes
 git push
