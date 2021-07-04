@@ -75,6 +75,7 @@ def patch_test(a):
     refresher = Refresh("a", DataStore("/tmp"), parse)
     return refresher.pt(a)
 
+
 def run(data_dir):
     fire_url = 'https://gacc.nifc.gov/swcc/predictive/intelligence/intelligence.htm'
     # Subpage fetched from above page.
