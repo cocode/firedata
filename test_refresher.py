@@ -52,38 +52,35 @@ class TestRefresh(TestCase):
     def test_refresh_no_source(self):
         # Check the error case, where we don't get source data
         url = "https://example.com"
-        mock_get = MagicMock()
         retval = MyResponse()
         retval.status_code = 200
         expected_data = ""
         retval.content = expected_data
 
-        mock_get.return_value = retval
-        requests.get = mock_get
-        with tempfile.TemporaryDirectory() as data_store_dir:
-            ds = DataStore(data_store_dir)
-            r = refresher.Refresh(url, ds, parse)
-            today = date.today()
-            with self.assertRaises(Exception):
-                r.refresh()
+        with patch("requests.get", return_value = retval):
+            with tempfile.TemporaryDirectory() as data_store_dir:
+                ds = DataStore(data_store_dir)
+                r = refresher.Refresh(url, ds, parse)
+                today = date.today()
+                with self.assertRaises(EOFError):
+                    r.refresh()
+
 
     def test_request_failed(self):
         # Check the error case, where we don't get source data
         url = "https://example.com"
-        mock_get = MagicMock()
         retval = MyResponse()
         retval.status_code = 201 # Return HTTP failure
         expected_data = ""
         retval.content = expected_data
 
-        mock_get.return_value = retval
-        requests.get = mock_get
-        with tempfile.TemporaryDirectory() as data_store_dir:
-            ds = DataStore(data_store_dir)
-            r = refresher.Refresh(url, ds, parse)
-            today = date.today()
-            with self.assertRaises(HTTPError):
-                r.refresh()
+        with patch("requests.get", return_value=retval):
+            with tempfile.TemporaryDirectory() as data_store_dir:
+                ds = DataStore(data_store_dir)
+                r = refresher.Refresh(url, ds, parse)
+                today = date.today()
+                with self.assertRaises(HTTPError):
+                    r.refresh()
 
 
 
