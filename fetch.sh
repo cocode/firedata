@@ -44,6 +44,7 @@ set -e
 git push
 
 # Run code coverage and check in the percentage.
+python3 -m pip install coverage
 coverage run  --branch -m pytest
 coverage report -m > coverage.txt
 cat coverage.txt
