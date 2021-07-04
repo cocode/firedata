@@ -69,8 +69,12 @@ def get_percentage():
     p = int(match.group(0)[:-1])
     return p
 
+def run():
+    p = get_percentage()
+    response = generate_response(p)
+    with open("code-coverage.txt", "w") as f:
+        f.write(json.dumps(response, indent=4))
 
-p = get_percentage()
-response = generate_response(p)
-with open("code-coverage.txt", "w") as f:
-    f.write(json.dumps(response, indent=4))
+
+if __name__ == "__main__":
+    run()
