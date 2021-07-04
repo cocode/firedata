@@ -45,10 +45,11 @@ git push
 
 # Run code coverage and check in the percentage.
 python3 -m pip install coverage
+python3 -m pip install pytest
 coverage run  --branch -m pytest
 coverage report -m > coverage.txt
 cat coverage.txt
-python make_badge.py
+python3 make_badge.py
 git add code-coverage.txt
 git commit code-coverage.txt
 git push
