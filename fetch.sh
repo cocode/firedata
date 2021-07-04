@@ -37,4 +37,14 @@ git commit -m "Add newly generated web page"
 
 # Push all changes
 git push
+
+# Run code coverage and check in the percentage.
+coverage run  --branch -m pytest
+coverage report -m > coverage.txt
+cat coverage.txt
+python make_badge.py
+git add code-coverage.txt
+git commit code-coverage.txt
+git push
+
 echo "Done."
