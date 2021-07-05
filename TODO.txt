@@ -51,3 +51,5 @@
 # TODO Add local data to california fire data.
 # TODO replace negative burn days with zero. It makes the graphs look better, and negative burns are not meaningful.
     - Negative burn days happen with the revise the estimate for a fire's size. (I think).
+# TOD Why does running coverage on a mac include "wayback.py" and "print_cal_fire_data.py" when they
+#   - are ignored on the docker run of coverage
