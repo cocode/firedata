@@ -1,6 +1,7 @@
 import datetime
 
 import get_az_fire_data
+import get_ca_alt_fire_data
 import get_us_fire_data
 import get_ca_fire_data
 import get_historical_data
@@ -102,6 +103,12 @@ class AnalyzerCalFire(AnalyzerStateBase):
     def __init__(self, env):
         super(AnalyzerCalFire, self).__init__(env)
         self.module = get_ca_fire_data
+
+
+class AnalyzerCalAltFire(AnalyzerStateBase):
+    def __init__(self, env, get_ca__alt_fire_data=None):
+        super(AnalyzerCalAltFire, self).__init__(env)
+        self.module = get_ca_alt_fire_data
 
 
 class AnalyzerCaHistorical(Analyzer):

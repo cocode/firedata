@@ -2,6 +2,7 @@ from requests import HTTPError
 from typing import Callable
 
 import get_az_fire_data
+import get_ca_alt_fire_data
 import get_ca_fire_data
 import get_wa_fire_data
 import get_us_fire_data
@@ -11,6 +12,7 @@ def run():
     functions: dict[str, Callable[[], None]] = {
         # "AZ": get_az_fire_data.run,
         "CA": get_ca_fire_data.run,
+        "CA_ALT": get_ca_alt_fire_data.run,
         "WA": get_wa_fire_data.run,
         "US": get_us_fire_data.run,
     }

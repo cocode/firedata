@@ -23,6 +23,30 @@
 		],
 		"element_id": "acres_b_chart"
 	},
+		{
+		"analyzer": "AnalyzerCalAltFire",
+		"options": {
+			"title": "Cal Fire (only) Data sourced from a different Cal Fire page.",
+			"hAxis": {
+				"title": "Date Recorded"
+			},
+			"vAxis": {
+				"title": "Cumulative Acres Burned"
+			}
+		},
+		"footer": "Source: https://www.fire.ca.gov/incidents/",
+		"columns": [
+			[
+				"date",
+				"Season Start Date"
+			],
+			[
+				"number",
+				"Acres Burned"
+			]
+		],
+		"element_id": "acres_alt_chart"
+	},
 	{
 		"analyzer": "AnalyzerUsCa",
 		"options": {

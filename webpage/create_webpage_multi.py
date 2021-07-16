@@ -7,7 +7,7 @@ import get_ca_fire_data
 import json
 # PYyCharm thinks these are unused, but they are active. They are loaded dynamically
 from webpage.analyzers import AnalyzerUs, AnalyzerUsCa, AnalyzerCalFire, AnalyzerCaHistorical
-from webpage.analyzers import AnalyzerUsXX, AnalyzerAZ, AnalyzerWA
+from webpage.analyzers import AnalyzerUsXX, AnalyzerAZ, AnalyzerWA, AnalyzerCalAltFire
 # Run with python3 -m webpage.create_webpage_multi from firedata directory
 
 # The webpage has several parts. The parts we care about
@@ -101,7 +101,8 @@ states = {
     'WA': 'Washington',
     'WI': 'Wisconsin',
     'WV': 'West Virginia',
-    'WY': 'Wyoming'}
+    'WY': 'Wyoming',
+}
 
 
 class Chart:
