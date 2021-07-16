@@ -1,3 +1,4 @@
+# TODO Cal Fire chart is suposed to be cumulative, but it's going down.
 # TODO Working on getting docker image to run branch code coverage tests. Should also export artifacts.
 # TODO merges might be less annoying if the webpages were in a different project, which this project generated.
 #   Or just write them to a different directory, like tmp. Or could check it into a web display project.
@@ -51,5 +52,7 @@
 # TODO Add local data to california fire data.
 # TODO replace negative burn days with zero. It makes the graphs look better, and negative burns are not meaningful.
     - Negative burn days happen with the revise the estimate for a fire's size. (I think).
-# TOD Why does running coverage on a mac include "wayback.py" and "print_cal_fire_data.py" when they
+# TODO Why does running coverage on a mac include "wayback.py" and "print_cal_fire_data.py" when they
 #   - are ignored on the docker run of coverage
+# TODO Bug: if there is only one data point in a year, the setting of the starting date to january 1 does not work,
+    - add a second point, and it does.
