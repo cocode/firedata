@@ -67,7 +67,7 @@ https://calfireslo.org/current-slu-vegetation-fire-statistics/
   * https://www.usfa.fema.gov/nfirs/
   * https://www.usfa.fema.gov/index.html
   * https://www.usfa.fema.gov/wui/data/nfirs-wildland-module.html - how do I get this data?
-  * "istorically, NFIRS data have not proved useful in understanding the nature and magnitude of the wildland fire problem. The optional Wildland Fire Module attempts to rectify this"
+  * "historically, NFIRS data have not proved useful in understanding the nature and magnitude of the wildland fire problem. The optional Wildland Fire Module attempts to rectify this"
   * all the data, but free form: https://gacc.nifc.gov/swcc/predictive/intelligence/daily/SWCC_Morning_Situation_Report/SWCC_Morning_Situation_Report.htm
   * Good, by state: https://www.nifc.gov/fire-information/nfn
   
