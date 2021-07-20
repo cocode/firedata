@@ -1,4 +1,8 @@
-# TODO Cal Fire chart is suposed to be cumulative, but it's going down.
+# TODO Cal Fire chart is suposed to be cumulative, but it's going down. It appears that one large
+    - fire, the lava fire, went to from "25,001" acres to "". I suspect this means that the feds took over. There is a note
+    - on the cal fire incident that says the fire is now Not a CAL FIRE Incident as of 7/07/2021"
+    - In some other states, we compute the running total by tracking each individual fire through the
+    - snapshots. That would fix the drop for california.
 # TODO Working on getting docker image to run branch code coverage tests. Should also export artifacts.
 # TODO merges might be less annoying if the webpages were in a different project, which this project generated.
 #   Or just write them to a different directory, like tmp. Or could check it into a web display project.
