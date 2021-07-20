@@ -73,8 +73,36 @@ data.addRows([
 [new Date(2021, 6, 13), 41024],
 [new Date(2021, 6, 14), 41524],
 [new Date(2021, 6, 15), 42797],
+[new Date(2021, 6, 16), 58545],
+[new Date(2021, 6, 17), 62334],
+[new Date(2021, 6, 18), 67268],
+[new Date(2021, 6, 19), 72481],
+[new Date(2021, 6, 20), 94279],
 ]);
 var chart = new google.visualization.ColumnChart(document.getElementById("acres_b_chart"))
+chart.draw(data, options);
+var data = new google.visualization.DataTable();
+data.addColumn("date", "Season Start Date")
+data.addColumn("number", "Acres Burned")
+var options = {
+    "title": "Cal Fire (only) Data sourced from a different Cal Fire page.",
+    "hAxis": {
+        "title": "Date Recorded"
+    },
+    "vAxis": {
+        "title": "Cumulative Acres Burned"
+    }
+}
+data.addRows([
+[new Date(2021, 0, 1), 0],
+[new Date(2021, 6, 15), 142477],
+[new Date(2021, 6, 16), 142477],
+[new Date(2021, 6, 17), 142477],
+[new Date(2021, 6, 18), 142477],
+[new Date(2021, 6, 19), 142477],
+[new Date(2021, 6, 20), 142477],
+]);
+var chart = new google.visualization.ColumnChart(document.getElementById("acres_alt_chart"))
 chart.draw(data, options);
 var data = new google.visualization.DataTable();
 data.addColumn("date", "Season Start Date")
@@ -135,6 +163,11 @@ data.addRows([
 [new Date(2021, 6, 13), 154524],
 [new Date(2021, 6, 14), 157070],
 [new Date(2021, 6, 15), 160309],
+[new Date(2021, 6, 16), 170618],
+[new Date(2021, 6, 17), 171468],
+[new Date(2021, 6, 18), 171939],
+[new Date(2021, 6, 19), 172307],
+[new Date(2021, 6, 20), 242937],
 ]);
 var chart = new google.visualization.ColumnChart(document.getElementById("us_chart"))
 chart.draw(data, options);
@@ -197,6 +230,11 @@ data.addRows([
 [new Date(2021, 6, 13), 1632038],
 [new Date(2021, 6, 14), 1715283],
 [new Date(2021, 6, 15), 1784632],
+[new Date(2021, 6, 16), 1836637],
+[new Date(2021, 6, 17), 1912747],
+[new Date(2021, 6, 18), 1966609],
+[new Date(2021, 6, 19), 2000507],
+[new Date(2021, 6, 20), 2192154],
 ]);
 var chart = new google.visualization.ColumnChart(document.getElementById("us_chart_2"))
 chart.draw(data, options);
@@ -324,6 +362,11 @@ chart.draw(data, options);
 Source: https://www.fire.ca.gov/umbraco/Api/IncidentApi/GetIncidents
 </div>
 <br>
+<div class="chart_target" id="acres_alt_chart"></div>
+<div class="chart_foot">
+Source: https://www.fire.ca.gov/incidents/
+</div>
+<br>
 <div class="chart_target" id="us_chart"></div>
 <div class="chart_target" id="us_chart_2"></div>
 <div class="chart_target" id="hist_b_chart"></div>
@@ -341,32 +384,60 @@ From the 2019 Redbook: <b>Due to the changes in data collection, methods, and sy
         <th>Incident Name</th>
     </tr>
     <tr>
-        <td style='text-align: right;'>9,500.0</td>
+        <td style='text-align: right;'>40,500.0</td>
+        <td style='text-align: right;'>+21,798.0</td>
+        <td style='text-align: right;'>15.0</td>
         <td style='text-align: left;'></td>
-        <td style='text-align: right;'>28.0</td>
-        <td style='text-align: right;'>+13.0</td>
-        <td style='text-align: left;'>River Fire</td>
-    </tr>
-    <tr>
-        <td style='text-align: right;'>1,200.0</td>
-        <td style='text-align: right;'>new</td>
-        <td style='text-align: right;'>0.0</td>
-        <td style='text-align: right;'>new</td>
         <td style='text-align: left;'>Dixie Fire</td>
     </tr>
     <tr>
         <td style='text-align: right;'>43.0</td>
-        <td style='text-align: right;'>new</td>
-        <td style='text-align: right;'>75.0</td>
-        <td style='text-align: right;'>new</td>
-        <td style='text-align: left;'>Cannon Fire</td>
+        <td style='text-align: left;'></td>
+        <td style='text-align: right;'>85.0</td>
+        <td style='text-align: left;'></td>
+        <td style='text-align: left;'>Fork Fire</td>
     </tr>
     <tr>
-        <td style='text-align: right;'>30.0</td>
-        <td style='text-align: right;'>new</td>
-        <td style='text-align: right;'>0.0</td>
-        <td style='text-align: right;'>new</td>
-        <td style='text-align: left;'>Dolicini Fire</td>
+        <td style='text-align: right;'>~</td>
+        <td style='text-align: left;'></td>
+        <td style='text-align: right;'>~</td>
+        <td style='text-align: left;'></td>
+        <td style='text-align: left;'>Tamarack Fire</td>
+    </tr>
+    <tr>
+        <td style='text-align: right;'>~</td>
+        <td style='text-align: left;'></td>
+        <td style='text-align: right;'>~</td>
+        <td style='text-align: left;'></td>
+        <td style='text-align: left;'>Beckwourth Complex</td>
+    </tr>
+    <tr>
+        <td style='text-align: right;'>~</td>
+        <td style='text-align: left;'></td>
+        <td style='text-align: right;'>~</td>
+        <td style='text-align: left;'></td>
+        <td style='text-align: left;'>Salt Fire</td>
+    </tr>
+    <tr>
+        <td style='text-align: right;'>~</td>
+        <td style='text-align: left;'></td>
+        <td style='text-align: right;'>~</td>
+        <td style='text-align: left;'></td>
+        <td style='text-align: left;'>Henry Fire</td>
+    </tr>
+    <tr>
+        <td style='text-align: right;'>~</td>
+        <td style='text-align: left;'></td>
+        <td style='text-align: right;'>~</td>
+        <td style='text-align: left;'></td>
+        <td style='text-align: left;'>Lava Fire</td>
+    </tr>
+    <tr>
+        <td style='text-align: right;'>~</td>
+        <td style='text-align: left;'></td>
+        <td style='text-align: right;'>~</td>
+        <td style='text-align: left;'></td>
+        <td style='text-align: left;'>Chicken Fire</td>
     </tr>
     <tr>
         <td style='text-align: right;'>~</td>
@@ -374,13 +445,6 @@ From the 2019 Redbook: <b>Due to the changes in data collection, methods, and sy
         <td style='text-align: right;'>~</td>
         <td style='text-align: left;'></td>
         <td style='text-align: left;'>Dexter Fire</td>
-    </tr>
-    <tr>
-        <td style='text-align: right;'>~</td>
-        <td style='text-align: left;'></td>
-        <td style='text-align: right;'>~</td>
-        <td style='text-align: left;'></td>
-        <td style='text-align: left;'>Bradley Fire</td>
     </tr>
     <tr>
         <td style='text-align: right;'>~</td>
@@ -403,74 +467,25 @@ From the 2019 Redbook: <b>Due to the changes in data collection, methods, and sy
         <td style='text-align: left;'></td>
         <td style='text-align: left;'>Coyote Fire</td>
     </tr>
-    <tr>
-        <td style='text-align: right;'>~</td>
-        <td style='text-align: left;'></td>
-        <td style='text-align: right;'>~</td>
-        <td style='text-align: left;'></td>
-        <td style='text-align: left;'>Juniper Fire</td>
-    </tr>
-    <tr>
-        <td style='text-align: right;'>~</td>
-        <td style='text-align: left;'></td>
-        <td style='text-align: right;'>~</td>
-        <td style='text-align: left;'></td>
-        <td style='text-align: left;'>Beckwourth Complex</td>
-    </tr>
-    <tr>
-        <td style='text-align: right;'>~</td>
-        <td style='text-align: left;'></td>
-        <td style='text-align: right;'>~</td>
-        <td style='text-align: left;'></td>
-        <td style='text-align: left;'>R-1 Fire</td>
-    </tr>
-    <tr>
-        <td style='text-align: right;'>~</td>
-        <td style='text-align: left;'></td>
-        <td style='text-align: right;'>~</td>
-        <td style='text-align: left;'></td>
-        <td style='text-align: left;'>Salt Fire</td>
-    </tr>
-    <tr>
-        <td style='text-align: right;'>~</td>
-        <td style='text-align: left;'></td>
-        <td style='text-align: right;'>~</td>
-        <td style='text-align: left;'></td>
-        <td style='text-align: left;'>Tennant Fire</td>
-    </tr>
-    <tr>
-        <td style='text-align: right;'>~</td>
-        <td style='text-align: left;'></td>
-        <td style='text-align: right;'>~</td>
-        <td style='text-align: left;'></td>
-        <td style='text-align: left;'>Henry Fire</td>
-    </tr>
-    <tr>
-        <td style='text-align: right;'>~</td>
-        <td style='text-align: left;'></td>
-        <td style='text-align: right;'>~</td>
-        <td style='text-align: left;'></td>
-        <td style='text-align: left;'>Lava Fire</td>
-    </tr>
 </table><hr><p>Calfire: Active Incident Summary (days):</p><table>
     <tr>
         <th style='text-align:left'>Cal Fire Stat</th>
         <th style='text-align:right;'>Value</th>
     <TR>
         <td style='text-align: left; border: 1px solid black; padding: 10px'>Number of active incidents</td>
-        <td style='text-align: right; border: 1px solid black; padding: 10px'>16</td>
+        <td style='text-align: right; border: 1px solid black; padding: 10px'>12</td>
     </TR>
     <TR>
         <td style='text-align: left; border: 1px solid black; padding: 10px'>New or growing fires</td>
-        <td style='text-align: right; border: 1px solid black; padding: 10px'>3</td>
+        <td style='text-align: right; border: 1px solid black; padding: 10px'>1</td>
     </TR>
     <TR>
         <td style='text-align: left; border: 1px solid black; padding: 10px'>Total acres burned, active fires</td>
-        <td style='text-align: right; border: 1px solid black; padding: 10px'>10773.0</td>
+        <td style='text-align: right; border: 1px solid black; padding: 10px'>40543.0</td>
     </TR>
     <TR>
         <td style='text-align: left; border: 1px solid black; padding: 10px'>New acres burned</td>
-        <td style='text-align: right; border: 1px solid black; padding: 10px'>1273.0</td>
+        <td style='text-align: right; border: 1px solid black; padding: 10px'>21798.0</td>
     </TR>
 </table><hr>
     
