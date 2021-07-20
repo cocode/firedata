@@ -12,6 +12,24 @@ The chart can be viewed here: https://cocode.github.io/firedata/
 ## Data 
 This project scrapes data from [Cal Fire](https://www.fire.ca.gov/incidents), and other sites. 
 
+There are a number of issues in the data. Different sites do not agree. Sometimes a site will not
+agree with itself! CalFire incidents has one number on its home page, and you get another, smaller number if
+you add up all the fires listed. And sometimes the fires listed will grow, but the main page number
+doesn't change. From this, I suspect the main page may 1) be manually updated, and 2) The main number
+may include other fires managed by other entities, like local fire departments.
+
+Cal fire also has fires that "go away". Between July 7th and 8th, Cal Fire's ***cumulative*** total
+went down. This is due to the "Lava Fire" have it's "AcresBurnedDisplay" field go from "25,001" to "" overnight.
+I suspect this is due to the fire being handed off to another entity. The notation on the Lava fire says
+"Not a CAL FIRE Incident as of 7/07/2021". 
+
+Other possible sources of error:
+
+* The data is frequently not documented, so I may be intepreting the data incorrectly. (See "Lava Fire" above)
+* There may be bugs in my scraping code. 
+* Original data may be an estimate, and this may be corrected over time
+* Sources may not always update consistently. 
+
 ### Data Collection
 A github action is run every night (CA time) to fetch data.
 
@@ -28,24 +46,23 @@ I do not currently know why. And last year's Cal Fire json data shows "AllAcres"
 year but the Cal Fire summary says 4.1m acres in total.
 
 Prior to 2021-06-16 I was collecting the data manually, so there are gaps
-in the data.
+in the data. I did back-fill some from the internet archive. '
 
 #### Cal Fire JSON Format
 The json has three main subsections (Incidents, ListIncidents, and AllYearIncidents). So far, it looks
-like Incidents and ListIncidents are the same: currently burning fires. AllYearIncidents is what 
+like Incidents and ListIncidents are the same: currently burning fires. AllYearIncidents appears to be what 
 the name says.
 
 Total acres burned for the year, as of the time the data was collected, is a top level field "AllAcres"
 
 ### Non Cal Fire Data
-Non-Cal Fire data is not completely implemented yet. Fetchers 
-for Washington state data, and Federal data exist, but were
-broken in the move to github actions. They should be repaired shortly.
+Non-Cal Fire data is not completely implemented yet. We have fetch code for a couple of states, for others
+we just present federal data.
 
 ## Running FireData
 You shouldn't need to run it yourself, this is a hosted solution. 
 
-Take a look at fetch.sh in this directory, it's the code used
+But if you still want to, take a look at fetch.sh in this directory, it's the code used
 in the github action to fetch the data, and build the webpage.
 
 
