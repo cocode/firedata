@@ -1,8 +1,16 @@
-# TODO Cal Fire chart is suposed to be cumulative, but it's going down. It appears that one large
+# TODO get_wa_fire_data failed yesterday, because one fire had "" for its number of acres. This only
+# Mattered, because the run method was also used to run from command line, and ran other functions
+# That are not needed for fetching data. Need to split run() from a fetch function
+
+"# TODO Cal Fire chart is suposed to be cumulative, but it's going down. It appears that one large
     - fire, the lava fire, went to from "25,001" acres to "". I suspect this means that the feds took over. There is a note
     - on the cal fire incident that says the fire is now Not a CAL FIRE Incident as of 7/07/2021"
     - In some other states, we compute the running total by tracking each individual fire through the
     - snapshots. That would fix the drop for california.
+# TODO I need to change how I handle get_source_dir for testing. Having a hard coded data store
+    for the class makes testing harder. I should probably pass a DataStore when instantiating the class
+    Maybe there can be a default one that is overridden for tests. Working on this is test_canada...
+    Really, it's long overdue for making these things be classes. 
 # TODO Working on getting docker image to run branch code coverage tests. Should also export artifacts.
 # TODO merges might be less annoying if the webpages were in a different project, which this project generated.
 #   Or just write them to a different directory, like tmp. Or could check it into a web display project.
@@ -60,3 +68,10 @@
 #   - are ignored on the docker run of coverage
 # TODO Bug: if there is only one data point in a year, the setting of the starting date to january 1 does not work,
     - add a second point, and it does.
+
+    Save for a moment: possible fields for repeating events.
+    # Fields for event times and dates
+    time_start = models.TimeField(help_text="This is the starting time of the event")
+    time_end = models.TimeField(help_text="This is the ending time of the event")
+    # Repeat rule for events. https://dateutil.readthedocs.io/en/stable/examples.html#rrule-examples
+    rrule = models.TextField(max_length=64, default="")
