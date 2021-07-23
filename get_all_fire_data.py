@@ -10,10 +10,10 @@ import get_us_fire_data
 def run():
     functions: dict[str, Callable[[], None]] = {
         # "AZ": get_az_fire_data.run,
-        "CA": get_ca_fire_data.run,
-        "CA_ALT": get_ca_alt_fire_data.run,
-        "WA": get_wa_fire_data.run,
-        "US": get_us_fire_data.run,
+        "CA": get_ca_fire_data.fetch,
+        "CA_ALT": get_ca_alt_fire_data.fetch,
+        "WA": get_wa_fire_data.fetch,
+        "US": get_us_fire_data.fetch,
     }
     return_code = 0
     for st, fn in functions.items():

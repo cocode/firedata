@@ -179,7 +179,7 @@ def get_archive_directory():
     return archive_directory
 
 
-def collect_data():
+def fetch():
     cal_fire_url = 'https://www.fire.ca.gov/incidents/'
     data_store = get_data_store()
     refresher = Refresh(cal_fire_url, data_store, parse)
@@ -190,7 +190,7 @@ def collect_data():
 def run():
     todays_date = date.today()
     print(F"Collecting CAL FIRE data on: {todays_date}")
-    data_store = collect_data()
+    data_store = fetch()
     data, days_of_data_found = get_annual_acres(data_store, year=None) # Get data for all years.
     print("Now have data for ", days_of_data_found, "days, total.")
     # TODO print starting and ending dates.

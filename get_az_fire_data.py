@@ -76,14 +76,18 @@ def patch_test(a):
     return refresher.pt(a)
 
 
-def run(data_dir):
+def fetch():
     fire_url = 'https://gacc.nifc.gov/swcc/predictive/intelligence/intelligence.htm'
     # Subpage fetched from above page.
     fire_url = 'https://gacc.nifc.gov/swcc/predictive/intelligence/daily/UPLOAD_Files_toSWCC/YTD_10_INFORM_Protection_5_Website_Intell.csv'
-    data_store = DataStore(data_dir)
+    data_store = get_data_store()
     refresher = Refresh(fire_url, data_store, parse)
     refresher.refresh()   # Gets the data, only if we don't already have it.
-#    summarize(data_store)
+    return data_store
+
+
+def run(data_dir):
+    fetch()
 
 
 if __name__ == "__main__":

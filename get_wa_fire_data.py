@@ -190,12 +190,22 @@ def get_data_store():
     data_store = DataStore("data/data_wa")
     return data_store
 
-def run():
+
+def fetch():
     fire_url = 'https://gacc.nifc.gov/nwcc/information/fire_info.aspx'
-#    fire_url = 'file:///Users/tom/PycharmProjects/Pandas/fire/data_wa/sample.html'
+    #    fire_url = 'file:///Users/tom/PycharmProjects/Pandas/fire/data_wa/sample.html'
     data_store = get_data_store()
     refresher = Refresh(fire_url, data_store, parse)
-    refresher.refresh()   # Gets the data, only if we don't already have it.
+    refresher.refresh()  # Gets the data, only if we don't already have it.
+    return data_store
+
+def run():
+    data_store = fetch()
+#     fire_url = 'https://gacc.nifc.gov/nwcc/information/fire_info.aspx'
+# #    fire_url = 'file:///Users/tom/PycharmProjects/Pandas/fire/data_wa/sample.html'
+#     data_store = get_data_store()
+#     refresher = Refresh(fire_url, data_store, parse)
+#     refresher.refresh()   # Gets the data, only if we don't already have it.
     summarize(data_store)
     all_fires, days = get_annual_acres(data_store, 2021)
     print(all_fires)
