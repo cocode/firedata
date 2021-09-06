@@ -124,6 +124,7 @@ data.addRows([
 [new Date(2021, 8, 3), 1358531],
 [new Date(2021, 8, 4), 1404306],
 [new Date(2021, 8, 5), 1414153],
+[new Date(2021, 8, 6), 1428861],
 ]);
 var chart = new google.visualization.ColumnChart(document.getElementById("acres_b_chart"))
 chart.draw(data, options);
@@ -193,6 +194,7 @@ data.addRows([
 [new Date(2021, 8, 3), 1926123],
 [new Date(2021, 8, 4), 1942742],
 [new Date(2021, 8, 5), 1968326],
+[new Date(2021, 8, 6), 1984677],
 ]);
 var chart = new google.visualization.ColumnChart(document.getElementById("acres_alt_chart"))
 chart.draw(data, options);
@@ -306,6 +308,7 @@ data.addRows([
 [new Date(2021, 8, 3), 1861363],
 [new Date(2021, 8, 4), 1885441],
 [new Date(2021, 8, 5), 1899581],
+[new Date(2021, 8, 6), 1917916],
 ]);
 var chart = new google.visualization.ColumnChart(document.getElementById("us_chart"))
 chart.draw(data, options);
@@ -419,6 +422,7 @@ data.addRows([
 [new Date(2021, 8, 3), 5217430],
 [new Date(2021, 8, 4), 5252890],
 [new Date(2021, 8, 5), 5287161],
+[new Date(2021, 8, 6), 5317304],
 ]);
 var chart = new google.visualization.ColumnChart(document.getElementById("us_chart_2"))
 chart.draw(data, options);
@@ -568,32 +572,53 @@ From the 2019 Redbook: <b>Due to the changes in data collection, methods, and sy
         <th>Incident Name</th>
     </tr>
     <tr>
-        <td style='text-align: right;'>889,001.0</td>
-        <td style='text-align: right;'>+7,915.0</td>
+        <td style='text-align: right;'>898,951.0</td>
+        <td style='text-align: right;'>+9,950.0</td>
         <td style='text-align: right;'>56.0</td>
-        <td style='text-align: right;'>+1.0</td>
+        <td style='text-align: left;'></td>
         <td style='text-align: left;'>Dixie Fire</td>
     </tr>
     <tr>
-        <td style='text-align: right;'>214,112.0</td>
-        <td style='text-align: right;'>+842.0</td>
-        <td style='text-align: right;'>43.0</td>
-        <td style='text-align: right;'>+11.0</td>
+        <td style='text-align: right;'>215,400.0</td>
+        <td style='text-align: right;'>+1,288.0</td>
+        <td style='text-align: right;'>44.0</td>
+        <td style='text-align: right;'>+1.0</td>
         <td style='text-align: left;'>Caldor Fire</td>
     </tr>
     <tr>
-        <td style='text-align: right;'>179,135.0</td>
-        <td style='text-align: right;'>+1,066.0</td>
-        <td style='text-align: right;'>35.0</td>
-        <td style='text-align: left;'></td>
+        <td style='text-align: right;'>181,617.0</td>
+        <td style='text-align: right;'>+2,482.0</td>
+        <td style='text-align: right;'>37.0</td>
+        <td style='text-align: right;'>+2.0</td>
         <td style='text-align: left;'>Monument Fire</td>
     </tr>
     <tr>
-        <td style='text-align: right;'>25,895.0</td>
-        <td style='text-align: right;'>+24.0</td>
+        <td style='text-align: right;'>26,493.0</td>
+        <td style='text-align: right;'>+598.0</td>
         <td style='text-align: right;'>52.0</td>
-        <td style='text-align: right;'>+5.0</td>
+        <td style='text-align: left;'></td>
         <td style='text-align: left;'>French Fire</td>
+    </tr>
+    <tr>
+        <td style='text-align: right;'>250.0</td>
+        <td style='text-align: right;'>new</td>
+        <td style='text-align: right;'>0.0</td>
+        <td style='text-align: right;'>new</td>
+        <td style='text-align: left;'>Bridge Fire</td>
+    </tr>
+    <tr>
+        <td style='text-align: right;'>100.0</td>
+        <td style='text-align: right;'>new</td>
+        <td style='text-align: right;'>0.0</td>
+        <td style='text-align: right;'>new</td>
+        <td style='text-align: left;'>Aruba Fire</td>
+    </tr>
+    <tr>
+        <td style='text-align: right;'>40.0</td>
+        <td style='text-align: right;'>new</td>
+        <td style='text-align: right;'>30.0</td>
+        <td style='text-align: right;'>new</td>
+        <td style='text-align: left;'>Lawrence Fire</td>
     </tr>
     <tr>
         <td style='text-align: right;'>~</td>
@@ -678,19 +703,19 @@ From the 2019 Redbook: <b>Due to the changes in data collection, methods, and sy
         <th style='text-align:right;'>Value</th>
     <TR>
         <td style='text-align: left; border: 1px solid black; padding: 10px'>Number of active incidents</td>
-        <td style='text-align: right; border: 1px solid black; padding: 10px'>15</td>
+        <td style='text-align: right; border: 1px solid black; padding: 10px'>18</td>
     </TR>
     <TR>
         <td style='text-align: left; border: 1px solid black; padding: 10px'>New or growing fires</td>
-        <td style='text-align: right; border: 1px solid black; padding: 10px'>4</td>
+        <td style='text-align: right; border: 1px solid black; padding: 10px'>7</td>
     </TR>
     <TR>
         <td style='text-align: left; border: 1px solid black; padding: 10px'>Total acres burned, active fires</td>
-        <td style='text-align: right; border: 1px solid black; padding: 10px'>1308143.0</td>
+        <td style='text-align: right; border: 1px solid black; padding: 10px'>1322851.0</td>
     </TR>
     <TR>
         <td style='text-align: left; border: 1px solid black; padding: 10px'>New acres burned</td>
-        <td style='text-align: right; border: 1px solid black; padding: 10px'>9847.0</td>
+        <td style='text-align: right; border: 1px solid black; padding: 10px'>14708.0</td>
     </TR>
 </table><hr>
     
