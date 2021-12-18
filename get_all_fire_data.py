@@ -23,7 +23,8 @@ def run():
             print(F"ERROR on getting {st} fire data", e)
             return_code = 1
 
-    get_az_fire_data.run(get_az_fire_data.DATA_STORE_PATH)
+    # AZ firedata seems to be gone for the year
+    # get_az_fire_data.run(get_az_fire_data.DATA_STORE_PATH)
     print("Done.")
     return return_code
 
