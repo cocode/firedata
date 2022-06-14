@@ -1,0 +1,16 @@
+[
+    {
+        "Incident Name": "Test Publish",
+        "Incident Number": "32839-OR",
+        "Location": "North of the street",
+        "Acres": "500",
+        "Start Date": "2022-06-07",
+        "Cause": "unknown",
+        "Percent Contained": "0%",
+        "Estimated Containment Date": "2022-06-07",
+        "Residences Threatened": "none",
+        "Other Structure Threatened": "",
+        "Fuel/Terrain": "grass",
+        "Lead Agency": "USDI Bureau of Land Management"
+    }
+]
