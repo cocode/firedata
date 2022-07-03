@@ -1,0 +1,30 @@
+[
+    {
+        "Incident Name": "Willow Creek",
+        "Incident Number": "OR-VAD-0000065",
+        "Location": "12 mi N of Vale, OR",
+        "Acres": "40,274",
+        "Start Date": "2022-06-28",
+        "Cause": "Under Investigation",
+        "Percent Contained": "80%",
+        "Estimated Containment Date": "2022-07-02",
+        "Residences Threatened": "",
+        "Other Structure Threatened": "",
+        "Fuel/Terrain": "grass & brush",
+        "Lead Agency": "USDI Bureau of Land Management"
+    },
+    {
+        "Incident Name": "Touchet North",
+        "Incident Number": "WA-WFS-00065",
+        "Location": "6 mi N of Touchet, WA",
+        "Acres": "3,000",
+        "Start Date": "2022-06-28",
+        "Cause": "Under Investigation",
+        "Percent Contained": "100%",
+        "Estimated Containment Date": "2022-06-29",
+        "Residences Threatened": "",
+        "Other Structure Threatened": "",
+        "Fuel/Terrain": "grass",
+        "Lead Agency": "WA Fire Service"
+    }
+]
