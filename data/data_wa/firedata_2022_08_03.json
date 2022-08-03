@@ -1,0 +1,58 @@
+[
+    {
+        "Incident Name": "Vantage Highway",
+        "Incident Number": "WA-SES-0000263",
+        "Location": "5 Miles west of Vantage, WA",
+        "Acres": "5,500",
+        "Start Date": "2022-08-01",
+        "Cause": "Under Investigation",
+        "Percent Contained": "10%",
+        "Estimated Containment Date": "0000-00-00",
+        "Residences Threatened": "Yes - Level 2 evacuations in effect",
+        "Other Structure Threatened": "",
+        "Fuel/Terrain": "Brush",
+        "Lead Agency": "WA Fire Service"
+    },
+    {
+        "Incident Name": "Windigo",
+        "Incident Number": "OR-UPF-000234",
+        "Location": "10 mi NE of Lemolo Lake, 20 mi SW of La Pine, OR",
+        "Acres": "1,200",
+        "Start Date": "2022-07-30",
+        "Cause": "Under Investigation",
+        "Percent Contained": "0%",
+        "Estimated Containment Date": "2022-10-01",
+        "Residences Threatened": "",
+        "Other Structure Threatened": "",
+        "Fuel/Terrain": "Timber (litter and understory); medium logging slash; brush - two feet. Snags, steep terrain and limited access.",
+        "Lead Agency": "USDA Forest Service"
+    },
+    {
+        "Incident Name": "Big Rattlesnake Fire",
+        "Incident Number": "OR-VAD-050186",
+        "Location": "11 Miles SW of Medical Springs, OR",
+        "Acres": "425",
+        "Start Date": "2022-07-31",
+        "Cause": "Lightning",
+        "Percent Contained": "100%",
+        "Estimated Containment Date": "2022-08-01",
+        "Residences Threatened": "",
+        "Other Structure Threatened": "",
+        "Fuel/Terrain": "Tall grass, sage brush",
+        "Lead Agency": "USDI Bureau of Land Management"
+    },
+    {
+        "Incident Name": "Potter",
+        "Incident Number": "OR-WIF-220170",
+        "Location": "Potter Mountain, 8 mi NE of Toketee",
+        "Acres": "85",
+        "Start Date": "2022-07-31",
+        "Cause": "Lightning",
+        "Percent Contained": "0%",
+        "Estimated Containment Date": "2022-10-30",
+        "Residences Threatened": "",
+        "Other Structure Threatened": "",
+        "Fuel/Terrain": "Heavy Timber (litter and understory); and medium logging slash.",
+        "Lead Agency": "USDA Forest Service"
+    }
+]
