@@ -1,0 +1,72 @@
+[
+    {
+        "Incident Name": "Miller Road",
+        "Incident Number": "OR-954S-000659",
+        "Location": "13 miles SW of Maupin, Or",
+        "Acres": "10,500",
+        "Start Date": "2022-08-02",
+        "Cause": "Under Investigation",
+        "Percent Contained": "0%",
+        "Estimated Containment Date": "0000-00-00",
+        "Residences Threatened": "",
+        "Other Structure Threatened": "",
+        "Fuel/Terrain": "grass & brush",
+        "Lead Agency": "OR Fire Service"
+    },
+    {
+        "Incident Name": "Vantage Highway",
+        "Incident Number": "WA-SES-0000263",
+        "Location": "5 Miles west of Vantage, WA",
+        "Acres": "10,500",
+        "Start Date": "2022-08-01",
+        "Cause": "Under Investigation",
+        "Percent Contained": "18%",
+        "Estimated Containment Date": "2022-08-08",
+        "Residences Threatened": "12 residences",
+        "Other Structure Threatened": "10 minor structures",
+        "Fuel/Terrain": "Brush",
+        "Lead Agency": "WA Fire Service"
+    },
+    {
+        "Incident Name": "Windigo",
+        "Incident Number": "OR-UPF-000234",
+        "Location": "10 mi NE of Lemolo Lake, 20 mi SW of La Pine, OR",
+        "Acres": "978",
+        "Start Date": "2022-07-30",
+        "Cause": "Under Investigation",
+        "Percent Contained": "0%",
+        "Estimated Containment Date": "2022-10-01",
+        "Residences Threatened": "",
+        "Other Structure Threatened": "",
+        "Fuel/Terrain": "Timber (litter and understory); medium logging slash; brush - two feet. Snags, steep terrain and limited access.",
+        "Lead Agency": "USDA Forest Service"
+    },
+    {
+        "Incident Name": "Beech Creek",
+        "Incident Number": "OR-MAF-022131",
+        "Location": "8.9 miles South of Long Creek, OR",
+        "Acres": "248",
+        "Start Date": "2022-08-01",
+        "Cause": "Under Investigation",
+        "Percent Contained": "15%",
+        "Estimated Containment Date": "2022-08-07",
+        "Residences Threatened": "5 residences",
+        "Other Structure Threatened": "12 minor structures",
+        "Fuel/Terrain": "Timber, grass & brush",
+        "Lead Agency": "USDA Forest Service"
+    },
+    {
+        "Incident Name": "Potter",
+        "Incident Number": "OR-WIF-220170",
+        "Location": "Potter Mountain, 8 mi NE of Toketee",
+        "Acres": "97",
+        "Start Date": "2022-07-31",
+        "Cause": "undetermined",
+        "Percent Contained": "0%",
+        "Estimated Containment Date": "2022-10-30",
+        "Residences Threatened": "",
+        "Other Structure Threatened": "",
+        "Fuel/Terrain": "Heavy Timber (litter and understory); and medium logging slash.",
+        "Lead Agency": "USDA Forest Service"
+    }
+]
