@@ -9,6 +9,7 @@ This project displays data about the fire season for the selected year.
 It collects data from US Fire data, Cal Fire, and other sources, and creates charts.
 The chart can be viewed here: https://cocode.github.io/firedata/
 
+
 ## Data 
 This project scrapes data from [Cal Fire](https://www.fire.ca.gov/incidents), and other sites. 
 
@@ -32,6 +33,8 @@ Other possible sources of error:
 
 ### Data Collection
 A github action is run every night (CA time) to fetch data.
+These sources do not provide historical data, so the data is fetched, and checked into github in the data directory.
+
 
 ### About Cal Fire Data:
 Cal Fire data is just for fires handled by the organization "Cal Fire". Lots of fires are not handled by Cal Fire. 
@@ -43,7 +46,8 @@ To graph fires over time FireData collects a snapshot once a day.
 *Note* that fire data can vary unexpectedly. Last year (2020) to total
 acres burned reported in the json data dropped 1 m acres on 9/21.
 I do not currently know why. And last year's Cal Fire json data shows "AllAcres" as 1,280,426 acres at the end of the
-year but the Cal Fire summary says 4.1m acres in total.
+year but the Cal Fire summary says 4.1m acres in total. My guess is that 1.28M is what Cal Fire handled directly, 
+with federal and local agencies handling the rest of the 4.1M.
 
 Prior to 2021-06-16 I was collecting the data manually, so there are gaps
 in the data. I did back-fill some from the internet archive. '
@@ -64,6 +68,7 @@ You shouldn't need to run it yourself, this is a hosted solution.
 
 But if you still want to, take a look at fetch.sh in this directory, it's the code used
 in the github action to fetch the data, and build the webpage.
+
 
 
 # Similar Sites
