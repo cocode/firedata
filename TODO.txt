@@ -2,7 +2,7 @@
 # Mattered, because the run method was also used to run from command line, and ran other functions
 # That are not needed for fetching data. Need to split run() from a fetch function
 
-"# TODO Cal Fire chart is suposed to be cumulative, but it's going down. It appears that one large
+"# TODO Cal Fire chart is supposed to be cumulative, but it's going down. It appears that one large
     - fire, the lava fire, went to from "25,001" acres to "". I suspect this means that the feds took over. There is a note
     - on the cal fire incident that says the fire is now Not a CAL FIRE Incident as of 7/07/2021"
     - In some other states, we compute the running total by tracking each individual fire through the
