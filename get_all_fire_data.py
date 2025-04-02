@@ -1,3 +1,4 @@
+import traceback
 from typing import Callable
 
 import get_az_fire_data
@@ -21,6 +22,7 @@ def run():
             fn()
         except Exception as e:
             print(F"ERROR on getting {st} fire data", e)
+            traceback.print_exc()
             return_code = 1
 
     # AZ firedata seems to be gone for the year
