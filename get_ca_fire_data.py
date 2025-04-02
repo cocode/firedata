@@ -285,6 +285,7 @@ def get_archive_directory():
 
 def fetch():
     cal_fire_url = 'https://www.fire.ca.gov/umbraco/Api/IncidentApi/GetIncidents'
+    cal_fire_url = "https://incidents.fire.ca.gov/umbraco/api/IncidentApi/List?inactive=true"
     data_store = get_data_store()
     refresher = Refresh(cal_fire_url, data_store, parse)
     refresher.refresh()   # Gets the data, only if we don't already have it.
